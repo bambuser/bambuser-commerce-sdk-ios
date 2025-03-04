@@ -1,0 +1,10 @@
+.swiftpm/
+xcshareddata/
+*.DS_Store
+*.xcbkptlist
+*.xccheckout
+DerivedData
+*.xcuserstate
+*.pyc
+Framework/.DS_Store
+*.zip

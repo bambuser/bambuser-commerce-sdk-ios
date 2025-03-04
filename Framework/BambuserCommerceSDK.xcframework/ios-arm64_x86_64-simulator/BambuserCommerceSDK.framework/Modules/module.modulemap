@@ -1,0 +1,4 @@
+framework module BambuserCommerceSDK {
+  header "BambuserCommerceSDK-Swift.h"
+  requires objc
+}
