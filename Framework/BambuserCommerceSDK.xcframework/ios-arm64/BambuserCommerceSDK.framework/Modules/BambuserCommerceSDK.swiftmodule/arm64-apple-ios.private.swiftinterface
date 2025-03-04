@@ -1,0 +1,77 @@
+// swift-interface-format-version: 1.0
+// swift-compiler-version: Apple Swift version 6.0.3 effective-5.10 (swiftlang-6.0.3.1.10 clang-1600.0.30.1)
+// swift-module-flags: -target arm64-apple-ios15.6 -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -enable-bare-slash-regex -module-name BambuserCommerceSDK
+// swift-module-flags-ignorable: -no-verify-emitted-module-interface
+
+import Foundation
+import Swift
+import SwiftUI
+import UIKit
+import WebKit
+import _Concurrency
+import _StringProcessing
+import _SwiftConcurrencyShims
+public struct BambuserEventPayload {
+}
+@_Concurrency.MainActor public protocol BambuserPlayerView : UIKit.UIView {
+  @_Concurrency.MainActor var delegate: (any BambuserCommerceSDK.BambuserVideoPlayerDelegate)? { get set }
+  @_Concurrency.MainActor var id: Swift.String { get }
+  @_Concurrency.MainActor func cleanup()
+}
+public enum BambuserVideoAsset : Swift.Sendable, Swift.Equatable, BambuserCommerceSDK.BambuserVideoType {
+  case live(id: Swift.String)
+  case onDemand(Swift.String)
+  public static func == (a: BambuserCommerceSDK.BambuserVideoAsset, b: BambuserCommerceSDK.BambuserVideoAsset) -> Swift.Bool
+}
+public typealias BambuserVideoConfiguration = BambuserCommerceSDK.BambuserVideoPlayerConfiguration<BambuserCommerceSDK.BambuserVideoAsset>
+@_Concurrency.MainActor public struct BambuserVideoPlayer {
+  @_Concurrency.MainActor public init(server: BambuserCommerceSDK.OrganizationServer)
+  @_Concurrency.MainActor public func createPlayerView(videoConfiguration: BambuserCommerceSDK.BambuserVideoConfiguration, ignoredSafeAreaEdges: BambuserCommerceSDK.SafeAreaEdges? = nil) -> some UIKit.UIView & BambuserCommerceSDK.BambuserPlayerView
+  
+}
+public struct BambuserVideoPlayerConfiguration<VideoType> where VideoType : BambuserCommerceSDK.BambuserVideoType {
+  public init(type: VideoType, events: [Swift.String] = ["*"], configuration: [Swift.String : Any]?)
+}
+public protocol BambuserVideoPlayerDelegate : AnyObject {
+  func onNewEventReceived(playerId: Swift.String, _ event: BambuserCommerceSDK.BambuserEventPayload)
+  func onErrorOccurred(playerId: Swift.String, _ error: any Swift.Error)
+}
+public protocol BambuserVideoType {
+}
+public enum OrganizationServer {
+  case EU
+  case US
+  public static func == (a: BambuserCommerceSDK.OrganizationServer, b: BambuserCommerceSDK.OrganizationServer) -> Swift.Bool
+  public func hash(into hasher: inout Swift.Hasher)
+  public var hashValue: Swift.Int {
+    get
+  }
+}
+#if compiler(>=5.3) && $RetroactiveAttribute
+extension Foundation.Timer : @unchecked @retroactive Swift.Sendable {
+}
+#else
+extension Foundation.Timer : @unchecked Swift.Sendable {
+}
+#endif
+public enum SafeAreaEdge : Swift.Sendable {
+  case all
+  case top
+  case bottom
+  case leading
+  case trailing
+  public static func == (a: BambuserCommerceSDK.SafeAreaEdge, b: BambuserCommerceSDK.SafeAreaEdge) -> Swift.Bool
+  public func hash(into hasher: inout Swift.Hasher)
+  public var hashValue: Swift.Int {
+    get
+  }
+}
+public struct SafeAreaEdges : Swift.Sendable {
+  public init(_ edges: BambuserCommerceSDK.SafeAreaEdge...)
+}
+
+extension BambuserCommerceSDK.BambuserVideoPlayer : Swift.Sendable {}
+extension BambuserCommerceSDK.OrganizationServer : Swift.Equatable {}
+extension BambuserCommerceSDK.OrganizationServer : Swift.Hashable {}
+extension BambuserCommerceSDK.SafeAreaEdge : Swift.Equatable {}
+extension BambuserCommerceSDK.SafeAreaEdge : Swift.Hashable {}
