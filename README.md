@@ -52,18 +52,57 @@ let playerView = videoPlayer.createPlayerView(
     videoConfiguration: .init(
         type: .live(id: "xxx"),
         
-        // Pass ["*"] to receive all events from the player
+        // List of events to listen to; use ["*"] for all events (currently only option available)
         events: ["*"],
         
         // Configuration settings for the player
         // More options can be found here: 
         // https://bambuser.com/docs/live/player-api-reference/
         configuration: [
-            "buttons": ["dismiss": "none"], // Hides the dismiss button
-            "autoplay": true // Enables autoplay when the player loads
+            "buttons": [
+                "dismiss": "none", // Hides the close button on the player.
+                 "product": "none", // Clicking on a product requires a listener for the "should-show-product-view" event to handle this interaction.
+                 "actionCard": "none" // Clicking on an action card requires a listener for the "action-card-clicked" event to handle this interaction.
+             ],
+            "autoplay": true // player will automatically play video when player is ready
         ]
     )
+    playerView.delegate = self
 )
+```
+
+### Delegate Protocol
+
+The BambuserCommerceSDK provides the `BambuserVideoPlayerDelegate` protocol for handling communications from a Bambuser video player instance. By implementing this protocol, your class can receive callback messages when new events occur or errors are encountered.
+
+#### Methods
+
+- **onNewEventReceived**  
+  Called when a new event is received from the video player.  
+  **Parameters:**  
+  - `playerId`: A unique identifier for the video player.  
+  - `event`: A `BambuserEventPayload` containing the event type and associated data.
+
+- **onErrorOccurred**  
+  Called when an error occurs within the video player.  
+  **Parameters:**  
+  - `playerId`: A unique identifier for the video player.  
+  - `error`: The error encountered by the video player.
+
+#### Example Implementation
+
+```swift
+class ViewController: BambuserVideoPlayerDelegate {
+    func onNewEventReceived(playerId: String, _ event: BambuserEventPayload) {
+        // Handle the event, e.g., log or update UI
+        print("Player \(playerId) sent event: \(event)")
+    }
+
+    func onErrorOccurred(playerId: String, _ error: Error) {
+        // Handle the error, e.g., display an alert
+        print("Error in player \(playerId): \(error.localizedDescription)")
+    }
+}
 ```
 
 ### Documentation
