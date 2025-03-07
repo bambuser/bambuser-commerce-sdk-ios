@@ -8,3 +8,4 @@ DerivedData
 *.pyc
 Framework/.DS_Store
 *.zip
+.build

@@ -12,11 +12,16 @@ import _Concurrency
 import _StringProcessing
 import _SwiftConcurrencyShims
 public struct BambuserEventPayload {
+  public let type: Swift.String
+  public let data: [Swift.String : Any]
 }
 @_Concurrency.MainActor public protocol BambuserPlayerView : UIKit.UIView {
   @_Concurrency.MainActor var delegate: (any BambuserCommerceSDK.BambuserVideoPlayerDelegate)? { get set }
   @_Concurrency.MainActor var id: Swift.String { get }
   @_Concurrency.MainActor func cleanup()
+  @discardableResult
+  @_Concurrency.MainActor func invoke(function: Swift.String, arguments: Swift.String) async throws -> Any?
+  @_Concurrency.MainActor func notify(callbackKey: Swift.String, info: Any)
 }
 public enum BambuserVideoAsset : Swift.Sendable, Swift.Equatable, BambuserCommerceSDK.BambuserVideoType {
   case live(id: Swift.String)

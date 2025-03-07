@@ -61,8 +61,10 @@ let playerView = videoPlayer.createPlayerView(
         configuration: [
             "buttons": [
                 "dismiss": "none", // Hides the close button on the player.
-                 "product": "none", // Clicking on a product requires a listener for the "should-show-product-view" event to handle this interaction.
-                 "actionCard": "none" // Clicking on an action card requires a listener for the "action-card-clicked" event to handle this interaction.
+                "product": "none", // Clicking on a product requires a listener for the "should-show-product-view" event to handle this interaction.
+                "actionCard": "none", // Clicking on an action card requires a listener for the "action-card-clicked" event to handle this interaction.
+                "currency": "USD", // Sets the currency format for display.
+                "locale": "en-US" // Defines the language and regional settings for the player interface.
              ],
             "autoplay": true // player will automatically play video when player is ready
         ]

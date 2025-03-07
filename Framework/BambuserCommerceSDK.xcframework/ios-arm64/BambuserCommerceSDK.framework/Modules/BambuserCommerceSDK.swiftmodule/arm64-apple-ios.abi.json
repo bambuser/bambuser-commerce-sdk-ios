@@ -18,6 +18,124 @@
         "kind": "TypeDecl",
         "name": "BambuserEventPayload",
         "printedName": "BambuserEventPayload",
+        "children": [
+          {
+            "kind": "Var",
+            "name": "type",
+            "printedName": "type",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:19BambuserCommerceSDK0A12EventPayloadV4typeSSvp",
+            "mangledName": "$s19BambuserCommerceSDK0A12EventPayloadV4typeSSvp",
+            "moduleName": "BambuserCommerceSDK",
+            "declAttributes": [
+              "HasStorage",
+              "AccessControl",
+              "RawDocComment"
+            ],
+            "isLet": true,
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:19BambuserCommerceSDK0A12EventPayloadV4typeSSvg",
+                "mangledName": "$s19BambuserCommerceSDK0A12EventPayloadV4typeSSvg",
+                "moduleName": "BambuserCommerceSDK",
+                "implicit": true,
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "data",
+            "printedName": "data",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Dictionary",
+                "printedName": "[Swift.String : Any]",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "ProtocolComposition",
+                    "printedName": "Any"
+                  }
+                ],
+                "usr": "s:SD"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:19BambuserCommerceSDK0A12EventPayloadV4dataSDySSypGvp",
+            "mangledName": "$s19BambuserCommerceSDK0A12EventPayloadV4dataSDySSypGvp",
+            "moduleName": "BambuserCommerceSDK",
+            "declAttributes": [
+              "HasStorage",
+              "AccessControl",
+              "RawDocComment"
+            ],
+            "isLet": true,
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Dictionary",
+                    "printedName": "[Swift.String : Any]",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "String",
+                        "printedName": "Swift.String",
+                        "usr": "s:SS"
+                      },
+                      {
+                        "kind": "TypeNominal",
+                        "name": "ProtocolComposition",
+                        "printedName": "Any"
+                      }
+                    ],
+                    "usr": "s:SD"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:19BambuserCommerceSDK0A12EventPayloadV4dataSDySSypGvg",
+                "mangledName": "$s19BambuserCommerceSDK0A12EventPayloadV4dataSDySSypGvg",
+                "moduleName": "BambuserCommerceSDK",
+                "implicit": true,
+                "accessorKind": "get"
+              }
+            ]
+          }
+        ],
         "declKind": "Struct",
         "usr": "s:19BambuserCommerceSDK0A12EventPayloadV",
         "mangledName": "$s19BambuserCommerceSDK0A12EventPayloadV",
@@ -237,6 +355,89 @@
             "declKind": "Func",
             "usr": "s:19BambuserCommerceSDK0A10PlayerViewP7cleanupyyF",
             "mangledName": "$s19BambuserCommerceSDK0A10PlayerViewP7cleanupyyF",
+            "moduleName": "BambuserCommerceSDK",
+            "genericSig": "<τ_0_0 where τ_0_0 : BambuserCommerceSDK.BambuserPlayerView>",
+            "sugared_genericSig": "<Self where Self : BambuserCommerceSDK.BambuserPlayerView>",
+            "protocolReq": true,
+            "declAttributes": [
+              "Custom",
+              "RawDocComment"
+            ],
+            "reqNewWitnessTableEntry": true,
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "invoke",
+            "printedName": "invoke(function:arguments:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "Any?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "ProtocolComposition",
+                    "printedName": "Any"
+                  }
+                ],
+                "usr": "s:Sq"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:19BambuserCommerceSDK0A10PlayerViewP6invoke8function9argumentsypSgSS_SStYaKF",
+            "mangledName": "$s19BambuserCommerceSDK0A10PlayerViewP6invoke8function9argumentsypSgSS_SStYaKF",
+            "moduleName": "BambuserCommerceSDK",
+            "genericSig": "<τ_0_0 where τ_0_0 : BambuserCommerceSDK.BambuserPlayerView>",
+            "sugared_genericSig": "<Self where Self : BambuserCommerceSDK.BambuserPlayerView>",
+            "protocolReq": true,
+            "declAttributes": [
+              "Custom",
+              "DiscardableResult",
+              "RawDocComment"
+            ],
+            "throwing": true,
+            "reqNewWitnessTableEntry": true,
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "notify",
+            "printedName": "notify(callbackKey:info:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "ProtocolComposition",
+                "printedName": "Any"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:19BambuserCommerceSDK0A10PlayerViewP6notify11callbackKey4infoySS_yptF",
+            "mangledName": "$s19BambuserCommerceSDK0A10PlayerViewP6notify11callbackKey4infoySS_yptF",
             "moduleName": "BambuserCommerceSDK",
             "genericSig": "<τ_0_0 where τ_0_0 : BambuserCommerceSDK.BambuserPlayerView>",
             "sugared_genericSig": "<Self where Self : BambuserCommerceSDK.BambuserPlayerView>",
@@ -1685,6 +1886,16 @@
         "moduleName": "BambuserCommerceSDK"
       },
       {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "BambuserCommerceSDK",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
         "kind": "TypeDecl",
         "name": "Timer",
         "printedName": "Timer",
@@ -1796,200 +2007,207 @@
   },
   "ConstValues": [
     {
-      "filePath": "\/Users\/saeid\/Desktop\/sdk\/CommerceSDK\/Files\/Sources\/Interface\/Types\/BambuserVideoPlayerConfiguration.swift",
+      "filePath": "\/Users\/saeid\/Documents\/projects\/frameworks\/commerce-sdk\/bambuser-commerce-sdk\/Files\/Sources\/BambuserCommerceSDK\/Interface\/Types\/BambuserVideoPlayerConfiguration.swift",
       "kind": "Array",
       "offset": 1235,
       "length": 5,
       "value": "[\"*\"]"
     },
     {
-      "filePath": "\/Users\/saeid\/Desktop\/sdk\/CommerceSDK\/Files\/Sources\/Implementation\/VideoPlayer\/Environment.swift",
+      "filePath": "\/Users\/saeid\/Documents\/projects\/frameworks\/commerce-sdk\/bambuser-commerce-sdk\/Files\/Sources\/BambuserCommerceSDK\/Implementation\/VideoPlayer\/Environment.swift",
       "kind": "StringLiteral",
       "offset": 158,
       "length": 22,
       "value": "\"bambuserEventHandler\""
     },
     {
-      "filePath": "\/Users\/saeid\/Desktop\/sdk\/CommerceSDK\/Files\/Sources\/Implementation\/VideoPlayer\/PeriodicTimeObserver.swift",
+      "filePath": "\/Users\/saeid\/Documents\/projects\/frameworks\/commerce-sdk\/bambuser-commerce-sdk\/Files\/Sources\/BambuserCommerceSDK\/Implementation\/VideoPlayer\/PeriodicTimeObserver.swift",
       "kind": "BooleanLiteral",
       "offset": 354,
       "length": 5,
       "value": "false"
     },
     {
-      "filePath": "\/Users\/saeid\/Desktop\/sdk\/CommerceSDK\/Files\/Sources\/Implementation\/VideoPlayer\/PeriodicTimeObserver.swift",
+      "filePath": "\/Users\/saeid\/Documents\/projects\/frameworks\/commerce-sdk\/bambuser-commerce-sdk\/Files\/Sources\/BambuserCommerceSDK\/Implementation\/VideoPlayer\/PeriodicTimeObserver.swift",
       "kind": "FloatLiteral",
       "offset": 501,
       "length": 3,
       "value": "0.0"
     },
     {
-      "filePath": "\/Users\/saeid\/Desktop\/sdk\/CommerceSDK\/Files\/Sources\/Implementation\/VideoPlayer\/PeriodicTimeObserver.swift",
+      "filePath": "\/Users\/saeid\/Documents\/projects\/frameworks\/commerce-sdk\/bambuser-commerce-sdk\/Files\/Sources\/BambuserCommerceSDK\/Implementation\/VideoPlayer\/PeriodicTimeObserver.swift",
       "kind": "FloatLiteral",
       "offset": 586,
       "length": 3,
       "value": "1.0"
     },
     {
-      "filePath": "\/Users\/saeid\/Desktop\/sdk\/CommerceSDK\/Files\/Sources\/Implementation\/VideoPlayer\/PeriodicTimeObserver.swift",
+      "filePath": "\/Users\/saeid\/Documents\/projects\/frameworks\/commerce-sdk\/bambuser-commerce-sdk\/Files\/Sources\/BambuserCommerceSDK\/Implementation\/VideoPlayer\/PeriodicTimeObserver.swift",
       "kind": "StringLiteral",
       "offset": 650,
       "length": 19,
       "value": "\"NEW TIMER CREATED\""
     },
     {
-      "filePath": "\/Users\/saeid\/Desktop\/sdk\/CommerceSDK\/Files\/Sources\/Implementation\/VideoPlayer\/Player\/PlayerViewImpl.swift",
+      "filePath": "\/Users\/saeid\/Documents\/projects\/frameworks\/commerce-sdk\/bambuser-commerce-sdk\/Files\/Sources\/BambuserCommerceSDK\/Implementation\/VideoPlayer\/Player\/PlayerViewImpl.swift",
       "kind": "Array",
       "offset": 671,
       "length": 2,
       "value": "[]"
     },
     {
-      "filePath": "\/Users\/saeid\/Desktop\/sdk\/CommerceSDK\/Files\/Sources\/Implementation\/VideoPlayer\/Player\/PlayerViewImpl.swift",
+      "filePath": "\/Users\/saeid\/Documents\/projects\/frameworks\/commerce-sdk\/bambuser-commerce-sdk\/Files\/Sources\/BambuserCommerceSDK\/Implementation\/VideoPlayer\/Player\/PlayerViewImpl.swift",
       "kind": "Array",
       "offset": 733,
       "length": 2,
       "value": "[]"
     },
     {
-      "filePath": "\/Users\/saeid\/Desktop\/sdk\/CommerceSDK\/Files\/Sources\/Implementation\/VideoPlayer\/Player\/PlayerViewImpl.swift",
+      "filePath": "\/Users\/saeid\/Documents\/projects\/frameworks\/commerce-sdk\/bambuser-commerce-sdk\/Files\/Sources\/BambuserCommerceSDK\/Implementation\/VideoPlayer\/Player\/PlayerViewImpl.swift",
       "kind": "Dictionary",
       "offset": 808,
       "length": 3,
       "value": "[]"
     },
     {
-      "filePath": "\/Users\/saeid\/Desktop\/sdk\/CommerceSDK\/Files\/Sources\/Implementation\/VideoPlayer\/VideoPlayer+SwiftUI.swift",
+      "filePath": "\/Users\/saeid\/Documents\/projects\/frameworks\/commerce-sdk\/bambuser-commerce-sdk\/Files\/Sources\/BambuserCommerceSDK\/Implementation\/VideoPlayer\/VideoPlayer+SwiftUI.swift",
       "kind": "StringLiteral",
       "offset": 662,
       "length": 28,
       "value": "\"suv_GJYzKKBc4pfAvPZ9GcyQMR\""
     },
     {
-      "filePath": "\/Users\/saeid\/Desktop\/sdk\/CommerceSDK\/Files\/Sources\/Implementation\/VideoPlayer\/VideoPlayer+SwiftUI.swift",
+      "filePath": "\/Users\/saeid\/Documents\/projects\/frameworks\/commerce-sdk\/bambuser-commerce-sdk\/Files\/Sources\/BambuserCommerceSDK\/Implementation\/VideoPlayer\/VideoPlayer+SwiftUI.swift",
       "kind": "Array",
       "offset": 709,
       "length": 5,
       "value": "[\"*\"]"
     },
     {
-      "filePath": "\/Users\/saeid\/Desktop\/sdk\/CommerceSDK\/Files\/Sources\/Implementation\/VideoPlayer\/VideoPlayer+SwiftUI.swift",
+      "filePath": "\/Users\/saeid\/Documents\/projects\/frameworks\/commerce-sdk\/bambuser-commerce-sdk\/Files\/Sources\/BambuserCommerceSDK\/Implementation\/VideoPlayer\/VideoPlayer+SwiftUI.swift",
       "kind": "StringLiteral",
       "offset": 740,
       "length": 9,
       "value": "\"dismiss\""
     },
     {
-      "filePath": "\/Users\/saeid\/Desktop\/sdk\/CommerceSDK\/Files\/Sources\/Implementation\/VideoPlayer\/VideoPlayer+SwiftUI.swift",
+      "filePath": "\/Users\/saeid\/Documents\/projects\/frameworks\/commerce-sdk\/bambuser-commerce-sdk\/Files\/Sources\/BambuserCommerceSDK\/Implementation\/VideoPlayer\/VideoPlayer+SwiftUI.swift",
       "kind": "StringLiteral",
       "offset": 751,
       "length": 6,
       "value": "\"none\""
     },
     {
-      "filePath": "\/Users\/saeid\/Desktop\/sdk\/CommerceSDK\/Files\/Sources\/Implementation\/VideoPlayer\/Player\/VideoPlayerContainer.swift",
+      "filePath": "\/Users\/saeid\/Documents\/projects\/frameworks\/commerce-sdk\/bambuser-commerce-sdk\/Files\/Sources\/BambuserCommerceSDK\/Implementation\/VideoPlayer\/Player\/VideoPlayerContainer.swift",
       "kind": "BooleanLiteral",
       "offset": 697,
       "length": 5,
       "value": "false"
     },
     {
-      "filePath": "\/Users\/saeid\/Desktop\/sdk\/CommerceSDK\/Files\/Sources\/Implementation\/VideoPlayer\/Player\/VideoPlayerContainer.swift",
+      "filePath": "\/Users\/saeid\/Documents\/projects\/frameworks\/commerce-sdk\/bambuser-commerce-sdk\/Files\/Sources\/BambuserCommerceSDK\/Implementation\/VideoPlayer\/Player\/VideoPlayerContainer.swift",
       "kind": "IntegerLiteral",
       "offset": 735,
       "length": 1,
       "value": "0"
     },
     {
-      "filePath": "\/Users\/saeid\/Desktop\/sdk\/CommerceSDK\/Files\/Sources\/Implementation\/VideoPlayer\/Player\/VideoPlayerContainer.swift",
+      "filePath": "\/Users\/saeid\/Documents\/projects\/frameworks\/commerce-sdk\/bambuser-commerce-sdk\/Files\/Sources\/BambuserCommerceSDK\/Implementation\/VideoPlayer\/Player\/VideoPlayerContainer.swift",
       "kind": "Array",
       "offset": 795,
       "length": 2,
       "value": "[]"
     },
     {
-      "filePath": "\/Users\/saeid\/Desktop\/sdk\/CommerceSDK\/Files\/Sources\/Implementation\/VideoPlayer\/WebViewManager\/WebViewManager+Types.swift",
+      "filePath": "\/Users\/saeid\/Documents\/projects\/frameworks\/commerce-sdk\/bambuser-commerce-sdk\/Files\/Sources\/BambuserCommerceSDK\/Implementation\/VideoPlayer\/WebViewManager\/WebViewManager+Types.swift",
       "kind": "StringLiteral",
       "offset": 242,
       "length": 32,
       "value": "\"external-player-controller-new\""
     },
     {
-      "filePath": "\/Users\/saeid\/Desktop\/sdk\/CommerceSDK\/Files\/Sources\/Implementation\/VideoPlayer\/WebViewManager\/WebViewManager+Types.swift",
+      "filePath": "\/Users\/saeid\/Documents\/projects\/frameworks\/commerce-sdk\/bambuser-commerce-sdk\/Files\/Sources\/BambuserCommerceSDK\/Implementation\/VideoPlayer\/WebViewManager\/WebViewManager+Types.swift",
       "kind": "StringLiteral",
       "offset": 319,
       "length": 33,
       "value": "\"external-player-controller-play\""
     },
     {
-      "filePath": "\/Users\/saeid\/Desktop\/sdk\/CommerceSDK\/Files\/Sources\/Implementation\/VideoPlayer\/WebViewManager\/WebViewManager+Types.swift",
+      "filePath": "\/Users\/saeid\/Documents\/projects\/frameworks\/commerce-sdk\/bambuser-commerce-sdk\/Files\/Sources\/BambuserCommerceSDK\/Implementation\/VideoPlayer\/WebViewManager\/WebViewManager+Types.swift",
       "kind": "StringLiteral",
       "offset": 398,
       "length": 34,
       "value": "\"external-player-controller-pause\""
     },
     {
-      "filePath": "\/Users\/saeid\/Desktop\/sdk\/CommerceSDK\/Files\/Sources\/Implementation\/VideoPlayer\/WebViewManager\/WebViewManager+Types.swift",
+      "filePath": "\/Users\/saeid\/Documents\/projects\/frameworks\/commerce-sdk\/bambuser-commerce-sdk\/Files\/Sources\/BambuserCommerceSDK\/Implementation\/VideoPlayer\/WebViewManager\/WebViewManager+Types.swift",
       "kind": "StringLiteral",
       "offset": 477,
       "length": 33,
       "value": "\"external-player-controller-mute\""
     },
     {
-      "filePath": "\/Users\/saeid\/Desktop\/sdk\/CommerceSDK\/Files\/Sources\/Implementation\/VideoPlayer\/WebViewManager\/WebViewManager+Types.swift",
+      "filePath": "\/Users\/saeid\/Documents\/projects\/frameworks\/commerce-sdk\/bambuser-commerce-sdk\/Files\/Sources\/BambuserCommerceSDK\/Implementation\/VideoPlayer\/WebViewManager\/WebViewManager+Types.swift",
       "kind": "StringLiteral",
       "offset": 555,
       "length": 33,
       "value": "\"external-player-controller-seek\""
     },
     {
-      "filePath": "\/Users\/saeid\/Desktop\/sdk\/CommerceSDK\/Files\/Sources\/Implementation\/VideoPlayer\/WebViewManager\/WebViewManager+Types.swift",
+      "filePath": "\/Users\/saeid\/Documents\/projects\/frameworks\/commerce-sdk\/bambuser-commerce-sdk\/Files\/Sources\/BambuserCommerceSDK\/Implementation\/VideoPlayer\/WebViewManager\/WebViewManager+Types.swift",
       "kind": "StringLiteral",
       "offset": 635,
       "length": 35,
       "value": "\"external-player-controller-resize\""
     },
     {
-      "filePath": "\/Users\/saeid\/Desktop\/sdk\/CommerceSDK\/Files\/Sources\/Implementation\/VideoPlayer\/WebViewManager\/WebViewManager+Types.swift",
+      "filePath": "\/Users\/saeid\/Documents\/projects\/frameworks\/commerce-sdk\/bambuser-commerce-sdk\/Files\/Sources\/BambuserCommerceSDK\/Implementation\/VideoPlayer\/WebViewManager\/WebViewManager+Types.swift",
       "kind": "StringLiteral",
       "offset": 717,
       "length": 35,
       "value": "\"external-player-controller-change\""
     },
     {
-      "filePath": "\/Users\/saeid\/Desktop\/sdk\/CommerceSDK\/Files\/Sources\/Implementation\/VideoPlayer\/WebViewManager\/WebViewManager+Types.swift",
+      "filePath": "\/Users\/saeid\/Documents\/projects\/frameworks\/commerce-sdk\/bambuser-commerce-sdk\/Files\/Sources\/BambuserCommerceSDK\/Implementation\/VideoPlayer\/WebViewManager\/WebViewManager+Types.swift",
       "kind": "StringLiteral",
       "offset": 797,
       "length": 33,
       "value": "\"external-player-controller-hide\""
     },
     {
-      "filePath": "\/Users\/saeid\/Desktop\/sdk\/CommerceSDK\/Files\/Sources\/Implementation\/VideoPlayer\/WebViewManager\/WebViewManager+Types.swift",
+      "filePath": "\/Users\/saeid\/Documents\/projects\/frameworks\/commerce-sdk\/bambuser-commerce-sdk\/Files\/Sources\/BambuserCommerceSDK\/Implementation\/VideoPlayer\/WebViewManager\/WebViewManager+Types.swift",
       "kind": "StringLiteral",
       "offset": 875,
       "length": 33,
       "value": "\"external-player-controller-show\""
     },
     {
-      "filePath": "\/Users\/saeid\/Desktop\/sdk\/CommerceSDK\/Files\/Sources\/Implementation\/VideoPlayer\/WebViewManager\/WebViewManager+Types.swift",
+      "filePath": "\/Users\/saeid\/Documents\/projects\/frameworks\/commerce-sdk\/bambuser-commerce-sdk\/Files\/Sources\/BambuserCommerceSDK\/Implementation\/VideoPlayer\/WebViewManager\/WebViewManager+Types.swift",
       "kind": "StringLiteral",
       "offset": 1665,
       "length": 12,
       "value": "\"timeupdate\""
     },
     {
-      "filePath": "\/Users\/saeid\/Desktop\/sdk\/CommerceSDK\/Files\/Sources\/Implementation\/VideoPlayer\/WebViewManager\/WebViewManager+Types.swift",
+      "filePath": "\/Users\/saeid\/Documents\/projects\/frameworks\/commerce-sdk\/bambuser-commerce-sdk\/Files\/Sources\/BambuserCommerceSDK\/Implementation\/VideoPlayer\/WebViewManager\/WebViewManager+Types.swift",
       "kind": "StringLiteral",
       "offset": 1888,
       "length": 16,
       "value": "\"durationchange\""
     },
     {
-      "filePath": "\/Users\/saeid\/Desktop\/sdk\/CommerceSDK\/Files\/Sources\/Implementation\/VideoPlayer\/WebViewManager\/WebViewManager+Types.swift",
+      "filePath": "\/Users\/saeid\/Documents\/projects\/frameworks\/commerce-sdk\/bambuser-commerce-sdk\/Files\/Sources\/BambuserCommerceSDK\/Implementation\/VideoPlayer\/WebViewManager\/WebViewManager+Types.swift",
       "kind": "StringLiteral",
       "offset": 1933,
       "length": 14,
       "value": "\"volumechange\""
+    },
+    {
+      "filePath": "\/Users\/saeid\/Documents\/projects\/frameworks\/commerce-sdk\/bambuser-commerce-sdk\/Files\/Sources\/BambuserCommerceSDK\/Implementation\/VideoPlayer\/WebViewManager\/WebViewManager.swift",
+      "kind": "Dictionary",
+      "offset": 533,
+      "length": 3,
+      "value": "[]"
     }
   ]
 }
