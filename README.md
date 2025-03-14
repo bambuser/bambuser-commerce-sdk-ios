@@ -115,6 +115,3 @@ Documentation can be found in [here](https://github.com/bambuser/bambuser-commer
 
 > **Beta Release:**  
 > This SDK is currently in beta, and its APIs may change before the final release.
-
-> **Note:**  
-> SwiftUI is not supported out of the box in this beta version; support will be added in the final release.
