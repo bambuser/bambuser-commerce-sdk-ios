@@ -19,10 +19,14 @@ public struct BambuserEventPayload {
 @_Concurrency.MainActor public protocol BambuserPlayerView : UIKit.UIView {
   @_Concurrency.MainActor var delegate: (any BambuserCommerceSDK.BambuserVideoPlayerDelegate)? { get set }
   @_Concurrency.MainActor var id: Swift.String { get }
+  @_Concurrency.MainActor var isPictureInPictureActive: Swift.Bool { get }
   @_Concurrency.MainActor func cleanup()
   @discardableResult
   @_Concurrency.MainActor func invoke(function: Swift.String, arguments: Swift.String) async throws -> Any?
   @_Concurrency.MainActor func notify(callbackKey: Swift.String, info: Any)
+  @_Concurrency.MainActor func track(event: Swift.String, with data: [Swift.String : Any]) async throws -> [Swift.String : Any]?
+  @_Concurrency.MainActor func startPictureInPicture()
+  @_Concurrency.MainActor func stopPictureInPicture()
 }
 public enum BambuserVideoAsset : Swift.Sendable, Swift.Equatable, BambuserCommerceSDK.BambuserVideoType {
   case live(id: Swift.String)
@@ -44,14 +48,20 @@ public protocol BambuserVideoPlayerDelegate : AnyObject {
 }
 public protocol BambuserVideoType {
 }
-public enum OrganizationServer {
+public enum OrganizationServer : Swift.Codable, Swift.CaseIterable {
   case EU
   case US
   public static func == (a: BambuserCommerceSDK.OrganizationServer, b: BambuserCommerceSDK.OrganizationServer) -> Swift.Bool
   public func hash(into hasher: inout Swift.Hasher)
+  public typealias AllCases = [BambuserCommerceSDK.OrganizationServer]
+  nonisolated public static var allCases: [BambuserCommerceSDK.OrganizationServer] {
+    get
+  }
+  public func encode(to encoder: any Swift.Encoder) throws
   public var hashValue: Swift.Int {
     get
   }
+  public init(from decoder: any Swift.Decoder) throws
 }
 #if compiler(>=5.3) && $RetroactiveAttribute
 extension Foundation.Timer : @unchecked @retroactive Swift.Sendable {
@@ -60,6 +70,17 @@ extension Foundation.Timer : @unchecked @retroactive Swift.Sendable {
 extension Foundation.Timer : @unchecked Swift.Sendable {
 }
 #endif
+public enum PlayerError : Foundation.LocalizedError {
+  case badUrl(Foundation.URL?)
+  case noData
+  case invalidJson(Swift.String)
+  case invalidStatus(Swift.Int, url: Foundation.URL?)
+  case unknownError
+  case failedToTrack
+  public var errorDescription: Swift.String? {
+    get
+  }
+}
 public enum SafeAreaEdge : Swift.Sendable {
   case all
   case top

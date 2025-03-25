@@ -107,6 +107,36 @@ class ViewController: BambuserVideoPlayerDelegate {
 }
 ```
 
+### Conversion Tracking
+To track conversions within the BambuserCommerceSDK, utilize the track function provided by the BambuserPlayerView. This function transmits necessary data sets to Bambuser Analytics.
+
+#### Method
+#### `track(event: String, with data: [String: Any]) -> [String: Any]`
+
+- **Parameters:**
+  - `event`: *(String)* – The name of the event to track (e.g., `"purchase"`).
+  - `data`: *(Dictionary)* – A dictionary containing additional information related to the event.
+
+- **Returns:**  
+  A dictionary representing the complete **data payload** sent to **Bambuser tracking**.
+
+#### Example Implementation
+
+```swift
+let response = try? await self.playerView.track(
+    event: "purchase", 
+    with: [
+        "orderId": "12345", // the order id (String)
+        "orderValue": "12345", // total of all products in the order (Number or String of numbers)
+        "orderProductIds": "11,22,33,44,55", // comma-separated string, or array of all product ids in the order
+        "currency": "USD"
+]
+```
+
+#### NOTE
+To log an event, you must supply and include additional data as a dictionary with string keys and values of any type ([String: Any?]). Note that the example format is for illustrative purposes only. For the precise data structure required for each event, please refer to our detailed documentation. 
+
+
 ### Documentation
 
 Documentation can be found in [here](https://github.com/bambuser/bambuser-commerce-sdk-ios/tree/main/Documentation/BambuserCommerceSDK-Docs.doccarchive)
