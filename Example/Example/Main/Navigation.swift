@@ -61,4 +61,9 @@ final class NavigationManager: ObservableObject {
     func popToRoot() {
         path.removeAll()
     }
+
+    func popTo(_ destination: Destination) {
+        guard let index = path.lastIndex(of: destination) else { return }
+        path = Array(path.prefix(through: index))
+    }
 }

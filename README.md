@@ -18,6 +18,17 @@ This SDK is built using **Xcode 16** with the **Swift 6** toolchain but remains 
 - **Swift 5** toolchain
 - **iOS 15.6+** supported
 
+### Important: Add `-ObjC` Linker Flag
+
+To ensure full functionality of the SDK, **you must add the `-ObjC` flag** to your app target:
+
+1. Open your project in **Xcode**
+2. Go to your target's **Build Settings**
+3. Search for **"Other Linker Flags"**
+4. Add `-ObjC` to the list of flags (if it's not already there)
+
+> Failing to include this flag may result in missing functionality or runtime issues related to Objective-C symbol resolution.
+
 ### Installation
 
 #### Swift Package Manager (SPM)
@@ -82,27 +93,27 @@ The BambuserCommerceSDK provides the `BambuserVideoPlayerDelegate` protocol for 
 - **onNewEventReceived**  
   Called when a new event is received from the video player.  
   **Parameters:**  
-  - `playerId`: A unique identifier for the video player.  
+  - `id`: A unique identifier for the video player.  
   - `event`: A `BambuserEventPayload` containing the event type and associated data.
 
 - **onErrorOccurred**  
   Called when an error occurs within the video player.  
   **Parameters:**  
-  - `playerId`: A unique identifier for the video player.  
+  - `id`: A unique identifier for the video player.  
   - `error`: The error encountered by the video player.
 
 #### Example Implementation
 
 ```swift
 class ViewController: BambuserVideoPlayerDelegate {
-    func onNewEventReceived(playerId: String, _ event: BambuserEventPayload) {
+    func onNewEventReceived(id: String, event: BambuserEventPayload) {
         // Handle the event, e.g., log or update UI
-        print("Player \(playerId) sent event: \(event)")
+        print("Player \(id) sent event: \(event)")
     }
 
-    func onErrorOccurred(playerId: String, _ error: Error) {
+    func onErrorOccurred(id: String, error: Error) {
         // Handle the error, e.g., display an alert
-        print("Error in player \(playerId): \(error.localizedDescription)")
+        print("Error in player \(id): \(error.localizedDescription)")
     }
 }
 ```

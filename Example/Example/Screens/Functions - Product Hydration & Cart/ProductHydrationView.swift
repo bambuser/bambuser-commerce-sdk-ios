@@ -6,7 +6,6 @@
 //
 
 import SwiftUI
-import BambuserCommerceSDK
 
 struct ProductHydrationViewRepresentable: UIViewControllerRepresentable {
     let navManager: NavigationManager

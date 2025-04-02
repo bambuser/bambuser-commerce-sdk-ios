@@ -9,7 +9,7 @@ import UIKit
 import BambuserCommerceSDK
 
 /// A view controller responsible for handling events from the Bambuser Commerce SDK.
-final class EventHandlingViewController: UIViewController, BambuserVideoPlayerDelegate {
+final class EventHandlingViewController: UIViewController, BambuserVideoPlayerDelegate, BambuserPictureInPictureDelegate {
 
     /// The player view used for displaying the video.
     var playerView: BambuserPlayerView?
@@ -65,6 +65,7 @@ final class EventHandlingViewController: UIViewController, BambuserVideoPlayerDe
             ignoredSafeAreaEdges: .init(.bottom)
         )
         pView.delegate = self // Assigns the delegate to receive BambuserVideoPlayerDelegate events.
+        pView.pipController.delegate = self // Assigns the picture in picture delegate to receive BambuserPictureInPictureDelegate events.
         pView.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(pView)
 
@@ -109,11 +110,16 @@ final class EventHandlingViewController: UIViewController, BambuserVideoPlayerDe
         stopPiPIfNeeded()
     }
 
-    /// Stops Picture-in-Picture mode if it is active.
+    /**
+     Checks whether Picture-in-Picture (PiP) mode is currently active for the specified player.
+     */
+    func checkIfPipEnabled(for player: BambuserPlayerView) -> Bool {
+        player.pipController.isActive
+    }
+
+    /// Stops Picture-in-Picture mode if it is active. This has no effect if PiP is not active.
     private func stopPiPIfNeeded() {
-        if playerView?.isPictureInPictureActive == true {
-            playerView?.stopPictureInPicture()
-        }
+        playerView?.pipController.stop()
     }
 
     /// Handles the event when a product is tapped.
@@ -130,7 +136,7 @@ final class EventHandlingViewController: UIViewController, BambuserVideoPlayerDe
         ///
         /// - If the user has **"Start PiP Automatically"** enabled in iOS settings, PiP will **automatically start**
         ///   when triggered by the OS, requiring no additional work from the app (e.g., when the app goes to the background).
-        playerView?.startPictureInPicture()
+        playerView?.pipController.start()
         navManager.navigate(to: .productDetail(product))
     }
 
@@ -147,9 +153,9 @@ final class EventHandlingViewController: UIViewController, BambuserVideoPlayerDe
 
     /// Handles events received from the Bambuser video player.
     /// - Parameters:
-    ///   - playerId: The ID of the player emitting the event.
+    ///   - id: The ID of the player emitting the event.
     ///   - event: The event payload containing event details.
-    func onNewEventReceived(playerId: String, _ event: BambuserEventPayload) {
+    func onNewEventReceived(_ id: String, event: BambuserEventPayload) {
         /// This event is emitted when a user taps on a product card during a show.
         if event.type == "should-show-product-view" {
             productTapped(event.data)
@@ -159,9 +165,36 @@ final class EventHandlingViewController: UIViewController, BambuserVideoPlayerDe
 
     /// Handles errors that occur within the Bambuser video player.
     /// - Parameters:
-    ///   - playerId: The ID of the player where the error occurred.
+    ///   - id: The ID of the player where the error occurred.
     ///   - error: The error object containing details about the issue.
-    func onErrorOccurred(playerId: String, _ error: Error) {
+    func onErrorOccurred(_ id: String, error: Error) {
         print("EventHandlingViewController error: \(error.localizedDescription)")
+    }
+
+    /// Handles changes to the Picture-in-Picture (PiP) state.
+    ///
+    /// This method is called whenever the PiP mode transitions to a new state. You can use this to respond
+    /// appropriately depending on whether PiP was started, stopped, or restored.
+    ///
+    /// - Parameters:
+    ///   - id: The ID of the Bambuser player associated with this state change.
+    ///   - state: The new `PlayerPipState`, indicating the current PiP mode.
+    ///
+    /// You can handle specific states such as:
+    /// - `.willStart`: Prepare your UI before PiP begins.
+    /// - `.started`: PiP has successfully started—adjust UI and pause unnecessary updates.
+    /// - `.willStop`: PiP is about to stop—prepare to restore full-screen UI.
+    /// - `.stopped`: PiP has been closed—restore full player view.
+    /// - `.restored`: The user tapped "Go to full screen" and PiP has ended—navigate back and resume playback.
+    func onPictureInPictureStateChanged(_ id: String, state: PlayerPipState) {
+        if state == .restored {
+            /// When PiP is restored (e.g. user taps "Go to full screen"), we navigate
+            /// back to the video player screen and resume playback.
+            /// This ensures the player is visible and active after PiP ends.
+            navManager.popTo(.eventHandling)
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                self.playerView?.play()
+            }
+        }
     }
 }

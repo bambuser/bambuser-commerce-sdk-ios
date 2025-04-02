@@ -6,7 +6,6 @@
 //
 
 import SwiftUI
-import BambuserCommerceSDK
 
 struct EventHandlingViewRepresentable: UIViewControllerRepresentable {
     let navManager: NavigationManager

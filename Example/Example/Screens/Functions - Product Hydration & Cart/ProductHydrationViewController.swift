@@ -135,9 +135,9 @@ final class ProductHydrationViewController: UIViewController, BambuserVideoPlaye
     /// Handles events received from the **Bambuser video player**.
     /// - This method is part of `BambuserVideoPlayerDelegate`.
     /// - Parameters:
-    ///   - playerId: The ID of the player emitting the event.
+    ///   - id: The ID of the player emitting the event.
     ///   - event: The event payload containing event details.
-    func onNewEventReceived(playerId: String, _ event: BambuserEventPayload) {
+    func onNewEventReceived(_ id: String, event: BambuserEventPayload) {
         print("ProductHydrationViewController received event: \(event)")
 
         /// When the show starts, this event is triggered by the player.
@@ -211,9 +211,9 @@ final class ProductHydrationViewController: UIViewController, BambuserVideoPlaye
     /// Handles errors that occur within the **Bambuser video player**.
     /// - This method is part of `BambuserVideoPlayerDelegate`.
     /// - Parameters:
-    ///   - playerId: The ID of the player where the error occurred.
+    ///   - id: The ID of the player where the error occurred.
     ///   - error: The error object containing details about the issue.
-    func onErrorOccurred(playerId: String, _ error: Error) {
+    func onErrorOccurred(_ id: String, error: Error) {
         print("ProductHydrationViewController error: \(error.localizedDescription)")
     }
 }
