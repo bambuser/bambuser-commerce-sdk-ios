@@ -32,9 +32,9 @@ struct ProductDetailView: View {
                         Text(hydrated.name)
                             .font(.title)
                             .fontWeight(.bold)
-                        Text(hydrated.introduction)
+                        Text(hydrated.introduction ?? "")
                             .font(.subheadline)
-                        Text(hydrated.description)
+                        Text(hydrated.description ?? "")
                             .font(.body)
                     }
                     .padding()

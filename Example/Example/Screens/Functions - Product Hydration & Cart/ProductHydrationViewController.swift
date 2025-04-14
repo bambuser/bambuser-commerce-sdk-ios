@@ -130,6 +130,65 @@ final class ProductHydrationViewController: UIViewController, BambuserVideoPlaye
         }
     }
 
+    /// This method demonstrates how to hydrate products and send product hydration info to the player.
+    /// The provided Builder function facilitates the programmatic construction of product data, enabling developers to structure information according to the specifications of the Bambuser SDK hydration format. This mechanism allows for the controlled and compliant assembly of product entities for integration with the Bambuser platform.
+    /// The provided implementation of the client product model serves solely as a demonstrative example. Developers are instructed to adapt and reconstruct the codebase to align precisely with the specific requirements and intricacies of their unique client-side data structures and integration needs.
+    func hydrateUsingProductBuilder(data: [String: Any]) async throws {
+        guard let event = data["event"] as? [String: Any],
+              let products = event["products"] as? [[String: Any]] else { return }
+        for product in products {
+            guard let sku = product["ref"] as? String,
+                  let id = product["id"] as? String else { continue }
+
+            // Fetch your own product details
+            // Dummy function to fetch the details
+            // - More information: [Bambuser Player API Reference](https://bambuser.com/docs/live/player-api-reference/)
+            guard let productDetails = ProductHydrationDataSource.mockClientProduct(for: sku)
+            else { continue}
+
+            let hydratedProduct = try HydratedProduct(sku: productDetails.sku)
+                .withName(productDetails.productName)
+                .withBrandName(productDetails.brand)
+                .withVariations(
+                        productDetails.variations.map { variation in
+                            try Variation()
+                                .withSku(variation.sku)
+                                .withColorName(variation.colorName)
+                                .withName(variation.name)
+                                .withImageUrls(variation.imageUrls)
+                                .withSizes(
+                                    variation.sizes.map { size in
+                                        try ProductSize()
+                                            .withSku(size.sku)
+                                            .withCurrentPrice(size.current)
+                                            .withInStock(size.inStock)
+                                            .withName(size.name)
+                                            .build()
+                                    }
+                                )
+                                .build()
+                        }
+                )
+                .build()
+             //
+            let hydrationString = "'\(id)', \(try hydratedProduct.toJSON())"
+
+
+            /// This is how to invoke **player functions**.
+            /// - For example, to send **product hydration data** to the player, the `"updateProductWithData"` function is used.
+            /// - This method requires:
+            ///   - A **player function name** (e.g., `"updateProductWithData"`).
+            ///   - **Arguments** required by the function.
+            /// - More information: [Bambuser Player API Reference](https://bambuser.com/docs/live/player-api-reference/)
+            ///
+            /// **For product hydration, please refer to the format used in this function and `hydrationString`.**
+            try await playerView?.invoke(
+                function: "updateProductWithData",
+                arguments: hydrationString
+            )
+        }
+    }
+
     // MARK: - BambuserVideoPlayerDelegate
 
     /// Handles events received from the **Bambuser video player**.
@@ -147,7 +206,7 @@ final class ProductHydrationViewController: UIViewController, BambuserVideoPlaye
         /// **Check the `hydrate(data:)` method for an example of how to handle this.**
         if event.type == "provide-product-data" {
             Task {
-                try await self.hydrate(data: event.data)
+                try await self.hydrateUsingProductBuilder(data: event.data)
             }
         }
 

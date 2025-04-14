@@ -1413,6 +1413,23 @@
       },
       {
         "kind": "Import",
+        "name": "UIKit",
+        "printedName": "UIKit",
+        "declKind": "Import",
+        "moduleName": "BambuserCommerceSDK"
+      },
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "BambuserCommerceSDK",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "Import",
         "name": "Foundation",
         "printedName": "Foundation",
         "declKind": "Import",
@@ -3537,7 +3554,14 @@
     {
       "filePath": "\/Users\/saeid\/Documents\/projects\/frameworks\/commerce-sdk\/bambuser-commerce-sdk\/Files\/Sources\/BambuserCommerceSDK\/Implementation\/VideoPlayer\/Environment.swift",
       "kind": "StringLiteral",
-      "offset": 158,
+      "offset": 225,
+      "length": 7,
+      "value": "\"0.4.0\""
+    },
+    {
+      "filePath": "\/Users\/saeid\/Documents\/projects\/frameworks\/commerce-sdk\/bambuser-commerce-sdk\/Files\/Sources\/BambuserCommerceSDK\/Implementation\/VideoPlayer\/Environment.swift",
+      "kind": "StringLiteral",
+      "offset": 275,
       "length": 22,
       "value": "\"bambuserEventHandler\""
     },

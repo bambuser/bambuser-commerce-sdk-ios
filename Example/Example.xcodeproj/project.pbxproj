@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 54;
+	objectVersion = 56;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -14,7 +14,10 @@
 		5085701DA4B42918B4E913FE /* EventHandlingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E85C7516EA7AA7B51BE4DFD /* EventHandlingViewController.swift */; };
 		5B9D7974E79CA70796A2D64D /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13D7B51256ED5532ACABC004 /* HomeView.swift */; };
 		72E5BF4493766B6D7BEAFB9E /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 428ACFD093BDCF94DB02069B /* ContentView.swift */; };
+		7921EF7160CDAB2FFCC5181E /* SizeBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A3FDD3B4BA84B3D5DB4C794 /* SizeBuilder.swift */; };
+		811890E475DFC308ED9D9468 /* VariationBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AB37078F9FDCA74B7429D5B /* VariationBuilder.swift */; };
 		8293AF4116F299B899F34CEF /* NavigationRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = A599F2B2596BDFF9A07A88C6 /* NavigationRow.swift */; };
+		867D4DDF6FED7FAC9373D6AA /* Builder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B5967E4E0F242B37840626E /* Builder.swift */; };
 		8EA86C4BFCB4A9F41D4CF95C /* ProductHydrationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6A6102A5B4BEA9A9C7EE73A /* ProductHydrationViewController.swift */; };
 		9CD3A313D393F76E1EAC4A12 /* ExampleApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC723A1E10FA76181B881533 /* ExampleApp.swift */; };
 		A7DE51AF444E522EF1BFE2DF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5C9BA92B4C370D66B9AB0595 /* Assets.xcassets */; };
@@ -24,18 +27,23 @@
 		EC0F5BBE2FD9A454F0CA94BD /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C783A144FFAFC56CCFE28C0C /* Preview Assets.xcassets */; };
 		F0DA770994F880A308C23AC1 /* BambuserCommerceSDK in Frameworks */ = {isa = PBXBuildFile; productRef = 8D02914874D2DA3615D1162D /* BambuserCommerceSDK */; };
 		F1E18D8948CE0C6AEBC1911B /* InitializeVideoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AED6CA2023A523AD861544C /* InitializeVideoViewController.swift */; };
+		F9BDCD8233D655F8EF3263A2 /* ProductBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14B1AC5109C73A16AB29476A /* ProductBuilder.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		0AED6CA2023A523AD861544C /* InitializeVideoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitializeVideoViewController.swift; sourceTree = "<group>"; };
 		13D7B51256ED5532ACABC004 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		14B1AC5109C73A16AB29476A /* ProductBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductBuilder.swift; sourceTree = "<group>"; };
+		3A3FDD3B4BA84B3D5DB4C794 /* SizeBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SizeBuilder.swift; sourceTree = "<group>"; };
 		41AB3B9195D08C97A052B242 /* ProductDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetailView.swift; sourceTree = "<group>"; };
 		428ACFD093BDCF94DB02069B /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		4544EEDB55B2BC3679FB2CA9 /* ProductHydrationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductHydrationView.swift; sourceTree = "<group>"; };
 		4E85C7516EA7AA7B51BE4DFD /* EventHandlingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventHandlingViewController.swift; sourceTree = "<group>"; };
 		4FE0FE2A3F8655632984B4B0 /* InitializeVideoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitializeVideoView.swift; sourceTree = "<group>"; };
 		5C9BA92B4C370D66B9AB0595 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		6B5967E4E0F242B37840626E /* Builder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Builder.swift; sourceTree = "<group>"; };
 		70227A62B26265354B0962A8 /* EventHandlingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventHandlingView.swift; sourceTree = "<group>"; };
+		8AB37078F9FDCA74B7429D5B /* VariationBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VariationBuilder.swift; sourceTree = "<group>"; };
 		A599F2B2596BDFF9A07A88C6 /* NavigationRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationRow.swift; sourceTree = "<group>"; };
 		AE5C5D0C437A951D7C58A968 /* ProductHydrationDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductHydrationDataSource.swift; sourceTree = "<group>"; };
 		BF1D93CEF93A3AAF04A58ADD /* demo.app */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.application; path = demo.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -110,6 +118,7 @@
 			children = (
 				C1D1A9520B3C6ABF0CAAEBD4 /* Product.swift */,
 				AE5C5D0C437A951D7C58A968 /* ProductHydrationDataSource.swift */,
+				EB814EA35E5CE6856F9B71C4 /* Builder */,
 			);
 			path = Products;
 			sourceTree = "<group>";
@@ -152,6 +161,17 @@
 			path = "Functions - Product Hydration & Cart";
 			sourceTree = "<group>";
 		};
+		EB814EA35E5CE6856F9B71C4 /* Builder */ = {
+			isa = PBXGroup;
+			children = (
+				6B5967E4E0F242B37840626E /* Builder.swift */,
+				14B1AC5109C73A16AB29476A /* ProductBuilder.swift */,
+				3A3FDD3B4BA84B3D5DB4C794 /* SizeBuilder.swift */,
+				8AB37078F9FDCA74B7429D5B /* VariationBuilder.swift */,
+			);
+			path = Builder;
+			sourceTree = "<group>";
+		};
 		F312E3D139A512DA7D1ECE0B /* Resources */ = {
 			isa = PBXGroup;
 			children = (
@@ -192,8 +212,6 @@
 			attributes = {
 				BuildIndependentTargetsInParallel = YES;
 				LastUpgradeCheck = 1620;
-				TargetAttributes = {
-				};
 			};
 			buildConfigurationList = 36FC72E69D906F48675C62BF /* Build configuration list for PBXProject "Example" */;
 			compatibilityVersion = "Xcode 14.0";
@@ -232,6 +250,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				867D4DDF6FED7FAC9373D6AA /* Builder.swift in Sources */,
 				72E5BF4493766B6D7BEAFB9E /* ContentView.swift in Sources */,
 				14FA7DB866204D45237EF5BC /* EventHandlingView.swift in Sources */,
 				5085701DA4B42918B4E913FE /* EventHandlingViewController.swift in Sources */,
@@ -242,10 +261,13 @@
 				C38EE6FA3E0A5DE891519262 /* Navigation.swift in Sources */,
 				8293AF4116F299B899F34CEF /* NavigationRow.swift in Sources */,
 				2262B7A5215B0586D393C197 /* Product.swift in Sources */,
+				F9BDCD8233D655F8EF3263A2 /* ProductBuilder.swift in Sources */,
 				C436ED44BE67EEEBAECB844E /* ProductDetailView.swift in Sources */,
 				0D7383C45C7ABE517C9DAC0C /* ProductHydrationDataSource.swift in Sources */,
 				181D4EB61DD300215755F48D /* ProductHydrationView.swift in Sources */,
 				8EA86C4BFCB4A9F41D4CF95C /* ProductHydrationViewController.swift in Sources */,
+				7921EF7160CDAB2FFCC5181E /* SizeBuilder.swift in Sources */,
+				811890E475DFC308ED9D9468 /* VariationBuilder.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -259,7 +281,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CURRENT_PROJECT_VERSION = 1;
 				ENABLE_BITCODE = NO;
-				GENERATE_INFOPLIST_FILE = NO;
+				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Example/Resources/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 16.6;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -267,9 +289,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0.0;
-				OTHER_LDFLAGS = (
-					"-ObjC",
-				);
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = com.bambuser.commercesdk.demo;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -338,7 +358,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CURRENT_PROJECT_VERSION = 1;
 				ENABLE_BITCODE = NO;
-				GENERATE_INFOPLIST_FILE = NO;
+				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Example/Resources/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 16.6;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -346,9 +366,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0.0;
-				OTHER_LDFLAGS = (
-					"-ObjC",
-				);
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = com.bambuser.commercesdk.demo;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -446,7 +464,7 @@
 			repositoryURL = "https://github.com/bambuser/bambuser-commerce-sdk-ios/";
 			requirement = {
 				kind = upToNextMajorVersion;
-				minimumVersion = 0.1.0;
+				minimumVersion = 1.0.0;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */

@@ -12,6 +12,7 @@ import Foundation
 /// This struct contains sample product data, which can be accessed using SKU identifiers.
 /// The data includes product details such as name, brand, description, variations, images, and pricing information,
 /// which are mandatory for hydrating products in the built-in Bambuser player.
+/// The codebase Also incorporates a demonstration of client-derived mock data `MockClientProduc` alongside a defined methodology for its programmatic transformation and mapping into the `HydratedProduct` data structure, which is the designated format supported by the Bambuser platform.
 ///
 /// ## Bambuser Integration:
 /// If your app uses the Bambuser player's built-in product pages and cart functionality,
@@ -37,11 +38,11 @@ struct ProductHydrationDataSource {
                     sizes: [
                         ProductSize(
                             sku: "436775-black-medium",
-                            currency: "SEK",
                             current: 999.0,
-                            original: 1499.0,
                             name: "Medium",
                             inStock: 15,
+                            original: 1499.0,
+                            currency: "SEK",
                             perUnit: nil,
                             unitAmount: nil,
                             unitDisplayName: nil
@@ -65,11 +66,11 @@ struct ProductHydrationDataSource {
                     sizes: [
                         ProductSize(
                             sku: "614442-silver-standard",
-                            currency: "SEK",
                             current: 999.0,
-                            original: 999.0,
                             name: "Standard",
                             inStock: 20,
+                            original: 999.0,
+                            currency: "SEK",
                             perUnit: nil,
                             unitAmount: nil,
                             unitDisplayName: nil
@@ -93,11 +94,11 @@ struct ProductHydrationDataSource {
                     sizes: [
                         ProductSize(
                             sku: "614442-silver-standard",
-                            currency: "SEK",
                             current: 800.0,
-                            original: 999.0,
                             name: "Standard",
                             inStock: 20,
+                            original: 999.0,
+                            currency: "SEK",
                             perUnit: nil,
                             unitAmount: nil,
                             unitDisplayName: nil
@@ -108,8 +109,63 @@ struct ProductHydrationDataSource {
         )
     ]
 
+    static let mockClientProducts: [String: MockClientProduct] = [
+        "436775": MockClientProduct(
+            sku: "436775",
+            productName: "Livall Cykelhjälm L – Evopurl Large",
+            brand: "Livall",
+            variations: [
+                .init(
+                    sku: "436775-black",
+                    name: "Black Livall Helmet",
+                    colorName: "black",
+                    imageUrls: [URL(string: "https://www.elgiganten.se/_next/image?url=https%3A%2F%2Fmedia.elkjop.com%2Fassets%2Fimage%2Fdv_web_D180001002952050&w=1200&q=75")!],
+                    sizes: [
+                        .init(
+                            sku: "436775-black-medium",
+                            current: 700.0,
+                            name: "Medium",
+                            inStock: 15
+                        ),
+                        .init(
+                            sku: "436775-black-large",
+                            current: 750.0,
+                            name: "Large",
+                            inStock: 15
+                        )
+                    ]
+                )
+            ]
+        ),
+        "614442": MockClientProduct(
+            sku: "614442",
+            productName: "Pro-Tect Cubic Kedjecykellås",
+            brand: "Pro-Tect",
+            variations: [
+                .init(
+                    sku: "614442-silver",
+                    name: "Cubic Chain Lock - Silver",
+                    colorName: "silver",
+                    imageUrls: [URL(string: "https://www.elgiganten.se/_next/image?url=https%3A%2F%2Fmedia.elkjop.com%2Fassets%2Fimage%2Fdv_web_D1800010021483116&w=1200&q=75")!],
+                    sizes: [
+                        .init(
+                            sku: "614442-silver-standard",
+                            current: 600.0,
+                            name: "Standard",
+                            inStock: 20
+                        )
+                    ]
+                )
+            ]
+        )
+    ]
+
     static func hydratedProduct(for sku: String) -> HydratedProduct? {
         sampleProducts[sku]
+    }
+
+    static func mockClientProduct(for sku: String) -> MockClientProduct? {
+        mockClientProducts[sku]
     }
 
     static func jsonObjectString(for sku: String) -> String? {

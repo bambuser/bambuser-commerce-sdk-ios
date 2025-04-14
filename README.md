@@ -18,7 +18,7 @@ This SDK is built using **Xcode 16** with the **Swift 6** toolchain but remains 
 - **Swift 5** toolchain
 - **iOS 15.6+** supported
 
-### Important: Add `-ObjC` Linker Flag
+### Important
 
 To ensure full functionality of the SDK, **you must add the `-ObjC` flag** to your app target:
 
@@ -37,7 +37,7 @@ You can integrate the SDK using Swift Package Manager. Add the following depende
 
 ```swift
 dependencies: [
-    .package(url: "https://github.com/bambuser/bambuser-commerce-sdk-ios", from: "0.1.0")
+    .package(url: "https://github.com/bambuser/bambuser-commerce-sdk-ios", from: "1.0.0")
 ]
 ```
 
@@ -118,10 +118,12 @@ class ViewController: BambuserVideoPlayerDelegate {
 }
 ```
 
-### Conversion Tracking
-To track conversions within the BambuserCommerceSDK, utilize the track function provided by the BambuserPlayerView. This function transmits necessary data sets to Bambuser Analytics.
+### Tracking
+
+To track conversions and other user actions within the BambuserCommerceSDK, utilize the track function provided by the BambuserPlayerView. This function transmits necessary data sets to Bambuser Analytics.
 
 #### Method
+
 #### `track(event: String, with data: [String: Any]) -> [String: Any]`
 
 - **Parameters:**
@@ -135,24 +137,18 @@ To track conversions within the BambuserCommerceSDK, utilize the track function 
 
 ```swift
 let response = try? await self.playerView.track(
-    event: "purchase", 
-    with: [
-        "orderId": "12345", // the order id (String)
-        "orderValue": "12345", // total of all products in the order (Number or String of numbers)
-        "orderProductIds": "11,22,33,44,55", // comma-separated string, or array of all product ids in the order
-        "currency": "USD"
-]
+    event: "purchase" // Find events in our https://bambuser.com/docs, 
+    with: [] // Your own metadata
 ```
 
 #### NOTE
-To log an event, you must supply and include additional data as a dictionary with string keys and values of any type ([String: Any?]). Note that the example format is for illustrative purposes only. For the precise data structure required for each event, please refer to our detailed documentation. 
 
+To log an event, you must supply and include additional data as a dictionary with string keys and values of any type (`[String: Any]`).\
+*Note that the example format is for illustrative purposes only. For the precise data structure required for each event, please refer to our [detailed documentation](https://bambuser.com/docs/live/conversion-tracking/).*
 
 ### Documentation
 
-Documentation can be found in [here](https://github.com/bambuser/bambuser-commerce-sdk-ios/tree/main/Documentation/BambuserCommerceSDK-Docs.doccarchive)
+- Player documentation can be found in the [player api reference](https://bambuser.com/docs/live/player-api-reference/)
+- SDK code level documentation is available [here](https://github.com/bambuser/bambuser-commerce-sdk-ios/tree/main/Documentation/BambuserCommerceSDK-Docs.doccarchive)
 
 ---
-
-> **Beta Release:**  
-> This SDK is currently in beta, and its APIs may change before the final release.
