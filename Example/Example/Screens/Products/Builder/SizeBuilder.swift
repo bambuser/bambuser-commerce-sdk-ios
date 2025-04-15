@@ -5,7 +5,6 @@
 //  Created by Seemanta on 2025-04-02.
 //
 
-
 extension ProductSize: Buildable {
     typealias BuilderType = ProductSize
 
@@ -63,7 +62,6 @@ extension ProductSize: Buildable {
         copy.unitDisplayName = unitDisplayName
         return copy
     }
-
 
     func build() throws -> ProductSize {
         guard !sku.isEmpty else { throw BuilderError.missingRequiredProperty("sku") }

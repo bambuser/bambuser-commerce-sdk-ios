@@ -16,7 +16,6 @@ extension Variation: Buildable {
         return copy
     }
 
-
     func withName(_ name: String) -> Self {
         var copy = self
         copy.name = name

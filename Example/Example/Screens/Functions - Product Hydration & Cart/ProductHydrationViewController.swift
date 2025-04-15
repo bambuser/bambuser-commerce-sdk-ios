@@ -130,9 +130,15 @@ final class ProductHydrationViewController: UIViewController, BambuserVideoPlaye
         }
     }
 
-    /// This method demonstrates how to hydrate products and send product hydration info to the player.
-    /// The provided Builder function facilitates the programmatic construction of product data, enabling developers to structure information according to the specifications of the Bambuser SDK hydration format. This mechanism allows for the controlled and compliant assembly of product entities for integration with the Bambuser platform.
-    /// The provided implementation of the client product model serves solely as a demonstrative example. Developers are instructed to adapt and reconstruct the codebase to align precisely with the specific requirements and intricacies of their unique client-side data structures and integration needs.
+    /// Demonstrates how to hydrate products and provide product data to the Bambuser player.
+    ///
+    /// This method uses a builder function to programmatically construct product data in the format
+    /// required by the Bambuser SDK for product hydration. It enables developers to create and structure
+    /// product information in a compliant and controlled way for integration with the SDK.
+    ///
+    /// The included example of a client product model is illustrative. Developers should adapt
+    /// and customize the implementation to fit the structure and requirements of their own
+    /// client-side product data and integration needs.
     func hydrateUsingProductBuilder(data: [String: Any]) async throws {
         guard let event = data["event"] as? [String: Any],
               let products = event["products"] as? [[String: Any]] else { return }
@@ -150,29 +156,28 @@ final class ProductHydrationViewController: UIViewController, BambuserVideoPlaye
                 .withName(productDetails.productName)
                 .withBrandName(productDetails.brand)
                 .withVariations(
-                        productDetails.variations.map { variation in
-                            try Variation()
-                                .withSku(variation.sku)
-                                .withColorName(variation.colorName)
-                                .withName(variation.name)
-                                .withImageUrls(variation.imageUrls)
-                                .withSizes(
-                                    variation.sizes.map { size in
-                                        try ProductSize()
-                                            .withSku(size.sku)
-                                            .withCurrentPrice(size.current)
-                                            .withInStock(size.inStock)
-                                            .withName(size.name)
-                                            .build()
-                                    }
-                                )
-                                .build()
-                        }
+                    productDetails.attributes.map { variation in
+                        try Variation()
+                            .withSku(variation.sku)
+                            .withColorName(variation.colorName)
+                            .withName(variation.name)
+                            .withImageUrls(variation.imageUrls)
+                            .withSizes(
+                                variation.sizes.map { size in
+                                    try ProductSize()
+                                        .withSku(size.sku)
+                                        .withCurrentPrice(size.current)
+                                        .withInStock(size.inStock)
+                                        .withName(size.name)
+                                        .build()
+                                }
+                            )
+                            .build()
+                    }
                 )
                 .build()
-             //
-            let hydrationString = "'\(id)', \(try hydratedProduct.toJSON())"
 
+            let hydrationString = "'\(id)', \(try hydratedProduct.toJSON())"
 
             /// This is how to invoke **player functions**.
             /// - For example, to send **product hydration data** to the player, the `"updateProductWithData"` function is used.
@@ -206,7 +211,7 @@ final class ProductHydrationViewController: UIViewController, BambuserVideoPlaye
         /// **Check the `hydrate(data:)` method for an example of how to handle this.**
         if event.type == "provide-product-data" {
             Task {
-                try await self.hydrateUsingProductBuilder(data: event.data)
+                try await self.hydrate(data: event.data)
             }
         }
 

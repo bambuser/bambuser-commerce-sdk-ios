@@ -114,7 +114,7 @@ struct ProductHydrationDataSource {
             sku: "436775",
             productName: "Livall Cykelhjälm L – Evopurl Large",
             brand: "Livall",
-            variations: [
+            attributes: [
                 .init(
                     sku: "436775-black",
                     name: "Black Livall Helmet",
@@ -141,7 +141,7 @@ struct ProductHydrationDataSource {
             sku: "614442",
             productName: "Pro-Tect Cubic Kedjecykellås",
             brand: "Pro-Tect",
-            variations: [
+            attributes: [
                 .init(
                     sku: "614442-silver",
                     name: "Cubic Chain Lock - Silver",
