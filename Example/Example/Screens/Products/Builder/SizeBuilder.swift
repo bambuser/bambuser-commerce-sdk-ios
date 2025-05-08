@@ -5,6 +5,7 @@
 //  Created by Seemanta on 2025-04-02.
 //
 
+
 extension ProductSize: Buildable {
     typealias BuilderType = ProductSize
 

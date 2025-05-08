@@ -5,6 +5,7 @@
 //  Created by Seemanta on 2025-04-02.
 //
 
+
 import Foundation
 
 protocol Buildable {
@@ -15,6 +16,7 @@ protocol Buildable {
 enum BuilderError: Error {
     case missingRequiredProperty(String)
     case invalidRequiredProperty(String)
+
 }
 
 extension Encodable {

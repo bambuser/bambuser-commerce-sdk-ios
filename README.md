@@ -16,7 +16,7 @@ This SDK is built using **Xcode 16** with the **Swift 6** toolchain but remains 
 
 - **Xcode 16** (or later)
 - **Swift 5** toolchain
-- **iOS 15.6+** supported
+- **iOS 14+** supported
 
 ### Important
 
