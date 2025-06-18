@@ -14,27 +14,20 @@ struct HomeView: View {
         ScrollView {
             VStack(spacing: 8) {
                 NavigationRow(
-                    title: "Initializing a Live/Pre-Recorded Show",
-                    subtitle: "Set up and start a live or pre-recorded video stream."
+                    title: "Live Video Features",
+                    subtitle: "Explore features related to live video streaming, including player initialization and event handling."
                 ) {
                     navManager.navigate(
-                        to: .initializingShow
+                        to: .liveVideosExamples
                     )
                 }
+                
                 NavigationRow(
-                    title: "PiP, Navigation & Event Handling",
-                    subtitle: "Programmatically enable Picture-in-Picture (PiP) and handle events by reacting to Player events."
+                    title: "Shoppable Video Features",
+                    subtitle: "Explore features related to shoppable video, including product hydration and cart implementation."
                 ) {
                     navManager.navigate(
-                        to: .eventHandling
-                    )
-                }
-                NavigationRow(
-                    title: "API Interactions, Product Hydration & Cart Implementation",
-                    subtitle: "Interact with Bambuser Player APIs, utilize built-in product hydration, and integrate cart"
-                ) {
-                    navManager.navigate(
-                        to: .productHydration
+                        to: .shoppableVideosExamples
                     )
                 }
             }
