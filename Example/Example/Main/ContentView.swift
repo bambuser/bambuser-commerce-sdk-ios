@@ -9,7 +9,7 @@ import SwiftUI
 
 struct ContentView: View {
     @StateObject var navManager = NavigationManager()
-
+    
     var body: some View {
         NavigationStack(
             path: $navManager.path
@@ -22,15 +22,22 @@ struct ContentView: View {
                         for: destination
                     )
                 }
-
+            
         }
         .environmentObject(navManager)
         .background(Color.gray.opacity(0.3))
     }
-
+    
     @ViewBuilder
     func destinationView(for destination: Destination) -> some View {
         switch destination {
+            // Main entry points for live and shoppable videos examples
+        case .liveVideosExamples:
+            LiveVideoViews()
+        case .shoppableVideosExamples:
+            ShoppableVideoViews()
+            
+            // Live video examples
         case .initializingShow:
             InitializeVideoViewRepresentable(navManager: navManager)
                 .ignoresSafeArea()
@@ -44,10 +51,14 @@ struct ContentView: View {
             ProductDetailView(
                 product: product
             )
+            
+            // Shoppable video examples
+        case .shoppableVideoPlaylist:
+            ShoppableVideoPlaylistViewRepresentable(navManager: navManager)
+        case .shoppableVideo:
+            ShoppableVideoViewRepresentable(navManager: navManager)
+        case .shoppableVideoSKU:
+            ShoppableVideoWithSKUViewRepresentable(navManager: navManager)
         }
     }
-}
-
-#Preview {
-    ContentView(navManager: NavigationManager())
 }

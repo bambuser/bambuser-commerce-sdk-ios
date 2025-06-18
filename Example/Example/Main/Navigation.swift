@@ -9,10 +9,20 @@ import Combine
 import Foundation
 
 enum Destination: Hashable {
+    // Main menu screens
+    case liveVideosExamples
+    case shoppableVideosExamples
+
+    // Live video examples
     case initializingShow
     case eventHandling
     case productHydration
     case productDetail(Product)
+
+    // Shoppable video examples
+    case shoppableVideo
+    case shoppableVideoPlaylist
+    case shoppableVideoSKU
 }
 
 final class NavigationManager: ObservableObject {

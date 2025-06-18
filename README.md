@@ -37,7 +37,7 @@ You can integrate the SDK using Swift Package Manager. Add the following depende
 
 ```swift
 dependencies: [
-    .package(url: "https://github.com/bambuser/bambuser-commerce-sdk-ios", from: "1.0.0")
+    .package(url: "https://github.com/bambuser/bambuser-commerce-sdk-ios", branch: "2.0.0-beta")
 ]
 ```
 
