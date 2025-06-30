@@ -3,59 +3,75 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 54;
+	objectVersion = 63;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		090093AAB0C376A138D32BCC /* LiveVideoViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78C6EDC7063566A5A217504F /* LiveVideoViews.swift */; };
 		0D7383C45C7ABE517C9DAC0C /* ProductHydrationDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE5C5D0C437A951D7C58A968 /* ProductHydrationDataSource.swift */; };
-		14FA7DB866204D45237EF5BC /* EventHandlingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70227A62B26265354B0962A8 /* EventHandlingView.swift */; };
-		181D4EB61DD300215755F48D /* ProductHydrationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4544EEDB55B2BC3679FB2CA9 /* ProductHydrationView.swift */; };
+		1D9C7770BA885C2BA04BBE55 /* ShoppableVideoViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5B1CBDAC790B8A226DB6D4D /* ShoppableVideoViews.swift */; };
 		2262B7A5215B0586D393C197 /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1D1A9520B3C6ABF0CAAEBD4 /* Product.swift */; };
+		28E6FF22F3B72252A26B25FA /* ShoppableVideoPlaylistView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48BCD410CD2F1C1D6F0141E3 /* ShoppableVideoPlaylistView.swift */; };
+		2C64ADD37B412A75377C698D /* ShoppableVideoWithSKUViewRepresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8205FEF0901C738A0CB05152 /* ShoppableVideoWithSKUViewRepresentable.swift */; };
+		2DEE6D690053A4141E62B24E /* ShoppableVideoViewRepresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF280E002FD30A68F076AF6F /* ShoppableVideoViewRepresentable.swift */; };
 		31F0D246C2E427DD85EA01C3 /* MockClientProduct.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6CFD489F21785CD2DCC9D84 /* MockClientProduct.swift */; };
-		5085701DA4B42918B4E913FE /* EventHandlingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E85C7516EA7AA7B51BE4DFD /* EventHandlingViewController.swift */; };
+		363457B82E140D9C000EC8FA /* BambuserCommerceSDK in Frameworks */ = {isa = PBXBuildFile; productRef = 363457B72E140D9C000EC8FA /* BambuserCommerceSDK */; };
 		5B9D7974E79CA70796A2D64D /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13D7B51256ED5532ACABC004 /* HomeView.swift */; };
+		6BDA1BA221124C42BF35FC8B /* EventHandlingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044B26A0BCB27E5A85DEEC1B /* EventHandlingViewController.swift */; };
 		72E5BF4493766B6D7BEAFB9E /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 428ACFD093BDCF94DB02069B /* ContentView.swift */; };
 		7921EF7160CDAB2FFCC5181E /* SizeBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A3FDD3B4BA84B3D5DB4C794 /* SizeBuilder.swift */; };
+		7E85688826D75DBD9FC7D3CE /* InitializeVideoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 107EF3D6B2CF7D51A02420BF /* InitializeVideoView.swift */; };
 		811890E475DFC308ED9D9468 /* VariationBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AB37078F9FDCA74B7429D5B /* VariationBuilder.swift */; };
 		8293AF4116F299B899F34CEF /* NavigationRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = A599F2B2596BDFF9A07A88C6 /* NavigationRow.swift */; };
+		848764899D85BE9A892D92DB /* ProductHydrationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72DE89EC23BE269DB869663A /* ProductHydrationViewController.swift */; };
 		867D4DDF6FED7FAC9373D6AA /* Builder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B5967E4E0F242B37840626E /* Builder.swift */; };
-		8EA86C4BFCB4A9F41D4CF95C /* ProductHydrationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6A6102A5B4BEA9A9C7EE73A /* ProductHydrationViewController.swift */; };
 		9CD3A313D393F76E1EAC4A12 /* ExampleApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC723A1E10FA76181B881533 /* ExampleApp.swift */; };
 		9E4192AF595E1BBB91DE7624 /* HydratedProduct.swift in Sources */ = {isa = PBXBuildFile; fileRef = 351EBE93A7113C1A21698BAF /* HydratedProduct.swift */; };
+		A79F8159FF9911A5F68F1425 /* ShoppableVideoWithSKUViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1220BB4538A9AA9EEABE330F /* ShoppableVideoWithSKUViewController.swift */; };
 		A7DE51AF444E522EF1BFE2DF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5C9BA92B4C370D66B9AB0595 /* Assets.xcassets */; };
-		ACF1D5D3A511A153F0A83482 /* InitializeVideoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FE0FE2A3F8655632984B4B0 /* InitializeVideoView.swift */; };
+		B64483798F0182500473EE37 /* ShoppableVideoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9788774CDA21F4EBDFDF17C /* ShoppableVideoViewController.swift */; };
+		B98B94312ECC0097108F849E /* InitializeVideoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E846729576A97B943BE4467 /* InitializeVideoViewController.swift */; };
+		BA3D013A4250C3F6FF749348 /* ProductHydrationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6749F6D53A0D01EFA4526375 /* ProductHydrationView.swift */; };
 		C38EE6FA3E0A5DE891519262 /* Navigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5A517B6A95AB927931CD8D0 /* Navigation.swift */; };
-		C436ED44BE67EEEBAECB844E /* ProductDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41AB3B9195D08C97A052B242 /* ProductDetailView.swift */; };
+		C68349F63B28072A5943C151 /* ProductDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ADAF73D9685FA78841BB9DE /* ProductDetailView.swift */; };
+		D5FEE2F39861BF9A49B33324 /* EventHandlingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4622AA47BC5883ECD39C9D7D /* EventHandlingView.swift */; };
+		EB265F27ECA9FDF0AA919EA9 /* ShoppableVideoPlaylistViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A05870BC5E3C05CF95AF5E5 /* ShoppableVideoPlaylistViewController.swift */; };
 		EC0F5BBE2FD9A454F0CA94BD /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C783A144FFAFC56CCFE28C0C /* Preview Assets.xcassets */; };
-		F0DA770994F880A308C23AC1 /* BambuserCommerceSDK in Frameworks */ = {isa = PBXBuildFile; productRef = 8D02914874D2DA3615D1162D /* BambuserCommerceSDK */; };
-		F1E18D8948CE0C6AEBC1911B /* InitializeVideoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AED6CA2023A523AD861544C /* InitializeVideoViewController.swift */; };
 		F9BDCD8233D655F8EF3263A2 /* ProductBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14B1AC5109C73A16AB29476A /* ProductBuilder.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		0AED6CA2023A523AD861544C /* InitializeVideoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitializeVideoViewController.swift; sourceTree = "<group>"; };
+		044B26A0BCB27E5A85DEEC1B /* EventHandlingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventHandlingViewController.swift; sourceTree = "<group>"; };
+		107EF3D6B2CF7D51A02420BF /* InitializeVideoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitializeVideoView.swift; sourceTree = "<group>"; };
+		1220BB4538A9AA9EEABE330F /* ShoppableVideoWithSKUViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppableVideoWithSKUViewController.swift; sourceTree = "<group>"; };
 		13D7B51256ED5532ACABC004 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		14B1AC5109C73A16AB29476A /* ProductBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductBuilder.swift; sourceTree = "<group>"; };
+		2ADAF73D9685FA78841BB9DE /* ProductDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetailView.swift; sourceTree = "<group>"; };
 		351EBE93A7113C1A21698BAF /* HydratedProduct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HydratedProduct.swift; sourceTree = "<group>"; };
+		3A05870BC5E3C05CF95AF5E5 /* ShoppableVideoPlaylistViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppableVideoPlaylistViewController.swift; sourceTree = "<group>"; };
 		3A3FDD3B4BA84B3D5DB4C794 /* SizeBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SizeBuilder.swift; sourceTree = "<group>"; };
-		41AB3B9195D08C97A052B242 /* ProductDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetailView.swift; sourceTree = "<group>"; };
+		3E846729576A97B943BE4467 /* InitializeVideoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitializeVideoViewController.swift; sourceTree = "<group>"; };
 		428ACFD093BDCF94DB02069B /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
-		4544EEDB55B2BC3679FB2CA9 /* ProductHydrationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductHydrationView.swift; sourceTree = "<group>"; };
-		4E85C7516EA7AA7B51BE4DFD /* EventHandlingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventHandlingViewController.swift; sourceTree = "<group>"; };
-		4FE0FE2A3F8655632984B4B0 /* InitializeVideoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitializeVideoView.swift; sourceTree = "<group>"; };
+		4622AA47BC5883ECD39C9D7D /* EventHandlingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventHandlingView.swift; sourceTree = "<group>"; };
+		48BCD410CD2F1C1D6F0141E3 /* ShoppableVideoPlaylistView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppableVideoPlaylistView.swift; sourceTree = "<group>"; };
 		5C9BA92B4C370D66B9AB0595 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		6749F6D53A0D01EFA4526375 /* ProductHydrationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductHydrationView.swift; sourceTree = "<group>"; };
 		6B5967E4E0F242B37840626E /* Builder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Builder.swift; sourceTree = "<group>"; };
-		70227A62B26265354B0962A8 /* EventHandlingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventHandlingView.swift; sourceTree = "<group>"; };
+		72DE89EC23BE269DB869663A /* ProductHydrationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductHydrationViewController.swift; sourceTree = "<group>"; };
+		78C6EDC7063566A5A217504F /* LiveVideoViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiveVideoViews.swift; sourceTree = "<group>"; };
+		8205FEF0901C738A0CB05152 /* ShoppableVideoWithSKUViewRepresentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppableVideoWithSKUViewRepresentable.swift; sourceTree = "<group>"; };
 		8AB37078F9FDCA74B7429D5B /* VariationBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VariationBuilder.swift; sourceTree = "<group>"; };
 		A599F2B2596BDFF9A07A88C6 /* NavigationRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationRow.swift; sourceTree = "<group>"; };
 		AE5C5D0C437A951D7C58A968 /* ProductHydrationDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductHydrationDataSource.swift; sourceTree = "<group>"; };
-		BF1D93CEF93A3AAF04A58ADD /* demo.app */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.application; path = demo.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		B5B1CBDAC790B8A226DB6D4D /* ShoppableVideoViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppableVideoViews.swift; sourceTree = "<group>"; };
+		B9788774CDA21F4EBDFDF17C /* ShoppableVideoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppableVideoViewController.swift; sourceTree = "<group>"; };
+		BF1D93CEF93A3AAF04A58ADD /* demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = demo.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		BF280E002FD30A68F076AF6F /* ShoppableVideoViewRepresentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppableVideoViewRepresentable.swift; sourceTree = "<group>"; };
 		C1D1A9520B3C6ABF0CAAEBD4 /* Product.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Product.swift; sourceTree = "<group>"; };
 		C5A517B6A95AB927931CD8D0 /* Navigation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Navigation.swift; sourceTree = "<group>"; };
 		C783A144FFAFC56CCFE28C0C /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		E6CFD489F21785CD2DCC9D84 /* MockClientProduct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockClientProduct.swift; sourceTree = "<group>"; };
 		EC723A1E10FA76181B881533 /* ExampleApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExampleApp.swift; sourceTree = "<group>"; };
-		F6A6102A5B4BEA9A9C7EE73A /* ProductHydrationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductHydrationViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,21 +79,20 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F0DA770994F880A308C23AC1 /* BambuserCommerceSDK in Frameworks */,
+				363457B82E140D9C000EC8FA /* BambuserCommerceSDK in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		1EA7CE59F0EB070D260C92D9 /* Picture in Picture - Events Handling & Navigation */ = {
+		089C0E30E4BA4DBFC7E4CFDE /* Functions - Product Hydration & Cart */ = {
 			isa = PBXGroup;
 			children = (
-				70227A62B26265354B0962A8 /* EventHandlingView.swift */,
-				4E85C7516EA7AA7B51BE4DFD /* EventHandlingViewController.swift */,
-				41AB3B9195D08C97A052B242 /* ProductDetailView.swift */,
+				6749F6D53A0D01EFA4526375 /* ProductHydrationView.swift */,
+				72DE89EC23BE269DB869663A /* ProductHydrationViewController.swift */,
 			);
-			path = "Picture in Picture - Events Handling & Navigation";
+			path = "Functions - Product Hydration & Cart";
 			sourceTree = "<group>";
 		};
 		3031F8ABC084F8D43CC56342 /* Products */ = {
@@ -109,12 +124,30 @@
 		70EF3423B130D3410039A2C6 /* Screens */ = {
 			isa = PBXGroup;
 			children = (
-				D433D3A229ECE48030E6B760 /* Functions - Product Hydration & Cart */,
-				1EA7CE59F0EB070D260C92D9 /* Picture in Picture - Events Handling & Navigation */,
+				84205B30055D4371554E2163 /* Live Video Examples */,
 				8F868A19B9F34AD9FAE3D097 /* Products */,
-				968164120D5CCD29DBE77234 /* Simple Video Player */,
+				E5CE7D8AF257CDC0B4197013 /* Shoppable Videos Examples */,
 			);
 			path = Screens;
+			sourceTree = "<group>";
+		};
+		746CE1C2E412EA15DECF206E /* Fetch videos of playlist */ = {
+			isa = PBXGroup;
+			children = (
+				48BCD410CD2F1C1D6F0141E3 /* ShoppableVideoPlaylistView.swift */,
+				3A05870BC5E3C05CF95AF5E5 /* ShoppableVideoPlaylistViewController.swift */,
+			);
+			path = "Fetch videos of playlist";
+			sourceTree = "<group>";
+		};
+		84205B30055D4371554E2163 /* Live Video Examples */ = {
+			isa = PBXGroup;
+			children = (
+				089C0E30E4BA4DBFC7E4CFDE /* Functions - Product Hydration & Cart */,
+				BD4C6AEC5E5822D42BCFCD32 /* Picture in Picture - Events Handling & Navigation */,
+				9318646AE2D999D732EEAEAF /* Simple Video Player */,
+			);
+			path = "Live Video Examples";
 			sourceTree = "<group>";
 		};
 		8F868A19B9F34AD9FAE3D097 /* Products */ = {
@@ -129,13 +162,22 @@
 			path = Products;
 			sourceTree = "<group>";
 		};
-		968164120D5CCD29DBE77234 /* Simple Video Player */ = {
+		9318646AE2D999D732EEAEAF /* Simple Video Player */ = {
 			isa = PBXGroup;
 			children = (
-				4FE0FE2A3F8655632984B4B0 /* InitializeVideoView.swift */,
-				0AED6CA2023A523AD861544C /* InitializeVideoViewController.swift */,
+				107EF3D6B2CF7D51A02420BF /* InitializeVideoView.swift */,
+				3E846729576A97B943BE4467 /* InitializeVideoViewController.swift */,
 			);
 			path = "Simple Video Player";
+			sourceTree = "<group>";
+		};
+		A1D30AC32872A3FE7BF6883F /* Fetch videos with SKU */ = {
+			isa = PBXGroup;
+			children = (
+				1220BB4538A9AA9EEABE330F /* ShoppableVideoWithSKUViewController.swift */,
+				8205FEF0901C738A0CB05152 /* ShoppableVideoWithSKUViewRepresentable.swift */,
+			);
+			path = "Fetch videos with SKU";
 			sourceTree = "<group>";
 		};
 		B642E6C60D292FA364500F24 /* Main */ = {
@@ -144,10 +186,31 @@
 				428ACFD093BDCF94DB02069B /* ContentView.swift */,
 				EC723A1E10FA76181B881533 /* ExampleApp.swift */,
 				13D7B51256ED5532ACABC004 /* HomeView.swift */,
+				78C6EDC7063566A5A217504F /* LiveVideoViews.swift */,
 				C5A517B6A95AB927931CD8D0 /* Navigation.swift */,
 				A599F2B2596BDFF9A07A88C6 /* NavigationRow.swift */,
+				B5B1CBDAC790B8A226DB6D4D /* ShoppableVideoViews.swift */,
 			);
 			path = Main;
+			sourceTree = "<group>";
+		};
+		BD4C6AEC5E5822D42BCFCD32 /* Picture in Picture - Events Handling & Navigation */ = {
+			isa = PBXGroup;
+			children = (
+				4622AA47BC5883ECD39C9D7D /* EventHandlingView.swift */,
+				044B26A0BCB27E5A85DEEC1B /* EventHandlingViewController.swift */,
+				2ADAF73D9685FA78841BB9DE /* ProductDetailView.swift */,
+			);
+			path = "Picture in Picture - Events Handling & Navigation";
+			sourceTree = "<group>";
+		};
+		BE744DA5B462E3ACF983A1FE /* Fetch Single Video & Toggle Full Experience Mode */ = {
+			isa = PBXGroup;
+			children = (
+				B9788774CDA21F4EBDFDF17C /* ShoppableVideoViewController.swift */,
+				BF280E002FD30A68F076AF6F /* ShoppableVideoViewRepresentable.swift */,
+			);
+			path = "Fetch Single Video & Toggle Full Experience Mode";
 			sourceTree = "<group>";
 		};
 		D34276DE4AD1ADE87F3E9332 /* Preview Content */ = {
@@ -158,13 +221,14 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
-		D433D3A229ECE48030E6B760 /* Functions - Product Hydration & Cart */ = {
+		E5CE7D8AF257CDC0B4197013 /* Shoppable Videos Examples */ = {
 			isa = PBXGroup;
 			children = (
-				4544EEDB55B2BC3679FB2CA9 /* ProductHydrationView.swift */,
-				F6A6102A5B4BEA9A9C7EE73A /* ProductHydrationViewController.swift */,
+				BE744DA5B462E3ACF983A1FE /* Fetch Single Video & Toggle Full Experience Mode */,
+				746CE1C2E412EA15DECF206E /* Fetch videos of playlist */,
+				A1D30AC32872A3FE7BF6883F /* Fetch videos with SKU */,
 			);
-			path = "Functions - Product Hydration & Cart";
+			path = "Shoppable Videos Examples";
 			sourceTree = "<group>";
 		};
 		EB814EA35E5CE6856F9B71C4 /* Builder */ = {
@@ -204,7 +268,7 @@
 			);
 			name = demo;
 			packageProductDependencies = (
-				8D02914874D2DA3615D1162D /* BambuserCommerceSDK */,
+				363457B72E140D9C000EC8FA /* BambuserCommerceSDK */,
 			);
 			productName = demo;
 			productReference = BF1D93CEF93A3AAF04A58ADD /* demo.app */;
@@ -218,8 +282,6 @@
 			attributes = {
 				BuildIndependentTargetsInParallel = YES;
 				LastUpgradeCheck = 1620;
-				TargetAttributes = {
-				};
 			};
 			buildConfigurationList = 36FC72E69D906F48675C62BF /* Build configuration list for PBXProject "Example" */;
 			compatibilityVersion = "Xcode 14.0";
@@ -232,9 +294,8 @@
 			mainGroup = 54E0667A38E60354DB90F776;
 			minimizedProjectReferenceProxies = 1;
 			packageReferences = (
-				AF4C6D5A6FB659DB1E3FFC6D /* XCRemoteSwiftPackageReference "bambuser-commerce-sdk-ios" */,
+				363457B62E140D9C000EC8FA /* XCRemoteSwiftPackageReference "bambuser-commerce-sdk-ios" */,
 			);
-			preferredProjectObjectVersion = 54;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
@@ -262,22 +323,30 @@
 			files = (
 				867D4DDF6FED7FAC9373D6AA /* Builder.swift in Sources */,
 				72E5BF4493766B6D7BEAFB9E /* ContentView.swift in Sources */,
-				14FA7DB866204D45237EF5BC /* EventHandlingView.swift in Sources */,
-				5085701DA4B42918B4E913FE /* EventHandlingViewController.swift in Sources */,
+				D5FEE2F39861BF9A49B33324 /* EventHandlingView.swift in Sources */,
+				6BDA1BA221124C42BF35FC8B /* EventHandlingViewController.swift in Sources */,
 				9CD3A313D393F76E1EAC4A12 /* ExampleApp.swift in Sources */,
 				5B9D7974E79CA70796A2D64D /* HomeView.swift in Sources */,
 				9E4192AF595E1BBB91DE7624 /* HydratedProduct.swift in Sources */,
-				ACF1D5D3A511A153F0A83482 /* InitializeVideoView.swift in Sources */,
-				F1E18D8948CE0C6AEBC1911B /* InitializeVideoViewController.swift in Sources */,
+				7E85688826D75DBD9FC7D3CE /* InitializeVideoView.swift in Sources */,
+				B98B94312ECC0097108F849E /* InitializeVideoViewController.swift in Sources */,
+				090093AAB0C376A138D32BCC /* LiveVideoViews.swift in Sources */,
 				31F0D246C2E427DD85EA01C3 /* MockClientProduct.swift in Sources */,
 				C38EE6FA3E0A5DE891519262 /* Navigation.swift in Sources */,
 				8293AF4116F299B899F34CEF /* NavigationRow.swift in Sources */,
 				2262B7A5215B0586D393C197 /* Product.swift in Sources */,
 				F9BDCD8233D655F8EF3263A2 /* ProductBuilder.swift in Sources */,
-				C436ED44BE67EEEBAECB844E /* ProductDetailView.swift in Sources */,
+				C68349F63B28072A5943C151 /* ProductDetailView.swift in Sources */,
 				0D7383C45C7ABE517C9DAC0C /* ProductHydrationDataSource.swift in Sources */,
-				181D4EB61DD300215755F48D /* ProductHydrationView.swift in Sources */,
-				8EA86C4BFCB4A9F41D4CF95C /* ProductHydrationViewController.swift in Sources */,
+				BA3D013A4250C3F6FF749348 /* ProductHydrationView.swift in Sources */,
+				848764899D85BE9A892D92DB /* ProductHydrationViewController.swift in Sources */,
+				28E6FF22F3B72252A26B25FA /* ShoppableVideoPlaylistView.swift in Sources */,
+				EB265F27ECA9FDF0AA919EA9 /* ShoppableVideoPlaylistViewController.swift in Sources */,
+				B64483798F0182500473EE37 /* ShoppableVideoViewController.swift in Sources */,
+				2DEE6D690053A4141E62B24E /* ShoppableVideoViewRepresentable.swift in Sources */,
+				1D9C7770BA885C2BA04BBE55 /* ShoppableVideoViews.swift in Sources */,
+				A79F8159FF9911A5F68F1425 /* ShoppableVideoWithSKUViewController.swift in Sources */,
+				2C64ADD37B412A75377C698D /* ShoppableVideoWithSKUViewRepresentable.swift in Sources */,
 				7921EF7160CDAB2FFCC5181E /* SizeBuilder.swift in Sources */,
 				811890E475DFC308ED9D9468 /* VariationBuilder.swift in Sources */,
 			);
@@ -300,10 +369,8 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.1.0;
-				OTHER_LDFLAGS = (
-					"-ObjC",
-				);
+				MARKETING_VERSION = 2.0.0;
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = com.bambuser.commercesdk.demo;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -379,10 +446,8 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.0;
-				OTHER_LDFLAGS = (
-					"-ObjC",
-				);
+				MARKETING_VERSION = 2.0.0;
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = com.bambuser.commercesdk.demo;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -475,20 +540,20 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		AF4C6D5A6FB659DB1E3FFC6D /* XCRemoteSwiftPackageReference "bambuser-commerce-sdk-ios" */ = {
+		363457B62E140D9C000EC8FA /* XCRemoteSwiftPackageReference "bambuser-commerce-sdk-ios" */ = {
 			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/bambuser/bambuser-commerce-sdk-ios/";
+			repositoryURL = "git@github.com:bambuser/bambuser-commerce-sdk-ios.git";
 			requirement = {
 				kind = upToNextMajorVersion;
-				minimumVersion = 0.1.0;
+				minimumVersion = 2.0.0;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		8D02914874D2DA3615D1162D /* BambuserCommerceSDK */ = {
+		363457B72E140D9C000EC8FA /* BambuserCommerceSDK */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = AF4C6D5A6FB659DB1E3FFC6D /* XCRemoteSwiftPackageReference "bambuser-commerce-sdk-ios" */;
+			package = 363457B62E140D9C000EC8FA /* XCRemoteSwiftPackageReference "bambuser-commerce-sdk-ios" */;
 			productName = BambuserCommerceSDK;
 		};
 /* End XCSwiftPackageProductDependency section */
