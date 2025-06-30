@@ -109,7 +109,7 @@ final class ShoppableVideoViewController: UIViewController {
                 /// - `configuration`: Provides additional player settings.
                 /// More information: [Bambuser Player Integration guide](https://bambuser.com/docs/shoppable-video/bam-playlist-integration/)
                 let config = BambuserShoppableVideoConfiguration(
-                    type: .videoId("puv_7mMdXmSJQn9V3ByMBHJ7z1"),
+                    type: .videoId("suv_CGjT5hb527wvWLaSqY3XPH"),
                     events: ["*"],
                     configuration: [
                         "thumbnail": [
@@ -120,7 +120,7 @@ final class ShoppableVideoViewController: UIViewController {
                         ],
                         /// Configuration for shoppable video player.
                         /// Hide products and title in the player.
-                        "previewConfig": [:],
+                        "previewConfig": ["settings": "products:true; title:false; actions:1;"],
                         "playerConfig": [
                             "buttons": [
                                 "dismiss": "event",
@@ -173,6 +173,8 @@ final class ShoppableVideoViewController: UIViewController {
 
     func switchMode(to mode: InlinePlayerMode) {
         animatePlayerView(expanded: mode == .fullExperience)
+        /// Enable or disable Picture-in-Picture (PiP) mode based on the selected mode.
+        shoppableVideo?.pipController?.isEnabled = mode == .fullExperience
         Task { @MainActor in
             try await shoppableVideo?.changeMode(to: mode)
         }

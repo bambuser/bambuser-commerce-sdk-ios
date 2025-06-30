@@ -145,7 +145,7 @@ final class ShoppableVideoWithSKUViewController: UIViewController {
         /// This should match the SKU you want to display.
         /// This will fetch all videos associated with the SKU.
         let videoContainerInfo = BambuserShoppableVideoSkuInfo(
-            orgId: "BdTubpTeJwzvYHljZiy4",
+            orgId: "uy7jqRQBEfP91orbvbB5",
             sku: "b7c5"
         )
 
@@ -166,7 +166,7 @@ final class ShoppableVideoWithSKUViewController: UIViewController {
                             "contentMode": "scaleAspectFill",
                             "preview": nil
                         ],
-                        "previewConfig": [:],
+                        "previewConfig": ["settings": "products:true; title: false"],
                         "playerConfig": [
                             "buttons": [
                                 "dismiss": "event",
@@ -176,11 +176,15 @@ final class ShoppableVideoWithSKUViewController: UIViewController {
                         ]
                     ]
                 )
-                let views = try await bambuserPlayer.createShoppableVideoPlayers(
+                /// Default page size is 15, you can change it by passing `pageSize` parameter.
+                /// You can also pass `page` parameter to fetch specific page of videos.
+                let results = try await bambuserPlayer.createShoppableVideoPlayerCollection(
                     videoConfiguration: config
                 )
+                /// Pagination info can be used to fetch more videos if available.
+                print(results.pagination)
                 await MainActor.run {
-                    setupVideoPlaylist(views)
+                    setupVideoPlaylist(results.players)
                 }
             } catch {
                 print("Error loading shoppable views: \(error)")
@@ -214,8 +218,6 @@ final class ShoppableVideoWithSKUViewController: UIViewController {
 
             videoStack.addArrangedSubview(videoView)
         }
-        // Optionally, auto-play the first video
-        playVideo(at: 0)
     }
 
     // MARK: - Video Playback Controls

@@ -1,7 +1,7 @@
 // swift-interface-format-version: 1.0
-// swift-compiler-version: Apple Swift version 6.0.3 effective-5.10 (swiftlang-6.0.3.1.10 clang-1600.0.30.1)
-// swift-module-flags: -target x86_64-apple-ios15.6-simulator -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -enable-bare-slash-regex -module-name BambuserCommerceSDK
-// swift-module-flags-ignorable: -no-verify-emitted-module-interface
+// swift-compiler-version: Apple Swift version 6.1.2 effective-5.10 (swiftlang-6.1.2.1.2 clang-1700.0.13.5)
+// swift-module-flags: -target x86_64-apple-ios15.6-simulator -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -enable-experimental-feature DebugDescriptionMacro -enable-bare-slash-regex -module-name BambuserCommerceSDK
+// swift-module-flags-ignorable: -no-verify-emitted-module-interface -interface-compiler-version 6.1.2
 import AVKit
 
 import Foundation
@@ -13,7 +13,7 @@ import _StringProcessing
 import _SwiftConcurrencyShims
 public struct BambuserEventPayload {
   public let type: Swift.String
-  public let data: [Swift.String : Any]
+  public let data: [Swift.String : any Swift.Sendable]
 }
 public enum InlineVideoAsset : Swift.Sendable, Swift.Equatable, BambuserCommerceSDK.BambuserVideoType {
   case playlist(BambuserCommerceSDK.BambuserShoppableVideoPlaylistInfo)
@@ -25,6 +25,10 @@ public typealias BambuserShoppableVideoAsset = BambuserCommerceSDK.InlineVideoAs
 public typealias BambuserShoppableVideoConfiguration = BambuserCommerceSDK.BambuserVideoPlayerConfiguration<BambuserCommerceSDK.BambuserShoppableVideoAsset>
 public protocol BambuserPictureInPictureDelegate : AnyObject {
   func onPictureInPictureStateChanged(_ id: Swift.String, state: BambuserCommerceSDK.PlayerPipState)
+}
+public struct BambuserPlayerCollection {
+  public let players: [any BambuserCommerceSDK.BambuserPlayerView]
+  public let pagination: BambuserCommerceSDK.Pagination
 }
 public enum BambuserPlayerError : Swift.Error, Foundation.LocalizedError {
   case invalidTypeForUniqueShoppableVideo
@@ -48,7 +52,7 @@ public enum BambuserPlayerError : Swift.Error, Foundation.LocalizedError {
   @discardableResult
   @_Concurrency.MainActor func invoke(function: Swift.String, arguments: Swift.String) async throws -> Any?
   @_Concurrency.MainActor func notify(callbackKey: Swift.String, info: Any)
-  @_Concurrency.MainActor func track(event: Swift.String, with data: [Swift.String : Any]) async throws -> [Swift.String : Any]?
+  @_Concurrency.MainActor func track(event: Swift.String, with data: [Swift.String : any Swift.Sendable]) async throws -> [Swift.String : any Swift.Sendable]?
   @_Concurrency.MainActor func play()
   @_Concurrency.MainActor func pause()
   @_Concurrency.MainActor var currentPlayerMode: BambuserCommerceSDK.InlinePlayerMode { get }
@@ -66,11 +70,10 @@ public typealias BambuserVideoConfiguration = BambuserCommerceSDK.BambuserVideoP
   
   @_Concurrency.MainActor public func createShoppableVideoPlayer(videoConfiguration: BambuserCommerceSDK.BambuserShoppableVideoConfiguration) async throws -> some UIKit.UIView & BambuserCommerceSDK.BambuserPlayerView
   
-  @_Concurrency.MainActor public func createShoppableVideoPlayers(videoConfiguration: BambuserCommerceSDK.BambuserShoppableVideoConfiguration) async throws -> [some UIKit.UIView & BambuserCommerceSDK.BambuserPlayerView]
-  
+  @_Concurrency.MainActor public func createShoppableVideoPlayerCollection(videoConfiguration: BambuserCommerceSDK.BambuserShoppableVideoConfiguration, page: Swift.Int = 1, pageSize: Swift.Int = 15) async throws -> BambuserCommerceSDK.BambuserPlayerCollection
 }
-public struct BambuserVideoPlayerConfiguration<VideoType> where VideoType : BambuserCommerceSDK.BambuserVideoType {
-  public init(type: VideoType, events: [Swift.String] = ["*"], configuration: [Swift.String : Any]?)
+public struct BambuserVideoPlayerConfiguration<VideoType> : @unchecked Swift.Sendable where VideoType : BambuserCommerceSDK.BambuserVideoType {
+  public init(type: VideoType, events: [Swift.String] = ["*"], configuration: [Swift.String : any Swift.Sendable]?)
 }
 public protocol BambuserVideoPlayerDelegate : AnyObject {
   func onVideoStatusChanged(_ id: Swift.String, state: BambuserCommerceSDK.BambuserVideoState)
@@ -96,13 +99,19 @@ public enum BambuserVideoState {
     get
   }
 }
-public protocol BambuserVideoType {
+public protocol BambuserVideoType : Swift.Sendable {
+}
+public struct Pagination : Swift.Codable {
+  public let totalPages: Swift.Int
+  public let pageSize: Swift.Int, total: Swift.Int, page: Swift.Int
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
 }
 public enum InlinePlayerMode : Swift.Equatable {
   case preview
   case fullExperience
-  public func hash(into hasher: inout Swift.Hasher)
   public static func == (a: BambuserCommerceSDK.InlinePlayerMode, b: BambuserCommerceSDK.InlinePlayerMode) -> Swift.Bool
+  public func hash(into hasher: inout Swift.Hasher)
   public var hashValue: Swift.Int {
     get
   }
@@ -117,28 +126,23 @@ public struct InlineSkuInfo : Swift.Sendable, Swift.Equatable {
   public static func == (a: BambuserCommerceSDK.InlineSkuInfo, b: BambuserCommerceSDK.InlineSkuInfo) -> Swift.Bool
 }
 public typealias BambuserShoppableVideoSkuInfo = BambuserCommerceSDK.InlineSkuInfo
-public enum OrganizationServer : Swift.Codable, Swift.CaseIterable {
+public enum OrganizationServer : Swift.Codable, Swift.CaseIterable, Swift.Sendable {
   case EU
   case US
   public static func == (a: BambuserCommerceSDK.OrganizationServer, b: BambuserCommerceSDK.OrganizationServer) -> Swift.Bool
-  public func hash(into hasher: inout Swift.Hasher)
   public typealias AllCases = [BambuserCommerceSDK.OrganizationServer]
   nonisolated public static var allCases: [BambuserCommerceSDK.OrganizationServer] {
     get
   }
   public func encode(to encoder: any Swift.Encoder) throws
+  public func hash(into hasher: inout Swift.Hasher)
   public var hashValue: Swift.Int {
     get
   }
   public init(from decoder: any Swift.Decoder) throws
 }
-#if compiler(>=5.3) && $RetroactiveAttribute
 extension Foundation.Timer : @unchecked @retroactive Swift.Sendable {
 }
-#else
-extension Foundation.Timer : @unchecked Swift.Sendable {
-}
-#endif
 @_Concurrency.MainActor public protocol PictureInPictureController {
   @_Concurrency.MainActor var delegate: (any BambuserCommerceSDK.BambuserPictureInPictureDelegate)? { get set }
   @_Concurrency.MainActor var isEnabled: Swift.Bool { get set }

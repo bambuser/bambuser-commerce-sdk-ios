@@ -43,7 +43,7 @@ final class EventHandlingViewController: UIViewController, BambuserVideoPlayerDe
         /// - `configuration`: Provides additional player settings.
         /// More information: [Bambuser Player API Reference](https://bambuser.com/docs/live/player-api-reference/)
         let config = BambuserVideoConfiguration(
-            type: .live(id: "rks6lVf4Xwa9wuuMFaQv"), // Pass the show ID
+            type: .live(id: "aHT8jNIYeDbh8vrNJ8ju"), // Pass the show ID
             events: ["*"], // Pass `["*"]` to receive **all available events** from the SDK.
             configuration: [
                 "buttons": [
@@ -124,7 +124,7 @@ final class EventHandlingViewController: UIViewController, BambuserVideoPlayerDe
 
     /// Handles the event when a product is tapped.
     /// - Parameter data: The product data received from the event.
-    private func productTapped(_ data: [String: Any]) {
+    private func productTapped(_ data: [String: Sendable]) {
         guard let product = Product(data: data) else {
             print("Something went wrong with parsing product data!")
             return
