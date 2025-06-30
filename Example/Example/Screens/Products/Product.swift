@@ -14,8 +14,8 @@ struct Product: Hashable {
     let title: String
     let url: URL
 
-    init?(data: [String: Any]) {
-        guard let event = data["event"] as? [String: Any],
+    init?(data: [String: Sendable]) {
+        guard let event = data["event"] as? [String: Sendable],
               let id = event["id"] as? String,
               let sku = event["sku"] as? String,
               let title = event["title"] as? String,

@@ -25,19 +25,19 @@ struct ProductHydrationDataSource {
     static let sampleProducts: [String: HydratedProduct] = [
         "436775": HydratedProduct(
             sku: "436775",
-            name: "Livall Cykelhjälm L – Evopurl Large",
-            brandName: "Livall",
-            introduction: "High-performance cycling helmet offering superior protection and style.",
-            description: "Designed for urban cyclists, this helmet features advanced impact protection, excellent ventilation, and an ergonomic design to keep you safe and comfortable.",
+            name: "Sunlit Glow Bronzer",
+            brandName: "Sunlit",
+            introduction: "Get that sun-kissed glow with our Sunlit Glow Bronzer.",
+            description: "Get that sun-kissed glow with our Sunlit Glow Bronzer. Effortlessly blendable and available in versatile shades, our finely milled formula enhances your complexion with a natural-looking tan. Embrace radiant warmth and vitality all year round.",
             variations: [
                 Variation(
-                    sku: "436775-black",
-                    name: "Black Livall Helmet",
-                    colorName: "black",
-                    imageUrls: [URL(string: "https://www.elgiganten.se/_next/image?url=https%3A%2F%2Fmedia.elkjop.com%2Fassets%2Fimage%2Fdv_web_D180001002952050&w=1200&q=75")!],
+                    sku: "436775-bronzer",
+                    name: "Sunlit Glow Bronzer",
+                    colorName: "bronzer",
+                    imageUrls: [URL(string: "https://cdn.prod.website-files.com/66c31044a23e58e719bc6ffb/66c33d86064576f49e7b792c_Makeup_2.webp")!],
                     sizes: [
                         ProductSize(
-                            sku: "436775-black-medium",
+                            sku: "436775-Bronzer-medium",
                             current: 999.0,
                             name: "Medium",
                             inStock: 15,
@@ -53,19 +53,19 @@ struct ProductHydrationDataSource {
         ),
         "614442": HydratedProduct(
             sku: "614442",
-            name: "Pro-Tect Cubic Kedjecykellås",
-            brandName: "Pro-Tect",
-            introduction: "Secure your bike with this heavy-duty chain lock.",
-            description: "Robust and durable, this chain lock is designed for maximum security in urban environments, keeping your bike safe day and night.",
+            name: "Shine On Lip Gloss",
+            brandName: "Shine",
+            introduction: "Elevate your lip game with our high-shine, non-sticky lip gloss.",
+            description: "Elevate your lip game with our high-shine, non-sticky lip gloss. Get ready to add a pop of luscious color and irresistible gloss to your pout, while keeping your lips soft, moisturized and kissable.",
             variations: [
                 Variation(
-                    sku: "614442-silver",
-                    name: "Cubic Chain Lock - Silver",
-                    colorName: "silver",
-                    imageUrls: [URL(string: "https://www.elgiganten.se/_next/image?url=https%3A%2F%2Fmedia.elkjop.com%2Fassets%2Fimage%2Fdv_web_D1800010021483116&w=1200&q=75")!],
+                    sku: "614442-gloss",
+                    name: "Shine On Lip Gloss",
+                    colorName: "gloss",
+                    imageUrls: [URL(string: "https://cdn.prod.website-files.com/66c31044a23e58e719bc6ffb/66c33d6271dc1a3f03745c37_Makeup_5.webp")!],
                     sizes: [
                         ProductSize(
-                            sku: "614442-silver-standard",
+                            sku: "614442-gloss-standard",
                             current: 999.0,
                             name: "Standard",
                             inStock: 20,
@@ -81,16 +81,16 @@ struct ProductHydrationDataSource {
         ),
         "624114": HydratedProduct(
             sku: "624114",
-            name: "Bird A-Frame Elcykel VA00056",
-            brandName: "Bird",
+            name: "Lash Amplify Mascara",
+            brandName: "Lash",
             introduction: "Efficient electric bike for urban commuting.",
-            description: "<div><h2>Modern Electric Bike</h2><p>Experience a modern electric bike featuring cutting-edge technology and a stylish design, perfect for daily commuting.</p></div>",
+            description: "Efficient electric bike for urban commuting.Achieve voluminous, full lashes that command attention with our game-changing mascara. Get ready to elevate your lash game with our innovative formula that lengthens, lifts and defines each lash to perfection.",
             variations: [
                 Variation(
                     sku: "624114-standard",
-                    name: "Standard Bird A-Frame Elcykel",
+                    name: "Lash Amplify Mascara",
                     colorName: "default",
-                    imageUrls: [URL(string: "https://www.elgiganten.se/_next/image?url=https%3A%2F%2Fmedia.elkjop.com%2Fassets%2Fimage%2Fdv_web_D1800012698969&w=1200&q=75")!],
+                    imageUrls: [URL(string: "https://cdn.prod.website-files.com/66c31044a23e58e719bc6ffb/66c33c0b2e7fa3ab0d3b129d_Makeup_3.png")!],
                     sizes: [
                         ProductSize(
                             sku: "614442-silver-standard",
@@ -112,14 +112,14 @@ struct ProductHydrationDataSource {
     static let mockClientProducts: [String: MockClientProduct] = [
         "436775": MockClientProduct(
             sku: "436775",
-            productName: "Livall Cykelhjälm L – Evopurl Large",
-            brand: "Livall",
+            productName: "Sunlit Glow Bronzer",
+            brand: "Sunlit",
             attributes: [
                 .init(
-                    sku: "436775-black",
-                    name: "Black Livall Helmet",
+                    sku: "436775-bronzer",
+                    name: "Sunlit Glow Bronzer",
                     colorName: "black",
-                    imageUrls: [URL(string: "https://www.elgiganten.se/_next/image?url=https%3A%2F%2Fmedia.elkjop.com%2Fassets%2Fimage%2Fdv_web_D180001002952050&w=1200&q=75")!],
+                    imageUrls: [URL(string: "https://cdn.prod.website-files.com/66c31044a23e58e719bc6ffb/66c33d86064576f49e7b792c_Makeup_2.webp")!],
                     sizes: [
                         .init(
                             sku: "436775-black-medium",
@@ -139,14 +139,14 @@ struct ProductHydrationDataSource {
         ),
         "614442": MockClientProduct(
             sku: "614442",
-            productName: "Pro-Tect Cubic Kedjecykellås",
-            brand: "Pro-Tect",
+            productName: "Shine On Lip Gloss",
+            brand: "Shine",
             attributes: [
                 .init(
                     sku: "614442-silver",
                     name: "Cubic Chain Lock - Silver",
                     colorName: "silver",
-                    imageUrls: [URL(string: "https://www.elgiganten.se/_next/image?url=https%3A%2F%2Fmedia.elkjop.com%2Fassets%2Fimage%2Fdv_web_D1800010021483116&w=1200&q=75")!],
+                    imageUrls: [URL(string: "https://cdn.prod.website-files.com/66c31044a23e58e719bc6ffb/66c33d6271dc1a3f03745c37_Makeup_5.webp")!],
                     sizes: [
                         .init(
                             sku: "614442-silver-standard",
