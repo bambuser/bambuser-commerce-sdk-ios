@@ -13,7 +13,7 @@ import Foundation
 /// enriched product data during live or recorded shopping experiences.
 ///
 /// > Important: The Bambuser SDK does **not** explicitly require this exact data structure in Swift.
-/// > Instead, it expects a **JSON-compatible representation** of this format (e.g., a `[String: Any]` dictionary).
+/// > Instead, it expects a **JSON-compatible representation** of this format (e.g., a `[String: Sendable]` dictionary).
 ///
 /// You can refer to:
 /// - `hydrateUsingProductBuilder(data:)

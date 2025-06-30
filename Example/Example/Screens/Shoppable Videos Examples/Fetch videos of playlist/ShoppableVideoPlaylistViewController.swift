@@ -227,15 +227,19 @@ final class ShoppableVideoPlaylistViewController: UIViewController {
                     ]
                 )
 
-                let views = try await bambuserPlayer.createShoppableVideoPlayers(
+                /// Default page size is 15, you can change it by passing `pageSize` parameter.
+                /// You can also pass `page` parameter to fetch specific page of videos.
+                let results = try await bambuserPlayer.createShoppableVideoPlayerCollection(
                     videoConfiguration: config
                 )
+                /// Pagination info can be used to fetch more videos if available.
+                print(results.pagination)
                 await MainActor.run {
                     switch layoutMode {
                     case .grid:
-                        setupGrid(views, columns: gridColumns)
+                        setupGrid(results.players, columns: gridColumns)
                     case .carousel:
-                        setupCarousel(views)
+                        setupCarousel(results.players)
                     }
                 }
             } catch {
@@ -319,8 +323,6 @@ final class ShoppableVideoPlaylistViewController: UIViewController {
             videoView.addGestureRecognizer(tap)
             videoStack.addArrangedSubview(videoView)
         }
-        // Optionally, auto-play the first video
-        playVideo(at: 0)
     }
 
     // MARK: - Video Playback Controls

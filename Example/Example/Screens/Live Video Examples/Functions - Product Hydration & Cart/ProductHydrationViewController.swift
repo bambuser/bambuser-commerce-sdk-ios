@@ -106,9 +106,9 @@ final class ProductHydrationViewController: UIViewController, BambuserVideoPlaye
 
     /// This method demonstrates how to hydrate products and send product hydration info to the player.
     /// It retrieves product data and updates the player accordingly.
-    func hydrate(data: [String: Any]) async throws {
-        guard let event = data["event"] as? [String: Any],
-              let products = event["products"] as? [[String: Any]] else { return }
+    func hydrate(data: [String: Sendable]) async throws {
+        guard let event = data["event"] as? [String: Sendable],
+              let products = event["products"] as? [[String: Sendable]] else { return }
         for product in products {
             guard let sku = product["ref"] as? String,
                   let id = product["id"] as? String,
@@ -139,9 +139,9 @@ final class ProductHydrationViewController: UIViewController, BambuserVideoPlaye
     /// The included example of a client product model is illustrative. Developers should adapt
     /// and customize the implementation to fit the structure and requirements of their own
     /// client-side product data and integration needs.
-    func hydrateUsingProductBuilder(data: [String: Any]) async throws {
-        guard let event = data["event"] as? [String: Any],
-              let products = event["products"] as? [[String: Any]] else { return }
+    func hydrateUsingProductBuilder(data: [String: Sendable]) async throws {
+        guard let event = data["event"] as? [String: Sendable],
+              let products = event["products"] as? [[String: Sendable]] else { return }
         for product in products {
             guard let sku = product["ref"] as? String,
                   let id = product["id"] as? String else { continue }
@@ -226,7 +226,7 @@ final class ProductHydrationViewController: UIViewController, BambuserVideoPlaye
                 return
             }
             var quantity = -1
-            if let event = event.data["event"] as? [String: Any],
+            if let event = event.data["event"] as? [String: Sendable],
                let value = event["quantity"] as? Int {
                 quantity = value
             }

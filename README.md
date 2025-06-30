@@ -111,12 +111,21 @@ let config = BambuserShoppableVideoConfiguration(
     ]
 )
 
-let views = try await bambuserPlayer.createShoppableVideoPlayerCollection(
-    videoConfiguration: config
+// Load the first page of videos (default page = 1, pageSize = 15)
+let result = try await bambuserPlayer.createShoppableVideoPlayerCollection(
+    videoConfiguration: config,
+    page: 1, // Pass value of page to fetch
+    pageSize: 15
 )
 
 // Bind views to your UI
-setupUI(for: views)
+setupUI(for: result.players)
+
+// Access pagination info
+let currentPage = result.pagination.page
+let totalPages = result.pagination.totalPages
+let pageSize = result.pagination.pageSize
+let totalItems = result.pagination.total
 ```
 
 #### Shoppable Videos (Playlist)
@@ -150,12 +159,21 @@ let config = BambuserShoppableVideoConfiguration(
     ]
 )
 
-let views = try await bambuserPlayer.createShoppableVideoPlayerCollection(
-    videoConfiguration: config
+// Load the first page of videos (default page = 1, pageSize = 15)
+let result = try await bambuserPlayer.createShoppableVideoPlayerCollection(
+    videoConfiguration: config,
+    page: 1, // Pass value of page to fetch
+    pageSize: 15
 )
 
 // Bind views to your UI
-setupUI(for: views)
+setupUI(for: result.players)
+
+// Access pagination info
+let currentPage = result.pagination.page
+let totalPages = result.pagination.totalPages
+let pageSize = result.pagination.pageSize
+let totalItems = result.pagination.total
 ```
 
 #### Shoppable Video (Single Video ID)

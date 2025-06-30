@@ -124,7 +124,7 @@ final class EventHandlingViewController: UIViewController, BambuserVideoPlayerDe
 
     /// Handles the event when a product is tapped.
     /// - Parameter data: The product data received from the event.
-    private func productTapped(_ data: [String: Any]) {
+    private func productTapped(_ data: [String: Sendable]) {
         guard let product = Product(data: data) else {
             print("Something went wrong with parsing product data!")
             return

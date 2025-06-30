@@ -15,6 +15,7 @@
 		2C64ADD37B412A75377C698D /* ShoppableVideoWithSKUViewRepresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8205FEF0901C738A0CB05152 /* ShoppableVideoWithSKUViewRepresentable.swift */; };
 		2DEE6D690053A4141E62B24E /* ShoppableVideoViewRepresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF280E002FD30A68F076AF6F /* ShoppableVideoViewRepresentable.swift */; };
 		31F0D246C2E427DD85EA01C3 /* MockClientProduct.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6CFD489F21785CD2DCC9D84 /* MockClientProduct.swift */; };
+		36DCE76D2E12A1A100664247 /* BambuserCommerceSDK in Frameworks */ = {isa = PBXBuildFile; productRef = 36DCE76C2E12A1A100664247 /* BambuserCommerceSDK */; };
 		5B9D7974E79CA70796A2D64D /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13D7B51256ED5532ACABC004 /* HomeView.swift */; };
 		6BDA1BA221124C42BF35FC8B /* EventHandlingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044B26A0BCB27E5A85DEEC1B /* EventHandlingViewController.swift */; };
 		72E5BF4493766B6D7BEAFB9E /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 428ACFD093BDCF94DB02069B /* ContentView.swift */; };
@@ -36,7 +37,6 @@
 		D5FEE2F39861BF9A49B33324 /* EventHandlingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4622AA47BC5883ECD39C9D7D /* EventHandlingView.swift */; };
 		EB265F27ECA9FDF0AA919EA9 /* ShoppableVideoPlaylistViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A05870BC5E3C05CF95AF5E5 /* ShoppableVideoPlaylistViewController.swift */; };
 		EC0F5BBE2FD9A454F0CA94BD /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C783A144FFAFC56CCFE28C0C /* Preview Assets.xcassets */; };
-		F0DA770994F880A308C23AC1 /* BambuserCommerceSDK in Frameworks */ = {isa = PBXBuildFile; productRef = 8D02914874D2DA3615D1162D /* BambuserCommerceSDK */; };
 		F9BDCD8233D655F8EF3263A2 /* ProductBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14B1AC5109C73A16AB29476A /* ProductBuilder.swift */; };
 /* End PBXBuildFile section */
 
@@ -79,7 +79,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F0DA770994F880A308C23AC1 /* BambuserCommerceSDK in Frameworks */,
+				36DCE76D2E12A1A100664247 /* BambuserCommerceSDK in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -268,7 +268,7 @@
 			);
 			name = demo;
 			packageProductDependencies = (
-				8D02914874D2DA3615D1162D /* BambuserCommerceSDK */,
+				36DCE76C2E12A1A100664247 /* BambuserCommerceSDK */,
 			);
 			productName = demo;
 			productReference = BF1D93CEF93A3AAF04A58ADD /* demo.app */;
@@ -294,7 +294,7 @@
 			mainGroup = 54E0667A38E60354DB90F776;
 			minimizedProjectReferenceProxies = 1;
 			packageReferences = (
-				AF4C6D5A6FB659DB1E3FFC6D /* XCRemoteSwiftPackageReference "bambuser-commerce-sdk-ios" */,
+				36DCE76B2E12A1A100664247 /* XCRemoteSwiftPackageReference "bambuser-commerce-sdk-ios" */,
 			);
 			projectDirPath = "";
 			projectRoot = "";
@@ -540,20 +540,20 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		AF4C6D5A6FB659DB1E3FFC6D /* XCRemoteSwiftPackageReference "bambuser-commerce-sdk-ios" */ = {
+		36DCE76B2E12A1A100664247 /* XCRemoteSwiftPackageReference "bambuser-commerce-sdk-ios" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/bambuser/bambuser-commerce-sdk-ios/";
 			requirement = {
-				branch = "2.0.0-beta";
+				branch = "heads/2.0.0-beta";
 				kind = branch;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		8D02914874D2DA3615D1162D /* BambuserCommerceSDK */ = {
+		36DCE76C2E12A1A100664247 /* BambuserCommerceSDK */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = AF4C6D5A6FB659DB1E3FFC6D /* XCRemoteSwiftPackageReference "bambuser-commerce-sdk-ios" */;
+			package = 36DCE76B2E12A1A100664247 /* XCRemoteSwiftPackageReference "bambuser-commerce-sdk-ios" */;
 			productName = BambuserCommerceSDK;
 		};
 /* End XCSwiftPackageProductDependency section */
