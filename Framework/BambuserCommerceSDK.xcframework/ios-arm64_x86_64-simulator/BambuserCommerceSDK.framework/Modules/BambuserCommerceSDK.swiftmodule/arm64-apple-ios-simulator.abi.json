@@ -2940,14 +2940,22 @@
             "children": [
               {
                 "kind": "TypeNominal",
-                "name": "Int",
-                "printedName": "Swift.Int",
-                "usr": "s:Si"
+                "name": "Optional",
+                "printedName": "Swift.Int?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Int",
+                    "printedName": "Swift.Int",
+                    "usr": "s:Si"
+                  }
+                ],
+                "usr": "s:Sq"
               }
             ],
             "declKind": "Var",
-            "usr": "s:19BambuserCommerceSDK10PaginationV10totalPagesSivp",
-            "mangledName": "$s19BambuserCommerceSDK10PaginationV10totalPagesSivp",
+            "usr": "s:19BambuserCommerceSDK10PaginationV10totalPagesSiSgvp",
+            "mangledName": "$s19BambuserCommerceSDK10PaginationV10totalPagesSiSgvp",
             "moduleName": "BambuserCommerceSDK",
             "declAttributes": [
               "HasStorage",
@@ -2963,14 +2971,22 @@
                 "children": [
                   {
                     "kind": "TypeNominal",
-                    "name": "Int",
-                    "printedName": "Swift.Int",
-                    "usr": "s:Si"
+                    "name": "Optional",
+                    "printedName": "Swift.Int?",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Int",
+                        "printedName": "Swift.Int",
+                        "usr": "s:Si"
+                      }
+                    ],
+                    "usr": "s:Sq"
                   }
                 ],
                 "declKind": "Accessor",
-                "usr": "s:19BambuserCommerceSDK10PaginationV10totalPagesSivg",
-                "mangledName": "$s19BambuserCommerceSDK10PaginationV10totalPagesSivg",
+                "usr": "s:19BambuserCommerceSDK10PaginationV10totalPagesSiSgvg",
+                "mangledName": "$s19BambuserCommerceSDK10PaginationV10totalPagesSiSgvg",
                 "moduleName": "BambuserCommerceSDK",
                 "implicit": true,
                 "accessorKind": "get"
@@ -3197,6 +3213,213 @@
             "printedName": "Encodable",
             "usr": "s:SE",
             "mangledName": "$sSE"
+          }
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "UIKit",
+        "printedName": "UIKit",
+        "declKind": "Import",
+        "moduleName": "BambuserCommerceSDK",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "Combine",
+        "printedName": "Combine",
+        "declKind": "Import",
+        "moduleName": "BambuserCommerceSDK"
+      },
+      {
+        "kind": "TypeDecl",
+        "name": "DynamicFontSizeService",
+        "printedName": "DynamicFontSizeService",
+        "children": [
+          {
+            "kind": "Constructor",
+            "name": "init",
+            "printedName": "init(baseSize:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "DynamicFontSizeService",
+                "printedName": "BambuserCommerceSDK.DynamicFontSizeService",
+                "usr": "s:19BambuserCommerceSDK22DynamicFontSizeServiceC"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "CGFloat",
+                "printedName": "CoreGraphics.CGFloat",
+                "usr": "s:14CoreFoundation7CGFloatV"
+              }
+            ],
+            "declKind": "Constructor",
+            "usr": "s:19BambuserCommerceSDK22DynamicFontSizeServiceC04baseF0AC14CoreFoundation7CGFloatV_tcfc",
+            "mangledName": "$s19BambuserCommerceSDK22DynamicFontSizeServiceC04baseF0AC12CoreGraphics7CGFloatV_tcfc",
+            "moduleName": "BambuserCommerceSDK",
+            "declAttributes": [
+              "AccessControl"
+            ],
+            "init_kind": "Designated"
+          },
+          {
+            "kind": "Var",
+            "name": "fontSizePublisher",
+            "printedName": "fontSizePublisher",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "Combine.AnyPublisher<CoreGraphics.CGFloat, Swift.Never>?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "AnyPublisher",
+                    "printedName": "Combine.AnyPublisher<CoreGraphics.CGFloat, Swift.Never>",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "CGFloat",
+                        "printedName": "CoreGraphics.CGFloat",
+                        "usr": "s:14CoreFoundation7CGFloatV"
+                      },
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Never",
+                        "printedName": "Swift.Never",
+                        "usr": "s:s5NeverO"
+                      }
+                    ],
+                    "usr": "s:7Combine12AnyPublisherV"
+                  }
+                ],
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:19BambuserCommerceSDK22DynamicFontSizeServiceC04fontF9Publisher7Combine03AnyI0Vy14CoreFoundation7CGFloatVs5NeverOGSgvp",
+            "mangledName": "$s19BambuserCommerceSDK22DynamicFontSizeServiceC04fontF9Publisher7Combine03AnyI0Vy12CoreGraphics7CGFloatVs5NeverOGSgvp",
+            "moduleName": "BambuserCommerceSDK",
+            "declAttributes": [
+              "Final",
+              "AccessControl"
+            ],
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Optional",
+                    "printedName": "Combine.AnyPublisher<CoreGraphics.CGFloat, Swift.Never>?",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "AnyPublisher",
+                        "printedName": "Combine.AnyPublisher<CoreGraphics.CGFloat, Swift.Never>",
+                        "children": [
+                          {
+                            "kind": "TypeNominal",
+                            "name": "CGFloat",
+                            "printedName": "CoreGraphics.CGFloat",
+                            "usr": "s:14CoreFoundation7CGFloatV"
+                          },
+                          {
+                            "kind": "TypeNominal",
+                            "name": "Never",
+                            "printedName": "Swift.Never",
+                            "usr": "s:s5NeverO"
+                          }
+                        ],
+                        "usr": "s:7Combine12AnyPublisherV"
+                      }
+                    ],
+                    "usr": "s:Sq"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:19BambuserCommerceSDK22DynamicFontSizeServiceC04fontF9Publisher7Combine03AnyI0Vy14CoreFoundation7CGFloatVs5NeverOGSgvg",
+                "mangledName": "$s19BambuserCommerceSDK22DynamicFontSizeServiceC04fontF9Publisher7Combine03AnyI0Vy12CoreGraphics7CGFloatVs5NeverOGSgvg",
+                "moduleName": "BambuserCommerceSDK",
+                "declAttributes": [
+                  "Final"
+                ],
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "currentFontSize",
+            "printedName": "currentFontSize",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "CGFloat",
+                "printedName": "CoreGraphics.CGFloat",
+                "usr": "s:14CoreFoundation7CGFloatV"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:19BambuserCommerceSDK22DynamicFontSizeServiceC07currenteF014CoreFoundation7CGFloatVvp",
+            "mangledName": "$s19BambuserCommerceSDK22DynamicFontSizeServiceC07currenteF012CoreGraphics7CGFloatVvp",
+            "moduleName": "BambuserCommerceSDK",
+            "declAttributes": [
+              "Final",
+              "AccessControl"
+            ],
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "CGFloat",
+                    "printedName": "CoreGraphics.CGFloat",
+                    "usr": "s:14CoreFoundation7CGFloatV"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:19BambuserCommerceSDK22DynamicFontSizeServiceC07currenteF014CoreFoundation7CGFloatVvg",
+                "mangledName": "$s19BambuserCommerceSDK22DynamicFontSizeServiceC07currenteF012CoreGraphics7CGFloatVvg",
+                "moduleName": "BambuserCommerceSDK",
+                "declAttributes": [
+                  "Final"
+                ],
+                "accessorKind": "get"
+              }
+            ]
+          }
+        ],
+        "declKind": "Class",
+        "usr": "s:19BambuserCommerceSDK22DynamicFontSizeServiceC",
+        "mangledName": "$s19BambuserCommerceSDK22DynamicFontSizeServiceC",
+        "moduleName": "BambuserCommerceSDK",
+        "declAttributes": [
+          "Final",
+          "AccessControl"
+        ],
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Copyable",
+            "printedName": "Copyable",
+            "usr": "s:s8CopyableP",
+            "mangledName": "$ss8CopyableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Escapable",
+            "printedName": "Escapable",
+            "usr": "s:s9EscapableP",
+            "mangledName": "$ss9EscapableP"
           }
         ]
       },
@@ -6025,6 +6248,13 @@
       },
       {
         "kind": "Import",
+        "name": "Combine",
+        "printedName": "Combine",
+        "declKind": "Import",
+        "moduleName": "BambuserCommerceSDK"
+      },
+      {
+        "kind": "Import",
         "name": "Foundation",
         "printedName": "Foundation",
         "declKind": "Import",
@@ -6147,14 +6377,14 @@
     {
       "filePath": "\/Users\/saeid\/Documents\/projects\/frameworks\/commerce-sdk\/bambuser-commerce-sdk-ios\/Files\/Sources\/BambuserCommerceSDK\/Interface\/BambuserVideoPlayer.swift",
       "kind": "IntegerLiteral",
-      "offset": 4422,
+      "offset": 4432,
       "length": 1,
       "value": "1"
     },
     {
       "filePath": "\/Users\/saeid\/Documents\/projects\/frameworks\/commerce-sdk\/bambuser-commerce-sdk-ios\/Files\/Sources\/BambuserCommerceSDK\/Interface\/BambuserVideoPlayer.swift",
       "kind": "IntegerLiteral",
-      "offset": 4449,
+      "offset": 4459,
       "length": 2,
       "value": "15"
     },
@@ -6184,7 +6414,7 @@
       "kind": "StringLiteral",
       "offset": 246,
       "length": 7,
-      "value": "\"1.1.0\""
+      "value": "\"2.0.1\""
     },
     {
       "filePath": "\/Users\/saeid\/Documents\/projects\/frameworks\/commerce-sdk\/bambuser-commerce-sdk-ios\/Files\/Sources\/BambuserCommerceSDK\/Implementation\/VideoPlayer\/Environment.swift",
@@ -6313,6 +6543,69 @@
       "value": "false"
     },
     {
+      "filePath": "\/Users\/saeid\/Documents\/projects\/frameworks\/commerce-sdk\/bambuser-commerce-sdk-ios\/Files\/Sources\/BambuserCommerceSDK\/Implementation\/VideoPlayer\/Player\/PlayerViewImpl.swift",
+      "kind": "BooleanLiteral",
+      "offset": 7487,
+      "length": 5,
+      "value": "false"
+    },
+    {
+      "filePath": "\/Users\/saeid\/Documents\/projects\/frameworks\/commerce-sdk\/bambuser-commerce-sdk-ios\/Files\/Sources\/BambuserCommerceSDK\/Implementation\/VideoPlayer\/Player\/PlayerViewImpl.swift",
+      "kind": "IntegerLiteral",
+      "offset": 8024,
+      "length": 2,
+      "value": "29"
+    },
+    {
+      "filePath": "\/Users\/saeid\/Documents\/projects\/frameworks\/commerce-sdk\/bambuser-commerce-sdk-ios\/Files\/Sources\/BambuserCommerceSDK\/Implementation\/VideoPlayer\/Player\/PlayerViewImpl.swift",
+      "kind": "IntegerLiteral",
+      "offset": 8027,
+      "length": 3,
+      "value": "255"
+    },
+    {
+      "filePath": "\/Users\/saeid\/Documents\/projects\/frameworks\/commerce-sdk\/bambuser-commerce-sdk-ios\/Files\/Sources\/BambuserCommerceSDK\/Implementation\/VideoPlayer\/Player\/PlayerViewImpl.swift",
+      "kind": "IntegerLiteral",
+      "offset": 8039,
+      "length": 2,
+      "value": "29"
+    },
+    {
+      "filePath": "\/Users\/saeid\/Documents\/projects\/frameworks\/commerce-sdk\/bambuser-commerce-sdk-ios\/Files\/Sources\/BambuserCommerceSDK\/Implementation\/VideoPlayer\/Player\/PlayerViewImpl.swift",
+      "kind": "IntegerLiteral",
+      "offset": 8042,
+      "length": 3,
+      "value": "255"
+    },
+    {
+      "filePath": "\/Users\/saeid\/Documents\/projects\/frameworks\/commerce-sdk\/bambuser-commerce-sdk-ios\/Files\/Sources\/BambuserCommerceSDK\/Implementation\/VideoPlayer\/Player\/PlayerViewImpl.swift",
+      "kind": "IntegerLiteral",
+      "offset": 8053,
+      "length": 2,
+      "value": "29"
+    },
+    {
+      "filePath": "\/Users\/saeid\/Documents\/projects\/frameworks\/commerce-sdk\/bambuser-commerce-sdk-ios\/Files\/Sources\/BambuserCommerceSDK\/Implementation\/VideoPlayer\/Player\/PlayerViewImpl.swift",
+      "kind": "IntegerLiteral",
+      "offset": 8056,
+      "length": 3,
+      "value": "255"
+    },
+    {
+      "filePath": "\/Users\/saeid\/Documents\/projects\/frameworks\/commerce-sdk\/bambuser-commerce-sdk-ios\/Files\/Sources\/BambuserCommerceSDK\/Implementation\/VideoPlayer\/Player\/PlayerViewImpl.swift",
+      "kind": "IntegerLiteral",
+      "offset": 8068,
+      "length": 1,
+      "value": "1"
+    },
+    {
+      "filePath": "\/Users\/saeid\/Documents\/projects\/frameworks\/commerce-sdk\/bambuser-commerce-sdk-ios\/Files\/Sources\/BambuserCommerceSDK\/Implementation\/VideoPlayer\/Player\/PlayerViewImpl.swift",
+      "kind": "BooleanLiteral",
+      "offset": 8228,
+      "length": 5,
+      "value": "false"
+    },
+    {
       "filePath": "\/Users\/saeid\/Documents\/projects\/frameworks\/commerce-sdk\/bambuser-commerce-sdk-ios\/Files\/Sources\/BambuserCommerceSDK\/Implementation\/VideoPlayer\/Models\/Tracking\/TrackingDataModel.swift",
       "kind": "StringLiteral",
       "offset": 185,
@@ -6413,28 +6706,35 @@
     {
       "filePath": "\/Users\/saeid\/Documents\/projects\/frameworks\/commerce-sdk\/bambuser-commerce-sdk-ios\/Files\/Sources\/BambuserCommerceSDK\/Implementation\/VideoPlayer\/WebViewManager\/WebViewManager+Types.swift",
       "kind": "StringLiteral",
-      "offset": 1720,
+      "offset": 1739,
       "length": 12,
       "value": "\"timeupdate\""
     },
     {
       "filePath": "\/Users\/saeid\/Documents\/projects\/frameworks\/commerce-sdk\/bambuser-commerce-sdk-ios\/Files\/Sources\/BambuserCommerceSDK\/Implementation\/VideoPlayer\/WebViewManager\/WebViewManager+Types.swift",
       "kind": "StringLiteral",
-      "offset": 1943,
+      "offset": 1962,
       "length": 16,
       "value": "\"durationchange\""
     },
     {
       "filePath": "\/Users\/saeid\/Documents\/projects\/frameworks\/commerce-sdk\/bambuser-commerce-sdk-ios\/Files\/Sources\/BambuserCommerceSDK\/Implementation\/VideoPlayer\/WebViewManager\/WebViewManager+Types.swift",
       "kind": "StringLiteral",
-      "offset": 1988,
+      "offset": 2007,
       "length": 14,
       "value": "\"volumechange\""
     },
     {
       "filePath": "\/Users\/saeid\/Documents\/projects\/frameworks\/commerce-sdk\/bambuser-commerce-sdk-ios\/Files\/Sources\/BambuserCommerceSDK\/Implementation\/VideoPlayer\/WebViewManager\/WebViewManager.swift",
+      "kind": "IntegerLiteral",
+      "offset": 485,
+      "length": 2,
+      "value": "16"
+    },
+    {
+      "filePath": "\/Users\/saeid\/Documents\/projects\/frameworks\/commerce-sdk\/bambuser-commerce-sdk-ios\/Files\/Sources\/BambuserCommerceSDK\/Implementation\/VideoPlayer\/WebViewManager\/WebViewManager.swift",
       "kind": "Dictionary",
-      "offset": 541,
+      "offset": 687,
       "length": 3,
       "value": "[]"
     }

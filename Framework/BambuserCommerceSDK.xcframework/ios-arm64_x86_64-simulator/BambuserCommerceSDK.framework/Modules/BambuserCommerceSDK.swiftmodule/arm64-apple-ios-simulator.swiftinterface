@@ -4,6 +4,7 @@
 // swift-module-flags-ignorable: -no-verify-emitted-module-interface -interface-compiler-version 6.1.2
 import AVKit
 
+import Combine
 import Foundation
 import Swift
 import UIKit
@@ -102,10 +103,20 @@ public enum BambuserVideoState {
 public protocol BambuserVideoType : Swift.Sendable {
 }
 public struct Pagination : Swift.Codable {
-  public let totalPages: Swift.Int
+  public let totalPages: Swift.Int?
   public let pageSize: Swift.Int, total: Swift.Int, page: Swift.Int
   public func encode(to encoder: any Swift.Encoder) throws
   public init(from decoder: any Swift.Decoder) throws
+}
+final public class DynamicFontSizeService {
+  public init(baseSize: CoreFoundation.CGFloat)
+  final public var fontSizePublisher: Combine.AnyPublisher<CoreFoundation.CGFloat, Swift.Never>? {
+    get
+  }
+  final public var currentFontSize: CoreFoundation.CGFloat {
+    get
+  }
+  @objc deinit
 }
 public enum InlinePlayerMode : Swift.Equatable {
   case preview
