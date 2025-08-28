@@ -30,6 +30,12 @@ struct LiveVideoViews: View {
             ) {
                 navManager.navigate(to: .productHydration)
             }
+            NavigationRow(
+                title: "Wishlist",
+                subtitle: "Implement a wishlist feature to save products for later."
+            ) {
+                navManager.navigate(to: .wishlist)
+            }
             Spacer()
         }
         .padding()

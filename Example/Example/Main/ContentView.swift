@@ -51,7 +51,10 @@ struct ContentView: View {
             ProductDetailView(
                 product: product
             )
-            
+        case .wishlist:
+            WishlistViewRepresentable(navManager: navManager)
+                .ignoresSafeArea()
+
             // Shoppable video examples
         case .shoppableVideoPlaylist:
             ShoppableVideoPlaylistViewRepresentable(navManager: navManager)

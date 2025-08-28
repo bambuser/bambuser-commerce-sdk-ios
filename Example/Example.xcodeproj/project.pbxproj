@@ -15,6 +15,8 @@
 		2C64ADD37B412A75377C698D /* ShoppableVideoWithSKUViewRepresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8205FEF0901C738A0CB05152 /* ShoppableVideoWithSKUViewRepresentable.swift */; };
 		2DEE6D690053A4141E62B24E /* ShoppableVideoViewRepresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF280E002FD30A68F076AF6F /* ShoppableVideoViewRepresentable.swift */; };
 		31F0D246C2E427DD85EA01C3 /* MockClientProduct.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6CFD489F21785CD2DCC9D84 /* MockClientProduct.swift */; };
+		3624D1BB2E60350700056441 /* WishlistViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3624D1B92E60350700056441 /* WishlistViewController.swift */; };
+		3624D1BC2E60350700056441 /* WishlistView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3624D1B82E60350700056441 /* WishlistView.swift */; };
 		363457B82E140D9C000EC8FA /* BambuserCommerceSDK in Frameworks */ = {isa = PBXBuildFile; productRef = 363457B72E140D9C000EC8FA /* BambuserCommerceSDK */; };
 		5B9D7974E79CA70796A2D64D /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13D7B51256ED5532ACABC004 /* HomeView.swift */; };
 		6BDA1BA221124C42BF35FC8B /* EventHandlingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044B26A0BCB27E5A85DEEC1B /* EventHandlingViewController.swift */; };
@@ -48,6 +50,8 @@
 		14B1AC5109C73A16AB29476A /* ProductBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductBuilder.swift; sourceTree = "<group>"; };
 		2ADAF73D9685FA78841BB9DE /* ProductDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetailView.swift; sourceTree = "<group>"; };
 		351EBE93A7113C1A21698BAF /* HydratedProduct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HydratedProduct.swift; sourceTree = "<group>"; };
+		3624D1B82E60350700056441 /* WishlistView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WishlistView.swift; sourceTree = "<group>"; };
+		3624D1B92E60350700056441 /* WishlistViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WishlistViewController.swift; sourceTree = "<group>"; };
 		3A05870BC5E3C05CF95AF5E5 /* ShoppableVideoPlaylistViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppableVideoPlaylistViewController.swift; sourceTree = "<group>"; };
 		3A3FDD3B4BA84B3D5DB4C794 /* SizeBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SizeBuilder.swift; sourceTree = "<group>"; };
 		3E846729576A97B943BE4467 /* InitializeVideoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitializeVideoViewController.swift; sourceTree = "<group>"; };
@@ -103,6 +107,15 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		3624D1BA2E60350700056441 /* Wishlist */ = {
+			isa = PBXGroup;
+			children = (
+				3624D1B82E60350700056441 /* WishlistView.swift */,
+				3624D1B92E60350700056441 /* WishlistViewController.swift */,
+			);
+			path = Wishlist;
+			sourceTree = "<group>";
+		};
 		4F160DA0426D18FD4DFD3610 /* Example */ = {
 			isa = PBXGroup;
 			children = (
@@ -146,6 +159,7 @@
 				089C0E30E4BA4DBFC7E4CFDE /* Functions - Product Hydration & Cart */,
 				BD4C6AEC5E5822D42BCFCD32 /* Picture in Picture - Events Handling & Navigation */,
 				9318646AE2D999D732EEAEAF /* Simple Video Player */,
+				3624D1BA2E60350700056441 /* Wishlist */,
 			);
 			path = "Live Video Examples";
 			sourceTree = "<group>";
@@ -349,6 +363,8 @@
 				2C64ADD37B412A75377C698D /* ShoppableVideoWithSKUViewRepresentable.swift in Sources */,
 				7921EF7160CDAB2FFCC5181E /* SizeBuilder.swift in Sources */,
 				811890E475DFC308ED9D9468 /* VariationBuilder.swift in Sources */,
+				3624D1BB2E60350700056441 /* WishlistViewController.swift in Sources */,
+				3624D1BC2E60350700056441 /* WishlistView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

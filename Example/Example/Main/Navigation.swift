@@ -18,6 +18,7 @@ enum Destination: Hashable {
     case eventHandling
     case productHydration
     case productDetail(Product)
+    case wishlist
 
     // Shoppable video examples
     case shoppableVideo
