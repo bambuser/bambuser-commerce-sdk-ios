@@ -1,7 +1,7 @@
 // swift-interface-format-version: 1.0
-// swift-compiler-version: Apple Swift version 6.1.2 effective-5.10 (swiftlang-6.1.2.1.2 clang-1700.0.13.5)
+// swift-compiler-version: Apple Swift version 6.2 effective-5.10 (swiftlang-6.2.0.19.9 clang-1700.3.19.1)
 // swift-module-flags: -target arm64-apple-ios15.6 -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -enable-experimental-feature DebugDescriptionMacro -enable-bare-slash-regex -module-name BambuserCommerceSDK
-// swift-module-flags-ignorable: -no-verify-emitted-module-interface -interface-compiler-version 6.1.2
+// swift-module-flags-ignorable: -no-verify-emitted-module-interface -formal-cxx-interoperability-mode=off -interface-compiler-version 6.2
 import AVKit
 
 import Combine
@@ -45,19 +45,28 @@ public enum BambuserPlayerError : Swift.Error, Foundation.LocalizedError {
   }
 }
 @_Concurrency.MainActor public protocol BambuserPlayerView : UIKit.UIView {
+  #if compiler(>=5.3) && $NonescapableTypes
   @_Concurrency.MainActor var delegate: (any BambuserCommerceSDK.BambuserVideoPlayerDelegate)? { get set }
+  #endif
   @_Concurrency.MainActor var id: Swift.String { get }
   @_Concurrency.MainActor var currentPlayerState: BambuserCommerceSDK.BambuserVideoState { get }
+  #if compiler(>=5.3) && $NonescapableTypes
   @_Concurrency.MainActor var pipController: (any BambuserCommerceSDK.PictureInPictureController)? { get set }
+  #endif
   @_Concurrency.MainActor func cleanup()
+  #if compiler(>=5.3) && $NonescapableTypes
   @discardableResult
   @_Concurrency.MainActor func invoke(function: Swift.String, arguments: Swift.String) async throws -> Any?
+  #endif
   @_Concurrency.MainActor func notify(callbackKey: Swift.String, info: Any)
+  #if compiler(>=5.3) && $NonescapableTypes
   @_Concurrency.MainActor func track(event: Swift.String, with data: [Swift.String : any Swift.Sendable]) async throws -> [Swift.String : any Swift.Sendable]?
+  #endif
   @_Concurrency.MainActor func play()
   @_Concurrency.MainActor func pause()
   @_Concurrency.MainActor var currentPlayerMode: BambuserCommerceSDK.InlinePlayerMode { get }
   @_Concurrency.MainActor func changeMode(to mode: BambuserCommerceSDK.InlinePlayerMode) async throws
+  @_Concurrency.MainActor func preload()
 }
 public enum BambuserVideoAsset : Swift.Sendable, Swift.Equatable, BambuserCommerceSDK.BambuserVideoType {
   case live(id: Swift.String)
@@ -67,14 +76,18 @@ public enum BambuserVideoAsset : Swift.Sendable, Swift.Equatable, BambuserCommer
 public typealias BambuserVideoConfiguration = BambuserCommerceSDK.BambuserVideoPlayerConfiguration<BambuserCommerceSDK.BambuserVideoAsset>
 @_Concurrency.MainActor public struct BambuserVideoPlayer {
   @_Concurrency.MainActor public init(server: BambuserCommerceSDK.OrganizationServer)
+  #if compiler(>=5.3) && $NonescapableTypes
   @_Concurrency.MainActor public func createPlayerView(videoConfiguration: BambuserCommerceSDK.BambuserVideoConfiguration, ignoredSafeAreaEdges: BambuserCommerceSDK.SafeAreaEdges? = nil) -> some UIKit.UIView & BambuserCommerceSDK.BambuserPlayerView
   
+  #endif
   @_Concurrency.MainActor public func createShoppableVideoPlayer(videoConfiguration: BambuserCommerceSDK.BambuserShoppableVideoConfiguration) async throws -> some UIKit.UIView & BambuserCommerceSDK.BambuserPlayerView
   
   @_Concurrency.MainActor public func createShoppableVideoPlayerCollection(videoConfiguration: BambuserCommerceSDK.BambuserShoppableVideoConfiguration, page: Swift.Int = 1, pageSize: Swift.Int = 15) async throws -> BambuserCommerceSDK.BambuserPlayerCollection
 }
 public struct BambuserVideoPlayerConfiguration<VideoType> : @unchecked Swift.Sendable where VideoType : BambuserCommerceSDK.BambuserVideoType {
+  #if compiler(>=5.3) && $NonescapableTypes
   public init(type: VideoType, events: [Swift.String] = ["*"], configuration: [Swift.String : any Swift.Sendable]?)
+  #endif
 }
 public protocol BambuserVideoPlayerDelegate : AnyObject {
   func onVideoStatusChanged(_ id: Swift.String, state: BambuserCommerceSDK.BambuserVideoState)
@@ -87,6 +100,7 @@ extension BambuserCommerceSDK.BambuserVideoPlayerDelegate {
 }
 public enum BambuserVideoState {
   case ready
+  case loading
   case playing
   case paused
   case ended
@@ -110,9 +124,11 @@ public struct Pagination : Swift.Codable {
 }
 final public class DynamicFontSizeService {
   public init(baseSize: CoreFoundation.CGFloat)
+  #if compiler(>=5.3) && $NonescapableTypes
   final public var fontSizePublisher: Combine.AnyPublisher<CoreFoundation.CGFloat, Swift.Never>? {
     get
   }
+  #endif
   final public var currentFontSize: CoreFoundation.CGFloat {
     get
   }
@@ -128,7 +144,9 @@ public enum InlinePlayerMode : Swift.Equatable {
   }
 }
 public struct InlineVideoPlaylistInfo : Swift.Sendable, Swift.Equatable {
-  public init(orgId: Swift.String, pageId: Swift.String?, playlistId: Swift.String?, title: Swift.String?)
+  #if compiler(>=5.3) && $NonescapableTypes
+  public init(orgId: Swift.String, pageId: Swift.String?, playlistId: Swift.String?, title: Swift.String?, packageName: Swift.String?)
+  #endif
   public static func == (a: BambuserCommerceSDK.InlineVideoPlaylistInfo, b: BambuserCommerceSDK.InlineVideoPlaylistInfo) -> Swift.Bool
 }
 public typealias BambuserShoppableVideoPlaylistInfo = BambuserCommerceSDK.InlineVideoPlaylistInfo
@@ -155,7 +173,9 @@ public enum OrganizationServer : Swift.Codable, Swift.CaseIterable, Swift.Sendab
 extension Foundation.Timer : @unchecked @retroactive Swift.Sendable {
 }
 @_Concurrency.MainActor public protocol PictureInPictureController {
+  #if compiler(>=5.3) && $NonescapableTypes
   @_Concurrency.MainActor var delegate: (any BambuserCommerceSDK.BambuserPictureInPictureDelegate)? { get set }
+  #endif
   @_Concurrency.MainActor var isEnabled: Swift.Bool { get set }
   @_Concurrency.MainActor var isActive: Swift.Bool { get }
   @_Concurrency.MainActor func start()
@@ -169,9 +189,11 @@ public enum PlayerError : Foundation.LocalizedError {
   case unknownError
   case failedToTrack
   case failedToLoadVideo(Swift.String)
+  #if compiler(>=5.3) && $NonescapableTypes
   public var errorDescription: Swift.String? {
     get
   }
+  #endif
 }
 public enum PlayerPipState {
   case willStart

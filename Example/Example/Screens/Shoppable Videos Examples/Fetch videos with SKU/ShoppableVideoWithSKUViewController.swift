@@ -144,10 +144,7 @@ final class ShoppableVideoWithSKUViewController: UIViewController {
         /// Video container info for the SKU to fetch.
         /// This should match the SKU you want to display.
         /// This will fetch all videos associated with the SKU.
-        let videoContainerInfo = BambuserShoppableVideoSkuInfo(
-            orgId: "BdTubpTeJwzvYHljZiy4",
-            sku: "b7c5"
-        )
+        let videoContainerInfo = Show.SkuConfig
 
         Task {
             do {

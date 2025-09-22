@@ -52,7 +52,7 @@ final class WishlistViewController: UIViewController, BambuserVideoPlayerDelegat
         ///
         /// More information: [Bambuser Player API Reference](https://bambuser.com/docs/live/player-api-reference/)
         let config = BambuserVideoConfiguration(
-            type: .live(id: "c45L9MgfpZDBx3WeGaWE"), // Pass the show ID
+            type: .live(id: Show.ShowsWithId.liveFunctions.id), // Pass the show ID
             events: ["*"], // Pass `["*"]` to receive **all available events** from the SDK.
             configuration: [
                 "buttons": [

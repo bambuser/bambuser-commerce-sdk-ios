@@ -18,26 +18,16 @@ final class ShoppableVideoViewController: UIViewController {
 
     // MARK: - Properties
 
-    /// All shoppable video views fetched from Bambuser.
     private var shoppableVideo: BambuserPlayerView?
-
-    /// Flag to enable or disable autoplay of the next video when the current one ends.
     var isAutoplayEnabled: Bool = true
-
-    /// Navigation manager observer ID to identify view.
     var navigationObserverID: UUID?
-
-    /// Navigation manager for handling navigation events within the app.
     let navManager: NavigationManager
 
     // MARK: - Layout/Animation State
 
-    /// Track current size state (false = normal, true = expanded)
-    private var isExpanded: Bool = false
-
-    /// Constraints to modify during animation
-    private var widthConstraint: NSLayoutConstraint?
-    private var heightConstraint: NSLayoutConstraint?
+    private var isExpanded = false
+    private var compactConstraints: [NSLayoutConstraint] = []
+    private var expandedConstraints: [NSLayoutConstraint] = []
 
     // MARK: - Initialization
 
@@ -109,9 +99,10 @@ final class ShoppableVideoViewController: UIViewController {
                 /// - `configuration`: Provides additional player settings.
                 /// More information: [Bambuser Player Integration guide](https://bambuser.com/docs/shoppable-video/bam-playlist-integration/)
                 let config = BambuserShoppableVideoConfiguration(
-                    type: .videoId("puv_sxSLL9s5K16wDNZNuqVjvk"),
+                    type: .videoId(Show.ShowsWithId.shoppableVideoSingleVideo.id),
                     events: ["*"],
                     configuration: [
+                        "preload": false,
                         "thumbnail": [
                             "enabled": true,
                             "showPlayButton": true,
@@ -120,12 +111,13 @@ final class ShoppableVideoViewController: UIViewController {
                         ],
                         /// Configuration for shoppable video player.
                         /// Hide products and title in the player.
-                        "previewConfig": ["settings": "products:true; title:false; actions:1;"],
+                        "previewConfig": ["settings": "products:false; title:false; actions:1;"],
                         "playerConfig": [
                             "buttons": [
-                                "dismiss": "event",
-                                "product": "none"
+                                "dismiss": "event"
                             ],
+                            "currency": "USD", // Defines the currency for product hydration
+                            "locale": "en-US", // Defines the locale for content formatting
                             "autoplay": true
                         ]
                     ]
@@ -135,6 +127,11 @@ final class ShoppableVideoViewController: UIViewController {
                     videoConfiguration: config
                 )
                 shoppableVideo?.delegate = self
+                /// Preloads the video content to prepare for playback.
+                /// This step is important to ensure smooth playback when the user starts the video.
+                /// Only use this if you have disabled `preload` in the configuration above.
+                /// Otherwise, the video will be preloaded automatically.
+                shoppableVideo?.preload()
                 await MainActor.run {
                     setupPlayerView()
                 }
@@ -144,55 +141,91 @@ final class ShoppableVideoViewController: UIViewController {
         }
     }
 
-    /// Adds the shoppable video player to the center of the screen,
-    /// sized at 1/2 screen width and 2x that width for height.
+    /// Adds the player and prepares two constraint sets:
+    /// - compact: centered, 50% of safe-area width & height
+    /// - expanded: pinned to safe-area edges (full screen)
     private func setupPlayerView() {
         guard let shoppableVideo else { return }
 
-        let width = UIScreen.main.bounds.width / 2
-        let height = UIScreen.main.bounds.height / 2
+        let safe = view.safeAreaLayoutGuide
 
         shoppableVideo.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(shoppableVideo)
 
-        // Remove old constraints if present
-        widthConstraint?.isActive = false
-        heightConstraint?.isActive = false
+        // Compact constraints (centered, proportional size)
+        let compact = [
+            shoppableVideo.centerXAnchor.constraint(equalTo: safe.centerXAnchor),
+            shoppableVideo.centerYAnchor.constraint(equalTo: safe.centerYAnchor),
+            shoppableVideo.widthAnchor.constraint(equalTo: safe.widthAnchor, multiplier: 0.5),
+            shoppableVideo.heightAnchor.constraint(equalTo: safe.heightAnchor, multiplier: 0.5)
+        ]
 
-        widthConstraint = shoppableVideo.widthAnchor.constraint(equalToConstant: width)
-        heightConstraint = shoppableVideo.heightAnchor.constraint(equalToConstant: height)
+        // Expanded constraints (full-screen within safe area)
+        let expanded = [
+            shoppableVideo.leadingAnchor.constraint(equalTo: safe.leadingAnchor),
+            shoppableVideo.trailingAnchor.constraint(equalTo: safe.trailingAnchor),
+            shoppableVideo.topAnchor.constraint(equalTo: safe.topAnchor),
+            shoppableVideo.bottomAnchor.constraint(equalTo: safe.bottomAnchor)
+        ]
 
-        NSLayoutConstraint.activate([
-            shoppableVideo.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            shoppableVideo.centerYAnchor.constraint(equalTo: view.centerYAnchor),
-            widthConstraint!,
-            heightConstraint!
-        ])
+        compactConstraints = compact
+        expandedConstraints = expanded
+
+        NSLayoutConstraint.activate(compactConstraints)
         isExpanded = false
+        view.layoutIfNeeded()
     }
 
     func switchMode(to mode: InlinePlayerMode) {
         animatePlayerView(expanded: mode == .fullExperience)
-        /// Enable or disable Picture-in-Picture (PiP) mode based on the selected mode.
         shoppableVideo?.pipController?.isEnabled = mode == .fullExperience
         Task { @MainActor in
             try await shoppableVideo?.changeMode(to: mode)
         }
     }
 
-    /// Animate player to expanded or normal size.
+    /// Toggle between compact and expanded constraint sets.
     private func animatePlayerView(expanded: Bool) {
-        guard let widthConstraint, let heightConstraint else { return }
-        let targetWidth = expanded ? UIScreen.main.bounds.width * 0.7 : UIScreen.main.bounds.width / 2
-        let targetHeight = expanded ? UIScreen.main.bounds.height * 0.9 : UIScreen.main.bounds.height / 2
+        guard shoppableVideo != nil else { return }
 
-        widthConstraint.constant = targetWidth
-        heightConstraint.constant = targetHeight
+        if expanded == isExpanded { return }
 
-        UIView.animate(withDuration: 0.4, delay: 0, options: [.curveEaseInOut], animations: {
-            self.view.layoutIfNeeded()
-        }, completion: nil)
+        NSLayoutConstraint.deactivate(expanded ? compactConstraints : expandedConstraints)
+        NSLayoutConstraint.activate(expanded ? expandedConstraints : compactConstraints)
+
+        UIView.animate(withDuration: 0.4,
+                       delay: 0,
+                       options: [.curveEaseInOut],
+                       animations: { self.view.layoutIfNeeded() },
+                       completion: nil)
+
         isExpanded = expanded
+    }
+
+    /// This method demonstrates how to hydrate products and send product hydration info to the player.
+    /// It retrieves product data and updates the player accordingly.
+    private func hydrate(data: [String: Sendable]) async throws {
+        guard let event = data["event"] as? [String: Sendable],
+              let products = event["products"] as? [[String: Sendable]] else { return }
+        for product in products {
+            guard let sku = product["ref"] as? String,
+                  let id = product["id"] as? String,
+                  let jsonString = ProductHydrationDataSource.jsonObjectString(for: sku) else { continue }
+            let hydrationString = "'\(id)', \(jsonString)"
+
+            /// This is how to invoke **player functions**.
+            /// - For example, to send **product hydration data** to the player, the `"updateProductWithData"` function is used.
+            /// - This method requires:
+            ///   - A **player function name** (e.g., `"updateProductWithData"`).
+            ///   - **Arguments** required by the function.
+            /// - More information: [Bambuser Player API Reference](https://bambuser.com/docs/live/player-api-reference/)
+            ///
+            /// **For product hydration, please refer to the format used in this function and `hydrationString`.**
+            try await shoppableVideo?.invoke(
+                function: "updateProductWithData",
+                arguments: hydrationString
+            )
+        }
     }
 }
 
@@ -222,11 +255,70 @@ extension ShoppableVideoViewController: BambuserVideoPlayerDelegate {
             /// Otherwise, the player may not display correctly.
             /// Full experience mode is designed to provide a rich interactive experience and requires sufficient space to render the video and controls effectively.
             switchMode(to: .fullExperience)
+            shoppableVideo?.play()
         }
 
         /// If "X" button is tapped, switch back to preview mode.
         if event.type == "close" {
             switchMode(to: .preview)
+        }
+
+        /// When the show starts, this event is triggered by the player.
+        /// The event provides information on **all available products** during the show.
+        /// The app can use this event to perform product hydration.
+        ///
+        /// **Check the `hydrate(data:)` method for an example of how to handle this.**
+        if event.type == "provide-product-data" {
+            Task {
+                try await self.hydrate(data: event.data)
+            }
+        }
+
+        /// Handles cart interactions such as adding or updating items.
+        ///
+        /// - The `"should-add-item-to-cart"` event is emitted when the **Buy** button is tapped and the product is **not already in the cart**.
+        /// - The `"should-update-item-in-cart"` event is emitted when:
+        ///   - The **Buy** button is tapped while the product is already in the cart.
+        ///   - The product quantity is changed from the **cart page**.
+        if event.type == "should-add-item-to-cart" || event.type == "should-update-item-in-cart" {
+            guard let callbackKey = event.data["callbackKey"] as? String else {
+                return
+            }
+            var quantity = -1
+            if let event = event.data["event"] as? [String: Sendable],
+               let value = event["quantity"] as? Int {
+                quantity = value
+            }
+
+            /// Simulates a delay in processing the cart action.
+            ///
+            /// This mimics an asynchronous operation, such as an API call from the app to:
+            /// - Send cart-related data to the backend.
+            /// - Validate product availability, pricing, or other constraints.
+            /// - Receive a response before updating the **Bambuser player**.
+            ///
+            /// Once the operation is complete, the app **must** update the player using the `notify` API.
+            ///
+            /// - Two scenarios are demonstrated here:
+            ///   1. **Error Case**: If the requested quantity exceeds the limit (e.g., `> 3`),
+            ///      the app simulates an "out-of-stock" error and notifies the player of failure.
+            ///   2. **Success Case**: If the quantity is valid, the app confirms the item was added to the cart
+            ///      and sends a success response to the player.
+            DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+                if quantity > 3 {
+                    /// If the requested quantity is too high, simulate an out-of-stock error.
+                    self.shoppableVideo?.notify(
+                        callbackKey: callbackKey,
+                        info: "{ success: false, reason: 'out-of-stock' }"
+                    )
+                } else {
+                    /// Confirm the item was successfully added to the cart.
+                    self.shoppableVideo?.notify(
+                        callbackKey: callbackKey,
+                        info: true
+                    )
+                }
+            }
         }
     }
 
@@ -272,6 +364,6 @@ extension ShoppableVideoViewController: BambuserVideoPlayerDelegate {
     /// In this implementation, the method checks if there is exactly 1 second left in the video and,
     /// if so, automatically advances to play the next video in the playlist.
     func onVideoProgress(_ id: String, duration: Double, currentTime: Double) {
-        print("Video progress for player [\(id)]: duration=\(duration), currentTime=\(currentTime)")
+//        print("Video progress for player [\(id)]: duration=\(duration), currentTime=\(currentTime)")
     }
 }

@@ -22,6 +22,7 @@ final class ShoppableVideoPlaylistViewController: UIViewController {
     enum LayoutMode {
         case grid
         case carousel
+        case story
     }
 
     // MARK: - Properties
@@ -56,6 +57,8 @@ final class ShoppableVideoPlaylistViewController: UIViewController {
     private let carouselSpacing: CGFloat = 16
     private let sidePadding: CGFloat = 16
     private var videoWidth: CGFloat { UIScreen.main.bounds.width * 0.8 }
+    private var storyWidth: CGFloat = 150
+    private var defaultVideoLength: CGFloat = 8
     private var videoHeightCarousel: CGFloat { videoWidth * 1.5 }
 
     // MARK: - UI
@@ -146,6 +149,21 @@ final class ShoppableVideoPlaylistViewController: UIViewController {
                 videoStack.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor),
                 videoStack.heightAnchor.constraint(equalTo: scrollView.heightAnchor)
             ])
+
+        case .story:
+            scrollView.addSubview(videoStack)
+            NSLayoutConstraint.activate([
+                scrollView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+                scrollView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+                scrollView.centerYAnchor.constraint(equalTo: view.safeAreaLayoutGuide.centerYAnchor),
+                scrollView.heightAnchor.constraint(equalToConstant: storyWidth),
+
+                videoStack.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor, constant: sidePadding),
+                videoStack.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor, constant: -sidePadding),
+                videoStack.topAnchor.constraint(equalTo: scrollView.topAnchor),
+                videoStack.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor),
+                videoStack.heightAnchor.constraint(equalTo: scrollView.heightAnchor)
+            ])
         }
     }
 
@@ -190,12 +208,7 @@ final class ShoppableVideoPlaylistViewController: UIViewController {
         /// - `playlistId`: The ID of the playlist you want to fetch.
         ///
         /// Note: If playlist is not found, a new playlist will be created with the given values.
-        let videoContainerInfo = BambuserShoppableVideoPlaylistInfo(
-            orgId: "BdTubpTeJwzvYHljZiy4",
-            pageId: "mobile-home-screen",
-            playlistId: "best-sellers",
-            title: "Best Sellers"
-        )
+        let videoContainerInfo = Show.PlaylistConfig
 
         Task {
             do {
@@ -204,25 +217,36 @@ final class ShoppableVideoPlaylistViewController: UIViewController {
                 /// - `events`: Specifies which events app expects to receive from SDK
                 /// - `configuration`: Provides additional player settings.
                 /// More information: [Bambuser Player Integration guide](https://bambuser.com/docs/shoppable-video/bam-playlist-integration/)
+
+                let showAction = layoutMode != .story ? "1" : "0"
                 let config = BambuserShoppableVideoConfiguration(
                     type: .playlist(videoContainerInfo),
                     events: ["*"],
                     configuration: [
+                        /// Default value is `true` and can be omitted. Added for demonstration purpose.
+                        /// In most cases it should be `true` to ensure a smooth user experience.
+                        /// If set to `false`, the player will not preload video data,
+                        /// but `preload` api can be used to preload specific videos.
+                        "preload": true,
                         "thumbnail": [
                             "enabled": true,
-                            "showPlayButton": layoutMode == .carousel,
+                            "showPlayButton": layoutMode == .story,
                             "contentMode": "scaleAspectFill",
-                            "preview": nil
+                            "preview": nil,
+                            "showLoadingIndicator": false
                         ],
                         /// Configuration for shoppable video player.
                         /// Hide products and title in the player.
-                        "previewConfig": ["settings": "products:false; title: false"],
+                        "previewConfig": [
+                            "productAction": "modal",
+                            "closedCaptions": "original",
+                            "settings": "products:\(layoutMode != .story); title: false; actions:\(showAction); productCardMode: thumbnail; autoplay: false",
+                        ],
                         "playerConfig": [
                             "buttons": [
-                                "dismiss": "event",
-                                "product": "none"
+                                "product": "inline"
                             ],
-                            "autoplay": true
+                            "enableTrackingPoint": true,
                         ]
                     ]
                 )
@@ -240,6 +264,8 @@ final class ShoppableVideoPlaylistViewController: UIViewController {
                         setupGrid(results.players, columns: gridColumns)
                     case .carousel:
                         setupCarousel(results.players)
+                    case .story:
+                        setupStory(results.players)
                     }
                 }
             } catch {
@@ -321,6 +347,29 @@ final class ShoppableVideoPlaylistViewController: UIViewController {
 
             let tap = UITapGestureRecognizer(target: self, action: #selector(handleTap(_:)))
             videoView.addGestureRecognizer(tap)
+            videoView.pipController?.isEnabled = true
+            videoStack.addArrangedSubview(videoView)
+        }
+    }
+
+    private func setupStory(_ videoViews: [BambuserPlayerView]) {
+        videoStack.arrangedSubviews.forEach { $0.removeFromSuperview() }
+        guard !videoViews.isEmpty else { return }
+        shoppableVideos = videoViews
+        videosStatus = [:]
+        currentIndex = nil
+
+        for videoView in videoViews {
+            videoView.delegate = self
+            videoView.backgroundColor = .black
+            videoView.translatesAutoresizingMaskIntoConstraints = false
+            videoView.widthAnchor.constraint(equalToConstant: storyWidth).isActive = true
+            videoView.heightAnchor.constraint(equalToConstant: storyWidth).isActive = true
+            videoView.layer.cornerRadius = storyWidth/2
+            videosStatus[videoView.id] = false
+
+            let tap = UITapGestureRecognizer(target: self, action: #selector(handleTap(_:)))
+            videoView.addGestureRecognizer(tap)
             videoStack.addArrangedSubview(videoView)
         }
     }
@@ -355,9 +404,6 @@ final class ShoppableVideoPlaylistViewController: UIViewController {
         guard let idx = shoppableVideos.firstIndex(where: { $0.id == currentId }),
               shoppableVideos.indices.contains(idx + 1) else { return }
         playVideo(at: idx + 1)
-        if layoutMode == .carousel {
-            scrollToVideo(at: idx + 1)
-        }
     }
 
     /// Scrolls the scrollView to make the selected video visible as a carousel:
@@ -399,12 +445,11 @@ extension ShoppableVideoPlaylistViewController: BambuserVideoPlayerDelegate {
         // Example: Handle specific events (from your grid controller)
         if event.type == "preview-should-expand" {
             /// Pause player if player is playing, otherwise pause it.
-            if let player = shoppableVideos.first(where: { $0.id == id }) {
-                if player.currentPlayerState == .playing {
-                    player.pause()
-                } else {
-                    player.play()
-                }
+            guard let player = shoppableVideos.first(where: { $0.id == id }) else { return }
+            if player.currentPlayerState == .playing {
+                player.pause()
+            } else {
+                player.play()
             }
         }
     }
@@ -435,7 +480,12 @@ extension ShoppableVideoPlaylistViewController: BambuserVideoPlayerDelegate {
             /// You can play next video once the current one ends.
             /// or you can utilize `onVideoProgress` to determine when to play the next video.
             /// Only one approach should be used to avoid conflicts.
-            playNextVideo(from: id)
+            if layoutMode == .carousel {
+                guard let index = shoppableVideos.firstIndex(where: { $0.id == id }) else { return }
+                scrollToVideo(at: index + 1)
+            } else {
+                playNextVideo(from: id)
+            }
         }
     }
 
@@ -449,23 +499,17 @@ extension ShoppableVideoPlaylistViewController: BambuserVideoPlayerDelegate {
     /// This is an **optional** delegate method.
     /// You can implement this if you want to monitor the progress of the playing video,
     /// for example to update a UI progress bar or trigger custom actions when certain thresholds are reached.
-    ///
-    /// In this implementation, the method checks if there is exactly 1 second left in the video and,
-    /// if so, automatically advances to play the next video in the playlist.
     func onVideoProgress(_ id: String, duration: Double, currentTime: Double) {
         print("Video progress for player [\(id)]: duration=\(duration), currentTime=\(currentTime)")
 
-        /// If 1 second left in the video, play next video.
+        /// Only application if preloading is disabled.
+        /// If 1 second left in the video, preload next video.
         /// Uncomment the following lines to enable this behavior.
-        /// Note that you should comment out `playNextVideo` method inside `onVideoStatusChanged` to avoid conflicts.
-//        let timeLeft = Int(duration - currentTime)
-//        guard timeLeft == 1 else { return }
-//        guard let index = shoppableVideos.firstIndex(where: { $0.id == id }) else { return }
-//
-//        if layoutMode == .carousel {
-//            scrollToVideo(at: index + 1)
-//        }
-//        playNextVideo(from: id)
+
+        //        guard duration > 0, currentTime >= 0 else { return }
+        //        if duration - currentTime <= 1.0, let nextVideo = shoppableVideos.next(where: { $0.id == id }) {
+        //            nextVideo.preload()
+        //        }
     }
 }
 

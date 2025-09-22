@@ -342,6 +342,40 @@ pipController.stop()
 - PiP is **disabled by default** for **shoppable videos**.
 - Make sure to set `isEnabled` appropriately before calling `start()` or before PiP mode starts automatically.
 
+### Preloading
+
+By default, the SDK **preloads videos** to reduce startup time when playback begins. This ensures a smoother user experience by minimizing delays when calling `play` on a video.
+
+If you prefer to **disable automatic preloading**, you can set the `preload` flag to `false` in your video configuration:
+
+```swift
+"preload": false
+```
+
+When preloading is disabled, you can still manually preload specific videos by calling the `preload()` method on individual player instances. This is useful for cases like preloading only the next video in a sequence.
+
+```swift
+// Disable automatic preloading in configuration
+let config = BambuserShoppableVideoConfiguration(
+    type: .videoId("your_video_id"),
+    events: ["*"],
+    configuration: [
+        "preload": false
+    ]
+)
+
+let playerView = try await bambuserPlayer.createShoppableVideoPlayer(
+    videoConfiguration: config
+)
+
+// Manually preload this video later
+playerView.preload()
+```
+
+#### Notes
+Once preloading is complete, the SDK will trigger the `onVideoStatusChanged` callback with the state `BambuserVideoState.ready`.
+This means the video is fully preloaded and ready to start playing.
+
 ### Tracking
 
 To track conversions and other user actions within the BambuserCommerceSDK, utilize the track function provided by the BambuserPlayerView. This function transmits necessary data sets to Bambuser Analytics.

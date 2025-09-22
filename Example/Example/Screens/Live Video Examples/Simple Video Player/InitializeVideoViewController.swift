@@ -43,7 +43,7 @@ final class InitializeVideoViewController: UIViewController {
         /// - `configuration`: Provides additional player settings.
         /// More information: [Bambuser Player API Reference](https://bambuser.com/docs/live/player-api-reference/)
         let config = BambuserVideoConfiguration(
-            type: .live(id: "CYH7iy5x0q8sxe5gqita"), // Pass the show ID
+            type: .live(id: Show.ShowsWithId.liveSimplePlayer.id), // Pass the show ID
             events: ["*"], // Pass `["*"]` to receive **all available events** from the SDK.
             configuration: [
                 "buttons": ["dismiss": "none"],
