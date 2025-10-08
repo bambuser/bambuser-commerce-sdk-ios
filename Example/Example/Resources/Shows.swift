@@ -21,8 +21,10 @@ struct Show {
                 return "CYH7iy5x0q8sxe5gqita"
             case .livePiP:
                 return "c45L9MgfpZDBx3WeGaWE"
+
             case .liveFunctions:
                 return "c45L9MgfpZDBx3WeGaWE"
+
             case .shoppableVideoSingleVideo:
                 return "puv_sxSLL9s5K16wDNZNuqVjvk"
             }
@@ -30,13 +32,11 @@ struct Show {
     }
 
     static var PlaylistConfig: BambuserShoppableVideoPlaylistInfo {
-        BambuserShoppableVideoPlaylistInfo(
+        return BambuserShoppableVideoPlaylistInfo(
             orgId: "BdTubpTeJwzvYHljZiy4",
             pageId: "mobile-home-screen",
             playlistId: "best-sellers",
             title: "Best Sellers",
-            /// If you need to use same playlist in Android and iOS, make sure to use the same package name here.
-            /// You need to use same package name in Android SDK as well.
             packageName: "com.bambuser.Example"
         )
     }

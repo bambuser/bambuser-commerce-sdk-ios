@@ -1,17 +1,17 @@
 //
-//  ShoppableVideoCarouselViewRepresentable.swift
+//  BambuserFeedView.swift
 //  Example
 //
-//  Created by Seemanta on 2025-04-30.
+//  Created by Saeid Basirnia on 2025-09-30.
 //
 
 import SwiftUI
 
-struct ShoppableVideoViewRepresentable: UIViewControllerRepresentable {
-    let navManager: NavigationManager
+struct BambuserFeedView: UIViewControllerRepresentable {
+    @EnvironmentObject var navigationManager: NavigationManager
 
     func makeUIViewController(context: Context) -> ShoppableVideoViewController {
-        ShoppableVideoViewController(navManager: navManager)
+        ShoppableVideoViewController(navManager: navigationManager)
     }
 
     func updateUIViewController(_ uiViewController: ShoppableVideoViewController, context: Context) {

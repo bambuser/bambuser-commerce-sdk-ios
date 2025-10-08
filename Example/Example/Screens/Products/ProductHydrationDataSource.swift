@@ -160,6 +160,11 @@ struct ProductHydrationDataSource {
         )
     ]
 
+    static func findHydratedProduct(for sku: String) -> HydratedProduct? {
+        let parentSku = sku.split(separator: "-", maxSplits: 1).first.map(String.init) ?? sku
+        return sampleProducts[parentSku]
+    }
+
     static func hydratedProduct(for sku: String) -> HydratedProduct? {
         sampleProducts[sku]
     }
