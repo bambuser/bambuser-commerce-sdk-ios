@@ -16,6 +16,7 @@
 		437DD48C73DF5EA79ADA7E32 /* WebPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F622B2963FD51CD2B6DD7C0F /* WebPageView.swift */; };
 		5A25A7715622CAF92CD7CB20 /* CartViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 008DBDDA8DD2A1FD17A865A3 /* CartViewModel.swift */; };
 		5A4E4F74D8396389D70091D3 /* CartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42D6EC734DF5D0D3530695F1 /* CartView.swift */; };
+		68A0B28D974FDC9B1BC53684 /* Environment.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0CEBB3EA1B547F6BBD42638 /* Environment.swift */; };
 		7921EF7160CDAB2FFCC5181E /* SizeBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A3FDD3B4BA84B3D5DB4C794 /* SizeBuilder.swift */; };
 		7A9FD6939207915E0B13A2F6 /* BambuserFeedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A5EA5C0F1D0BD3FA31A9B82 /* BambuserFeedView.swift */; };
 		811890E475DFC308ED9D9468 /* VariationBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AB37078F9FDCA74B7429D5B /* VariationBuilder.swift */; };
@@ -57,6 +58,7 @@
 		9CDDAB6A8501C875A66AFA02 /* DataModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataModels.swift; sourceTree = "<group>"; };
 		A599F2B2596BDFF9A07A88C6 /* NavigationRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationRow.swift; sourceTree = "<group>"; };
 		AE5C5D0C437A951D7C58A968 /* ProductHydrationDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductHydrationDataSource.swift; sourceTree = "<group>"; };
+		B0CEBB3EA1B547F6BBD42638 /* Environment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Environment.swift; sourceTree = "<group>"; };
 		B552F866DF963A0A7468A0DB /* LiveView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiveView.swift; sourceTree = "<group>"; };
 		BE47E25A9F90C2BBB7DC21B9 /* Storage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Storage.swift; sourceTree = "<group>"; };
 		BF1D93CEF93A3AAF04A58ADD /* demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = demo.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -215,6 +217,7 @@
 			isa = PBXGroup;
 			children = (
 				5C9BA92B4C370D66B9AB0595 /* Assets.xcassets */,
+				B0CEBB3EA1B547F6BBD42638 /* Environment.swift */,
 				1B0F886A4B9F82ED58CA27DC /* Shows.swift */,
 				D34276DE4AD1ADE87F3E9332 /* Preview Content */,
 			);
@@ -298,6 +301,7 @@
 				5A4E4F74D8396389D70091D3 /* CartView.swift in Sources */,
 				5A25A7715622CAF92CD7CB20 /* CartViewModel.swift in Sources */,
 				8FA73C139F8E4018B1E83A5D /* DataModels.swift in Sources */,
+				68A0B28D974FDC9B1BC53684 /* Environment.swift in Sources */,
 				9CD3A313D393F76E1EAC4A12 /* ExampleApp.swift in Sources */,
 				A55C1F59B357C4F38F619CD2 /* FeedViewController.swift in Sources */,
 				9E4192AF595E1BBB91DE7624 /* HydratedProduct.swift in Sources */,
@@ -333,8 +337,6 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Example/Resources/Info.plist;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				IPHONEOS_DEPLOYMENT_TARGET = 17.6;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -413,8 +415,6 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Example/Resources/Info.plist;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				IPHONEOS_DEPLOYMENT_TARGET = 17.6;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -518,8 +518,8 @@
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/bambuser/bambuser-commerce-sdk-ios/";
 			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 2.0.0;
+				branch = "2.1.2-rc";
+				kind = branch;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */

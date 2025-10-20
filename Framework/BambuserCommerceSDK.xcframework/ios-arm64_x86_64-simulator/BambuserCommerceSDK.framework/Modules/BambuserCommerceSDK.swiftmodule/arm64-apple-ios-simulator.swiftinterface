@@ -24,8 +24,8 @@ public enum InlineVideoAsset : Swift.Sendable, Swift.Equatable, BambuserCommerce
 }
 public typealias BambuserShoppableVideoAsset = BambuserCommerceSDK.InlineVideoAsset
 public typealias BambuserShoppableVideoConfiguration = BambuserCommerceSDK.BambuserVideoPlayerConfiguration<BambuserCommerceSDK.BambuserShoppableVideoAsset>
-public protocol BambuserPictureInPictureDelegate : AnyObject {
-  func onPictureInPictureStateChanged(_ id: Swift.String, state: BambuserCommerceSDK.PlayerPipState)
+@_Concurrency.MainActor public protocol BambuserPictureInPictureDelegate : AnyObject {
+  @_Concurrency.MainActor func onPictureInPictureStateChanged(_ id: Swift.String, state: BambuserCommerceSDK.PlayerPipState)
 }
 public struct BambuserPlayerCollection {
   public let players: [any BambuserCommerceSDK.BambuserPlayerView]
@@ -77,14 +77,14 @@ public typealias BambuserVideoConfiguration = BambuserCommerceSDK.BambuserVideoP
 public struct BambuserVideoPlayerConfiguration<VideoType> : @unchecked Swift.Sendable where VideoType : BambuserCommerceSDK.BambuserVideoType {
   public init(type: VideoType, events: [Swift.String] = ["*"], configuration: [Swift.String : any Swift.Sendable]?)
 }
-public protocol BambuserVideoPlayerDelegate : AnyObject {
-  func onVideoStatusChanged(_ id: Swift.String, state: BambuserCommerceSDK.BambuserVideoState)
-  func onNewEventReceived(_ id: Swift.String, event: BambuserCommerceSDK.BambuserEventPayload)
-  func onErrorOccurred(_ id: Swift.String, error: any Swift.Error)
-  func onVideoProgress(_ id: Swift.String, duration: Swift.Double, currentTime: Swift.Double)
+@_Concurrency.MainActor public protocol BambuserVideoPlayerDelegate : AnyObject {
+  @_Concurrency.MainActor func onVideoStatusChanged(_ id: Swift.String, state: BambuserCommerceSDK.BambuserVideoState)
+  @_Concurrency.MainActor func onNewEventReceived(_ id: Swift.String, event: BambuserCommerceSDK.BambuserEventPayload)
+  @_Concurrency.MainActor func onErrorOccurred(_ id: Swift.String, error: any Swift.Error)
+  @_Concurrency.MainActor func onVideoProgress(_ id: Swift.String, duration: Swift.Double, currentTime: Swift.Double)
 }
 extension BambuserCommerceSDK.BambuserVideoPlayerDelegate {
-  public func onVideoProgress(_ id: Swift.String, duration: Swift.Double, currentTime: Swift.Double)
+  @_Concurrency.MainActor public func onVideoProgress(_ id: Swift.String, duration: Swift.Double, currentTime: Swift.Double)
 }
 public enum BambuserVideoState {
   case ready
