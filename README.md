@@ -14,7 +14,7 @@ BambuserCommerceSDK is a lightweight SDK for integrating Bambuser video player a
 
 This SDK is built using **Xcode 16** with the **Swift 6** toolchain but remains **compatible with Swift 5**. Ensure you have the correct version installed for compatibility.
 
-- **Xcode 16** (or later)
+- **Xcode 16.4** (or later)
 - **Swift 5** toolchain
 - **iOS 14+** supported
 

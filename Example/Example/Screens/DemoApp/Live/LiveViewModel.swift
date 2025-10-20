@@ -14,8 +14,6 @@ final class LiveViewModel: ObservableObject {
     @Published private(set) var isLoading = false
     @Published private(set) var errorMessage: String?
 
-    private let endpoint = URL(string: "https://svc-prod-us.liveshopping.bambuser.com/widgets/channels/pNxCZkolKbw35xwZOltt")!
-
     func load() async {
         guard !isLoading else { return }
         isLoading = true
@@ -23,7 +21,7 @@ final class LiveViewModel: ObservableObject {
         defer { isLoading = false }
 
         do {
-            var request = URLRequest(url: endpoint)
+            var request = URLRequest(url: Show.WidgetUrl)
             request.httpMethod = "GET"
             request.setValue("application/json", forHTTPHeaderField: "Accept")
             request.cachePolicy = .reloadIgnoringLocalCacheData
