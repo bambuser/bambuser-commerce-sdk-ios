@@ -299,7 +299,7 @@ extension ShoppableVideoViewController: BambuserVideoPlayerDelegate {
             tryStartFirstPlayback()
         }
 
-        if state == .ended {
+        if state == .completed {
             // Advance to next video when current ends.
             guard let idx = shoppableVideos.firstIndex(where: { $0.id == id }) else { return }
             let next = idx + 1

@@ -2600,43 +2600,6 @@
           },
           {
             "kind": "Var",
-            "name": "ended",
-            "printedName": "ended",
-            "children": [
-              {
-                "kind": "TypeFunc",
-                "name": "Function",
-                "printedName": "(BambuserCommerceSDK.BambuserVideoState.Type) -> BambuserCommerceSDK.BambuserVideoState",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "BambuserVideoState",
-                    "printedName": "BambuserCommerceSDK.BambuserVideoState",
-                    "usr": "s:19BambuserCommerceSDK0A10VideoStateO"
-                  },
-                  {
-                    "kind": "TypeNominal",
-                    "name": "Metatype",
-                    "printedName": "BambuserCommerceSDK.BambuserVideoState.Type",
-                    "children": [
-                      {
-                        "kind": "TypeNominal",
-                        "name": "BambuserVideoState",
-                        "printedName": "BambuserCommerceSDK.BambuserVideoState",
-                        "usr": "s:19BambuserCommerceSDK0A10VideoStateO"
-                      }
-                    ]
-                  }
-                ]
-              }
-            ],
-            "declKind": "EnumElement",
-            "usr": "s:19BambuserCommerceSDK0A10VideoStateO5endedyA2CmF",
-            "mangledName": "$s19BambuserCommerceSDK0A10VideoStateO5endedyA2CmF",
-            "moduleName": "BambuserCommerceSDK"
-          },
-          {
-            "kind": "Var",
             "name": "stopped",
             "printedName": "stopped",
             "children": [
@@ -2670,6 +2633,43 @@
             "declKind": "EnumElement",
             "usr": "s:19BambuserCommerceSDK0A10VideoStateO7stoppedyA2CmF",
             "mangledName": "$s19BambuserCommerceSDK0A10VideoStateO7stoppedyA2CmF",
+            "moduleName": "BambuserCommerceSDK"
+          },
+          {
+            "kind": "Var",
+            "name": "completed",
+            "printedName": "completed",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(BambuserCommerceSDK.BambuserVideoState.Type) -> BambuserCommerceSDK.BambuserVideoState",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "BambuserVideoState",
+                    "printedName": "BambuserCommerceSDK.BambuserVideoState",
+                    "usr": "s:19BambuserCommerceSDK0A10VideoStateO"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Metatype",
+                    "printedName": "BambuserCommerceSDK.BambuserVideoState.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "BambuserVideoState",
+                        "printedName": "BambuserCommerceSDK.BambuserVideoState",
+                        "usr": "s:19BambuserCommerceSDK0A10VideoStateO"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "EnumElement",
+            "usr": "s:19BambuserCommerceSDK0A10VideoStateO9completedyA2CmF",
+            "mangledName": "$s19BambuserCommerceSDK0A10VideoStateO9completedyA2CmF",
             "moduleName": "BambuserCommerceSDK"
           },
           {
@@ -6580,28 +6580,28 @@
     {
       "filePath": "\/Users\/saeid\/Documents\/projects\/frameworks\/commerce-sdk\/bambuser-commerce-sdk-ios\/Files\/Sources\/BambuserCommerceSDK\/Implementation\/VideoPlayer\/PeriodicTimeObserver.swift",
       "kind": "BooleanLiteral",
-      "offset": 354,
+      "offset": 365,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/saeid\/Documents\/projects\/frameworks\/commerce-sdk\/bambuser-commerce-sdk-ios\/Files\/Sources\/BambuserCommerceSDK\/Implementation\/VideoPlayer\/PeriodicTimeObserver.swift",
       "kind": "FloatLiteral",
-      "offset": 501,
+      "offset": 512,
       "length": 3,
       "value": "0.0"
     },
     {
       "filePath": "\/Users\/saeid\/Documents\/projects\/frameworks\/commerce-sdk\/bambuser-commerce-sdk-ios\/Files\/Sources\/BambuserCommerceSDK\/Implementation\/VideoPlayer\/PeriodicTimeObserver.swift",
       "kind": "FloatLiteral",
-      "offset": 586,
+      "offset": 597,
       "length": 3,
       "value": "1.0"
     },
     {
       "filePath": "\/Users\/saeid\/Documents\/projects\/frameworks\/commerce-sdk\/bambuser-commerce-sdk-ios\/Files\/Sources\/BambuserCommerceSDK\/Implementation\/VideoPlayer\/PeriodicTimeObserver.swift",
       "kind": "StringLiteral",
-      "offset": 650,
+      "offset": 661,
       "length": 19,
       "value": "\"NEW TIMER CREATED\""
     },
