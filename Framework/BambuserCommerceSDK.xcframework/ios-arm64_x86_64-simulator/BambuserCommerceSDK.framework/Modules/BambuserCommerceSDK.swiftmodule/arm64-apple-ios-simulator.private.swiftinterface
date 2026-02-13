@@ -59,6 +59,7 @@ public enum BambuserPlayerError : Swift.Error, Foundation.LocalizedError {
   @_Concurrency.MainActor var currentPlayerMode: BambuserCommerceSDK.InlinePlayerMode { get }
   @_Concurrency.MainActor func changeMode(to mode: BambuserCommerceSDK.InlinePlayerMode) async throws
   @_Concurrency.MainActor func preload()
+  @_Concurrency.MainActor func resetPlayer()
 }
 public enum BambuserVideoAsset : Swift.Sendable, Swift.Equatable, BambuserCommerceSDK.BambuserVideoType {
   case live(id: Swift.String)
@@ -82,6 +83,7 @@ public struct BambuserVideoPlayerConfiguration<VideoType> : @unchecked Swift.Sen
   @_Concurrency.MainActor func onNewEventReceived(_ id: Swift.String, event: BambuserCommerceSDK.BambuserEventPayload)
   @_Concurrency.MainActor func onErrorOccurred(_ id: Swift.String, error: any Swift.Error)
   @_Concurrency.MainActor func onVideoProgress(_ id: Swift.String, duration: Swift.Double, currentTime: Swift.Double)
+  @_Concurrency.MainActor func onThumbnailTapped(_ id: Swift.String)
 }
 extension BambuserCommerceSDK.BambuserVideoPlayerDelegate {
   @_Concurrency.MainActor public func onVideoProgress(_ id: Swift.String, duration: Swift.Double, currentTime: Swift.Double)

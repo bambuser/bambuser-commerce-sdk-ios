@@ -23,21 +23,21 @@ import Foundation
 /// you can decide which product data is necessary based on your specific requirements.
 struct ProductHydrationDataSource {
     static let sampleProducts: [String: HydratedProduct] = [
-        "436775": HydratedProduct(
-            sku: "436775",
+        "1222": HydratedProduct(
+            sku: "1222",
             name: "Sunlit Glow Bronzer",
             brandName: "Sunlit",
             introduction: "Get that sun-kissed glow with our Sunlit Glow Bronzer.",
             description: "Get that sun-kissed glow with our Sunlit Glow Bronzer. Effortlessly blendable and available in versatile shades, our finely milled formula enhances your complexion with a natural-looking tan. Embrace radiant warmth and vitality all year round.",
             variations: [
                 Variation(
-                    sku: "436775-bronzer",
+                    sku: "1222-bronzer",
                     name: "Sunlit Glow Bronzer",
                     colorName: "bronzer",
                     imageUrls: [URL(string: "https://cdn.prod.website-files.com/66c31044a23e58e719bc6ffb/66c33d86064576f49e7b792c_Makeup_2.webp")!],
                     sizes: [
                         ProductSize(
-                            sku: "436775-Bronzer-medium",
+                            sku: "1222-Bronzer-medium",
                             current: 999.0,
                             name: "Medium",
                             inStock: 15,
@@ -51,22 +51,22 @@ struct ProductHydrationDataSource {
                 )
             ]
         ),
-        "614442": HydratedProduct(
-            sku: "614442",
+        "1232": HydratedProduct(
+            sku: "1232",
             name: "Shine On Lip Gloss",
             brandName: "Shine",
             introduction: "Elevate your lip game with our high-shine, non-sticky lip gloss.",
             description: "Elevate your lip game with our high-shine, non-sticky lip gloss. Get ready to add a pop of luscious color and irresistible gloss to your pout, while keeping your lips soft, moisturized and kissable.",
             variations: [
                 Variation(
-                    sku: "614442-gloss",
+                    sku: "1232-gloss",
                     name: "Shine On Lip Gloss",
                     colorName: "gloss",
                     imageUrls: [URL(string: "https://cdn.prod.website-files.com/66c31044a23e58e719bc6ffb/66c33d6271dc1a3f03745c37_Makeup_5.webp")!],
                     sizes: [
                         ProductSize(
                             sku: "614442-gloss-standard",
-                            current: 999.0,
+                            current: 300.0,
                             name: "Standard",
                             inStock: 20,
                             original: 999.0,
@@ -79,25 +79,81 @@ struct ProductHydrationDataSource {
                 )
             ]
         ),
-        "624114": HydratedProduct(
-            sku: "624114",
+        "1223": HydratedProduct(
+            sku: "1223",
             name: "Lash Amplify Mascara",
             brandName: "Lash",
             introduction: "Efficient electric bike for urban commuting.",
             description: "Efficient electric bike for urban commuting.Achieve voluminous, full lashes that command attention with our game-changing mascara. Get ready to elevate your lash game with our innovative formula that lengthens, lifts and defines each lash to perfection.",
             variations: [
                 Variation(
-                    sku: "624114-standard",
+                    sku: "1223-standard",
                     name: "Lash Amplify Mascara",
                     colorName: "default",
                     imageUrls: [URL(string: "https://cdn.prod.website-files.com/66c31044a23e58e719bc6ffb/66c33c0b2e7fa3ab0d3b129d_Makeup_3.png")!],
                     sizes: [
                         ProductSize(
-                            sku: "614442-silver-standard",
+                            sku: "1222-silver-standard",
                             current: 800.0,
                             name: "Standard",
                             inStock: 20,
                             original: 999.0,
+                            currency: "SEK",
+                            perUnit: nil,
+                            unitAmount: nil,
+                            unitDisplayName: nil
+                        )
+                    ]
+                )
+            ]
+        ),
+        "7d4a95da-c364-4d8c-b08c-de62ace79b92": HydratedProduct(
+            sku: "7d4a95da-c364-4d8c-b08c-de62ace79b92",
+            name: "Linen Blazer",
+            brandName: "Bambuser",
+            introduction: "Blazer",
+            description: "Discover everyday elegance with our timeless Linen Blazer. Crafted from 100% premium linen, it seamlessly blends refined style with exceptional comfort, offering a sophisticated touch to elevate any outfit.",
+            variations: [
+                Variation(
+                    sku: "1223-small",
+                    name: "Linen Blazer - Beige - Small",
+                    colorName: "default",
+                    imageUrls: [URL(string: "https://demo.bambuser.shop/wp-content/uploads/2024/07/Blazer-Beige-1.png")!],
+                    sizes: [
+                        ProductSize(
+                            sku: "1222-beige-small",
+                            current: 5500.0,
+                            name: "Standard",
+                            inStock: 20,
+                            original: 5600.0,
+                            currency: "SEK",
+                            perUnit: nil,
+                            unitAmount: nil,
+                            unitDisplayName: nil
+                        )
+                    ]
+                )
+            ]
+        ),
+        "dd3aaf7c-a1f5-4ab2-8093-7f379545d2db": HydratedProduct(
+            sku: "dd3aaf7c-a1f5-4ab2-8093-7f379545d2db",
+            name: "Linen Pants",
+            brandName: "Bambuser",
+            introduction: "Pants",
+            description: "Experience effortless sophistication with our classic Linen Pants. Crafted from 100% premium linen, they seamlessly combine refined style with superior comfort, adding a polished touch to elevate any ensemble.",
+            variations: [
+                Variation(
+                    sku: "1223-small",
+                    name: "Linen Pants - Beige - Small",
+                    colorName: "default",
+                    imageUrls: [URL(string: "https://demo.bambuser.shop/wp-content/uploads/2024/07/Pants-Beige.png")!],
+                    sizes: [
+                        ProductSize(
+                            sku: "1222-beige-small",
+                            current: 4000.0,
+                            name: "Standard",
+                            inStock: 20,
+                            original: 5000.0,
                             currency: "SEK",
                             perUnit: nil,
                             unitAmount: nil,

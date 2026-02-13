@@ -34,6 +34,14 @@ final class ShoppableVideoViewController: UIViewController {
     // MARK: - UI
     private let stackSpacing: CGFloat = 0
 
+    private lazy var activityIndicator: UIActivityIndicatorView = {
+        let indicator = UIActivityIndicatorView(style: .large)
+        indicator.translatesAutoresizingMaskIntoConstraints = false
+        indicator.hidesWhenStopped = true
+        return indicator
+    }()
+
+
     private lazy var scrollView: UIScrollView = {
         let sv = UIScrollView()
         sv.translatesAutoresizingMaskIntoConstraints = false
@@ -77,6 +85,12 @@ final class ShoppableVideoViewController: UIViewController {
 
         view.backgroundColor = .systemBackground
         setupScrollView()
+        view.addSubview(activityIndicator)
+        NSLayoutConstraint.activate([
+            activityIndicator.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            activityIndicator.centerYAnchor.constraint(equalTo: view.centerYAnchor)
+        ])
+        activityIndicator.startAnimating()
         fetchShoppableVideos()
     }
 
@@ -142,6 +156,8 @@ final class ShoppableVideoViewController: UIViewController {
                         "playerConfig": [
                             "buttons": ["product": "inline"],
                             "enableTrackingPoint": false,
+                            "currency": "SEK",
+                            "locale": "en-US"
                         ]
                     ]
                 )
@@ -172,7 +188,7 @@ final class ShoppableVideoViewController: UIViewController {
         videosStatus.removeAll()
         currentIndex = nil
 
-        for (index, videoView) in videoViews.enumerated() {
+        for (_, videoView) in videoViews.enumerated() {
             videoView.delegate = self
             videoView.backgroundColor = .clear
             videoView.translatesAutoresizingMaskIntoConstraints = false
@@ -214,6 +230,13 @@ final class ShoppableVideoViewController: UIViewController {
         for (i, p) in shoppableVideos.enumerated() {
             if i == index {
                 p.play()
+                if index == 1 {
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.4) {
+                        Task { @MainActor in
+                            try await p.changeMode(to: .fullExperience)
+                        }
+                    }
+                }
             } else {
                 p.pause()
             }
@@ -238,11 +261,10 @@ final class ShoppableVideoViewController: UIViewController {
               !shoppableVideos.isEmpty
         else { return }
 
-        // Ensure we're at page 0 before playing
-        scrollToPage(0, animated: false)
-
         // Defer one runloop to avoid internal transition races
         DispatchQueue.main.async { [weak self] in
+            // Ensure we're at page 0 before playing
+            self?.scrollToPage(0, animated: false)
             self?.activatePage(0)
         }
         pendingInitialPlay = false
@@ -251,14 +273,14 @@ final class ShoppableVideoViewController: UIViewController {
 
 // MARK: - UIScrollViewDelegate
 extension ShoppableVideoViewController: UIScrollViewDelegate {
-    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
-        activatePage(currentPage())
-    }
-
-    func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
-        if !decelerate {
-            activatePage(currentPage())
-        }
+    func scrollViewWillEndDragging(
+        _ scrollView: UIScrollView,
+        withVelocity velocity: CGPoint,
+        targetContentOffset: UnsafeMutablePointer<CGPoint>
+    ) {
+        let h = max(scrollView.bounds.height, 1)
+        let targetPage = max(0, min(shoppableVideos.count - 1, Int(round(targetContentOffset.pointee.y / h))))
+        activatePage(targetPage)
     }
 
     func scrollViewDidEndScrollingAnimation(_ scrollView: UIScrollView) {
@@ -268,7 +290,12 @@ extension ShoppableVideoViewController: UIScrollViewDelegate {
 
 // MARK: - BambuserVideoPlayerDelegate
 extension ShoppableVideoViewController: BambuserVideoPlayerDelegate {
-
+    
+    /// Handles new events received from the Bambuser video player.
+    ///
+    /// - Parameters:
+    ///   - id: The unique identifier for the video player.
+    ///   - event: The `BambuserEventPayload` containing the event type and associated data.
     func onNewEventReceived(_ id: String, event: BambuserCommerceSDK.BambuserEventPayload) {
         /// This event is sent when user taps the video.
         /// You can use it to toggle playback or expand/collapse the preview to full experience mode.
@@ -281,7 +308,7 @@ extension ShoppableVideoViewController: BambuserVideoPlayerDelegate {
                 player.play()
             }
         }
-
+        
         /// These events are sent when user taps an action card or a link in the player, e.g a product link.
         if (event.type == "action-card-clicked" || event.type == "open-url"),
            let eventDict = event.data["event"] as? [String: Sendable],
@@ -289,16 +316,84 @@ extension ShoppableVideoViewController: BambuserVideoPlayerDelegate {
            let url = URL(string: urlString) {
             navManager.present(sheet: .openWebPage(url), in: .shoppableVideo)
         }
+
+        if event.type == "should-add-item-to-cart" || event.type == "should-update-item-in-cart" {
+            guard let player = shoppableVideos.first(where: { $0.id == id }) else { return }
+            guard let callbackKey = event.data["callbackKey"] as? String,
+                    let event = event.data["event"] as? [String: Sendable],
+                  let sku = event["sku"] as? String else {
+                return
+            }
+            var quantity = 1
+            if let value = event["quantity"] as? Int {
+                quantity = value
+            }
+
+            DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+                if quantity > 3 {
+                    /// If the requested quantity is too high, simulate an out-of-stock error.
+                    player.notify(
+                        callbackKey: callbackKey,
+                        info: "{ success: false, reason: 'out-of-stock' }"
+                    )
+                } else {
+                    Storage.shared.updateCart(productId: sku, quantity: quantity)
+                    /// Confirm the item was successfully added to the cart.
+                    player.notify(
+                        callbackKey: callbackKey,
+                        info: true
+                    )
+                }
+            }
+        }
+
+        /// Product hydration: when the player requests product data, hydrate with a single mock product.
+        if event.type == "provide-product-data" {
+            guard let player = shoppableVideos.first(where: { $0.id == id }) else { return }
+            Task {
+                try await self.hydrate(data: event.data, for: player)
+            }
+        }
+
+        /// Cart interaction: handle add-to-cart with a simple success response.
+        if event.type == "should-add-item-to-cart" || event.type == "should-update-item-in-cart" {
+            guard let callbackKey = event.data["callbackKey"] as? String,
+                  let player = shoppableVideos.first(where: { $0.id == id }) else { return }
+            player.notify(callbackKey: callbackKey, info: true)
+        }
     }
 
+    func hydrate(data: [String: Sendable], for player: BambuserPlayerView) async throws {
+        guard let event = data["event"] as? [String: Sendable],
+              let products = event["products"] as? [[String: Sendable]] else { return }
+        for product in products {
+            guard let ref = product["ref"] as? String,
+                  let id = product["id"] as? String,
+                  let jsonString = ProductHydrationDataSource.jsonObjectString(for: ref) else { continue }
+
+            let hydrationString = "'\(id)', \(jsonString)"
+
+            try await player.invoke(
+                function: "updateProductWithData",
+                arguments: hydrationString
+            )
+        }
+    }
+    
+    /// Called when the video playback status changes for a player.
+    ///
+    /// - Parameters:
+    ///   - id: The unique identifier for the video player.
+    ///   - state: The new `BambuserVideoState` of the video player.
     func onVideoStatusChanged(_ id: String, state: BambuserVideoState) {
         // Track ready state of the first video to coordinate initial playback.
         if shoppableVideos.first?.id == id,
            state == .ready {
             firstPlayerReady = true
+            activityIndicator.stopAnimating()
             tryStartFirstPlayback()
         }
-
+        
         if state == .completed {
             // Advance to next video when current ends.
             guard let idx = shoppableVideos.firstIndex(where: { $0.id == id }) else { return }
@@ -308,13 +403,29 @@ extension ShoppableVideoViewController: BambuserVideoPlayerDelegate {
             }
         }
     }
-
+    
+    /// Called when an error occurs within a video player.
+    /// - Parameters:
+    ///   - id: The unique identifier for the video player where the error occurred.
+    ///   - error: The `Error` object containing details about the issue.
     func onErrorOccurred(_ id: String, error: any Error) {
         print("Player error [\(id)]: \(error.localizedDescription)")
     }
-
+    
+    /// Reports the current playback progress of a video.
+    /// - Parameters:
+    ///   - id: The unique identifier for the video player.
+    ///   - duration: The total duration of the video in seconds.
+    ///   - currentTime: The current playback time in seconds.
     func onVideoProgress(_ id: String, duration: Double, currentTime: Double) {
         print("Player progress [\(id)]: \(currentTime) / \(duration) seconds")
+    }
+    
+    /// Called when a video thumbnail is tapped.
+    /// - Parameters:
+    ///   - id: The unique identifier for the video player associated with the tapped thumbnail.
+    func onThumbnailTapped(_ id: String) {
+        print("Player [\(id)] thumbnail was tapped")
     }
 }
 

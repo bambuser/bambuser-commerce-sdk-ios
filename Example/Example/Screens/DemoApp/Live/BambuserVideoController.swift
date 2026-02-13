@@ -71,6 +71,9 @@ final class BambuserVideoController: UIViewController, BambuserVideoPlayerDelega
                 "buttons": [
                     "dismiss": "none"
                 ],
+                "ui": [
+                    "hidePlaybackRateButton": false
+                ],
                 "autoplay": true,
                 "currency": "USD", // Defines the currency for product hydration
                 "locale": "en-US" // Defines the locale for content formatting
@@ -390,8 +393,19 @@ final class BambuserVideoController: UIViewController, BambuserVideoPlayerDelega
         print("ProductHydrationViewController error: \(error.localizedDescription)")
     }
 
+    /// Called when the video playback status changes.
+    /// - Parameters:
+    ///   - id: The ID of the player whose video status changed.
+    ///   - state: The new video state (e.g., playing, paused, buffering).
     func onVideoStatusChanged(_ id: String, state: BambuserCommerceSDK.BambuserVideoState) {
         print("Video state changed to: \(state)")
+    }
+
+    /// Called when the video thumbnail is tapped.
+    /// - Parameters:
+    ///   - id: The ID of the player whose thumbnail was tapped.
+    func onThumbnailTapped(_ id: String) {
+        print("Player [\(id)] thumbnail was tapped")
     }
 
     /// Handles changes to the Picture-in-Picture (PiP) state.
