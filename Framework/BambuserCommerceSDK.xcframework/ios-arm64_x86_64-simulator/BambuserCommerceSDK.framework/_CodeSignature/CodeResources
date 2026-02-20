@@ -14,7 +14,7 @@
 		</data>
 		<key>Modules/BambuserCommerceSDK.swiftmodule/arm64-apple-ios-simulator.abi.json</key>
 		<data>
-		D+56fiuKOGO0s6NeHQpMVK0hkCI=
+		R80gLQD4ljFaR2HZ/X/QMxBRTs8=
 		</data>
 		<key>Modules/BambuserCommerceSDK.swiftmodule/arm64-apple-ios-simulator.private.swiftinterface</key>
 		<data>
@@ -30,11 +30,11 @@
 		</data>
 		<key>Modules/BambuserCommerceSDK.swiftmodule/arm64-apple-ios-simulator.swiftmodule</key>
 		<data>
-		sbTMlhDqmkARGgHfL0qq66mBUXY=
+		8EC/e+QSAO+PNUcuG+CHwiBI9vI=
 		</data>
 		<key>Modules/BambuserCommerceSDK.swiftmodule/x86_64-apple-ios-simulator.abi.json</key>
 		<data>
-		D+56fiuKOGO0s6NeHQpMVK0hkCI=
+		R80gLQD4ljFaR2HZ/X/QMxBRTs8=
 		</data>
 		<key>Modules/BambuserCommerceSDK.swiftmodule/x86_64-apple-ios-simulator.private.swiftinterface</key>
 		<data>
@@ -50,7 +50,7 @@
 		</data>
 		<key>Modules/BambuserCommerceSDK.swiftmodule/x86_64-apple-ios-simulator.swiftmodule</key>
 		<data>
-		1oHKtcQv869DJS9icZ4TyHRiGrI=
+		ai4prPmUjzhDYkTXlvxfbVB2KnE=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -74,11 +74,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			D+56fiuKOGO0s6NeHQpMVK0hkCI=
+			R80gLQD4ljFaR2HZ/X/QMxBRTs8=
 			</data>
 			<key>hash2</key>
 			<data>
-			NY1aKyII3bcaFAGoacmbHGaxqD1nea0GJji01HO1jFQ=
+			KmV6O6DIyMoSqbm49e/0w6Kc1Y5IubhZ1eGyDChGPSw=
 			</data>
 		</dict>
 		<key>Modules/BambuserCommerceSDK.swiftmodule/arm64-apple-ios-simulator.private.swiftinterface</key>
@@ -118,22 +118,22 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			sbTMlhDqmkARGgHfL0qq66mBUXY=
+			8EC/e+QSAO+PNUcuG+CHwiBI9vI=
 			</data>
 			<key>hash2</key>
 			<data>
-			ILngx4fD0arKGKSz1BpxH682SI0nceAjzQ2de+HweeY=
+			WpCuKt3mMAcZfgMWVHeQY9P9Q6qxk2c7NTQM27DjCpc=
 			</data>
 		</dict>
 		<key>Modules/BambuserCommerceSDK.swiftmodule/x86_64-apple-ios-simulator.abi.json</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			D+56fiuKOGO0s6NeHQpMVK0hkCI=
+			R80gLQD4ljFaR2HZ/X/QMxBRTs8=
 			</data>
 			<key>hash2</key>
 			<data>
-			NY1aKyII3bcaFAGoacmbHGaxqD1nea0GJji01HO1jFQ=
+			KmV6O6DIyMoSqbm49e/0w6Kc1Y5IubhZ1eGyDChGPSw=
 			</data>
 		</dict>
 		<key>Modules/BambuserCommerceSDK.swiftmodule/x86_64-apple-ios-simulator.private.swiftinterface</key>
@@ -173,11 +173,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			1oHKtcQv869DJS9icZ4TyHRiGrI=
+			ai4prPmUjzhDYkTXlvxfbVB2KnE=
 			</data>
 			<key>hash2</key>
 			<data>
-			p6bBQwUyocTOMxz9MFeG37EmFW6yhjNrt/zTV/XO5RM=
+			6RdYUovaBfAEMRQ7z7KRIFkgIGEC2MnaZyBG704x8ro=
 			</data>
 		</dict>
 		<key>Modules/module.modulemap</key>
