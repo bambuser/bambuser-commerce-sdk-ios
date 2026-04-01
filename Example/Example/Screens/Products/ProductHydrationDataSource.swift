@@ -107,8 +107,8 @@ struct ProductHydrationDataSource {
                 )
             ]
         ),
-        "7d4a95da-c364-4d8c-b08c-de62ace79b92": HydratedProduct(
-            sku: "7d4a95da-c364-4d8c-b08c-de62ace79b92",
+        "1977": HydratedProduct(
+            sku: "1977",
             name: "Linen Blazer",
             brandName: "Bambuser",
             introduction: "Blazer",
@@ -135,8 +135,8 @@ struct ProductHydrationDataSource {
                 )
             ]
         ),
-        "dd3aaf7c-a1f5-4ab2-8093-7f379545d2db": HydratedProduct(
-            sku: "dd3aaf7c-a1f5-4ab2-8093-7f379545d2db",
+        "1994": HydratedProduct(
+            sku: "1994",
             name: "Linen Pants",
             brandName: "Bambuser",
             introduction: "Pants",

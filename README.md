@@ -18,6 +18,8 @@ This SDK is built using **Xcode 16** with the **Swift 6** toolchain but remains 
 - **Swift 5** toolchain
 - **iOS 14+** supported
 
+> **Note:** Starting from version **3.0.0**, the SDK will require **Xcode 26.0+** and the **Swift 6.2** toolchain.
+
 ### Important
 
 To ensure full functionality of the SDK, **you must add the `-ObjC` flag** to your app target:
@@ -133,9 +135,7 @@ let totalItems = result.pagination.total
 ```swift
 let videoContainerInfo = BambuserShoppableVideoPlaylistInfo(
     orgId: "xxx",
-    pageId: "xxx",
-    playlistId: "xxx",
-    title: "xxx"
+    componentId: "xxx"
 )
 
 let config = BambuserShoppableVideoConfiguration(

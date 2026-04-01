@@ -154,7 +154,7 @@ final class ShoppableVideoViewController: UIViewController {
                             "settings": "products:true; title:false; actions:true; productCardMode: thumbnail; autoplay:true",
                         ],
                         "playerConfig": [
-                            "buttons": ["product": "inline"],
+                            "buttons": ["dismiss": "event"],
                             "enableTrackingPoint": false,
                             "currency": "SEK",
                             "locale": "en-US"
@@ -230,7 +230,7 @@ final class ShoppableVideoViewController: UIViewController {
         for (i, p) in shoppableVideos.enumerated() {
             if i == index {
                 p.play()
-                if index == 1 {
+                if index == 0 {
                     DispatchQueue.main.asyncAfter(deadline: .now() + 0.4) {
                         Task { @MainActor in
                             try await p.changeMode(to: .fullExperience)
@@ -297,6 +297,7 @@ extension ShoppableVideoViewController: BambuserVideoPlayerDelegate {
     ///   - id: The unique identifier for the video player.
     ///   - event: The `BambuserEventPayload` containing the event type and associated data.
     func onNewEventReceived(_ id: String, event: BambuserCommerceSDK.BambuserEventPayload) {
+        print("Received event [\(id)]: \(event.type) with data: \(event.data)")
         /// This event is sent when user taps the video.
         /// You can use it to toggle playback or expand/collapse the preview to full experience mode.
         /// or any other custom action you want to trigger on tap.
@@ -386,6 +387,7 @@ extension ShoppableVideoViewController: BambuserVideoPlayerDelegate {
     ///   - id: The unique identifier for the video player.
     ///   - state: The new `BambuserVideoState` of the video player.
     func onVideoStatusChanged(_ id: String, state: BambuserVideoState) {
+        print("Player status changed [\(id)]: \(state)")
         // Track ready state of the first video to coordinate initial playback.
         if shoppableVideos.first?.id == id,
            state == .ready {

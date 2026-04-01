@@ -9,18 +9,19 @@ import BambuserCommerceSDK
 import Foundation
 
 struct Show {
+
     static var WidgetUrl: URL {
-        URL(string: "https://svc-prod-us.liveshopping.bambuser.com/widgets/channels/pNxCZkolKbw35xwZOltt")!
+        return URL(string: "https://svc-prod-us.liveshopping.bambuser.com/widgets/channels/pNxCZkolKbw35xwZOltt")!
+    }
+
+    static var organizationId: String {
+        return "BdTubpTeJwzvYHljZiy4"
     }
 
     static var PlaylistConfig: BambuserShoppableVideoPlaylistInfo {
         BambuserShoppableVideoPlaylistInfo(
-            orgId: "BdTubpTeJwzvYHljZiy4",
-            pageId: "mobile-home-screen",
-            playlistId: "best-sellers",
-            title: "Best Sellers",
-            packageName: "com.bambuser.Example"
+            orgId: organizationId,
+            componentId: "mobile-sdk-tests"
         )
     }
 }
-

@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 63;
+	objectVersion = 77;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -252,9 +252,10 @@
 			attributes = {
 				BuildIndependentTargetsInParallel = YES;
 				LastUpgradeCheck = 1640;
+				TargetAttributes = {
+				};
 			};
 			buildConfigurationList = 36FC72E69D906F48675C62BF /* Build configuration list for PBXProject "Example" */;
-			compatibilityVersion = "Xcode 14.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -266,6 +267,8 @@
 			packageReferences = (
 				AF4C6D5A6FB659DB1E3FFC6D /* XCRemoteSwiftPackageReference "bambuser-commerce-sdk-ios" */,
 			);
+			preferredProjectObjectVersion = 77;
+			productRefGroup = 3031F8ABC084F8D43CC56342 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
@@ -338,7 +341,9 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 2.0.0;
-				OTHER_LDFLAGS = "-ObjC";
+				OTHER_LDFLAGS = (
+					"-ObjC",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.bambuser.commercesdk.demo;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -415,7 +420,9 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 2.0.0;
-				OTHER_LDFLAGS = "-ObjC";
+				OTHER_LDFLAGS = (
+					"-ObjC",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.bambuser.commercesdk.demo;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";

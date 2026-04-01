@@ -56,6 +56,7 @@ public enum BambuserPlayerError : Swift.Error, Foundation.LocalizedError {
   @_Concurrency.MainActor func track(event: Swift.String, with data: [Swift.String : any Swift.Sendable]) async throws -> [Swift.String : any Swift.Sendable]?
   @_Concurrency.MainActor func play()
   @_Concurrency.MainActor func pause()
+  @_Concurrency.MainActor func seek(to: Foundation.TimeInterval)
   @_Concurrency.MainActor var currentPlayerMode: BambuserCommerceSDK.InlinePlayerMode { get }
   @_Concurrency.MainActor func changeMode(to mode: BambuserCommerceSDK.InlinePlayerMode) async throws
   @_Concurrency.MainActor func preload()
@@ -132,7 +133,9 @@ public enum InlinePlayerMode : Swift.Equatable {
   }
 }
 public struct InlineVideoPlaylistInfo : Swift.Sendable, Swift.Equatable {
+  @available(*, deprecated, message: "Deprecated and will be removed in a future release. Use init(orgId:componentId:packageName:) instead. The pageId, playlistId, and title parameters have been replaced by componentId.")
   public init(orgId: Swift.String, pageId: Swift.String?, playlistId: Swift.String?, title: Swift.String?, packageName: Swift.String? = Bundle.main.bundleIdentifier)
+  public init(orgId: Swift.String, componentId: Swift.String)
   public static func == (a: BambuserCommerceSDK.InlineVideoPlaylistInfo, b: BambuserCommerceSDK.InlineVideoPlaylistInfo) -> Swift.Bool
 }
 public typealias BambuserShoppableVideoPlaylistInfo = BambuserCommerceSDK.InlineVideoPlaylistInfo

@@ -72,7 +72,8 @@ final class BambuserVideoController: UIViewController, BambuserVideoPlayerDelega
                     "dismiss": "none"
                 ],
                 "ui": [
-                    "hidePlaybackRateButton": false
+                    "hidePlaybackRateButton": false,
+                    "hidePromotedShows": false,
                 ],
                 "autoplay": true,
                 "currency": "USD", // Defines the currency for product hydration
