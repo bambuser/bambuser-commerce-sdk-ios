@@ -6666,7 +6666,7 @@
     {
       "filePath": "\/Users\/saeid\/Documents\/projects\/frameworks\/commerce-sdk\/bambuser-commerce-sdk-ios\/Files\/Sources\/BambuserCommerceSDK\/Implementation\/VideoPlayer\/Models\/VOD\/MediaAssetData.swift",
       "kind": "StringLiteral",
-      "offset": 323,
+      "offset": 287,
       "length": 14,
       "value": "\"resource_uri\""
     },
