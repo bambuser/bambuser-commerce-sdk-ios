@@ -11,10 +11,13 @@ import Combine
 
 /// A view controller responsible for handling **product hydration** and cart interactions
 /// using the Bambuser Commerce SDK.
-final class BambuserVideoController: UIViewController, BambuserVideoPlayerDelegate, BambuserPictureInPictureDelegate {
+final class BambuserVideoController: UIViewController, BambuserPlayerViewDelegate, BambuserPictureInPictureDelegate {
 
     /// The player view used for displaying the video.
     var playerView: BambuserPlayerView?
+
+    /// The Bambuser SDK instance used for tracking and player creation.
+    let bambuserSDK = BambuserSDK(server: .US)
 
     /// Navigation manager for handling navigation events within the app.
     let navManager: NavigationManager
@@ -52,10 +55,6 @@ final class BambuserVideoController: UIViewController, BambuserVideoPlayerDelega
             .store(in: &cancellables)
 
 
-        /// Initializes the Bambuser player instance.
-        /// - The `server` parameter determines whether the player connects to the US or EU server.
-        let bambuserPlayer = BambuserVideoPlayer(server: .US)
-
         /// Configures the Bambuser video player.
         /// - `type`: Specifies the video type and requires a valid show ID.
         /// - `events`: Specifies which events app expects to receive from SDK.
@@ -82,11 +81,11 @@ final class BambuserVideoController: UIViewController, BambuserVideoPlayerDelega
         )
 
         /// Creates a player view with the specified configuration and adds it to the view hierarchy.
-        let pView = bambuserPlayer.createPlayerView(
+        let pView = bambuserSDK.createPlayerView(
             videoConfiguration: config,
             ignoredSafeAreaEdges: .init(.bottom)
         )
-        pView.delegate = self // Assigns the delegate to receive BambuserVideoPlayerDelegate events.
+        pView.delegate = self // Assigns the delegate to receive BambuserPlayerViewDelegate events.
         pView.pipController?.delegate = self // Assigns the picture in picture delegate to receive BambuserPictureInPictureDelegate events.
         pView.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(pView)
@@ -172,10 +171,10 @@ final class BambuserVideoController: UIViewController, BambuserVideoPlayerDelega
         hideProductList()
     }
 
-    // MARK: - BambuserVideoPlayerDelegate
+    // MARK: - BambuserPlayerViewDelegate
 
     /// Handles events received from the **Bambuser video player**.
-    /// - This method is part of `BambuserVideoPlayerDelegate`.
+    /// - This method is part of `BambuserPlayerViewDelegate`.
     /// - Parameters:
     ///   - id: The ID of the player emitting the event.
     ///   - event: The event payload containing event details.
@@ -352,7 +351,7 @@ final class BambuserVideoController: UIViewController, BambuserVideoPlayerDelega
             productTapped(event.data)
 
             Task {
-                let resposne = try? await self.playerView?.track(
+                let resposne = try? await self.bambuserSDK.track(
                     event: "ecommerce:purchase",
                     with: [
                         "transaction": [
@@ -386,7 +385,7 @@ final class BambuserVideoController: UIViewController, BambuserVideoPlayerDelega
     }
 
     /// Handles errors that occur within the **Bambuser video player**.
-    /// - This method is part of `BambuserVideoPlayerDelegate`.
+    /// - This method is part of `BambuserPlayerViewDelegate`.
     /// - Parameters:
     ///   - id: The ID of the player where the error occurred.
     ///   - error: The error object containing details about the issue.

@@ -131,7 +131,7 @@ final class ShoppableVideoViewController: UIViewController {
 
     // MARK: - Fetch Data
     private func fetchShoppableVideos() {
-        let bambuserPlayer = BambuserVideoPlayer(server: .US)
+        let bambuserPlayer = BambuserSDK(server: .US)
         let videoContainerInfo = Show.PlaylistConfig
 
         Task {
@@ -288,8 +288,8 @@ extension ShoppableVideoViewController: UIScrollViewDelegate {
     }
 }
 
-// MARK: - BambuserVideoPlayerDelegate
-extension ShoppableVideoViewController: BambuserVideoPlayerDelegate {
+// MARK: - BambuserPlayerViewDelegate
+extension ShoppableVideoViewController: BambuserPlayerViewDelegate {
     
     /// Handles new events received from the Bambuser video player.
     ///

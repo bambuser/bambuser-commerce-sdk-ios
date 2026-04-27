@@ -403,6 +403,13 @@
             "printedName": "BambuserVideoType",
             "usr": "s:19BambuserCommerceSDK0A9VideoTypeP",
             "mangledName": "$s19BambuserCommerceSDK0A9VideoTypeP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "SendableMetatype",
+            "printedName": "SendableMetatype",
+            "usr": "s:s16SendableMetatypeP",
+            "mangledName": "$ss16SendableMetatypeP"
           }
         ]
       },
@@ -442,6 +449,7 @@
             "sugared_genericSig": "<Self where Self : BambuserCommerceSDK.BambuserPictureInPictureDelegate>",
             "protocolReq": true,
             "declAttributes": [
+              "Custom",
               "RawDocComment"
             ],
             "reqNewWitnessTableEntry": true,
@@ -739,19 +747,367 @@
           },
           {
             "kind": "Var",
+            "name": "badUrl",
+            "printedName": "badUrl",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(BambuserCommerceSDK.BambuserPlayerError.Type) -> (Foundation.URL?) -> BambuserCommerceSDK.BambuserPlayerError",
+                "children": [
+                  {
+                    "kind": "TypeFunc",
+                    "name": "Function",
+                    "printedName": "(Foundation.URL?) -> BambuserCommerceSDK.BambuserPlayerError",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "BambuserPlayerError",
+                        "printedName": "BambuserCommerceSDK.BambuserPlayerError",
+                        "usr": "s:19BambuserCommerceSDK0A11PlayerErrorO"
+                      },
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Optional",
+                        "printedName": "Foundation.URL?",
+                        "children": [
+                          {
+                            "kind": "TypeNominal",
+                            "name": "URL",
+                            "printedName": "Foundation.URL",
+                            "usr": "s:10Foundation3URLV"
+                          }
+                        ],
+                        "usr": "s:Sq"
+                      }
+                    ]
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Metatype",
+                    "printedName": "BambuserCommerceSDK.BambuserPlayerError.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "BambuserPlayerError",
+                        "printedName": "BambuserCommerceSDK.BambuserPlayerError",
+                        "usr": "s:19BambuserCommerceSDK0A11PlayerErrorO"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "EnumElement",
+            "usr": "s:19BambuserCommerceSDK0A11PlayerErrorO6badUrlyAC10Foundation3URLVSgcACmF",
+            "mangledName": "$s19BambuserCommerceSDK0A11PlayerErrorO6badUrlyAC10Foundation3URLVSgcACmF",
+            "moduleName": "BambuserCommerceSDK"
+          },
+          {
+            "kind": "Var",
+            "name": "noData",
+            "printedName": "noData",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(BambuserCommerceSDK.BambuserPlayerError.Type) -> BambuserCommerceSDK.BambuserPlayerError",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "BambuserPlayerError",
+                    "printedName": "BambuserCommerceSDK.BambuserPlayerError",
+                    "usr": "s:19BambuserCommerceSDK0A11PlayerErrorO"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Metatype",
+                    "printedName": "BambuserCommerceSDK.BambuserPlayerError.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "BambuserPlayerError",
+                        "printedName": "BambuserCommerceSDK.BambuserPlayerError",
+                        "usr": "s:19BambuserCommerceSDK0A11PlayerErrorO"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "EnumElement",
+            "usr": "s:19BambuserCommerceSDK0A11PlayerErrorO6noDatayA2CmF",
+            "mangledName": "$s19BambuserCommerceSDK0A11PlayerErrorO6noDatayA2CmF",
+            "moduleName": "BambuserCommerceSDK"
+          },
+          {
+            "kind": "Var",
+            "name": "invalidJson",
+            "printedName": "invalidJson",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(BambuserCommerceSDK.BambuserPlayerError.Type) -> (Swift.String) -> BambuserCommerceSDK.BambuserPlayerError",
+                "children": [
+                  {
+                    "kind": "TypeFunc",
+                    "name": "Function",
+                    "printedName": "(Swift.String) -> BambuserCommerceSDK.BambuserPlayerError",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "BambuserPlayerError",
+                        "printedName": "BambuserCommerceSDK.BambuserPlayerError",
+                        "usr": "s:19BambuserCommerceSDK0A11PlayerErrorO"
+                      },
+                      {
+                        "kind": "TypeNominal",
+                        "name": "String",
+                        "printedName": "Swift.String",
+                        "usr": "s:SS"
+                      }
+                    ]
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Metatype",
+                    "printedName": "BambuserCommerceSDK.BambuserPlayerError.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "BambuserPlayerError",
+                        "printedName": "BambuserCommerceSDK.BambuserPlayerError",
+                        "usr": "s:19BambuserCommerceSDK0A11PlayerErrorO"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "EnumElement",
+            "usr": "s:19BambuserCommerceSDK0A11PlayerErrorO11invalidJsonyACSScACmF",
+            "mangledName": "$s19BambuserCommerceSDK0A11PlayerErrorO11invalidJsonyACSScACmF",
+            "moduleName": "BambuserCommerceSDK"
+          },
+          {
+            "kind": "Var",
+            "name": "invalidStatus",
+            "printedName": "invalidStatus",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(BambuserCommerceSDK.BambuserPlayerError.Type) -> (Swift.Int, Foundation.URL?) -> BambuserCommerceSDK.BambuserPlayerError",
+                "children": [
+                  {
+                    "kind": "TypeFunc",
+                    "name": "Function",
+                    "printedName": "(Swift.Int, Foundation.URL?) -> BambuserCommerceSDK.BambuserPlayerError",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "BambuserPlayerError",
+                        "printedName": "BambuserCommerceSDK.BambuserPlayerError",
+                        "usr": "s:19BambuserCommerceSDK0A11PlayerErrorO"
+                      },
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Tuple",
+                        "printedName": "(Swift.Int, url: Foundation.URL?)",
+                        "children": [
+                          {
+                            "kind": "TypeNominal",
+                            "name": "Int",
+                            "printedName": "Swift.Int",
+                            "usr": "s:Si"
+                          },
+                          {
+                            "kind": "TypeNominal",
+                            "name": "Optional",
+                            "printedName": "Foundation.URL?",
+                            "children": [
+                              {
+                                "kind": "TypeNominal",
+                                "name": "URL",
+                                "printedName": "Foundation.URL",
+                                "usr": "s:10Foundation3URLV"
+                              }
+                            ],
+                            "usr": "s:Sq"
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Metatype",
+                    "printedName": "BambuserCommerceSDK.BambuserPlayerError.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "BambuserPlayerError",
+                        "printedName": "BambuserCommerceSDK.BambuserPlayerError",
+                        "usr": "s:19BambuserCommerceSDK0A11PlayerErrorO"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "EnumElement",
+            "usr": "s:19BambuserCommerceSDK0A11PlayerErrorO13invalidStatusyACSi_10Foundation3URLVSgtcACmF",
+            "mangledName": "$s19BambuserCommerceSDK0A11PlayerErrorO13invalidStatusyACSi_10Foundation3URLVSgtcACmF",
+            "moduleName": "BambuserCommerceSDK"
+          },
+          {
+            "kind": "Var",
+            "name": "unknownError",
+            "printedName": "unknownError",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(BambuserCommerceSDK.BambuserPlayerError.Type) -> BambuserCommerceSDK.BambuserPlayerError",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "BambuserPlayerError",
+                    "printedName": "BambuserCommerceSDK.BambuserPlayerError",
+                    "usr": "s:19BambuserCommerceSDK0A11PlayerErrorO"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Metatype",
+                    "printedName": "BambuserCommerceSDK.BambuserPlayerError.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "BambuserPlayerError",
+                        "printedName": "BambuserCommerceSDK.BambuserPlayerError",
+                        "usr": "s:19BambuserCommerceSDK0A11PlayerErrorO"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "EnumElement",
+            "usr": "s:19BambuserCommerceSDK0A11PlayerErrorO07unknownE0yA2CmF",
+            "mangledName": "$s19BambuserCommerceSDK0A11PlayerErrorO07unknownE0yA2CmF",
+            "moduleName": "BambuserCommerceSDK"
+          },
+          {
+            "kind": "Var",
+            "name": "failedToTrack",
+            "printedName": "failedToTrack",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(BambuserCommerceSDK.BambuserPlayerError.Type) -> BambuserCommerceSDK.BambuserPlayerError",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "BambuserPlayerError",
+                    "printedName": "BambuserCommerceSDK.BambuserPlayerError",
+                    "usr": "s:19BambuserCommerceSDK0A11PlayerErrorO"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Metatype",
+                    "printedName": "BambuserCommerceSDK.BambuserPlayerError.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "BambuserPlayerError",
+                        "printedName": "BambuserCommerceSDK.BambuserPlayerError",
+                        "usr": "s:19BambuserCommerceSDK0A11PlayerErrorO"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "EnumElement",
+            "usr": "s:19BambuserCommerceSDK0A11PlayerErrorO13failedToTrackyA2CmF",
+            "mangledName": "$s19BambuserCommerceSDK0A11PlayerErrorO13failedToTrackyA2CmF",
+            "moduleName": "BambuserCommerceSDK"
+          },
+          {
+            "kind": "Var",
+            "name": "failedToLoadVideo",
+            "printedName": "failedToLoadVideo",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(BambuserCommerceSDK.BambuserPlayerError.Type) -> (Swift.String) -> BambuserCommerceSDK.BambuserPlayerError",
+                "children": [
+                  {
+                    "kind": "TypeFunc",
+                    "name": "Function",
+                    "printedName": "(Swift.String) -> BambuserCommerceSDK.BambuserPlayerError",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "BambuserPlayerError",
+                        "printedName": "BambuserCommerceSDK.BambuserPlayerError",
+                        "usr": "s:19BambuserCommerceSDK0A11PlayerErrorO"
+                      },
+                      {
+                        "kind": "TypeNominal",
+                        "name": "String",
+                        "printedName": "Swift.String",
+                        "usr": "s:SS"
+                      }
+                    ]
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Metatype",
+                    "printedName": "BambuserCommerceSDK.BambuserPlayerError.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "BambuserPlayerError",
+                        "printedName": "BambuserCommerceSDK.BambuserPlayerError",
+                        "usr": "s:19BambuserCommerceSDK0A11PlayerErrorO"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "EnumElement",
+            "usr": "s:19BambuserCommerceSDK0A11PlayerErrorO17failedToLoadVideoyACSScACmF",
+            "mangledName": "$s19BambuserCommerceSDK0A11PlayerErrorO17failedToLoadVideoyACSScACmF",
+            "moduleName": "BambuserCommerceSDK"
+          },
+          {
+            "kind": "Var",
             "name": "errorDescription",
             "printedName": "errorDescription",
             "children": [
               {
                 "kind": "TypeNominal",
-                "name": "String",
-                "printedName": "Swift.String",
-                "usr": "s:SS"
+                "name": "Optional",
+                "printedName": "Swift.String?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "usr": "s:Sq"
               }
             ],
             "declKind": "Var",
-            "usr": "s:19BambuserCommerceSDK0A11PlayerErrorO16errorDescriptionSSvp",
-            "mangledName": "$s19BambuserCommerceSDK0A11PlayerErrorO16errorDescriptionSSvp",
+            "usr": "s:19BambuserCommerceSDK0A11PlayerErrorO16errorDescriptionSSSgvp",
+            "mangledName": "$s19BambuserCommerceSDK0A11PlayerErrorO16errorDescriptionSSSgvp",
             "moduleName": "BambuserCommerceSDK",
             "declAttributes": [
               "AccessControl"
@@ -764,114 +1120,26 @@
                 "children": [
                   {
                     "kind": "TypeNominal",
-                    "name": "String",
-                    "printedName": "Swift.String",
-                    "usr": "s:SS"
+                    "name": "Optional",
+                    "printedName": "Swift.String?",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "String",
+                        "printedName": "Swift.String",
+                        "usr": "s:SS"
+                      }
+                    ],
+                    "usr": "s:Sq"
                   }
                 ],
                 "declKind": "Accessor",
-                "usr": "s:19BambuserCommerceSDK0A11PlayerErrorO16errorDescriptionSSvg",
-                "mangledName": "$s19BambuserCommerceSDK0A11PlayerErrorO16errorDescriptionSSvg",
+                "usr": "s:19BambuserCommerceSDK0A11PlayerErrorO16errorDescriptionSSSgvg",
+                "mangledName": "$s19BambuserCommerceSDK0A11PlayerErrorO16errorDescriptionSSSgvg",
                 "moduleName": "BambuserCommerceSDK",
                 "accessorKind": "get"
               }
             ]
-          },
-          {
-            "kind": "Function",
-            "name": "==",
-            "printedName": "==(_:_:)",
-            "children": [
-              {
-                "kind": "TypeNominal",
-                "name": "Bool",
-                "printedName": "Swift.Bool",
-                "usr": "s:Sb"
-              },
-              {
-                "kind": "TypeNominal",
-                "name": "BambuserPlayerError",
-                "printedName": "BambuserCommerceSDK.BambuserPlayerError",
-                "usr": "s:19BambuserCommerceSDK0A11PlayerErrorO"
-              },
-              {
-                "kind": "TypeNominal",
-                "name": "BambuserPlayerError",
-                "printedName": "BambuserCommerceSDK.BambuserPlayerError",
-                "usr": "s:19BambuserCommerceSDK0A11PlayerErrorO"
-              }
-            ],
-            "declKind": "Func",
-            "usr": "s:19BambuserCommerceSDK0A11PlayerErrorO2eeoiySbAC_ACtFZ",
-            "mangledName": "$s19BambuserCommerceSDK0A11PlayerErrorO2eeoiySbAC_ACtFZ",
-            "moduleName": "BambuserCommerceSDK",
-            "static": true,
-            "implicit": true,
-            "funcSelfKind": "NonMutating"
-          },
-          {
-            "kind": "Var",
-            "name": "hashValue",
-            "printedName": "hashValue",
-            "children": [
-              {
-                "kind": "TypeNominal",
-                "name": "Int",
-                "printedName": "Swift.Int",
-                "usr": "s:Si"
-              }
-            ],
-            "declKind": "Var",
-            "usr": "s:19BambuserCommerceSDK0A11PlayerErrorO9hashValueSivp",
-            "mangledName": "$s19BambuserCommerceSDK0A11PlayerErrorO9hashValueSivp",
-            "moduleName": "BambuserCommerceSDK",
-            "implicit": true,
-            "accessors": [
-              {
-                "kind": "Accessor",
-                "name": "Get",
-                "printedName": "Get()",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "Int",
-                    "printedName": "Swift.Int",
-                    "usr": "s:Si"
-                  }
-                ],
-                "declKind": "Accessor",
-                "usr": "s:19BambuserCommerceSDK0A11PlayerErrorO9hashValueSivg",
-                "mangledName": "$s19BambuserCommerceSDK0A11PlayerErrorO9hashValueSivg",
-                "moduleName": "BambuserCommerceSDK",
-                "implicit": true,
-                "accessorKind": "get"
-              }
-            ]
-          },
-          {
-            "kind": "Function",
-            "name": "hash",
-            "printedName": "hash(into:)",
-            "children": [
-              {
-                "kind": "TypeNominal",
-                "name": "Void",
-                "printedName": "()"
-              },
-              {
-                "kind": "TypeNominal",
-                "name": "Hasher",
-                "printedName": "Swift.Hasher",
-                "paramValueOwnership": "InOut",
-                "usr": "s:s6HasherV"
-              }
-            ],
-            "declKind": "Func",
-            "usr": "s:19BambuserCommerceSDK0A11PlayerErrorO4hash4intoys6HasherVz_tF",
-            "mangledName": "$s19BambuserCommerceSDK0A11PlayerErrorO4hash4intoys6HasherVz_tF",
-            "moduleName": "BambuserCommerceSDK",
-            "implicit": true,
-            "funcSelfKind": "NonMutating"
           }
         ],
         "declKind": "Enum",
@@ -891,27 +1159,6 @@
           },
           {
             "kind": "Conformance",
-            "name": "Escapable",
-            "printedName": "Escapable",
-            "usr": "s:s9EscapableP",
-            "mangledName": "$ss9EscapableP"
-          },
-          {
-            "kind": "Conformance",
-            "name": "Equatable",
-            "printedName": "Equatable",
-            "usr": "s:SQ",
-            "mangledName": "$sSQ"
-          },
-          {
-            "kind": "Conformance",
-            "name": "Hashable",
-            "printedName": "Hashable",
-            "usr": "s:SH",
-            "mangledName": "$sSH"
-          },
-          {
-            "kind": "Conformance",
             "name": "Error",
             "printedName": "Error",
             "usr": "s:s5ErrorP",
@@ -926,10 +1173,24 @@
           },
           {
             "kind": "Conformance",
+            "name": "Escapable",
+            "printedName": "Escapable",
+            "usr": "s:s9EscapableP",
+            "mangledName": "$ss9EscapableP"
+          },
+          {
+            "kind": "Conformance",
             "name": "Sendable",
             "printedName": "Sendable",
             "usr": "s:s8SendableP",
             "mangledName": "$ss8SendableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "SendableMetatype",
+            "printedName": "SendableMetatype",
+            "usr": "s:s16SendableMetatypeP",
+            "mangledName": "$ss16SendableMetatypeP"
           }
         ]
       },
@@ -956,21 +1217,21 @@
               {
                 "kind": "TypeNominal",
                 "name": "Optional",
-                "printedName": "(any BambuserCommerceSDK.BambuserVideoPlayerDelegate)?",
+                "printedName": "(any BambuserCommerceSDK.BambuserPlayerViewDelegate)?",
                 "children": [
                   {
                     "kind": "TypeNominal",
-                    "name": "BambuserVideoPlayerDelegate",
-                    "printedName": "any BambuserCommerceSDK.BambuserVideoPlayerDelegate",
-                    "usr": "s:19BambuserCommerceSDK0A19VideoPlayerDelegateP"
+                    "name": "BambuserPlayerViewDelegate",
+                    "printedName": "any BambuserCommerceSDK.BambuserPlayerViewDelegate",
+                    "usr": "s:19BambuserCommerceSDK0A18PlayerViewDelegateP"
                   }
                 ],
                 "usr": "s:Sq"
               }
             ],
             "declKind": "Var",
-            "usr": "s:19BambuserCommerceSDK0A10PlayerViewP8delegateAA0a5VideoD8Delegate_pSgvp",
-            "mangledName": "$s19BambuserCommerceSDK0A10PlayerViewP8delegateAA0a5VideoD8Delegate_pSgvp",
+            "usr": "s:19BambuserCommerceSDK0A10PlayerViewP8delegateAA0adE8Delegate_pSgvp",
+            "mangledName": "$s19BambuserCommerceSDK0A10PlayerViewP8delegateAA0adE8Delegate_pSgvp",
             "moduleName": "BambuserCommerceSDK",
             "protocolReq": true,
             "declAttributes": [
@@ -986,21 +1247,21 @@
                   {
                     "kind": "TypeNominal",
                     "name": "Optional",
-                    "printedName": "(any BambuserCommerceSDK.BambuserVideoPlayerDelegate)?",
+                    "printedName": "(any BambuserCommerceSDK.BambuserPlayerViewDelegate)?",
                     "children": [
                       {
                         "kind": "TypeNominal",
-                        "name": "BambuserVideoPlayerDelegate",
-                        "printedName": "any BambuserCommerceSDK.BambuserVideoPlayerDelegate",
-                        "usr": "s:19BambuserCommerceSDK0A19VideoPlayerDelegateP"
+                        "name": "BambuserPlayerViewDelegate",
+                        "printedName": "any BambuserCommerceSDK.BambuserPlayerViewDelegate",
+                        "usr": "s:19BambuserCommerceSDK0A18PlayerViewDelegateP"
                       }
                     ],
                     "usr": "s:Sq"
                   }
                 ],
                 "declKind": "Accessor",
-                "usr": "s:19BambuserCommerceSDK0A10PlayerViewP8delegateAA0a5VideoD8Delegate_pSgvg",
-                "mangledName": "$s19BambuserCommerceSDK0A10PlayerViewP8delegateAA0a5VideoD8Delegate_pSgvg",
+                "usr": "s:19BambuserCommerceSDK0A10PlayerViewP8delegateAA0adE8Delegate_pSgvg",
+                "mangledName": "$s19BambuserCommerceSDK0A10PlayerViewP8delegateAA0adE8Delegate_pSgvg",
                 "moduleName": "BambuserCommerceSDK",
                 "genericSig": "<τ_0_0 where τ_0_0 : BambuserCommerceSDK.BambuserPlayerView>",
                 "sugared_genericSig": "<Self where Self : BambuserCommerceSDK.BambuserPlayerView>",
@@ -1021,21 +1282,21 @@
                   {
                     "kind": "TypeNominal",
                     "name": "Optional",
-                    "printedName": "(any BambuserCommerceSDK.BambuserVideoPlayerDelegate)?",
+                    "printedName": "(any BambuserCommerceSDK.BambuserPlayerViewDelegate)?",
                     "children": [
                       {
                         "kind": "TypeNominal",
-                        "name": "BambuserVideoPlayerDelegate",
-                        "printedName": "any BambuserCommerceSDK.BambuserVideoPlayerDelegate",
-                        "usr": "s:19BambuserCommerceSDK0A19VideoPlayerDelegateP"
+                        "name": "BambuserPlayerViewDelegate",
+                        "printedName": "any BambuserCommerceSDK.BambuserPlayerViewDelegate",
+                        "usr": "s:19BambuserCommerceSDK0A18PlayerViewDelegateP"
                       }
                     ],
                     "usr": "s:Sq"
                   }
                 ],
                 "declKind": "Accessor",
-                "usr": "s:19BambuserCommerceSDK0A10PlayerViewP8delegateAA0a5VideoD8Delegate_pSgvs",
-                "mangledName": "$s19BambuserCommerceSDK0A10PlayerViewP8delegateAA0a5VideoD8Delegate_pSgvs",
+                "usr": "s:19BambuserCommerceSDK0A10PlayerViewP8delegateAA0adE8Delegate_pSgvs",
+                "mangledName": "$s19BambuserCommerceSDK0A10PlayerViewP8delegateAA0adE8Delegate_pSgvs",
                 "moduleName": "BambuserCommerceSDK",
                 "genericSig": "<τ_0_0 where τ_0_0 : BambuserCommerceSDK.BambuserPlayerView>",
                 "sugared_genericSig": "<Self where Self : BambuserCommerceSDK.BambuserPlayerView>",
@@ -1055,8 +1316,8 @@
                   }
                 ],
                 "declKind": "Accessor",
-                "usr": "s:19BambuserCommerceSDK0A10PlayerViewP8delegateAA0a5VideoD8Delegate_pSgvM",
-                "mangledName": "$s19BambuserCommerceSDK0A10PlayerViewP8delegateAA0a5VideoD8Delegate_pSgvM",
+                "usr": "s:19BambuserCommerceSDK0A10PlayerViewP8delegateAA0adE8Delegate_pSgvM",
+                "mangledName": "$s19BambuserCommerceSDK0A10PlayerViewP8delegateAA0adE8Delegate_pSgvM",
                 "moduleName": "BambuserCommerceSDK",
                 "genericSig": "<τ_0_0 where τ_0_0 : BambuserCommerceSDK.BambuserPlayerView>",
                 "sugared_genericSig": "<Self where Self : BambuserCommerceSDK.BambuserPlayerView>",
@@ -1388,81 +1649,6 @@
           },
           {
             "kind": "Function",
-            "name": "track",
-            "printedName": "track(event:with:)",
-            "children": [
-              {
-                "kind": "TypeNominal",
-                "name": "Optional",
-                "printedName": "[Swift.String : any Swift.Sendable]?",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "Dictionary",
-                    "printedName": "[Swift.String : any Swift.Sendable]",
-                    "children": [
-                      {
-                        "kind": "TypeNominal",
-                        "name": "String",
-                        "printedName": "Swift.String",
-                        "usr": "s:SS"
-                      },
-                      {
-                        "kind": "TypeNominal",
-                        "name": "Sendable",
-                        "printedName": "any Swift.Sendable",
-                        "usr": "s:s8SendableP"
-                      }
-                    ],
-                    "usr": "s:SD"
-                  }
-                ],
-                "usr": "s:Sq"
-              },
-              {
-                "kind": "TypeNominal",
-                "name": "String",
-                "printedName": "Swift.String",
-                "usr": "s:SS"
-              },
-              {
-                "kind": "TypeNominal",
-                "name": "Dictionary",
-                "printedName": "[Swift.String : any Swift.Sendable]",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "String",
-                    "printedName": "Swift.String",
-                    "usr": "s:SS"
-                  },
-                  {
-                    "kind": "TypeNominal",
-                    "name": "Sendable",
-                    "printedName": "any Swift.Sendable",
-                    "usr": "s:s8SendableP"
-                  }
-                ],
-                "usr": "s:SD"
-              }
-            ],
-            "declKind": "Func",
-            "usr": "s:19BambuserCommerceSDK0A10PlayerViewP5track5event4withSDySSs8Sendable_pGSgSS_AHtYaKF",
-            "mangledName": "$s19BambuserCommerceSDK0A10PlayerViewP5track5event4withSDySSs8Sendable_pGSgSS_AHtYaKF",
-            "moduleName": "BambuserCommerceSDK",
-            "genericSig": "<τ_0_0 where τ_0_0 : BambuserCommerceSDK.BambuserPlayerView>",
-            "sugared_genericSig": "<Self where Self : BambuserCommerceSDK.BambuserPlayerView>",
-            "protocolReq": true,
-            "declAttributes": [
-              "Custom",
-              "RawDocComment"
-            ],
-            "throwing": true,
-            "reqNewWitnessTableEntry": true,
-            "funcSelfKind": "NonMutating"
-          },
-          {
-            "kind": "Function",
             "name": "play",
             "printedName": "play()",
             "children": [
@@ -1700,6 +1886,573 @@
         ]
       },
       {
+        "kind": "TypeDecl",
+        "name": "BambuserPlayerViewDelegate",
+        "printedName": "BambuserPlayerViewDelegate",
+        "children": [
+          {
+            "kind": "Function",
+            "name": "onVideoStatusChanged",
+            "printedName": "onVideoStatusChanged(_:state:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "BambuserVideoState",
+                "printedName": "BambuserCommerceSDK.BambuserVideoState",
+                "usr": "s:19BambuserCommerceSDK0A10VideoStateO"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:19BambuserCommerceSDK0A18PlayerViewDelegateP20onVideoStatusChanged_5stateySS_AA0aH5StateOtF",
+            "mangledName": "$s19BambuserCommerceSDK0A18PlayerViewDelegateP20onVideoStatusChanged_5stateySS_AA0aH5StateOtF",
+            "moduleName": "BambuserCommerceSDK",
+            "genericSig": "<τ_0_0 where τ_0_0 : BambuserCommerceSDK.BambuserPlayerViewDelegate>",
+            "sugared_genericSig": "<Self where Self : BambuserCommerceSDK.BambuserPlayerViewDelegate>",
+            "protocolReq": true,
+            "declAttributes": [
+              "Custom",
+              "RawDocComment"
+            ],
+            "reqNewWitnessTableEntry": true,
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "onNewEventReceived",
+            "printedName": "onNewEventReceived(_:event:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "BambuserEventPayload",
+                "printedName": "BambuserCommerceSDK.BambuserEventPayload",
+                "usr": "s:19BambuserCommerceSDK0A12EventPayloadV"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:19BambuserCommerceSDK0A18PlayerViewDelegateP18onNewEventReceived_5eventySS_AA0aI7PayloadVtF",
+            "mangledName": "$s19BambuserCommerceSDK0A18PlayerViewDelegateP18onNewEventReceived_5eventySS_AA0aI7PayloadVtF",
+            "moduleName": "BambuserCommerceSDK",
+            "genericSig": "<τ_0_0 where τ_0_0 : BambuserCommerceSDK.BambuserPlayerViewDelegate>",
+            "sugared_genericSig": "<Self where Self : BambuserCommerceSDK.BambuserPlayerViewDelegate>",
+            "protocolReq": true,
+            "declAttributes": [
+              "Custom",
+              "RawDocComment"
+            ],
+            "reqNewWitnessTableEntry": true,
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "onErrorOccurred",
+            "printedName": "onErrorOccurred(_:error:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Error",
+                "printedName": "any Swift.Error",
+                "usr": "s:s5ErrorP"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:19BambuserCommerceSDK0A18PlayerViewDelegateP15onErrorOccurred_5errorySS_s0H0_ptF",
+            "mangledName": "$s19BambuserCommerceSDK0A18PlayerViewDelegateP15onErrorOccurred_5errorySS_s0H0_ptF",
+            "moduleName": "BambuserCommerceSDK",
+            "genericSig": "<τ_0_0 where τ_0_0 : BambuserCommerceSDK.BambuserPlayerViewDelegate>",
+            "sugared_genericSig": "<Self where Self : BambuserCommerceSDK.BambuserPlayerViewDelegate>",
+            "protocolReq": true,
+            "declAttributes": [
+              "Custom",
+              "RawDocComment"
+            ],
+            "reqNewWitnessTableEntry": true,
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "onVideoProgress",
+            "printedName": "onVideoProgress(_:duration:currentTime:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Double",
+                "printedName": "Swift.Double",
+                "usr": "s:Sd"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Double",
+                "printedName": "Swift.Double",
+                "usr": "s:Sd"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:19BambuserCommerceSDK0A18PlayerViewDelegateP15onVideoProgress_8duration11currentTimeySS_S2dtF",
+            "mangledName": "$s19BambuserCommerceSDK0A18PlayerViewDelegateP15onVideoProgress_8duration11currentTimeySS_S2dtF",
+            "moduleName": "BambuserCommerceSDK",
+            "genericSig": "<τ_0_0 where τ_0_0 : BambuserCommerceSDK.BambuserPlayerViewDelegate>",
+            "sugared_genericSig": "<Self where Self : BambuserCommerceSDK.BambuserPlayerViewDelegate>",
+            "protocolReq": true,
+            "declAttributes": [
+              "Custom",
+              "RawDocComment"
+            ],
+            "reqNewWitnessTableEntry": true,
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "onThumbnailTapped",
+            "printedName": "onThumbnailTapped(_:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:19BambuserCommerceSDK0A18PlayerViewDelegateP17onThumbnailTappedyySSF",
+            "mangledName": "$s19BambuserCommerceSDK0A18PlayerViewDelegateP17onThumbnailTappedyySSF",
+            "moduleName": "BambuserCommerceSDK",
+            "genericSig": "<τ_0_0 where τ_0_0 : BambuserCommerceSDK.BambuserPlayerViewDelegate>",
+            "sugared_genericSig": "<Self where Self : BambuserCommerceSDK.BambuserPlayerViewDelegate>",
+            "protocolReq": true,
+            "declAttributes": [
+              "Custom",
+              "RawDocComment"
+            ],
+            "reqNewWitnessTableEntry": true,
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "onVideoProgress",
+            "printedName": "onVideoProgress(_:duration:currentTime:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Double",
+                "printedName": "Swift.Double",
+                "usr": "s:Sd"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Double",
+                "printedName": "Swift.Double",
+                "usr": "s:Sd"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:19BambuserCommerceSDK0A18PlayerViewDelegatePAAE15onVideoProgress_8duration11currentTimeySS_S2dtF",
+            "mangledName": "$s19BambuserCommerceSDK0A18PlayerViewDelegatePAAE15onVideoProgress_8duration11currentTimeySS_S2dtF",
+            "moduleName": "BambuserCommerceSDK",
+            "genericSig": "<τ_0_0 where τ_0_0 : BambuserCommerceSDK.BambuserPlayerViewDelegate>",
+            "sugared_genericSig": "<Self where Self : BambuserCommerceSDK.BambuserPlayerViewDelegate>",
+            "declAttributes": [
+              "Custom"
+            ],
+            "isFromExtension": true,
+            "funcSelfKind": "NonMutating"
+          }
+        ],
+        "declKind": "Protocol",
+        "usr": "s:19BambuserCommerceSDK0A18PlayerViewDelegateP",
+        "mangledName": "$s19BambuserCommerceSDK0A18PlayerViewDelegateP",
+        "moduleName": "BambuserCommerceSDK",
+        "genericSig": "<τ_0_0 : AnyObject>",
+        "sugared_genericSig": "<Self : AnyObject>",
+        "declAttributes": [
+          "AccessControl",
+          "Custom",
+          "RawDocComment"
+        ],
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Escapable",
+            "printedName": "Escapable",
+            "usr": "s:s9EscapableP",
+            "mangledName": "$ss9EscapableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Copyable",
+            "printedName": "Copyable",
+            "usr": "s:s8CopyableP",
+            "mangledName": "$ss8CopyableP"
+          }
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "BambuserCommerceSDK",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "TypeDecl",
+        "name": "BambuserSDK",
+        "printedName": "BambuserSDK",
+        "children": [
+          {
+            "kind": "Constructor",
+            "name": "init",
+            "printedName": "init(server:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "BambuserSDK",
+                "printedName": "BambuserCommerceSDK.BambuserSDK",
+                "usr": "s:19BambuserCommerceSDK0aC0V"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "OrganizationServer",
+                "printedName": "BambuserCommerceSDK.OrganizationServer",
+                "usr": "s:19BambuserCommerceSDK18OrganizationServerO"
+              }
+            ],
+            "declKind": "Constructor",
+            "usr": "s:19BambuserCommerceSDK0aC0V6serverAcA18OrganizationServerO_tcfc",
+            "mangledName": "$s19BambuserCommerceSDK0aC0V6serverAcA18OrganizationServerO_tcfc",
+            "moduleName": "BambuserCommerceSDK",
+            "declAttributes": [
+              "Custom",
+              "AccessControl",
+              "RawDocComment"
+            ],
+            "init_kind": "Designated"
+          },
+          {
+            "kind": "Function",
+            "name": "track",
+            "printedName": "track(event:with:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "[Swift.String : any Swift.Sendable]?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Dictionary",
+                    "printedName": "[Swift.String : any Swift.Sendable]",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "String",
+                        "printedName": "Swift.String",
+                        "usr": "s:SS"
+                      },
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Sendable",
+                        "printedName": "any Swift.Sendable",
+                        "usr": "s:s8SendableP"
+                      }
+                    ],
+                    "usr": "s:SD"
+                  }
+                ],
+                "usr": "s:Sq"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Dictionary",
+                "printedName": "[Swift.String : any Swift.Sendable]",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Sendable",
+                    "printedName": "any Swift.Sendable",
+                    "usr": "s:s8SendableP"
+                  }
+                ],
+                "usr": "s:SD"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:19BambuserCommerceSDK0aC0V5track5event4withSDySSs8Sendable_pGSgSS_AHtYaKF",
+            "mangledName": "$s19BambuserCommerceSDK0aC0V5track5event4withSDySSs8Sendable_pGSgSS_AHtYaKF",
+            "moduleName": "BambuserCommerceSDK",
+            "declAttributes": [
+              "Custom",
+              "AccessControl",
+              "DiscardableResult",
+              "RawDocComment"
+            ],
+            "throwing": true,
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "createPlayerView",
+            "printedName": "createPlayerView(videoConfiguration:ignoredSafeAreaEdges:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "OpaqueTypeArchetype",
+                "printedName": "some UIKit.UIView & BambuserCommerceSDK.BambuserPlayerView",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "BambuserPlayerView",
+                    "printedName": "BambuserCommerceSDK.BambuserPlayerView",
+                    "usr": "s:19BambuserCommerceSDK0A10PlayerViewP"
+                  }
+                ]
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "BambuserVideoPlayerConfiguration",
+                "printedName": "BambuserCommerceSDK.BambuserVideoPlayerConfiguration<BambuserCommerceSDK.BambuserVideoAsset>",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "BambuserVideoAsset",
+                    "printedName": "BambuserCommerceSDK.BambuserVideoAsset",
+                    "usr": "s:19BambuserCommerceSDK0A10VideoAssetO"
+                  }
+                ],
+                "usr": "s:19BambuserCommerceSDK0A24VideoPlayerConfigurationV"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "BambuserCommerceSDK.SafeAreaEdges?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "SafeAreaEdges",
+                    "printedName": "BambuserCommerceSDK.SafeAreaEdges",
+                    "usr": "s:19BambuserCommerceSDK13SafeAreaEdgesV"
+                  }
+                ],
+                "hasDefaultArg": true,
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:19BambuserCommerceSDK0aC0V16createPlayerView18videoConfiguration20ignoredSafeAreaEdgesQrAA0a5VideoeH0VyAA0aM5AssetOG_AA0jkL0VSgtF",
+            "mangledName": "$s19BambuserCommerceSDK0aC0V16createPlayerView18videoConfiguration20ignoredSafeAreaEdgesQrAA0a5VideoeH0VyAA0aM5AssetOG_AA0jkL0VSgtF",
+            "moduleName": "BambuserCommerceSDK",
+            "declAttributes": [
+              "Custom",
+              "AccessControl",
+              "RawDocComment"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "createShoppableVideoPlayer",
+            "printedName": "createShoppableVideoPlayer(videoConfiguration:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "OpaqueTypeArchetype",
+                "printedName": "some UIKit.UIView & BambuserCommerceSDK.BambuserPlayerView",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "BambuserPlayerView",
+                    "printedName": "BambuserCommerceSDK.BambuserPlayerView",
+                    "usr": "s:19BambuserCommerceSDK0A10PlayerViewP"
+                  }
+                ]
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "BambuserVideoPlayerConfiguration",
+                "printedName": "BambuserCommerceSDK.BambuserVideoPlayerConfiguration<BambuserCommerceSDK.InlineVideoAsset>",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "InlineVideoAsset",
+                    "printedName": "BambuserCommerceSDK.InlineVideoAsset",
+                    "usr": "s:19BambuserCommerceSDK16InlineVideoAssetO"
+                  }
+                ],
+                "usr": "s:19BambuserCommerceSDK0A24VideoPlayerConfigurationV"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:19BambuserCommerceSDK0aC0V26createShoppableVideoPlayer18videoConfigurationQrAA0afgI0VyAA06InlineF5AssetOG_tYaKF",
+            "mangledName": "$s19BambuserCommerceSDK0aC0V26createShoppableVideoPlayer18videoConfigurationQrAA0afgI0VyAA06InlineF5AssetOG_tYaKF",
+            "moduleName": "BambuserCommerceSDK",
+            "declAttributes": [
+              "Custom",
+              "AccessControl",
+              "RawDocComment"
+            ],
+            "throwing": true,
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "createShoppableVideoPlayerCollection",
+            "printedName": "createShoppableVideoPlayerCollection(videoConfiguration:page:pageSize:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "BambuserPlayerCollection",
+                "printedName": "BambuserCommerceSDK.BambuserPlayerCollection",
+                "usr": "s:19BambuserCommerceSDK0A16PlayerCollectionV"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "BambuserVideoPlayerConfiguration",
+                "printedName": "BambuserCommerceSDK.BambuserVideoPlayerConfiguration<BambuserCommerceSDK.InlineVideoAsset>",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "InlineVideoAsset",
+                    "printedName": "BambuserCommerceSDK.InlineVideoAsset",
+                    "usr": "s:19BambuserCommerceSDK16InlineVideoAssetO"
+                  }
+                ],
+                "usr": "s:19BambuserCommerceSDK0A24VideoPlayerConfigurationV"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Int",
+                "printedName": "Swift.Int",
+                "hasDefaultArg": true,
+                "usr": "s:Si"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Int",
+                "printedName": "Swift.Int",
+                "hasDefaultArg": true,
+                "usr": "s:Si"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:19BambuserCommerceSDK0aC0V36createShoppableVideoPlayerCollection18videoConfiguration4page0K4SizeAA0agH0VAA0afgJ0VyAA06InlineF5AssetOG_S2itYaKF",
+            "mangledName": "$s19BambuserCommerceSDK0aC0V36createShoppableVideoPlayerCollection18videoConfiguration4page0K4SizeAA0agH0VAA0afgJ0VyAA06InlineF5AssetOG_S2itYaKF",
+            "moduleName": "BambuserCommerceSDK",
+            "declAttributes": [
+              "Custom",
+              "AccessControl",
+              "RawDocComment"
+            ],
+            "throwing": true,
+            "funcSelfKind": "NonMutating"
+          }
+        ],
+        "declKind": "Struct",
+        "usr": "s:19BambuserCommerceSDK0aC0V",
+        "mangledName": "$s19BambuserCommerceSDK0aC0V",
+        "moduleName": "BambuserCommerceSDK",
+        "declAttributes": [
+          "AccessControl",
+          "Custom",
+          "RawDocComment"
+        ],
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Copyable",
+            "printedName": "Copyable",
+            "usr": "s:s8CopyableP",
+            "mangledName": "$ss8CopyableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Escapable",
+            "printedName": "Escapable",
+            "usr": "s:s9EscapableP",
+            "mangledName": "$ss9EscapableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Sendable",
+            "printedName": "Sendable",
+            "usr": "s:s8SendableP",
+            "mangledName": "$ss8SendableP"
+          }
+        ]
+      },
+      {
         "kind": "Import",
         "name": "Foundation",
         "printedName": "Foundation",
@@ -1910,240 +2663,13 @@
             "printedName": "BambuserVideoType",
             "usr": "s:19BambuserCommerceSDK0A9VideoTypeP",
             "mangledName": "$s19BambuserCommerceSDK0A9VideoTypeP"
-          }
-        ]
-      },
-      {
-        "kind": "Import",
-        "name": "Foundation",
-        "printedName": "Foundation",
-        "declKind": "Import",
-        "moduleName": "BambuserCommerceSDK",
-        "declAttributes": [
-          "RawDocComment"
-        ]
-      },
-      {
-        "kind": "TypeDecl",
-        "name": "BambuserVideoPlayer",
-        "printedName": "BambuserVideoPlayer",
-        "children": [
-          {
-            "kind": "Constructor",
-            "name": "init",
-            "printedName": "init(server:)",
-            "children": [
-              {
-                "kind": "TypeNominal",
-                "name": "BambuserVideoPlayer",
-                "printedName": "BambuserCommerceSDK.BambuserVideoPlayer",
-                "usr": "s:19BambuserCommerceSDK0A11VideoPlayerV"
-              },
-              {
-                "kind": "TypeNominal",
-                "name": "OrganizationServer",
-                "printedName": "BambuserCommerceSDK.OrganizationServer",
-                "usr": "s:19BambuserCommerceSDK18OrganizationServerO"
-              }
-            ],
-            "declKind": "Constructor",
-            "usr": "s:19BambuserCommerceSDK0A11VideoPlayerV6serverAcA18OrganizationServerO_tcfc",
-            "mangledName": "$s19BambuserCommerceSDK0A11VideoPlayerV6serverAcA18OrganizationServerO_tcfc",
-            "moduleName": "BambuserCommerceSDK",
-            "declAttributes": [
-              "Custom",
-              "AccessControl",
-              "RawDocComment"
-            ],
-            "init_kind": "Designated"
-          },
-          {
-            "kind": "Function",
-            "name": "createPlayerView",
-            "printedName": "createPlayerView(videoConfiguration:ignoredSafeAreaEdges:)",
-            "children": [
-              {
-                "kind": "TypeNominal",
-                "name": "OpaqueTypeArchetype",
-                "printedName": "some UIKit.UIView & BambuserCommerceSDK.BambuserPlayerView",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "BambuserPlayerView",
-                    "printedName": "BambuserCommerceSDK.BambuserPlayerView",
-                    "usr": "s:19BambuserCommerceSDK0A10PlayerViewP"
-                  }
-                ]
-              },
-              {
-                "kind": "TypeNominal",
-                "name": "BambuserVideoPlayerConfiguration",
-                "printedName": "BambuserCommerceSDK.BambuserVideoPlayerConfiguration<BambuserCommerceSDK.BambuserVideoAsset>",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "BambuserVideoAsset",
-                    "printedName": "BambuserCommerceSDK.BambuserVideoAsset",
-                    "usr": "s:19BambuserCommerceSDK0A10VideoAssetO"
-                  }
-                ],
-                "usr": "s:19BambuserCommerceSDK0A24VideoPlayerConfigurationV"
-              },
-              {
-                "kind": "TypeNominal",
-                "name": "Optional",
-                "printedName": "BambuserCommerceSDK.SafeAreaEdges?",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "SafeAreaEdges",
-                    "printedName": "BambuserCommerceSDK.SafeAreaEdges",
-                    "usr": "s:19BambuserCommerceSDK13SafeAreaEdgesV"
-                  }
-                ],
-                "hasDefaultArg": true,
-                "usr": "s:Sq"
-              }
-            ],
-            "declKind": "Func",
-            "usr": "s:19BambuserCommerceSDK0A11VideoPlayerV06createE4View18videoConfiguration20ignoredSafeAreaEdgesQrAA0adeI0VyAA0aD5AssetOG_AA0klM0VSgtF",
-            "mangledName": "$s19BambuserCommerceSDK0A11VideoPlayerV06createE4View18videoConfiguration20ignoredSafeAreaEdgesQrAA0adeI0VyAA0aD5AssetOG_AA0klM0VSgtF",
-            "moduleName": "BambuserCommerceSDK",
-            "declAttributes": [
-              "Custom",
-              "AccessControl",
-              "RawDocComment"
-            ],
-            "funcSelfKind": "NonMutating"
-          },
-          {
-            "kind": "Function",
-            "name": "createShoppableVideoPlayer",
-            "printedName": "createShoppableVideoPlayer(videoConfiguration:)",
-            "children": [
-              {
-                "kind": "TypeNominal",
-                "name": "OpaqueTypeArchetype",
-                "printedName": "some UIKit.UIView & BambuserCommerceSDK.BambuserPlayerView",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "BambuserPlayerView",
-                    "printedName": "BambuserCommerceSDK.BambuserPlayerView",
-                    "usr": "s:19BambuserCommerceSDK0A10PlayerViewP"
-                  }
-                ]
-              },
-              {
-                "kind": "TypeNominal",
-                "name": "BambuserVideoPlayerConfiguration",
-                "printedName": "BambuserCommerceSDK.BambuserVideoPlayerConfiguration<BambuserCommerceSDK.InlineVideoAsset>",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "InlineVideoAsset",
-                    "printedName": "BambuserCommerceSDK.InlineVideoAsset",
-                    "usr": "s:19BambuserCommerceSDK16InlineVideoAssetO"
-                  }
-                ],
-                "usr": "s:19BambuserCommerceSDK0A24VideoPlayerConfigurationV"
-              }
-            ],
-            "declKind": "Func",
-            "usr": "s:19BambuserCommerceSDK0A11VideoPlayerV015createShoppabledE018videoConfigurationQrAA0adeI0VyAA06InlineD5AssetOG_tYaKF",
-            "mangledName": "$s19BambuserCommerceSDK0A11VideoPlayerV015createShoppabledE018videoConfigurationQrAA0adeI0VyAA06InlineD5AssetOG_tYaKF",
-            "moduleName": "BambuserCommerceSDK",
-            "declAttributes": [
-              "Custom",
-              "AccessControl",
-              "RawDocComment"
-            ],
-            "throwing": true,
-            "funcSelfKind": "NonMutating"
-          },
-          {
-            "kind": "Function",
-            "name": "createShoppableVideoPlayerCollection",
-            "printedName": "createShoppableVideoPlayerCollection(videoConfiguration:page:pageSize:)",
-            "children": [
-              {
-                "kind": "TypeNominal",
-                "name": "BambuserPlayerCollection",
-                "printedName": "BambuserCommerceSDK.BambuserPlayerCollection",
-                "usr": "s:19BambuserCommerceSDK0A16PlayerCollectionV"
-              },
-              {
-                "kind": "TypeNominal",
-                "name": "BambuserVideoPlayerConfiguration",
-                "printedName": "BambuserCommerceSDK.BambuserVideoPlayerConfiguration<BambuserCommerceSDK.InlineVideoAsset>",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "InlineVideoAsset",
-                    "printedName": "BambuserCommerceSDK.InlineVideoAsset",
-                    "usr": "s:19BambuserCommerceSDK16InlineVideoAssetO"
-                  }
-                ],
-                "usr": "s:19BambuserCommerceSDK0A24VideoPlayerConfigurationV"
-              },
-              {
-                "kind": "TypeNominal",
-                "name": "Int",
-                "printedName": "Swift.Int",
-                "hasDefaultArg": true,
-                "usr": "s:Si"
-              },
-              {
-                "kind": "TypeNominal",
-                "name": "Int",
-                "printedName": "Swift.Int",
-                "hasDefaultArg": true,
-                "usr": "s:Si"
-              }
-            ],
-            "declKind": "Func",
-            "usr": "s:19BambuserCommerceSDK0A11VideoPlayerV015createShoppabledE10Collection18videoConfiguration4page0K4SizeAA0aeH0VAA0adeJ0VyAA06InlineD5AssetOG_S2itYaKF",
-            "mangledName": "$s19BambuserCommerceSDK0A11VideoPlayerV015createShoppabledE10Collection18videoConfiguration4page0K4SizeAA0aeH0VAA0adeJ0VyAA06InlineD5AssetOG_S2itYaKF",
-            "moduleName": "BambuserCommerceSDK",
-            "declAttributes": [
-              "Custom",
-              "AccessControl",
-              "RawDocComment"
-            ],
-            "throwing": true,
-            "funcSelfKind": "NonMutating"
-          }
-        ],
-        "declKind": "Struct",
-        "usr": "s:19BambuserCommerceSDK0A11VideoPlayerV",
-        "mangledName": "$s19BambuserCommerceSDK0A11VideoPlayerV",
-        "moduleName": "BambuserCommerceSDK",
-        "declAttributes": [
-          "AccessControl",
-          "Custom",
-          "RawDocComment"
-        ],
-        "conformances": [
-          {
-            "kind": "Conformance",
-            "name": "Copyable",
-            "printedName": "Copyable",
-            "usr": "s:s8CopyableP",
-            "mangledName": "$ss8CopyableP"
           },
           {
             "kind": "Conformance",
-            "name": "Escapable",
-            "printedName": "Escapable",
-            "usr": "s:s9EscapableP",
-            "mangledName": "$ss9EscapableP"
-          },
-          {
-            "kind": "Conformance",
-            "name": "Sendable",
-            "printedName": "Sendable",
-            "usr": "s:s8SendableP",
-            "mangledName": "$ss8SendableP"
+            "name": "SendableMetatype",
+            "printedName": "SendableMetatype",
+            "usr": "s:s16SendableMetatypeP",
+            "mangledName": "$ss16SendableMetatypeP"
           }
         ]
       },
@@ -2273,261 +2799,13 @@
             "printedName": "Sendable",
             "usr": "s:s8SendableP",
             "mangledName": "$ss8SendableP"
-          }
-        ]
-      },
-      {
-        "kind": "TypeDecl",
-        "name": "BambuserVideoPlayerDelegate",
-        "printedName": "BambuserVideoPlayerDelegate",
-        "children": [
-          {
-            "kind": "Function",
-            "name": "onVideoStatusChanged",
-            "printedName": "onVideoStatusChanged(_:state:)",
-            "children": [
-              {
-                "kind": "TypeNominal",
-                "name": "Void",
-                "printedName": "()"
-              },
-              {
-                "kind": "TypeNominal",
-                "name": "String",
-                "printedName": "Swift.String",
-                "usr": "s:SS"
-              },
-              {
-                "kind": "TypeNominal",
-                "name": "BambuserVideoState",
-                "printedName": "BambuserCommerceSDK.BambuserVideoState",
-                "usr": "s:19BambuserCommerceSDK0A10VideoStateO"
-              }
-            ],
-            "declKind": "Func",
-            "usr": "s:19BambuserCommerceSDK0A19VideoPlayerDelegateP02onD13StatusChanged_5stateySS_AA0aD5StateOtF",
-            "mangledName": "$s19BambuserCommerceSDK0A19VideoPlayerDelegateP02onD13StatusChanged_5stateySS_AA0aD5StateOtF",
-            "moduleName": "BambuserCommerceSDK",
-            "genericSig": "<τ_0_0 where τ_0_0 : BambuserCommerceSDK.BambuserVideoPlayerDelegate>",
-            "sugared_genericSig": "<Self where Self : BambuserCommerceSDK.BambuserVideoPlayerDelegate>",
-            "protocolReq": true,
-            "declAttributes": [
-              "RawDocComment"
-            ],
-            "reqNewWitnessTableEntry": true,
-            "funcSelfKind": "NonMutating"
-          },
-          {
-            "kind": "Function",
-            "name": "onNewEventReceived",
-            "printedName": "onNewEventReceived(_:event:)",
-            "children": [
-              {
-                "kind": "TypeNominal",
-                "name": "Void",
-                "printedName": "()"
-              },
-              {
-                "kind": "TypeNominal",
-                "name": "String",
-                "printedName": "Swift.String",
-                "usr": "s:SS"
-              },
-              {
-                "kind": "TypeNominal",
-                "name": "BambuserEventPayload",
-                "printedName": "BambuserCommerceSDK.BambuserEventPayload",
-                "usr": "s:19BambuserCommerceSDK0A12EventPayloadV"
-              }
-            ],
-            "declKind": "Func",
-            "usr": "s:19BambuserCommerceSDK0A19VideoPlayerDelegateP18onNewEventReceived_5eventySS_AA0aI7PayloadVtF",
-            "mangledName": "$s19BambuserCommerceSDK0A19VideoPlayerDelegateP18onNewEventReceived_5eventySS_AA0aI7PayloadVtF",
-            "moduleName": "BambuserCommerceSDK",
-            "genericSig": "<τ_0_0 where τ_0_0 : BambuserCommerceSDK.BambuserVideoPlayerDelegate>",
-            "sugared_genericSig": "<Self where Self : BambuserCommerceSDK.BambuserVideoPlayerDelegate>",
-            "protocolReq": true,
-            "declAttributes": [
-              "RawDocComment"
-            ],
-            "reqNewWitnessTableEntry": true,
-            "funcSelfKind": "NonMutating"
-          },
-          {
-            "kind": "Function",
-            "name": "onErrorOccurred",
-            "printedName": "onErrorOccurred(_:error:)",
-            "children": [
-              {
-                "kind": "TypeNominal",
-                "name": "Void",
-                "printedName": "()"
-              },
-              {
-                "kind": "TypeNominal",
-                "name": "String",
-                "printedName": "Swift.String",
-                "usr": "s:SS"
-              },
-              {
-                "kind": "TypeNominal",
-                "name": "Error",
-                "printedName": "any Swift.Error",
-                "usr": "s:s5ErrorP"
-              }
-            ],
-            "declKind": "Func",
-            "usr": "s:19BambuserCommerceSDK0A19VideoPlayerDelegateP15onErrorOccurred_5errorySS_s0H0_ptF",
-            "mangledName": "$s19BambuserCommerceSDK0A19VideoPlayerDelegateP15onErrorOccurred_5errorySS_s0H0_ptF",
-            "moduleName": "BambuserCommerceSDK",
-            "genericSig": "<τ_0_0 where τ_0_0 : BambuserCommerceSDK.BambuserVideoPlayerDelegate>",
-            "sugared_genericSig": "<Self where Self : BambuserCommerceSDK.BambuserVideoPlayerDelegate>",
-            "protocolReq": true,
-            "declAttributes": [
-              "RawDocComment"
-            ],
-            "reqNewWitnessTableEntry": true,
-            "funcSelfKind": "NonMutating"
-          },
-          {
-            "kind": "Function",
-            "name": "onVideoProgress",
-            "printedName": "onVideoProgress(_:duration:currentTime:)",
-            "children": [
-              {
-                "kind": "TypeNominal",
-                "name": "Void",
-                "printedName": "()"
-              },
-              {
-                "kind": "TypeNominal",
-                "name": "String",
-                "printedName": "Swift.String",
-                "usr": "s:SS"
-              },
-              {
-                "kind": "TypeNominal",
-                "name": "Double",
-                "printedName": "Swift.Double",
-                "usr": "s:Sd"
-              },
-              {
-                "kind": "TypeNominal",
-                "name": "Double",
-                "printedName": "Swift.Double",
-                "usr": "s:Sd"
-              }
-            ],
-            "declKind": "Func",
-            "usr": "s:19BambuserCommerceSDK0A19VideoPlayerDelegateP02onD8Progress_8duration11currentTimeySS_S2dtF",
-            "mangledName": "$s19BambuserCommerceSDK0A19VideoPlayerDelegateP02onD8Progress_8duration11currentTimeySS_S2dtF",
-            "moduleName": "BambuserCommerceSDK",
-            "genericSig": "<τ_0_0 where τ_0_0 : BambuserCommerceSDK.BambuserVideoPlayerDelegate>",
-            "sugared_genericSig": "<Self where Self : BambuserCommerceSDK.BambuserVideoPlayerDelegate>",
-            "protocolReq": true,
-            "declAttributes": [
-              "RawDocComment"
-            ],
-            "reqNewWitnessTableEntry": true,
-            "funcSelfKind": "NonMutating"
-          },
-          {
-            "kind": "Function",
-            "name": "onThumbnailTapped",
-            "printedName": "onThumbnailTapped(_:)",
-            "children": [
-              {
-                "kind": "TypeNominal",
-                "name": "Void",
-                "printedName": "()"
-              },
-              {
-                "kind": "TypeNominal",
-                "name": "String",
-                "printedName": "Swift.String",
-                "usr": "s:SS"
-              }
-            ],
-            "declKind": "Func",
-            "usr": "s:19BambuserCommerceSDK0A19VideoPlayerDelegateP17onThumbnailTappedyySSF",
-            "mangledName": "$s19BambuserCommerceSDK0A19VideoPlayerDelegateP17onThumbnailTappedyySSF",
-            "moduleName": "BambuserCommerceSDK",
-            "genericSig": "<τ_0_0 where τ_0_0 : BambuserCommerceSDK.BambuserVideoPlayerDelegate>",
-            "sugared_genericSig": "<Self where Self : BambuserCommerceSDK.BambuserVideoPlayerDelegate>",
-            "protocolReq": true,
-            "declAttributes": [
-              "RawDocComment"
-            ],
-            "reqNewWitnessTableEntry": true,
-            "funcSelfKind": "NonMutating"
-          },
-          {
-            "kind": "Function",
-            "name": "onVideoProgress",
-            "printedName": "onVideoProgress(_:duration:currentTime:)",
-            "children": [
-              {
-                "kind": "TypeNominal",
-                "name": "Void",
-                "printedName": "()"
-              },
-              {
-                "kind": "TypeNominal",
-                "name": "String",
-                "printedName": "Swift.String",
-                "usr": "s:SS"
-              },
-              {
-                "kind": "TypeNominal",
-                "name": "Double",
-                "printedName": "Swift.Double",
-                "usr": "s:Sd"
-              },
-              {
-                "kind": "TypeNominal",
-                "name": "Double",
-                "printedName": "Swift.Double",
-                "usr": "s:Sd"
-              }
-            ],
-            "declKind": "Func",
-            "usr": "s:19BambuserCommerceSDK0A19VideoPlayerDelegatePAAE02onD8Progress_8duration11currentTimeySS_S2dtF",
-            "mangledName": "$s19BambuserCommerceSDK0A19VideoPlayerDelegatePAAE02onD8Progress_8duration11currentTimeySS_S2dtF",
-            "moduleName": "BambuserCommerceSDK",
-            "genericSig": "<τ_0_0 where τ_0_0 : BambuserCommerceSDK.BambuserVideoPlayerDelegate>",
-            "sugared_genericSig": "<Self where Self : BambuserCommerceSDK.BambuserVideoPlayerDelegate>",
-            "declAttributes": [
-              "Custom"
-            ],
-            "isFromExtension": true,
-            "funcSelfKind": "NonMutating"
-          }
-        ],
-        "declKind": "Protocol",
-        "usr": "s:19BambuserCommerceSDK0A19VideoPlayerDelegateP",
-        "mangledName": "$s19BambuserCommerceSDK0A19VideoPlayerDelegateP",
-        "moduleName": "BambuserCommerceSDK",
-        "genericSig": "<τ_0_0 : AnyObject>",
-        "sugared_genericSig": "<Self : AnyObject>",
-        "declAttributes": [
-          "AccessControl",
-          "Custom",
-          "RawDocComment"
-        ],
-        "conformances": [
-          {
-            "kind": "Conformance",
-            "name": "Escapable",
-            "printedName": "Escapable",
-            "usr": "s:s9EscapableP",
-            "mangledName": "$ss9EscapableP"
           },
           {
             "kind": "Conformance",
-            "name": "Copyable",
-            "printedName": "Copyable",
-            "usr": "s:s8CopyableP",
-            "mangledName": "$ss8CopyableP"
+            "name": "SendableMetatype",
+            "printedName": "SendableMetatype",
+            "usr": "s:s16SendableMetatypeP",
+            "mangledName": "$ss16SendableMetatypeP"
           }
         ]
       },
@@ -2984,17 +3262,17 @@
           },
           {
             "kind": "Conformance",
-            "name": "Escapable",
-            "printedName": "Escapable",
-            "usr": "s:s9EscapableP",
-            "mangledName": "$ss9EscapableP"
-          },
-          {
-            "kind": "Conformance",
             "name": "Equatable",
             "printedName": "Equatable",
             "usr": "s:SQ",
             "mangledName": "$sSQ"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Escapable",
+            "printedName": "Escapable",
+            "usr": "s:s9EscapableP",
+            "mangledName": "$ss9EscapableP"
           },
           {
             "kind": "Conformance",
@@ -3040,6 +3318,13 @@
             "printedName": "Sendable",
             "usr": "s:s8SendableP",
             "mangledName": "$ss8SendableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "SendableMetatype",
+            "printedName": "SendableMetatype",
+            "usr": "s:s16SendableMetatypeP",
+            "mangledName": "$ss16SendableMetatypeP"
           }
         ]
       },
@@ -3350,13 +3635,6 @@
           },
           {
             "kind": "Conformance",
-            "name": "Escapable",
-            "printedName": "Escapable",
-            "usr": "s:s9EscapableP",
-            "mangledName": "$ss9EscapableP"
-          },
-          {
-            "kind": "Conformance",
             "name": "Decodable",
             "printedName": "Decodable",
             "usr": "s:Se",
@@ -3368,6 +3646,13 @@
             "printedName": "Encodable",
             "usr": "s:SE",
             "mangledName": "$sSE"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Escapable",
+            "printedName": "Escapable",
+            "usr": "s:s9EscapableP",
+            "mangledName": "$ss9EscapableP"
           }
         ]
       },
@@ -3387,196 +3672,6 @@
         "printedName": "Combine",
         "declKind": "Import",
         "moduleName": "BambuserCommerceSDK"
-      },
-      {
-        "kind": "TypeDecl",
-        "name": "DynamicFontSizeService",
-        "printedName": "DynamicFontSizeService",
-        "children": [
-          {
-            "kind": "Constructor",
-            "name": "init",
-            "printedName": "init(baseSize:)",
-            "children": [
-              {
-                "kind": "TypeNominal",
-                "name": "DynamicFontSizeService",
-                "printedName": "BambuserCommerceSDK.DynamicFontSizeService",
-                "usr": "s:19BambuserCommerceSDK22DynamicFontSizeServiceC"
-              },
-              {
-                "kind": "TypeNominal",
-                "name": "CGFloat",
-                "printedName": "CoreGraphics.CGFloat",
-                "usr": "s:14CoreFoundation7CGFloatV"
-              }
-            ],
-            "declKind": "Constructor",
-            "usr": "s:19BambuserCommerceSDK22DynamicFontSizeServiceC04baseF0AC14CoreFoundation7CGFloatV_tcfc",
-            "mangledName": "$s19BambuserCommerceSDK22DynamicFontSizeServiceC04baseF0AC12CoreGraphics7CGFloatV_tcfc",
-            "moduleName": "BambuserCommerceSDK",
-            "declAttributes": [
-              "AccessControl"
-            ],
-            "init_kind": "Designated"
-          },
-          {
-            "kind": "Var",
-            "name": "fontSizePublisher",
-            "printedName": "fontSizePublisher",
-            "children": [
-              {
-                "kind": "TypeNominal",
-                "name": "Optional",
-                "printedName": "Combine.AnyPublisher<CoreGraphics.CGFloat, Swift.Never>?",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "AnyPublisher",
-                    "printedName": "Combine.AnyPublisher<CoreGraphics.CGFloat, Swift.Never>",
-                    "children": [
-                      {
-                        "kind": "TypeNominal",
-                        "name": "CGFloat",
-                        "printedName": "CoreGraphics.CGFloat",
-                        "usr": "s:14CoreFoundation7CGFloatV"
-                      },
-                      {
-                        "kind": "TypeNominal",
-                        "name": "Never",
-                        "printedName": "Swift.Never",
-                        "usr": "s:s5NeverO"
-                      }
-                    ],
-                    "usr": "s:7Combine12AnyPublisherV"
-                  }
-                ],
-                "usr": "s:Sq"
-              }
-            ],
-            "declKind": "Var",
-            "usr": "s:19BambuserCommerceSDK22DynamicFontSizeServiceC04fontF9Publisher7Combine03AnyI0Vy14CoreFoundation7CGFloatVs5NeverOGSgvp",
-            "mangledName": "$s19BambuserCommerceSDK22DynamicFontSizeServiceC04fontF9Publisher7Combine03AnyI0Vy12CoreGraphics7CGFloatVs5NeverOGSgvp",
-            "moduleName": "BambuserCommerceSDK",
-            "declAttributes": [
-              "Final",
-              "AccessControl"
-            ],
-            "accessors": [
-              {
-                "kind": "Accessor",
-                "name": "Get",
-                "printedName": "Get()",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "Optional",
-                    "printedName": "Combine.AnyPublisher<CoreGraphics.CGFloat, Swift.Never>?",
-                    "children": [
-                      {
-                        "kind": "TypeNominal",
-                        "name": "AnyPublisher",
-                        "printedName": "Combine.AnyPublisher<CoreGraphics.CGFloat, Swift.Never>",
-                        "children": [
-                          {
-                            "kind": "TypeNominal",
-                            "name": "CGFloat",
-                            "printedName": "CoreGraphics.CGFloat",
-                            "usr": "s:14CoreFoundation7CGFloatV"
-                          },
-                          {
-                            "kind": "TypeNominal",
-                            "name": "Never",
-                            "printedName": "Swift.Never",
-                            "usr": "s:s5NeverO"
-                          }
-                        ],
-                        "usr": "s:7Combine12AnyPublisherV"
-                      }
-                    ],
-                    "usr": "s:Sq"
-                  }
-                ],
-                "declKind": "Accessor",
-                "usr": "s:19BambuserCommerceSDK22DynamicFontSizeServiceC04fontF9Publisher7Combine03AnyI0Vy14CoreFoundation7CGFloatVs5NeverOGSgvg",
-                "mangledName": "$s19BambuserCommerceSDK22DynamicFontSizeServiceC04fontF9Publisher7Combine03AnyI0Vy12CoreGraphics7CGFloatVs5NeverOGSgvg",
-                "moduleName": "BambuserCommerceSDK",
-                "declAttributes": [
-                  "Final"
-                ],
-                "accessorKind": "get"
-              }
-            ]
-          },
-          {
-            "kind": "Var",
-            "name": "currentFontSize",
-            "printedName": "currentFontSize",
-            "children": [
-              {
-                "kind": "TypeNominal",
-                "name": "CGFloat",
-                "printedName": "CoreGraphics.CGFloat",
-                "usr": "s:14CoreFoundation7CGFloatV"
-              }
-            ],
-            "declKind": "Var",
-            "usr": "s:19BambuserCommerceSDK22DynamicFontSizeServiceC07currenteF014CoreFoundation7CGFloatVvp",
-            "mangledName": "$s19BambuserCommerceSDK22DynamicFontSizeServiceC07currenteF012CoreGraphics7CGFloatVvp",
-            "moduleName": "BambuserCommerceSDK",
-            "declAttributes": [
-              "Final",
-              "AccessControl"
-            ],
-            "accessors": [
-              {
-                "kind": "Accessor",
-                "name": "Get",
-                "printedName": "Get()",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "CGFloat",
-                    "printedName": "CoreGraphics.CGFloat",
-                    "usr": "s:14CoreFoundation7CGFloatV"
-                  }
-                ],
-                "declKind": "Accessor",
-                "usr": "s:19BambuserCommerceSDK22DynamicFontSizeServiceC07currenteF014CoreFoundation7CGFloatVvg",
-                "mangledName": "$s19BambuserCommerceSDK22DynamicFontSizeServiceC07currenteF012CoreGraphics7CGFloatVvg",
-                "moduleName": "BambuserCommerceSDK",
-                "declAttributes": [
-                  "Final"
-                ],
-                "accessorKind": "get"
-              }
-            ]
-          }
-        ],
-        "declKind": "Class",
-        "usr": "s:19BambuserCommerceSDK22DynamicFontSizeServiceC",
-        "mangledName": "$s19BambuserCommerceSDK22DynamicFontSizeServiceC",
-        "moduleName": "BambuserCommerceSDK",
-        "declAttributes": [
-          "Final",
-          "AccessControl"
-        ],
-        "conformances": [
-          {
-            "kind": "Conformance",
-            "name": "Copyable",
-            "printedName": "Copyable",
-            "usr": "s:s8CopyableP",
-            "mangledName": "$ss8CopyableP"
-          },
-          {
-            "kind": "Conformance",
-            "name": "Escapable",
-            "printedName": "Escapable",
-            "usr": "s:s9EscapableP",
-            "mangledName": "$ss9EscapableP"
-          }
-        ]
       },
       {
         "kind": "Import",
@@ -3912,103 +4007,10 @@
         ]
       },
       {
-        "kind": "Import",
-        "name": "UIKit",
-        "printedName": "UIKit",
-        "declKind": "Import",
-        "moduleName": "BambuserCommerceSDK"
-      },
-      {
         "kind": "TypeDecl",
         "name": "InlineVideoPlaylistInfo",
         "printedName": "InlineVideoPlaylistInfo",
         "children": [
-          {
-            "kind": "Constructor",
-            "name": "init",
-            "printedName": "init(orgId:pageId:playlistId:title:packageName:)",
-            "children": [
-              {
-                "kind": "TypeNominal",
-                "name": "InlineVideoPlaylistInfo",
-                "printedName": "BambuserCommerceSDK.InlineVideoPlaylistInfo",
-                "usr": "s:19BambuserCommerceSDK23InlineVideoPlaylistInfoV"
-              },
-              {
-                "kind": "TypeNominal",
-                "name": "String",
-                "printedName": "Swift.String",
-                "usr": "s:SS"
-              },
-              {
-                "kind": "TypeNominal",
-                "name": "Optional",
-                "printedName": "Swift.String?",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "String",
-                    "printedName": "Swift.String",
-                    "usr": "s:SS"
-                  }
-                ],
-                "usr": "s:Sq"
-              },
-              {
-                "kind": "TypeNominal",
-                "name": "Optional",
-                "printedName": "Swift.String?",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "String",
-                    "printedName": "Swift.String",
-                    "usr": "s:SS"
-                  }
-                ],
-                "usr": "s:Sq"
-              },
-              {
-                "kind": "TypeNominal",
-                "name": "Optional",
-                "printedName": "Swift.String?",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "String",
-                    "printedName": "Swift.String",
-                    "usr": "s:SS"
-                  }
-                ],
-                "usr": "s:Sq"
-              },
-              {
-                "kind": "TypeNominal",
-                "name": "Optional",
-                "printedName": "Swift.String?",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "String",
-                    "printedName": "Swift.String",
-                    "usr": "s:SS"
-                  }
-                ],
-                "hasDefaultArg": true,
-                "usr": "s:Sq"
-              }
-            ],
-            "declKind": "Constructor",
-            "usr": "s:19BambuserCommerceSDK23InlineVideoPlaylistInfoV5orgId04pageI008playlistI05title11packageNameACSS_SSSgA3Itcfc",
-            "mangledName": "$s19BambuserCommerceSDK23InlineVideoPlaylistInfoV5orgId04pageI008playlistI05title11packageNameACSS_SSSgA3Itcfc",
-            "moduleName": "BambuserCommerceSDK",
-            "deprecated": true,
-            "declAttributes": [
-              "AccessControl",
-              "Available"
-            ],
-            "init_kind": "Designated"
-          },
           {
             "kind": "Constructor",
             "name": "init",
@@ -4110,6 +4112,13 @@
             "printedName": "Equatable",
             "usr": "s:SQ",
             "mangledName": "$sSQ"
+          },
+          {
+            "kind": "Conformance",
+            "name": "SendableMetatype",
+            "printedName": "SendableMetatype",
+            "usr": "s:s16SendableMetatypeP",
+            "mangledName": "$ss16SendableMetatypeP"
           }
         ]
       },
@@ -4237,6 +4246,13 @@
             "printedName": "Equatable",
             "usr": "s:SQ",
             "mangledName": "$sSQ"
+          },
+          {
+            "kind": "Conformance",
+            "name": "SendableMetatype",
+            "printedName": "SendableMetatype",
+            "usr": "s:s16SendableMetatypeP",
+            "mangledName": "$ss16SendableMetatypeP"
           }
         ]
       },
@@ -4602,13 +4618,6 @@
           },
           {
             "kind": "Conformance",
-            "name": "Equatable",
-            "printedName": "Equatable",
-            "usr": "s:SQ",
-            "mangledName": "$sSQ"
-          },
-          {
-            "kind": "Conformance",
             "name": "Hashable",
             "printedName": "Hashable",
             "usr": "s:SH",
@@ -4664,6 +4673,20 @@
             "printedName": "Sendable",
             "usr": "s:s8SendableP",
             "mangledName": "$ss8SendableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "SendableMetatype",
+            "printedName": "SendableMetatype",
+            "usr": "s:s16SendableMetatypeP",
+            "mangledName": "$ss16SendableMetatypeP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Equatable",
+            "printedName": "Equatable",
+            "usr": "s:SQ",
+            "mangledName": "$sSQ"
           }
         ]
       },
@@ -5020,463 +5043,6 @@
         ]
       },
       {
-        "kind": "Import",
-        "name": "Foundation",
-        "printedName": "Foundation",
-        "declKind": "Import",
-        "moduleName": "BambuserCommerceSDK",
-        "declAttributes": [
-          "RawDocComment"
-        ]
-      },
-      {
-        "kind": "TypeDecl",
-        "name": "PlayerError",
-        "printedName": "PlayerError",
-        "children": [
-          {
-            "kind": "Var",
-            "name": "badUrl",
-            "printedName": "badUrl",
-            "children": [
-              {
-                "kind": "TypeFunc",
-                "name": "Function",
-                "printedName": "(BambuserCommerceSDK.PlayerError.Type) -> (Foundation.URL?) -> BambuserCommerceSDK.PlayerError",
-                "children": [
-                  {
-                    "kind": "TypeFunc",
-                    "name": "Function",
-                    "printedName": "(Foundation.URL?) -> BambuserCommerceSDK.PlayerError",
-                    "children": [
-                      {
-                        "kind": "TypeNominal",
-                        "name": "PlayerError",
-                        "printedName": "BambuserCommerceSDK.PlayerError",
-                        "usr": "s:19BambuserCommerceSDK11PlayerErrorO"
-                      },
-                      {
-                        "kind": "TypeNominal",
-                        "name": "Optional",
-                        "printedName": "Foundation.URL?",
-                        "children": [
-                          {
-                            "kind": "TypeNominal",
-                            "name": "URL",
-                            "printedName": "Foundation.URL",
-                            "usr": "s:10Foundation3URLV"
-                          }
-                        ],
-                        "usr": "s:Sq"
-                      }
-                    ]
-                  },
-                  {
-                    "kind": "TypeNominal",
-                    "name": "Metatype",
-                    "printedName": "BambuserCommerceSDK.PlayerError.Type",
-                    "children": [
-                      {
-                        "kind": "TypeNominal",
-                        "name": "PlayerError",
-                        "printedName": "BambuserCommerceSDK.PlayerError",
-                        "usr": "s:19BambuserCommerceSDK11PlayerErrorO"
-                      }
-                    ]
-                  }
-                ]
-              }
-            ],
-            "declKind": "EnumElement",
-            "usr": "s:19BambuserCommerceSDK11PlayerErrorO6badUrlyAC10Foundation3URLVSgcACmF",
-            "mangledName": "$s19BambuserCommerceSDK11PlayerErrorO6badUrlyAC10Foundation3URLVSgcACmF",
-            "moduleName": "BambuserCommerceSDK"
-          },
-          {
-            "kind": "Var",
-            "name": "noData",
-            "printedName": "noData",
-            "children": [
-              {
-                "kind": "TypeFunc",
-                "name": "Function",
-                "printedName": "(BambuserCommerceSDK.PlayerError.Type) -> BambuserCommerceSDK.PlayerError",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "PlayerError",
-                    "printedName": "BambuserCommerceSDK.PlayerError",
-                    "usr": "s:19BambuserCommerceSDK11PlayerErrorO"
-                  },
-                  {
-                    "kind": "TypeNominal",
-                    "name": "Metatype",
-                    "printedName": "BambuserCommerceSDK.PlayerError.Type",
-                    "children": [
-                      {
-                        "kind": "TypeNominal",
-                        "name": "PlayerError",
-                        "printedName": "BambuserCommerceSDK.PlayerError",
-                        "usr": "s:19BambuserCommerceSDK11PlayerErrorO"
-                      }
-                    ]
-                  }
-                ]
-              }
-            ],
-            "declKind": "EnumElement",
-            "usr": "s:19BambuserCommerceSDK11PlayerErrorO6noDatayA2CmF",
-            "mangledName": "$s19BambuserCommerceSDK11PlayerErrorO6noDatayA2CmF",
-            "moduleName": "BambuserCommerceSDK"
-          },
-          {
-            "kind": "Var",
-            "name": "invalidJson",
-            "printedName": "invalidJson",
-            "children": [
-              {
-                "kind": "TypeFunc",
-                "name": "Function",
-                "printedName": "(BambuserCommerceSDK.PlayerError.Type) -> (Swift.String) -> BambuserCommerceSDK.PlayerError",
-                "children": [
-                  {
-                    "kind": "TypeFunc",
-                    "name": "Function",
-                    "printedName": "(Swift.String) -> BambuserCommerceSDK.PlayerError",
-                    "children": [
-                      {
-                        "kind": "TypeNominal",
-                        "name": "PlayerError",
-                        "printedName": "BambuserCommerceSDK.PlayerError",
-                        "usr": "s:19BambuserCommerceSDK11PlayerErrorO"
-                      },
-                      {
-                        "kind": "TypeNominal",
-                        "name": "String",
-                        "printedName": "Swift.String",
-                        "usr": "s:SS"
-                      }
-                    ]
-                  },
-                  {
-                    "kind": "TypeNominal",
-                    "name": "Metatype",
-                    "printedName": "BambuserCommerceSDK.PlayerError.Type",
-                    "children": [
-                      {
-                        "kind": "TypeNominal",
-                        "name": "PlayerError",
-                        "printedName": "BambuserCommerceSDK.PlayerError",
-                        "usr": "s:19BambuserCommerceSDK11PlayerErrorO"
-                      }
-                    ]
-                  }
-                ]
-              }
-            ],
-            "declKind": "EnumElement",
-            "usr": "s:19BambuserCommerceSDK11PlayerErrorO11invalidJsonyACSScACmF",
-            "mangledName": "$s19BambuserCommerceSDK11PlayerErrorO11invalidJsonyACSScACmF",
-            "moduleName": "BambuserCommerceSDK"
-          },
-          {
-            "kind": "Var",
-            "name": "invalidStatus",
-            "printedName": "invalidStatus",
-            "children": [
-              {
-                "kind": "TypeFunc",
-                "name": "Function",
-                "printedName": "(BambuserCommerceSDK.PlayerError.Type) -> (Swift.Int, Foundation.URL?) -> BambuserCommerceSDK.PlayerError",
-                "children": [
-                  {
-                    "kind": "TypeFunc",
-                    "name": "Function",
-                    "printedName": "(Swift.Int, Foundation.URL?) -> BambuserCommerceSDK.PlayerError",
-                    "children": [
-                      {
-                        "kind": "TypeNominal",
-                        "name": "PlayerError",
-                        "printedName": "BambuserCommerceSDK.PlayerError",
-                        "usr": "s:19BambuserCommerceSDK11PlayerErrorO"
-                      },
-                      {
-                        "kind": "TypeNominal",
-                        "name": "Tuple",
-                        "printedName": "(Swift.Int, url: Foundation.URL?)",
-                        "children": [
-                          {
-                            "kind": "TypeNominal",
-                            "name": "Int",
-                            "printedName": "Swift.Int",
-                            "usr": "s:Si"
-                          },
-                          {
-                            "kind": "TypeNominal",
-                            "name": "Optional",
-                            "printedName": "Foundation.URL?",
-                            "children": [
-                              {
-                                "kind": "TypeNominal",
-                                "name": "URL",
-                                "printedName": "Foundation.URL",
-                                "usr": "s:10Foundation3URLV"
-                              }
-                            ],
-                            "usr": "s:Sq"
-                          }
-                        ]
-                      }
-                    ]
-                  },
-                  {
-                    "kind": "TypeNominal",
-                    "name": "Metatype",
-                    "printedName": "BambuserCommerceSDK.PlayerError.Type",
-                    "children": [
-                      {
-                        "kind": "TypeNominal",
-                        "name": "PlayerError",
-                        "printedName": "BambuserCommerceSDK.PlayerError",
-                        "usr": "s:19BambuserCommerceSDK11PlayerErrorO"
-                      }
-                    ]
-                  }
-                ]
-              }
-            ],
-            "declKind": "EnumElement",
-            "usr": "s:19BambuserCommerceSDK11PlayerErrorO13invalidStatusyACSi_10Foundation3URLVSgtcACmF",
-            "mangledName": "$s19BambuserCommerceSDK11PlayerErrorO13invalidStatusyACSi_10Foundation3URLVSgtcACmF",
-            "moduleName": "BambuserCommerceSDK"
-          },
-          {
-            "kind": "Var",
-            "name": "unknownError",
-            "printedName": "unknownError",
-            "children": [
-              {
-                "kind": "TypeFunc",
-                "name": "Function",
-                "printedName": "(BambuserCommerceSDK.PlayerError.Type) -> BambuserCommerceSDK.PlayerError",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "PlayerError",
-                    "printedName": "BambuserCommerceSDK.PlayerError",
-                    "usr": "s:19BambuserCommerceSDK11PlayerErrorO"
-                  },
-                  {
-                    "kind": "TypeNominal",
-                    "name": "Metatype",
-                    "printedName": "BambuserCommerceSDK.PlayerError.Type",
-                    "children": [
-                      {
-                        "kind": "TypeNominal",
-                        "name": "PlayerError",
-                        "printedName": "BambuserCommerceSDK.PlayerError",
-                        "usr": "s:19BambuserCommerceSDK11PlayerErrorO"
-                      }
-                    ]
-                  }
-                ]
-              }
-            ],
-            "declKind": "EnumElement",
-            "usr": "s:19BambuserCommerceSDK11PlayerErrorO07unknownE0yA2CmF",
-            "mangledName": "$s19BambuserCommerceSDK11PlayerErrorO07unknownE0yA2CmF",
-            "moduleName": "BambuserCommerceSDK"
-          },
-          {
-            "kind": "Var",
-            "name": "failedToTrack",
-            "printedName": "failedToTrack",
-            "children": [
-              {
-                "kind": "TypeFunc",
-                "name": "Function",
-                "printedName": "(BambuserCommerceSDK.PlayerError.Type) -> BambuserCommerceSDK.PlayerError",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "PlayerError",
-                    "printedName": "BambuserCommerceSDK.PlayerError",
-                    "usr": "s:19BambuserCommerceSDK11PlayerErrorO"
-                  },
-                  {
-                    "kind": "TypeNominal",
-                    "name": "Metatype",
-                    "printedName": "BambuserCommerceSDK.PlayerError.Type",
-                    "children": [
-                      {
-                        "kind": "TypeNominal",
-                        "name": "PlayerError",
-                        "printedName": "BambuserCommerceSDK.PlayerError",
-                        "usr": "s:19BambuserCommerceSDK11PlayerErrorO"
-                      }
-                    ]
-                  }
-                ]
-              }
-            ],
-            "declKind": "EnumElement",
-            "usr": "s:19BambuserCommerceSDK11PlayerErrorO13failedToTrackyA2CmF",
-            "mangledName": "$s19BambuserCommerceSDK11PlayerErrorO13failedToTrackyA2CmF",
-            "moduleName": "BambuserCommerceSDK"
-          },
-          {
-            "kind": "Var",
-            "name": "failedToLoadVideo",
-            "printedName": "failedToLoadVideo",
-            "children": [
-              {
-                "kind": "TypeFunc",
-                "name": "Function",
-                "printedName": "(BambuserCommerceSDK.PlayerError.Type) -> (Swift.String) -> BambuserCommerceSDK.PlayerError",
-                "children": [
-                  {
-                    "kind": "TypeFunc",
-                    "name": "Function",
-                    "printedName": "(Swift.String) -> BambuserCommerceSDK.PlayerError",
-                    "children": [
-                      {
-                        "kind": "TypeNominal",
-                        "name": "PlayerError",
-                        "printedName": "BambuserCommerceSDK.PlayerError",
-                        "usr": "s:19BambuserCommerceSDK11PlayerErrorO"
-                      },
-                      {
-                        "kind": "TypeNominal",
-                        "name": "String",
-                        "printedName": "Swift.String",
-                        "usr": "s:SS"
-                      }
-                    ]
-                  },
-                  {
-                    "kind": "TypeNominal",
-                    "name": "Metatype",
-                    "printedName": "BambuserCommerceSDK.PlayerError.Type",
-                    "children": [
-                      {
-                        "kind": "TypeNominal",
-                        "name": "PlayerError",
-                        "printedName": "BambuserCommerceSDK.PlayerError",
-                        "usr": "s:19BambuserCommerceSDK11PlayerErrorO"
-                      }
-                    ]
-                  }
-                ]
-              }
-            ],
-            "declKind": "EnumElement",
-            "usr": "s:19BambuserCommerceSDK11PlayerErrorO17failedToLoadVideoyACSScACmF",
-            "mangledName": "$s19BambuserCommerceSDK11PlayerErrorO17failedToLoadVideoyACSScACmF",
-            "moduleName": "BambuserCommerceSDK"
-          },
-          {
-            "kind": "Var",
-            "name": "errorDescription",
-            "printedName": "errorDescription",
-            "children": [
-              {
-                "kind": "TypeNominal",
-                "name": "Optional",
-                "printedName": "Swift.String?",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "String",
-                    "printedName": "Swift.String",
-                    "usr": "s:SS"
-                  }
-                ],
-                "usr": "s:Sq"
-              }
-            ],
-            "declKind": "Var",
-            "usr": "s:19BambuserCommerceSDK11PlayerErrorO16errorDescriptionSSSgvp",
-            "mangledName": "$s19BambuserCommerceSDK11PlayerErrorO16errorDescriptionSSSgvp",
-            "moduleName": "BambuserCommerceSDK",
-            "declAttributes": [
-              "AccessControl"
-            ],
-            "accessors": [
-              {
-                "kind": "Accessor",
-                "name": "Get",
-                "printedName": "Get()",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "Optional",
-                    "printedName": "Swift.String?",
-                    "children": [
-                      {
-                        "kind": "TypeNominal",
-                        "name": "String",
-                        "printedName": "Swift.String",
-                        "usr": "s:SS"
-                      }
-                    ],
-                    "usr": "s:Sq"
-                  }
-                ],
-                "declKind": "Accessor",
-                "usr": "s:19BambuserCommerceSDK11PlayerErrorO16errorDescriptionSSSgvg",
-                "mangledName": "$s19BambuserCommerceSDK11PlayerErrorO16errorDescriptionSSSgvg",
-                "moduleName": "BambuserCommerceSDK",
-                "accessorKind": "get"
-              }
-            ]
-          }
-        ],
-        "declKind": "Enum",
-        "usr": "s:19BambuserCommerceSDK11PlayerErrorO",
-        "mangledName": "$s19BambuserCommerceSDK11PlayerErrorO",
-        "moduleName": "BambuserCommerceSDK",
-        "declAttributes": [
-          "AccessControl"
-        ],
-        "conformances": [
-          {
-            "kind": "Conformance",
-            "name": "Copyable",
-            "printedName": "Copyable",
-            "usr": "s:s8CopyableP",
-            "mangledName": "$ss8CopyableP"
-          },
-          {
-            "kind": "Conformance",
-            "name": "Escapable",
-            "printedName": "Escapable",
-            "usr": "s:s9EscapableP",
-            "mangledName": "$ss9EscapableP"
-          },
-          {
-            "kind": "Conformance",
-            "name": "LocalizedError",
-            "printedName": "LocalizedError",
-            "usr": "s:10Foundation14LocalizedErrorP",
-            "mangledName": "$s10Foundation14LocalizedErrorP"
-          },
-          {
-            "kind": "Conformance",
-            "name": "Error",
-            "printedName": "Error",
-            "usr": "s:s5ErrorP",
-            "mangledName": "$ss5ErrorP"
-          },
-          {
-            "kind": "Conformance",
-            "name": "Sendable",
-            "printedName": "Sendable",
-            "usr": "s:s8SendableP",
-            "mangledName": "$ss8SendableP"
-          }
-        ]
-      },
-      {
         "kind": "TypeDecl",
         "name": "PlayerPipState",
         "printedName": "PlayerPipState",
@@ -5796,17 +5362,17 @@
           },
           {
             "kind": "Conformance",
-            "name": "Escapable",
-            "printedName": "Escapable",
-            "usr": "s:s9EscapableP",
-            "mangledName": "$ss9EscapableP"
-          },
-          {
-            "kind": "Conformance",
             "name": "Equatable",
             "printedName": "Equatable",
             "usr": "s:SQ",
             "mangledName": "$sSQ"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Escapable",
+            "printedName": "Escapable",
+            "usr": "s:s9EscapableP",
+            "mangledName": "$ss9EscapableP"
           },
           {
             "kind": "Conformance",
@@ -6208,6 +5774,13 @@
           },
           {
             "kind": "Conformance",
+            "name": "Equatable",
+            "printedName": "Equatable",
+            "usr": "s:SQ",
+            "mangledName": "$sSQ"
+          },
+          {
+            "kind": "Conformance",
             "name": "Escapable",
             "printedName": "Escapable",
             "usr": "s:s9EscapableP",
@@ -6215,10 +5788,10 @@
           },
           {
             "kind": "Conformance",
-            "name": "Equatable",
-            "printedName": "Equatable",
-            "usr": "s:SQ",
-            "mangledName": "$sSQ"
+            "name": "Sendable",
+            "printedName": "Sendable",
+            "usr": "s:s8SendableP",
+            "mangledName": "$ss8SendableP"
           },
           {
             "kind": "Conformance",
@@ -6229,10 +5802,10 @@
           },
           {
             "kind": "Conformance",
-            "name": "Sendable",
-            "printedName": "Sendable",
-            "usr": "s:s8SendableP",
-            "mangledName": "$ss8SendableP"
+            "name": "SendableMetatype",
+            "printedName": "SendableMetatype",
+            "usr": "s:s16SendableMetatypeP",
+            "mangledName": "$ss16SendableMetatypeP"
           }
         ]
       },
@@ -6276,6 +5849,38 @@
               "RawDocComment"
             ],
             "init_kind": "Designated"
+          },
+          {
+            "kind": "Function",
+            "name": "==",
+            "printedName": "==(_:_:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Bool",
+                "printedName": "Swift.Bool",
+                "usr": "s:Sb"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "SafeAreaEdges",
+                "printedName": "BambuserCommerceSDK.SafeAreaEdges",
+                "usr": "s:19BambuserCommerceSDK13SafeAreaEdgesV"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "SafeAreaEdges",
+                "printedName": "BambuserCommerceSDK.SafeAreaEdges",
+                "usr": "s:19BambuserCommerceSDK13SafeAreaEdgesV"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:19BambuserCommerceSDK13SafeAreaEdgesV2eeoiySbAC_ACtFZ",
+            "mangledName": "$s19BambuserCommerceSDK13SafeAreaEdgesV2eeoiySbAC_ACtFZ",
+            "moduleName": "BambuserCommerceSDK",
+            "static": true,
+            "implicit": true,
+            "funcSelfKind": "NonMutating"
           }
         ],
         "declKind": "Struct",
@@ -6307,6 +5912,20 @@
             "printedName": "Sendable",
             "usr": "s:s8SendableP",
             "mangledName": "$ss8SendableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Equatable",
+            "printedName": "Equatable",
+            "usr": "s:SQ",
+            "mangledName": "$sSQ"
+          },
+          {
+            "kind": "Conformance",
+            "name": "SendableMetatype",
+            "printedName": "SendableMetatype",
+            "usr": "s:s16SendableMetatypeP",
+            "mangledName": "$ss16SendableMetatypeP"
           }
         ]
       },
@@ -6467,136 +6086,29 @@
         "declAttributes": [
           "RawDocComment"
         ]
-      },
-      {
-        "kind": "TypeDecl",
-        "name": "Timer",
-        "printedName": "Timer",
-        "declKind": "Class",
-        "usr": "c:objc(cs)NSTimer",
-        "moduleName": "Foundation",
-        "isOpen": true,
-        "objc_name": "NSTimer",
-        "declAttributes": [
-          "ObjC",
-          "NonSendable",
-          "Dynamic"
-        ],
-        "superclassUsr": "c:objc(cs)NSObject",
-        "isExternal": true,
-        "inheritsConvenienceInitializers": true,
-        "superclassNames": [
-          "ObjectiveC.NSObject"
-        ],
-        "conformances": [
-          {
-            "kind": "Conformance",
-            "name": "Copyable",
-            "printedName": "Copyable",
-            "usr": "s:s8CopyableP",
-            "mangledName": "$ss8CopyableP"
-          },
-          {
-            "kind": "Conformance",
-            "name": "Escapable",
-            "printedName": "Escapable",
-            "usr": "s:s9EscapableP",
-            "mangledName": "$ss9EscapableP"
-          },
-          {
-            "kind": "Conformance",
-            "name": "Copyable",
-            "printedName": "Copyable",
-            "usr": "s:s8CopyableP",
-            "mangledName": "$ss8CopyableP"
-          },
-          {
-            "kind": "Conformance",
-            "name": "Escapable",
-            "printedName": "Escapable",
-            "usr": "s:s9EscapableP",
-            "mangledName": "$ss9EscapableP"
-          },
-          {
-            "kind": "Conformance",
-            "name": "Equatable",
-            "printedName": "Equatable",
-            "usr": "s:SQ",
-            "mangledName": "$sSQ"
-          },
-          {
-            "kind": "Conformance",
-            "name": "Hashable",
-            "printedName": "Hashable",
-            "usr": "s:SH",
-            "mangledName": "$sSH"
-          },
-          {
-            "kind": "Conformance",
-            "name": "CVarArg",
-            "printedName": "CVarArg",
-            "usr": "s:s7CVarArgP",
-            "mangledName": "$ss7CVarArgP"
-          },
-          {
-            "kind": "Conformance",
-            "name": "_KeyValueCodingAndObservingPublishing",
-            "printedName": "_KeyValueCodingAndObservingPublishing",
-            "usr": "s:10Foundation37_KeyValueCodingAndObservingPublishingP",
-            "mangledName": "$s10Foundation37_KeyValueCodingAndObservingPublishingP"
-          },
-          {
-            "kind": "Conformance",
-            "name": "_KeyValueCodingAndObserving",
-            "printedName": "_KeyValueCodingAndObserving",
-            "usr": "s:10Foundation27_KeyValueCodingAndObservingP",
-            "mangledName": "$s10Foundation27_KeyValueCodingAndObservingP"
-          },
-          {
-            "kind": "Conformance",
-            "name": "CustomStringConvertible",
-            "printedName": "CustomStringConvertible",
-            "usr": "s:s23CustomStringConvertibleP",
-            "mangledName": "$ss23CustomStringConvertibleP"
-          },
-          {
-            "kind": "Conformance",
-            "name": "CustomDebugStringConvertible",
-            "printedName": "CustomDebugStringConvertible",
-            "usr": "s:s28CustomDebugStringConvertibleP",
-            "mangledName": "$ss28CustomDebugStringConvertibleP"
-          },
-          {
-            "kind": "Conformance",
-            "name": "Sendable",
-            "printedName": "Sendable",
-            "usr": "s:s8SendableP",
-            "mangledName": "$ss8SendableP"
-          }
-        ]
       }
     ],
     "json_format_version": 8
   },
   "ConstValues": [
     {
-      "filePath": "\/Users\/saeid\/Documents\/projects\/frameworks\/commerce-sdk\/bambuser-commerce-sdk-ios\/Files\/Sources\/BambuserCommerceSDK\/Interface\/BambuserVideoPlayer.swift",
+      "filePath": "\/Users\/saeid\/Documents\/projects\/frameworks\/commerce-sdk\/bambuser-commerce-sdk-ios\/Files\/Sources\/BambuserCommerceSDK\/Interface\/BambuserSDK.swift",
       "kind": "IntegerLiteral",
-      "offset": 4432,
+      "offset": 5269,
       "length": 1,
       "value": "1"
     },
     {
-      "filePath": "\/Users\/saeid\/Documents\/projects\/frameworks\/commerce-sdk\/bambuser-commerce-sdk-ios\/Files\/Sources\/BambuserCommerceSDK\/Interface\/BambuserVideoPlayer.swift",
+      "filePath": "\/Users\/saeid\/Documents\/projects\/frameworks\/commerce-sdk\/bambuser-commerce-sdk-ios\/Files\/Sources\/BambuserCommerceSDK\/Interface\/BambuserSDK.swift",
       "kind": "IntegerLiteral",
-      "offset": 4459,
+      "offset": 5296,
       "length": 2,
       "value": "15"
     },
     {
       "filePath": "\/Users\/saeid\/Documents\/projects\/frameworks\/commerce-sdk\/bambuser-commerce-sdk-ios\/Files\/Sources\/BambuserCommerceSDK\/Interface\/Types\/BambuserVideoPlayerConfiguration.swift",
       "kind": "Array",
-      "offset": 1261,
+      "offset": 1246,
       "length": 5,
       "value": "[\"*\"]"
     },
@@ -6617,35 +6129,35 @@
     {
       "filePath": "\/Users\/saeid\/Documents\/projects\/frameworks\/commerce-sdk\/bambuser-commerce-sdk-ios\/Files\/Sources\/BambuserCommerceSDK\/Implementation\/VideoPlayer\/Environment.swift",
       "kind": "StringLiteral",
-      "offset": 246,
+      "offset": 221,
       "length": 7,
       "value": "\"2.3.0\""
     },
     {
       "filePath": "\/Users\/saeid\/Documents\/projects\/frameworks\/commerce-sdk\/bambuser-commerce-sdk-ios\/Files\/Sources\/BambuserCommerceSDK\/Implementation\/VideoPlayer\/Environment.swift",
       "kind": "StringLiteral",
-      "offset": 292,
+      "offset": 267,
       "length": 22,
       "value": "\"bambuserEventHandler\""
     },
     {
       "filePath": "\/Users\/saeid\/Documents\/projects\/frameworks\/commerce-sdk\/bambuser-commerce-sdk-ios\/Files\/Sources\/BambuserCommerceSDK\/Implementation\/VideoPlayer\/ShoppableVideo\/InlineVideoContainerConfig+Thumbnail.swift",
       "kind": "BooleanLiteral",
-      "offset": 897,
+      "offset": 876,
       "length": 4,
       "value": "true"
     },
     {
       "filePath": "\/Users\/saeid\/Documents\/projects\/frameworks\/commerce-sdk\/bambuser-commerce-sdk-ios\/Files\/Sources\/BambuserCommerceSDK\/Implementation\/VideoPlayer\/ShoppableVideo\/InlineVideoContainerConfig+Thumbnail.swift",
       "kind": "BooleanLiteral",
-      "offset": 931,
+      "offset": 910,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/saeid\/Documents\/projects\/frameworks\/commerce-sdk\/bambuser-commerce-sdk-ios\/Files\/Sources\/BambuserCommerceSDK\/Implementation\/VideoPlayer\/ShoppableVideo\/InlineVideoContainerConfig+Thumbnail.swift",
       "kind": "BooleanLiteral",
-      "offset": 972,
+      "offset": 951,
       "length": 4,
       "value": "true"
     },
@@ -6659,168 +6171,168 @@
     {
       "filePath": "\/Users\/saeid\/Documents\/projects\/frameworks\/commerce-sdk\/bambuser-commerce-sdk-ios\/Files\/Sources\/BambuserCommerceSDK\/Implementation\/VideoPlayer\/ShoppableVideo\/InlineVideoNetworkService.swift",
       "kind": "StringLiteral",
-      "offset": 3543,
+      "offset": 3167,
       "length": 7,
       "value": "\"en-US\""
     },
     {
       "filePath": "\/Users\/saeid\/Documents\/projects\/frameworks\/commerce-sdk\/bambuser-commerce-sdk-ios\/Files\/Sources\/BambuserCommerceSDK\/Implementation\/VideoPlayer\/Models\/VOD\/MediaAssetData.swift",
       "kind": "StringLiteral",
-      "offset": 287,
+      "offset": 283,
       "length": 14,
       "value": "\"resource_uri\""
     },
     {
       "filePath": "\/Users\/saeid\/Documents\/projects\/frameworks\/commerce-sdk\/bambuser-commerce-sdk-ios\/Files\/Sources\/BambuserCommerceSDK\/Implementation\/VideoPlayer\/NetworkManager.swift",
       "kind": "StringLiteral",
-      "offset": 222,
+      "offset": 272,
       "length": 5,
       "value": "\"GET\""
     },
     {
       "filePath": "\/Users\/saeid\/Documents\/projects\/frameworks\/commerce-sdk\/bambuser-commerce-sdk-ios\/Files\/Sources\/BambuserCommerceSDK\/Implementation\/VideoPlayer\/NetworkManager.swift",
       "kind": "StringLiteral",
-      "offset": 248,
+      "offset": 298,
       "length": 6,
       "value": "\"POST\""
     },
     {
       "filePath": "\/Users\/saeid\/Documents\/projects\/frameworks\/commerce-sdk\/bambuser-commerce-sdk-ios\/Files\/Sources\/BambuserCommerceSDK\/Implementation\/VideoPlayer\/NetworkManager.swift",
       "kind": "StringLiteral",
-      "offset": 274,
+      "offset": 324,
       "length": 5,
       "value": "\"PUT\""
     },
     {
       "filePath": "\/Users\/saeid\/Documents\/projects\/frameworks\/commerce-sdk\/bambuser-commerce-sdk-ios\/Files\/Sources\/BambuserCommerceSDK\/Implementation\/VideoPlayer\/NetworkManager.swift",
       "kind": "StringLiteral",
-      "offset": 302,
+      "offset": 352,
       "length": 8,
       "value": "\"DELETE\""
     },
     {
       "filePath": "\/Users\/saeid\/Documents\/projects\/frameworks\/commerce-sdk\/bambuser-commerce-sdk-ios\/Files\/Sources\/BambuserCommerceSDK\/Implementation\/VideoPlayer\/PeriodicTimeObserver.swift",
       "kind": "BooleanLiteral",
-      "offset": 365,
+      "offset": 320,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/saeid\/Documents\/projects\/frameworks\/commerce-sdk\/bambuser-commerce-sdk-ios\/Files\/Sources\/BambuserCommerceSDK\/Implementation\/VideoPlayer\/PeriodicTimeObserver.swift",
       "kind": "FloatLiteral",
-      "offset": 512,
+      "offset": 467,
       "length": 3,
       "value": "0.0"
     },
     {
       "filePath": "\/Users\/saeid\/Documents\/projects\/frameworks\/commerce-sdk\/bambuser-commerce-sdk-ios\/Files\/Sources\/BambuserCommerceSDK\/Implementation\/VideoPlayer\/PeriodicTimeObserver.swift",
       "kind": "FloatLiteral",
-      "offset": 597,
+      "offset": 552,
       "length": 3,
       "value": "1.0"
     },
     {
       "filePath": "\/Users\/saeid\/Documents\/projects\/frameworks\/commerce-sdk\/bambuser-commerce-sdk-ios\/Files\/Sources\/BambuserCommerceSDK\/Implementation\/VideoPlayer\/PeriodicTimeObserver.swift",
       "kind": "StringLiteral",
-      "offset": 661,
+      "offset": 616,
       "length": 19,
       "value": "\"NEW TIMER CREATED\""
     },
     {
       "filePath": "\/Users\/saeid\/Documents\/projects\/frameworks\/commerce-sdk\/bambuser-commerce-sdk-ios\/Files\/Sources\/BambuserCommerceSDK\/Implementation\/VideoPlayer\/Player\/PlayerViewImpl.swift",
       "kind": "Array",
-      "offset": 704,
+      "offset": 693,
       "length": 2,
       "value": "[]"
     },
     {
       "filePath": "\/Users\/saeid\/Documents\/projects\/frameworks\/commerce-sdk\/bambuser-commerce-sdk-ios\/Files\/Sources\/BambuserCommerceSDK\/Implementation\/VideoPlayer\/Player\/PlayerViewImpl.swift",
       "kind": "Array",
-      "offset": 758,
+      "offset": 747,
       "length": 2,
       "value": "[]"
     },
     {
       "filePath": "\/Users\/saeid\/Documents\/projects\/frameworks\/commerce-sdk\/bambuser-commerce-sdk-ios\/Files\/Sources\/BambuserCommerceSDK\/Implementation\/VideoPlayer\/Player\/PlayerViewImpl.swift",
       "kind": "Dictionary",
-      "offset": 825,
+      "offset": 814,
       "length": 3,
       "value": "[]"
     },
     {
       "filePath": "\/Users\/saeid\/Documents\/projects\/frameworks\/commerce-sdk\/bambuser-commerce-sdk-ios\/Files\/Sources\/BambuserCommerceSDK\/Implementation\/VideoPlayer\/Player\/PlayerViewImpl.swift",
       "kind": "BooleanLiteral",
-      "offset": 964,
+      "offset": 953,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/saeid\/Documents\/projects\/frameworks\/commerce-sdk\/bambuser-commerce-sdk-ios\/Files\/Sources\/BambuserCommerceSDK\/Implementation\/VideoPlayer\/Player\/PlayerViewImpl.swift",
       "kind": "BooleanLiteral",
-      "offset": 9206,
+      "offset": 9363,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/saeid\/Documents\/projects\/frameworks\/commerce-sdk\/bambuser-commerce-sdk-ios\/Files\/Sources\/BambuserCommerceSDK\/Implementation\/VideoPlayer\/Player\/PlayerViewImpl.swift",
       "kind": "BooleanLiteral",
-      "offset": 11777,
+      "offset": 11934,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/saeid\/Documents\/projects\/frameworks\/commerce-sdk\/bambuser-commerce-sdk-ios\/Files\/Sources\/BambuserCommerceSDK\/Implementation\/VideoPlayer\/Player\/PlayerViewImpl.swift",
       "kind": "IntegerLiteral",
-      "offset": 12314,
+      "offset": 12471,
       "length": 2,
       "value": "29"
     },
     {
       "filePath": "\/Users\/saeid\/Documents\/projects\/frameworks\/commerce-sdk\/bambuser-commerce-sdk-ios\/Files\/Sources\/BambuserCommerceSDK\/Implementation\/VideoPlayer\/Player\/PlayerViewImpl.swift",
       "kind": "IntegerLiteral",
-      "offset": 12317,
+      "offset": 12474,
       "length": 3,
       "value": "255"
     },
     {
       "filePath": "\/Users\/saeid\/Documents\/projects\/frameworks\/commerce-sdk\/bambuser-commerce-sdk-ios\/Files\/Sources\/BambuserCommerceSDK\/Implementation\/VideoPlayer\/Player\/PlayerViewImpl.swift",
       "kind": "IntegerLiteral",
-      "offset": 12329,
+      "offset": 12486,
       "length": 2,
       "value": "29"
     },
     {
       "filePath": "\/Users\/saeid\/Documents\/projects\/frameworks\/commerce-sdk\/bambuser-commerce-sdk-ios\/Files\/Sources\/BambuserCommerceSDK\/Implementation\/VideoPlayer\/Player\/PlayerViewImpl.swift",
       "kind": "IntegerLiteral",
-      "offset": 12332,
+      "offset": 12489,
       "length": 3,
       "value": "255"
     },
     {
       "filePath": "\/Users\/saeid\/Documents\/projects\/frameworks\/commerce-sdk\/bambuser-commerce-sdk-ios\/Files\/Sources\/BambuserCommerceSDK\/Implementation\/VideoPlayer\/Player\/PlayerViewImpl.swift",
       "kind": "IntegerLiteral",
-      "offset": 12343,
+      "offset": 12500,
       "length": 2,
       "value": "29"
     },
     {
       "filePath": "\/Users\/saeid\/Documents\/projects\/frameworks\/commerce-sdk\/bambuser-commerce-sdk-ios\/Files\/Sources\/BambuserCommerceSDK\/Implementation\/VideoPlayer\/Player\/PlayerViewImpl.swift",
       "kind": "IntegerLiteral",
-      "offset": 12346,
+      "offset": 12503,
       "length": 3,
       "value": "255"
     },
     {
       "filePath": "\/Users\/saeid\/Documents\/projects\/frameworks\/commerce-sdk\/bambuser-commerce-sdk-ios\/Files\/Sources\/BambuserCommerceSDK\/Implementation\/VideoPlayer\/Player\/PlayerViewImpl.swift",
       "kind": "IntegerLiteral",
-      "offset": 12358,
+      "offset": 12515,
       "length": 1,
       "value": "1"
     },
     {
       "filePath": "\/Users\/saeid\/Documents\/projects\/frameworks\/commerce-sdk\/bambuser-commerce-sdk-ios\/Files\/Sources\/BambuserCommerceSDK\/Implementation\/VideoPlayer\/Player\/PlayerViewImpl.swift",
       "kind": "BooleanLiteral",
-      "offset": 12518,
+      "offset": 12675,
       "length": 5,
       "value": "false"
     },
@@ -6834,133 +6346,133 @@
     {
       "filePath": "\/Users\/saeid\/Documents\/projects\/frameworks\/commerce-sdk\/bambuser-commerce-sdk-ios\/Files\/Sources\/BambuserCommerceSDK\/Implementation\/VideoPlayer\/Tracking\/TrackingProvider.swift",
       "kind": "Dictionary",
-      "offset": 6280,
+      "offset": 6290,
       "length": 3,
       "value": "[]"
     },
     {
       "filePath": "\/Users\/saeid\/Documents\/projects\/frameworks\/commerce-sdk\/bambuser-commerce-sdk-ios\/Files\/Sources\/BambuserCommerceSDK\/Implementation\/VideoPlayer\/Player\/VideoPlayerContainer.swift",
       "kind": "IntegerLiteral",
-      "offset": 609,
+      "offset": 605,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/saeid\/Documents\/projects\/frameworks\/commerce-sdk\/bambuser-commerce-sdk-ios\/Files\/Sources\/BambuserCommerceSDK\/Implementation\/VideoPlayer\/Player\/VideoPlayerContainer.swift",
       "kind": "IntegerLiteral",
-      "offset": 638,
+      "offset": 634,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/saeid\/Documents\/projects\/frameworks\/commerce-sdk\/bambuser-commerce-sdk-ios\/Files\/Sources\/BambuserCommerceSDK\/Implementation\/VideoPlayer\/Player\/VideoPlayerContainer.swift",
       "kind": "Array",
-      "offset": 1054,
+      "offset": 1050,
       "length": 2,
       "value": "[]"
     },
     {
       "filePath": "\/Users\/saeid\/Documents\/projects\/frameworks\/commerce-sdk\/bambuser-commerce-sdk-ios\/Files\/Sources\/BambuserCommerceSDK\/Implementation\/VideoPlayer\/WebViewManager\/WebViewManager+Types.swift",
       "kind": "StringLiteral",
-      "offset": 242,
+      "offset": 238,
       "length": 32,
       "value": "\"external-player-controller-new\""
     },
     {
       "filePath": "\/Users\/saeid\/Documents\/projects\/frameworks\/commerce-sdk\/bambuser-commerce-sdk-ios\/Files\/Sources\/BambuserCommerceSDK\/Implementation\/VideoPlayer\/WebViewManager\/WebViewManager+Types.swift",
       "kind": "StringLiteral",
-      "offset": 319,
+      "offset": 315,
       "length": 33,
       "value": "\"external-player-controller-play\""
     },
     {
       "filePath": "\/Users\/saeid\/Documents\/projects\/frameworks\/commerce-sdk\/bambuser-commerce-sdk-ios\/Files\/Sources\/BambuserCommerceSDK\/Implementation\/VideoPlayer\/WebViewManager\/WebViewManager+Types.swift",
       "kind": "StringLiteral",
-      "offset": 398,
+      "offset": 394,
       "length": 34,
       "value": "\"external-player-controller-pause\""
     },
     {
       "filePath": "\/Users\/saeid\/Documents\/projects\/frameworks\/commerce-sdk\/bambuser-commerce-sdk-ios\/Files\/Sources\/BambuserCommerceSDK\/Implementation\/VideoPlayer\/WebViewManager\/WebViewManager+Types.swift",
       "kind": "StringLiteral",
-      "offset": 477,
+      "offset": 473,
       "length": 33,
       "value": "\"external-player-controller-mute\""
     },
     {
       "filePath": "\/Users\/saeid\/Documents\/projects\/frameworks\/commerce-sdk\/bambuser-commerce-sdk-ios\/Files\/Sources\/BambuserCommerceSDK\/Implementation\/VideoPlayer\/WebViewManager\/WebViewManager+Types.swift",
       "kind": "StringLiteral",
-      "offset": 555,
+      "offset": 551,
       "length": 33,
       "value": "\"external-player-controller-seek\""
     },
     {
       "filePath": "\/Users\/saeid\/Documents\/projects\/frameworks\/commerce-sdk\/bambuser-commerce-sdk-ios\/Files\/Sources\/BambuserCommerceSDK\/Implementation\/VideoPlayer\/WebViewManager\/WebViewManager+Types.swift",
       "kind": "StringLiteral",
-      "offset": 635,
+      "offset": 631,
       "length": 35,
       "value": "\"external-player-controller-resize\""
     },
     {
       "filePath": "\/Users\/saeid\/Documents\/projects\/frameworks\/commerce-sdk\/bambuser-commerce-sdk-ios\/Files\/Sources\/BambuserCommerceSDK\/Implementation\/VideoPlayer\/WebViewManager\/WebViewManager+Types.swift",
       "kind": "StringLiteral",
-      "offset": 717,
+      "offset": 713,
       "length": 35,
       "value": "\"external-player-controller-change\""
     },
     {
       "filePath": "\/Users\/saeid\/Documents\/projects\/frameworks\/commerce-sdk\/bambuser-commerce-sdk-ios\/Files\/Sources\/BambuserCommerceSDK\/Implementation\/VideoPlayer\/WebViewManager\/WebViewManager+Types.swift",
       "kind": "StringLiteral",
-      "offset": 797,
+      "offset": 793,
       "length": 33,
       "value": "\"external-player-controller-hide\""
     },
     {
       "filePath": "\/Users\/saeid\/Documents\/projects\/frameworks\/commerce-sdk\/bambuser-commerce-sdk-ios\/Files\/Sources\/BambuserCommerceSDK\/Implementation\/VideoPlayer\/WebViewManager\/WebViewManager+Types.swift",
       "kind": "StringLiteral",
-      "offset": 875,
+      "offset": 871,
       "length": 33,
       "value": "\"external-player-controller-show\""
     },
     {
       "filePath": "\/Users\/saeid\/Documents\/projects\/frameworks\/commerce-sdk\/bambuser-commerce-sdk-ios\/Files\/Sources\/BambuserCommerceSDK\/Implementation\/VideoPlayer\/WebViewManager\/WebViewManager+Types.swift",
       "kind": "StringLiteral",
-      "offset": 962,
+      "offset": 958,
       "length": 43,
       "value": "\"external-player-controller-playback-speed\""
     },
     {
       "filePath": "\/Users\/saeid\/Documents\/projects\/frameworks\/commerce-sdk\/bambuser-commerce-sdk-ios\/Files\/Sources\/BambuserCommerceSDK\/Implementation\/VideoPlayer\/WebViewManager\/WebViewManager+Types.swift",
       "kind": "StringLiteral",
-      "offset": 1956,
+      "offset": 1952,
       "length": 12,
       "value": "\"timeupdate\""
     },
     {
       "filePath": "\/Users\/saeid\/Documents\/projects\/frameworks\/commerce-sdk\/bambuser-commerce-sdk-ios\/Files\/Sources\/BambuserCommerceSDK\/Implementation\/VideoPlayer\/WebViewManager\/WebViewManager+Types.swift",
       "kind": "StringLiteral",
-      "offset": 2179,
+      "offset": 2175,
       "length": 16,
       "value": "\"durationchange\""
     },
     {
       "filePath": "\/Users\/saeid\/Documents\/projects\/frameworks\/commerce-sdk\/bambuser-commerce-sdk-ios\/Files\/Sources\/BambuserCommerceSDK\/Implementation\/VideoPlayer\/WebViewManager\/WebViewManager+Types.swift",
       "kind": "StringLiteral",
-      "offset": 2224,
+      "offset": 2220,
       "length": 14,
       "value": "\"volumechange\""
     },
     {
       "filePath": "\/Users\/saeid\/Documents\/projects\/frameworks\/commerce-sdk\/bambuser-commerce-sdk-ios\/Files\/Sources\/BambuserCommerceSDK\/Implementation\/VideoPlayer\/WebViewManager\/WebViewManager.swift",
       "kind": "IntegerLiteral",
-      "offset": 485,
+      "offset": 474,
       "length": 2,
       "value": "16"
     },
     {
       "filePath": "\/Users\/saeid\/Documents\/projects\/frameworks\/commerce-sdk\/bambuser-commerce-sdk-ios\/Files\/Sources\/BambuserCommerceSDK\/Implementation\/VideoPlayer\/WebViewManager\/WebViewManager.swift",
       "kind": "Dictionary",
-      "offset": 687,
+      "offset": 676,
       "length": 3,
       "value": "[]"
     }

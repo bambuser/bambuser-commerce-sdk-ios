@@ -1,7 +1,7 @@
 // swift-interface-format-version: 1.0
-// swift-compiler-version: Apple Swift version 6.1.2 effective-5.10 (swiftlang-6.1.2.1.2 clang-1700.0.13.5)
-// swift-module-flags: -target arm64-apple-ios15.6 -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -enable-experimental-feature DebugDescriptionMacro -enable-bare-slash-regex -module-name BambuserCommerceSDK
-// swift-module-flags-ignorable: -no-verify-emitted-module-interface -interface-compiler-version 6.1.2
+// swift-compiler-version: Apple Swift version 6.3 effective-5.10 (swiftlang-6.3.0.123.5 clang-2100.0.123.102)
+// swift-module-flags: -target arm64-apple-ios15.6 -enable-objc-interop -enable-library-evolution -swift-version 5 -O -enable-experimental-feature DebugDescriptionMacro -enable-bare-slash-regex -module-name BambuserCommerceSDK
+// swift-module-flags-ignorable: -no-verify-emitted-module-interface -formal-cxx-interoperability-mode=off -interface-compiler-version 6.3
 import AVKit
 
 import Combine
@@ -35,17 +35,19 @@ public enum BambuserPlayerError : Swift.Error, Foundation.LocalizedError {
   case invalidTypeForUniqueShoppableVideo
   case invalidTypeForShoppableVideoList
   case videoNotFound
-  public var errorDescription: Swift.String {
-    get
-  }
-  public static func == (a: BambuserCommerceSDK.BambuserPlayerError, b: BambuserCommerceSDK.BambuserPlayerError) -> Swift.Bool
-  public func hash(into hasher: inout Swift.Hasher)
-  public var hashValue: Swift.Int {
+  case badUrl(Foundation.URL?)
+  case noData
+  case invalidJson(Swift.String)
+  case invalidStatus(Swift.Int, url: Foundation.URL?)
+  case unknownError
+  case failedToTrack
+  case failedToLoadVideo(Swift.String)
+  public var errorDescription: Swift.String? {
     get
   }
 }
 @_Concurrency.MainActor public protocol BambuserPlayerView : UIKit.UIView {
-  @_Concurrency.MainActor var delegate: (any BambuserCommerceSDK.BambuserVideoPlayerDelegate)? { get set }
+  @_Concurrency.MainActor var delegate: (any BambuserCommerceSDK.BambuserPlayerViewDelegate)? { get set }
   @_Concurrency.MainActor var id: Swift.String { get }
   @_Concurrency.MainActor var currentPlayerState: BambuserCommerceSDK.BambuserVideoState { get }
   @_Concurrency.MainActor var pipController: (any BambuserCommerceSDK.PictureInPictureController)? { get set }
@@ -53,7 +55,6 @@ public enum BambuserPlayerError : Swift.Error, Foundation.LocalizedError {
   @discardableResult
   @_Concurrency.MainActor func invoke(function: Swift.String, arguments: Swift.String) async throws -> Any?
   @_Concurrency.MainActor func notify(callbackKey: Swift.String, info: Any)
-  @_Concurrency.MainActor func track(event: Swift.String, with data: [Swift.String : any Swift.Sendable]) async throws -> [Swift.String : any Swift.Sendable]?
   @_Concurrency.MainActor func play()
   @_Concurrency.MainActor func pause()
   @_Concurrency.MainActor func seek(to: Foundation.TimeInterval)
@@ -62,32 +63,34 @@ public enum BambuserPlayerError : Swift.Error, Foundation.LocalizedError {
   @_Concurrency.MainActor func preload()
   @_Concurrency.MainActor func resetPlayer()
 }
-public enum BambuserVideoAsset : Swift.Sendable, Swift.Equatable, BambuserCommerceSDK.BambuserVideoType {
-  case live(id: Swift.String)
-  case onDemand(id: Swift.String)
-  public static func == (a: BambuserCommerceSDK.BambuserVideoAsset, b: BambuserCommerceSDK.BambuserVideoAsset) -> Swift.Bool
-}
-public typealias BambuserVideoConfiguration = BambuserCommerceSDK.BambuserVideoPlayerConfiguration<BambuserCommerceSDK.BambuserVideoAsset>
-@_Concurrency.MainActor public struct BambuserVideoPlayer {
-  @_Concurrency.MainActor public init(server: BambuserCommerceSDK.OrganizationServer)
-  @_Concurrency.MainActor public func createPlayerView(videoConfiguration: BambuserCommerceSDK.BambuserVideoConfiguration, ignoredSafeAreaEdges: BambuserCommerceSDK.SafeAreaEdges? = nil) -> some UIKit.UIView & BambuserCommerceSDK.BambuserPlayerView
-  
-  @_Concurrency.MainActor public func createShoppableVideoPlayer(videoConfiguration: BambuserCommerceSDK.BambuserShoppableVideoConfiguration) async throws -> some UIKit.UIView & BambuserCommerceSDK.BambuserPlayerView
-  
-  @_Concurrency.MainActor public func createShoppableVideoPlayerCollection(videoConfiguration: BambuserCommerceSDK.BambuserShoppableVideoConfiguration, page: Swift.Int = 1, pageSize: Swift.Int = 15) async throws -> BambuserCommerceSDK.BambuserPlayerCollection
-}
-public struct BambuserVideoPlayerConfiguration<VideoType> : @unchecked Swift.Sendable where VideoType : BambuserCommerceSDK.BambuserVideoType {
-  public init(type: VideoType, events: [Swift.String] = ["*"], configuration: [Swift.String : any Swift.Sendable]?)
-}
-@_Concurrency.MainActor public protocol BambuserVideoPlayerDelegate : AnyObject {
+@_Concurrency.MainActor public protocol BambuserPlayerViewDelegate : AnyObject {
   @_Concurrency.MainActor func onVideoStatusChanged(_ id: Swift.String, state: BambuserCommerceSDK.BambuserVideoState)
   @_Concurrency.MainActor func onNewEventReceived(_ id: Swift.String, event: BambuserCommerceSDK.BambuserEventPayload)
   @_Concurrency.MainActor func onErrorOccurred(_ id: Swift.String, error: any Swift.Error)
   @_Concurrency.MainActor func onVideoProgress(_ id: Swift.String, duration: Swift.Double, currentTime: Swift.Double)
   @_Concurrency.MainActor func onThumbnailTapped(_ id: Swift.String)
 }
-extension BambuserCommerceSDK.BambuserVideoPlayerDelegate {
+extension BambuserCommerceSDK.BambuserPlayerViewDelegate {
   @_Concurrency.MainActor public func onVideoProgress(_ id: Swift.String, duration: Swift.Double, currentTime: Swift.Double)
+}
+@_Concurrency.MainActor public struct BambuserSDK {
+  @_Concurrency.MainActor public init(server: BambuserCommerceSDK.OrganizationServer)
+  @discardableResult
+  @_Concurrency.MainActor public func track(event: Swift.String, with data: [Swift.String : any Swift.Sendable]) async throws -> [Swift.String : any Swift.Sendable]?
+  @_Concurrency.MainActor public func createPlayerView(videoConfiguration: BambuserCommerceSDK.BambuserVideoConfiguration, ignoredSafeAreaEdges: BambuserCommerceSDK.SafeAreaEdges? = nil) -> some UIKit.UIView & BambuserCommerceSDK.BambuserPlayerView
+  
+  @_Concurrency.MainActor public func createShoppableVideoPlayer(videoConfiguration: BambuserCommerceSDK.BambuserShoppableVideoConfiguration) async throws -> some UIKit.UIView & BambuserCommerceSDK.BambuserPlayerView
+  
+  @_Concurrency.MainActor public func createShoppableVideoPlayerCollection(videoConfiguration: BambuserCommerceSDK.BambuserShoppableVideoConfiguration, page: Swift.Int = 1, pageSize: Swift.Int = 15) async throws -> BambuserCommerceSDK.BambuserPlayerCollection
+}
+public enum BambuserVideoAsset : Swift.Sendable, Swift.Equatable, BambuserCommerceSDK.BambuserVideoType {
+  case live(id: Swift.String)
+  case onDemand(id: Swift.String)
+  public static func == (a: BambuserCommerceSDK.BambuserVideoAsset, b: BambuserCommerceSDK.BambuserVideoAsset) -> Swift.Bool
+}
+public typealias BambuserVideoConfiguration = BambuserCommerceSDK.BambuserVideoPlayerConfiguration<BambuserCommerceSDK.BambuserVideoAsset>
+public struct BambuserVideoPlayerConfiguration<VideoType> : Swift.Sendable where VideoType : BambuserCommerceSDK.BambuserVideoType {
+  public init(type: VideoType, events: [Swift.String] = ["*"], configuration: [Swift.String : any Swift.Sendable]?)
 }
 public enum BambuserVideoState {
   case ready
@@ -113,16 +116,6 @@ public struct Pagination : Swift.Codable {
   public func encode(to encoder: any Swift.Encoder) throws
   public init(from decoder: any Swift.Decoder) throws
 }
-final public class DynamicFontSizeService {
-  public init(baseSize: CoreFoundation.CGFloat)
-  final public var fontSizePublisher: Combine.AnyPublisher<CoreFoundation.CGFloat, Swift.Never>? {
-    get
-  }
-  final public var currentFontSize: CoreFoundation.CGFloat {
-    get
-  }
-  @objc deinit
-}
 public enum InlinePlayerMode : Swift.Equatable {
   case preview
   case fullExperience
@@ -133,8 +126,6 @@ public enum InlinePlayerMode : Swift.Equatable {
   }
 }
 public struct InlineVideoPlaylistInfo : Swift.Sendable, Swift.Equatable {
-  @available(*, deprecated, message: "Deprecated and will be removed in a future release. Use init(orgId:componentId:packageName:) instead. The pageId, playlistId, and title parameters have been replaced by componentId.")
-  public init(orgId: Swift.String, pageId: Swift.String?, playlistId: Swift.String?, title: Swift.String?, packageName: Swift.String? = Bundle.main.bundleIdentifier)
   public init(orgId: Swift.String, componentId: Swift.String)
   public static func == (a: BambuserCommerceSDK.InlineVideoPlaylistInfo, b: BambuserCommerceSDK.InlineVideoPlaylistInfo) -> Swift.Bool
 }
@@ -159,26 +150,12 @@ public enum OrganizationServer : Swift.Codable, Swift.CaseIterable, Swift.Sendab
   }
   public init(from decoder: any Swift.Decoder) throws
 }
-extension Foundation.Timer : @unchecked @retroactive Swift.Sendable {
-}
 @_Concurrency.MainActor public protocol PictureInPictureController {
   @_Concurrency.MainActor var delegate: (any BambuserCommerceSDK.BambuserPictureInPictureDelegate)? { get set }
   @_Concurrency.MainActor var isEnabled: Swift.Bool { get set }
   @_Concurrency.MainActor var isActive: Swift.Bool { get }
   @_Concurrency.MainActor func start()
   @_Concurrency.MainActor func stop()
-}
-public enum PlayerError : Foundation.LocalizedError {
-  case badUrl(Foundation.URL?)
-  case noData
-  case invalidJson(Swift.String)
-  case invalidStatus(Swift.Int, url: Foundation.URL?)
-  case unknownError
-  case failedToTrack
-  case failedToLoadVideo(Swift.String)
-  public var errorDescription: Swift.String? {
-    get
-  }
 }
 public enum PlayerPipState {
   case willStart
@@ -192,7 +169,7 @@ public enum PlayerPipState {
     get
   }
 }
-public enum SafeAreaEdge : Swift.Sendable {
+public enum SafeAreaEdge : Swift.Sendable, Swift.Hashable {
   case all
   case top
   case bottom
@@ -204,12 +181,11 @@ public enum SafeAreaEdge : Swift.Sendable {
     get
   }
 }
-public struct SafeAreaEdges : Swift.Sendable {
+public struct SafeAreaEdges : Swift.Sendable, Swift.Equatable {
   public init(_ edges: BambuserCommerceSDK.SafeAreaEdge...)
+  public static func == (a: BambuserCommerceSDK.SafeAreaEdges, b: BambuserCommerceSDK.SafeAreaEdges) -> Swift.Bool
 }
-extension BambuserCommerceSDK.BambuserPlayerError : Swift.Equatable {}
-extension BambuserCommerceSDK.BambuserPlayerError : Swift.Hashable {}
-extension BambuserCommerceSDK.BambuserVideoPlayer : Swift.Sendable {}
+extension BambuserCommerceSDK.BambuserSDK : Swift.Sendable {}
 extension BambuserCommerceSDK.BambuserVideoState : Swift.Equatable {}
 extension BambuserCommerceSDK.BambuserVideoState : Swift.Hashable {}
 extension BambuserCommerceSDK.InlinePlayerMode : Swift.Hashable {}
@@ -217,5 +193,3 @@ extension BambuserCommerceSDK.OrganizationServer : Swift.Equatable {}
 extension BambuserCommerceSDK.OrganizationServer : Swift.Hashable {}
 extension BambuserCommerceSDK.PlayerPipState : Swift.Equatable {}
 extension BambuserCommerceSDK.PlayerPipState : Swift.Hashable {}
-extension BambuserCommerceSDK.SafeAreaEdge : Swift.Equatable {}
-extension BambuserCommerceSDK.SafeAreaEdge : Swift.Hashable {}

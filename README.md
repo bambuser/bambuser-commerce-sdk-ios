@@ -14,11 +14,11 @@ BambuserCommerceSDK is a lightweight SDK for integrating Bambuser video player a
 
 This SDK is built using **Xcode 16** with the **Swift 6** toolchain but remains **compatible with Swift 5**. Ensure you have the correct version installed for compatibility.
 
-- **Xcode 16** (or later)
-- **Swift 5** toolchain
+- **Xcode 26** (or later)
+- **Swift 6.2** toolchain
 - **iOS 14+** supported
 
-> **Note:** Starting from version **3.0.0**, the SDK will require **Xcode 26.0+** and the **Swift 6.2** toolchain.
+> **Important: Version 3.0.0 contains breaking changes.** If you are upgrading from v2.x, see the [Migration Guide](#migrating-from-2x-to-30) below.
 
 ### Important
 
@@ -39,7 +39,7 @@ You can integrate the SDK using Swift Package Manager. Add the following depende
 
 ```swift
 dependencies: [
-    .package(url: "https://github.com/bambuser/bambuser-commerce-sdk-ios", from: "2.0.0")
+    .package(url: "https://github.com/bambuser/bambuser-commerce-sdk-ios", from: "3.0.0")
 ]
 ```
 
@@ -62,10 +62,10 @@ For complete examples and working integrations, check out our **example app** an
 // Import the SDK
 import BambuserCommerceSDK
 
-// Initialize the Bambuser video player with the server region
-let videoPlayer = BambuserVideoPlayer(server: .US) // or .EU
+// Initialize the Bambuser SDK with the server region
+let bambuser = BambuserSDK(server: .US) // or .EU
 
-let playerView = videoPlayer.createPlayerView(
+let playerView = bambuser.createPlayerView(
     videoConfiguration: .init(
         type: .live(id: "xxx"),
         events: ["*"],
@@ -242,9 +242,39 @@ Defines in-player UI behavior such as buttons, actions, and overlays during **ma
 
 > For full details on all available options, refer to the [Documentation](#documentation) section below.
 
+### Player Controls
+
+The `BambuserPlayerView` provides methods for controlling video playback:
+
+- **`play()`** – Starts or resumes video playback.
+- **`pause()`** – Pauses the currently playing video.
+- **`seek(to: TimeInterval)`** – Seeks to a specific time position in seconds. Only supported for shoppable and archived videos (no effect on live broadcasts).
+- **`resetPlayer()`** – Resets the player to its initial state, stopping playback, seeking to the beginning, and re-initializing the thumbnail view.
+- **`changeMode(to: InlinePlayerMode)`** – Changes the display mode of the player. Only applicable for shoppable video players.
+- **`preload()`** – Preloads player resources to reduce startup latency.
+- **`cleanup()`** – Releases resources associated with the video player and performs necessary cleanup.
+
+#### Player Mode
+
+Shoppable video players support two display modes via `InlinePlayerMode`:
+
+- **`.preview`** – The player shows a thumbnail/preview state.
+- **`.fullExperience`** – The player shows the full interactive video experience.
+
+```swift
+// Check the current mode
+let mode = playerView.currentPlayerMode
+
+// Switch to full experience
+try await playerView.changeMode(to: .fullExperience)
+
+// Reset back to preview
+playerView.resetPlayer()
+```
+
 ### Delegate Protocol
 
-The BambuserCommerceSDK provides the `BambuserVideoPlayerDelegate` protocol for handling communications from a Bambuser video player instance. By implementing this protocol, your class can receive callback messages when new events occur or errors are encountered.
+The BambuserCommerceSDK provides the `BambuserPlayerViewDelegate` protocol for handling communications from a Bambuser video player instance. By implementing this protocol, your class can receive callback messages when new events occur or errors are encountered.
 
 #### Methods
 
@@ -273,15 +303,20 @@ The BambuserCommerceSDK provides the `BambuserVideoPlayerDelegate` protocol for 
   - `duration`: The total duration of the video in seconds.  
   - `currentTime`: The current playback time in seconds.
 
+- **onThumbnailTapped**  
+  Called when the video thumbnail is tapped.  
+  **Parameters:**  
+  - `id`: A unique identifier for the video player associated with the tapped thumbnail.
+
 #### Example Implementation
 
 ```swift
-class ViewController: BambuserVideoPlayerDelegate {
-    func onNewEventReceived(id: String, event: BambuserEventPayload) {
+class ViewController: BambuserPlayerViewDelegate {
+    func onNewEventReceived(_ id: String, event: BambuserEventPayload) {
         print("Player \(id) sent event: \(event)")
     }
 
-    func onErrorOccurred(id: String, error: Error) {
+    func onErrorOccurred(_ id: String, error: Error) {
         print("Error in player \(id): \(error.localizedDescription)")
     }
 
@@ -291,6 +326,10 @@ class ViewController: BambuserVideoPlayerDelegate {
 
     func onVideoProgress(_ id: String, duration: Double, currentTime: Double) {
         print("Player \(id) progress: \(currentTime)/\(duration) seconds")
+    }
+
+    func onThumbnailTapped(_ id: String) {
+        print("Thumbnail tapped for player \(id)")
     }
 }
 ```
@@ -378,23 +417,28 @@ This means the video is fully preloaded and ready to start playing.
 
 ### Tracking
 
-To track conversions and other user actions within the BambuserCommerceSDK, utilize the track function provided by the BambuserPlayerView. This function transmits necessary data sets to Bambuser Analytics.
+To track conversions and other user actions, use the `track` method on `BambuserSDK`. This can be called from anywhere in your app — no player view is required.
 
 #### Method
 
-#### `track(event: String, with data: [String: Sendable]) -> [String: Sendable]`
+#### `track(event: String, with data: [String: Sendable]) async throws -> [String: Sendable]?`
 
 - **Parameters:**
   - `event`: *(String)* – The name of the event to track (e.g., `"purchase"`).
   - `data`: *(Dictionary)* – A dictionary containing additional information related to the event.
 
 - **Returns:**  
-  A dictionary representing the complete **data payload** sent to **Bambuser tracking**.
+  An optional dictionary representing the complete **data payload** sent to **Bambuser tracking**.
+
+- **Throws:**  
+  `BambuserPlayerError.failedToTrack` if the tracking operation fails.
 
 #### Example Implementation
 
 ```swift
-let response = try? await self.playerView.track(
+let bambuser = BambuserSDK(server: .US)
+
+let response = try? await bambuser.track(
     event: "purchase", // Find events in our https://bambuser.com/docs, 
     with: [
         // Your metadata here
@@ -406,6 +450,49 @@ let response = try? await self.playerView.track(
 
 To log an event, you must supply and include additional data as a dictionary with string keys and values of any type (`[String: Sendable]`).\
 *Note that the example format is for illustrative purposes only. For the precise data structure required for each event, please refer to our [detailed documentation](https://bambuser.com/docs/live/conversion-tracking/).*
+
+### Migrating from 2.x to 3.0
+
+Version 3.0.0 is a major release with breaking changes. Follow the steps below to update your integration.
+
+#### 1. Renamed Types
+
+| Before (v2.x) | After (v3.0) |
+|----------------|--------------|
+| `BambuserVideoPlayer` | `BambuserSDK` |
+| `BambuserVideoPlayerDelegate` | `BambuserPlayerViewDelegate` |
+| `PlayerError` | `BambuserPlayerError` |
+
+#### 2. Tracking API Moved
+
+`track(event:with:)` has moved from `BambuserPlayerView` to `BambuserSDK`. You no longer need a player view to track events — call it directly on the SDK instance from anywhere in your app.
+
+```swift
+// Before (v2.x)
+let response = try await playerView.track(event: "purchase", with: data)
+
+// After (v3.0)
+let bambuser = BambuserSDK(server: .US)
+let response = try await bambuser.track(event: "purchase", with: data)
+```
+
+#### 3. Deprecated Playlist API Removed
+
+The `pageId`, `playlistId`, `title`, and `packageName` parameters have been removed from `BambuserShoppableVideoPlaylistInfo`. Use `componentId` instead.
+
+```swift
+// Before (v2.x)
+let info = BambuserShoppableVideoPlaylistInfo(
+    orgId: "xxx", pageId: "xxx", playlistId: "xxx", title: "xxx"
+)
+
+// After (v3.0)
+let info = BambuserShoppableVideoPlaylistInfo(
+    orgId: "xxx", componentId: "xxx"
+)
+```
+
+---
 
 ### Documentation
 
