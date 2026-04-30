@@ -12,11 +12,9 @@ BambuserCommerceSDK is a lightweight SDK for integrating Bambuser video player a
 
 ## Requirements
 
-This SDK is built using **Xcode 16** with the **Swift 6** toolchain but remains **compatible with Swift 5**. Ensure you have the correct version installed for compatibility.
-
 - **Xcode 26** (or later)
 - **Swift 6.2** toolchain
-- **iOS 14+** supported
+- **iOS 15+** supported
 
 > **Important: Version 3.0.0 contains breaking changes.** If you are upgrading from v2.x, see the [Migration Guide](#migrating-from-2x-to-30) below.
 
@@ -114,7 +112,7 @@ let config = BambuserShoppableVideoConfiguration(
 )
 
 // Load the first page of videos (default page = 1, pageSize = 15)
-let result = try await bambuserPlayer.createShoppableVideoPlayerCollection(
+let result = try await bambuser.createShoppableVideoPlayerCollection(
     videoConfiguration: config,
     page: 1, // Pass value of page to fetch
     pageSize: 15
@@ -160,7 +158,7 @@ let config = BambuserShoppableVideoConfiguration(
 )
 
 // Load the first page of videos (default page = 1, pageSize = 15)
-let result = try await bambuserPlayer.createShoppableVideoPlayerCollection(
+let result = try await bambuser.createShoppableVideoPlayerCollection(
     videoConfiguration: config,
     page: 1, // Pass value of page to fetch
     pageSize: 15
@@ -200,7 +198,7 @@ let config = BambuserShoppableVideoConfiguration(
     ]
 )
 
-let view = try await bambuserPlayer.createShoppableVideoPlayer(
+let view = try await bambuser.createShoppableVideoPlayer(
     videoConfiguration: config
 )
 
@@ -363,16 +361,16 @@ The `PictureInPictureController` lets you control and monitor PiP mode.
 
 ```swift
 // Access the controller from your player view
-let pipController = playerView.pictureInPictureController
+let pipController = playerView.pipController
 
 // Enable PiP (if not already enabled)
-pipController.isEnabled = true
+pipController?.isEnabled = true
 
 // Start PiP
-pipController.start()
+pipController?.start()
 
 // Stop PiP
-pipController.stop()
+pipController?.stop()
 ```
 
 #### Notes
@@ -403,7 +401,7 @@ let config = BambuserShoppableVideoConfiguration(
     ]
 )
 
-let playerView = try await bambuserPlayer.createShoppableVideoPlayer(
+let playerView = try await bambuser.createShoppableVideoPlayer(
     videoConfiguration: config
 )
 

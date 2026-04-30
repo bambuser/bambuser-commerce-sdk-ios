@@ -1,6 +1,6 @@
 // swift-interface-format-version: 1.0
-// swift-compiler-version: Apple Swift version 6.3 effective-5.10 (swiftlang-6.3.0.123.5 clang-2100.0.123.102)
-// swift-module-flags: -target arm64-apple-ios15.6 -enable-objc-interop -enable-library-evolution -swift-version 5 -O -enable-experimental-feature DebugDescriptionMacro -enable-bare-slash-regex -module-name BambuserCommerceSDK
+// swift-compiler-version: Apple Swift version 6.3 (swiftlang-6.3.0.123.5 clang-2100.0.123.102)
+// swift-module-flags: -target arm64-apple-ios15.6 -enable-objc-interop -enable-library-evolution -swift-version 6 -O -enable-experimental-feature DebugDescriptionMacro -module-name BambuserCommerceSDK
 // swift-module-flags-ignorable: -no-verify-emitted-module-interface -formal-cxx-interoperability-mode=off -interface-compiler-version 6.3
 import AVKit
 
@@ -12,7 +12,7 @@ import WebKit
 import _Concurrency
 import _StringProcessing
 import _SwiftConcurrencyShims
-public struct BambuserEventPayload {
+public struct BambuserEventPayload : Swift.Sendable {
   public let type: Swift.String
   public let data: [Swift.String : any Swift.Sendable]
 }
@@ -36,10 +36,7 @@ public enum BambuserPlayerError : Swift.Error, Foundation.LocalizedError {
   case invalidTypeForShoppableVideoList
   case videoNotFound
   case badUrl(Foundation.URL?)
-  case noData
-  case invalidJson(Swift.String)
   case invalidStatus(Swift.Int, url: Foundation.URL?)
-  case unknownError
   case failedToTrack
   case failedToLoadVideo(Swift.String)
   public var errorDescription: Swift.String? {
@@ -72,11 +69,12 @@ public enum BambuserPlayerError : Swift.Error, Foundation.LocalizedError {
 }
 extension BambuserCommerceSDK.BambuserPlayerViewDelegate {
   @_Concurrency.MainActor public func onVideoProgress(_ id: Swift.String, duration: Swift.Double, currentTime: Swift.Double)
+  @_Concurrency.MainActor public func onThumbnailTapped(_ id: Swift.String)
 }
 @_Concurrency.MainActor public struct BambuserSDK {
   @_Concurrency.MainActor public init(server: BambuserCommerceSDK.OrganizationServer)
   @discardableResult
-  @_Concurrency.MainActor public func track(event: Swift.String, with data: [Swift.String : any Swift.Sendable]) async throws -> [Swift.String : any Swift.Sendable]?
+  nonisolated public func track(event: Swift.String, with data: [Swift.String : any Swift.Sendable]) async throws -> [Swift.String : any Swift.Sendable]?
   @_Concurrency.MainActor public func createPlayerView(videoConfiguration: BambuserCommerceSDK.BambuserVideoConfiguration, ignoredSafeAreaEdges: BambuserCommerceSDK.SafeAreaEdges? = nil) -> some UIKit.UIView & BambuserCommerceSDK.BambuserPlayerView
   
   @_Concurrency.MainActor public func createShoppableVideoPlayer(videoConfiguration: BambuserCommerceSDK.BambuserShoppableVideoConfiguration) async throws -> some UIKit.UIView & BambuserCommerceSDK.BambuserPlayerView
@@ -92,7 +90,7 @@ public typealias BambuserVideoConfiguration = BambuserCommerceSDK.BambuserVideoP
 public struct BambuserVideoPlayerConfiguration<VideoType> : Swift.Sendable where VideoType : BambuserCommerceSDK.BambuserVideoType {
   public init(type: VideoType, events: [Swift.String] = ["*"], configuration: [Swift.String : any Swift.Sendable]?)
 }
-public enum BambuserVideoState {
+public enum BambuserVideoState : Swift.Sendable {
   case ready
   case loading
   case playing
@@ -110,13 +108,18 @@ public enum BambuserVideoState {
 }
 public protocol BambuserVideoType : Swift.Sendable {
 }
-public struct Pagination : Swift.Codable {
+public struct Pagination : Swift.Codable, Swift.Sendable, Swift.Equatable, Swift.Hashable {
   public let totalPages: Swift.Int?
   public let pageSize: Swift.Int, total: Swift.Int, page: Swift.Int
+  public static func == (a: BambuserCommerceSDK.Pagination, b: BambuserCommerceSDK.Pagination) -> Swift.Bool
   public func encode(to encoder: any Swift.Encoder) throws
+  public func hash(into hasher: inout Swift.Hasher)
+  public var hashValue: Swift.Int {
+    get
+  }
   public init(from decoder: any Swift.Decoder) throws
 }
-public enum InlinePlayerMode : Swift.Equatable {
+public enum InlinePlayerMode : Swift.Equatable, Swift.Sendable {
   case preview
   case fullExperience
   public static func == (a: BambuserCommerceSDK.InlinePlayerMode, b: BambuserCommerceSDK.InlinePlayerMode) -> Swift.Bool
@@ -157,7 +160,7 @@ public enum OrganizationServer : Swift.Codable, Swift.CaseIterable, Swift.Sendab
   @_Concurrency.MainActor func start()
   @_Concurrency.MainActor func stop()
 }
-public enum PlayerPipState {
+public enum PlayerPipState : Swift.Sendable {
   case willStart
   case willStop
   case started
