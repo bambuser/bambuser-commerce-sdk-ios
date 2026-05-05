@@ -12,9 +12,7 @@ BambuserCommerceSDK is a lightweight SDK for integrating Bambuser video player a
 
 ## Requirements
 
-- **Xcode 26** (or later)
-- **Swift 6.2** toolchain
-- **iOS 15+** supported
+The Bambuser Commerce SDK for iOS supports all [Apple-supported](https://developer.apple.com/news/upcoming-requirements/) Xcode versions and is compatible with apps targeting iOS 15 or above.
 
 > **Important: Version 3.0.0 contains breaking changes.** If you are upgrading from v2.x, see the [Migration Guide](#migrating-from-2x-to-30) below.
 

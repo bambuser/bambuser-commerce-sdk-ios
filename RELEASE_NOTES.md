@@ -4,28 +4,30 @@ All notable changes to the Bambuser Commerce SDK for iOS.
 
 ---
 
-## Unreleased (3.0.0)
+## 3.0.0
 
-This is a major release with breaking changes. See the [Migration Guide](README.md#migrating-from-2x-to-30) for upgrade instructions.
+This is a major release with breaking changes. See the [Migration Guide](README.md#migrating-from-2x-to-3) for upgrade instructions.
 
 ### Breaking Changes
 
+- Built with the latest [Apple-supported](https://developer.apple.com/news/upcoming-requirements/) Swift toolchain.
 - `BambuserVideoPlayer` renamed to `BambuserSDK`.
 - `BambuserVideoPlayerDelegate` renamed to `BambuserPlayerViewDelegate`.
 - `track(event:with:)` moved from player view to `BambuserSDK`.
-- `PlayerError` removed — use `BambuserPlayerError`.
-- Deprecated playlist API removed — use `componentId`.
+- Removed `PlayerError`. Use `BambuserPlayerError` instead.
+- Removed deprecated playlist API. Use `componentId` instead.
 
 ### New
 
-- Now requires **Xcode 26+** and **Swift 6.2** toolchain.
+- Full Swift 6 strict-concurrency compliance.
+- Player background now follows the system color scheme.
+- Tracking can now be called from anywhere in your app and in any concurrency context. e.g cart, product pages, checkout, without a player view.
 
 ### Improvements
 
-- Tracking can now be called from anywhere in your app — cart, product pages, checkout, without a player view.
 - Improved error handling with a single, unified error type (`BambuserPlayerError`).
 - Network errors now include the HTTP status code for easier debugging.
-- Various performance and stability improvements.
+- Major performance and stability improvements.
 
 ---
 
@@ -41,7 +43,7 @@ This is a major release with breaking changes. See the [Migration Guide](README.
 
 ### New
 
-- **Seek API** — Control video playback position with `seek(to:)`.
+- **Seek API**: Control video playback position with `seek(to:)`.
 - Updated Shoppable Video APIs to align with the latest dashboard changes.
 
 ---
@@ -58,7 +60,7 @@ This is a major release with breaking changes. See the [Migration Guide](README.
 
 ### New
 
-- **Playback Speed Control** — Adjust video playback rate.
+- **Playback Speed Control**: Adjust video playback rate.
 
 ### Improvements
 
@@ -107,7 +109,7 @@ This is a major release with breaking changes. See the [Migration Guide](README.
 
 ### New
 
-- **Video Preloading** — Call `preload()` on player views to reduce startup latency.
+- **Video Preloading**: Call `preload()` on player views to reduce startup latency.
 
 ### Improvements
 
@@ -119,7 +121,7 @@ This is a major release with breaking changes. See the [Migration Guide](README.
 
 ### New
 
-- **Dynamic Font Sizes** — Player UI now adapts to the system accessibility text size.
+- **Dynamic Font Sizes**: Player UI now adapts to the system accessibility text size.
 
 ### Bug Fixes
 
@@ -136,12 +138,12 @@ This is a major release with breaking changes. See the [Migration Guide](README.
 
 ### New
 
-- **Shoppable Video Support** — Fetch and display shoppable video content from playlists, product SKUs, or individual video IDs.
-- **Pagination** — Load shoppable video collections with page-based pagination.
-- **Preview and Full-Experience Modes** — Toggle between inline preview and expanded video experience.
-- **Video Progress Tracking** — New delegate method for real-time playback progress reporting.
-- **SKU-based Video Loading** — Load videos associated with specific product SKUs.
-- **Picture-in-Picture for Shoppable Videos** — PiP support extended to shoppable video players.
+- **Shoppable Video Support**: Fetch and display shoppable video content from playlists, product SKUs, or individual video IDs.
+- **Pagination**: Load shoppable video collections with page-based pagination.
+- **Preview and Full-Experience Modes**: Toggle between inline preview and expanded video experience.
+- **Video Progress Tracking**: New delegate method for real-time playback progress reporting.
+- **SKU-based Video Loading**: Load videos associated with specific product SKUs.
+- **Picture-in-Picture for Shoppable Videos**: PiP support extended to shoppable video players.
 
 ### Improvements
 
@@ -154,7 +156,7 @@ This is a major release with breaking changes. See the [Migration Guide](README.
 
 ### New
 
-- **Purchase Tracking API** — Track conversions and other events via Bambuser Analytics.
+- **Purchase Tracking API**: Track conversions and other events via Bambuser Analytics.
 
 ### Bug Fixes
 
@@ -166,7 +168,7 @@ This is a major release with breaking changes. See the [Migration Guide](README.
 
 ### New
 
-- **Picture-in-Picture** — Full PiP support with callbacks and delegate events.
+- **Picture-in-Picture**: Full PiP support with callbacks and delegate events.
 
 ---
 
@@ -174,9 +176,9 @@ This is a major release with breaking changes. See the [Migration Guide](README.
 
 ### New
 
-- **Player Function Invocation** — Call internal player functions via `invoke(function:arguments:)`.
-- **Purchase Tracking** — Initial tracking API and request/response handling.
-- **Player Notifications** — Send notifications to the player via `notify(callbackKey:info:)`.
+- **Player Function Invocation**: Call internal player functions via `invoke(function:arguments:)`.
+- **Purchase Tracking**: Initial tracking API and request/response handling.
+- **Player Notifications**: Send notifications to the player via `notify(callbackKey:info:)`.
 
 ---
 
@@ -184,6 +186,6 @@ This is a major release with breaking changes. See the [Migration Guide](README.
 
 ### Initial Release
 
-- **Live Video Playback** — Play live and on-demand video streams.
-- **Native Video Player** — Hardware-accelerated native video playback.
-- **Event Communication** — Receive events and errors from the player via delegate callbacks.
+- **Live Video Playback**: Play live and on-demand video streams.
+- **Native Video Player**: Hardware-accelerated native video playback.
+- **Event Communication**: Receive events and errors from the player via delegate callbacks.
