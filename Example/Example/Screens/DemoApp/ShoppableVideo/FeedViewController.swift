@@ -30,6 +30,7 @@ final class ShoppableVideoViewController: UIViewController {
     private var firstPlayerReady = false
     private var didLayoutOnce = false
     private var didAppearOnce = false
+    private var didExpandFirstVideo = false
 
     // MARK: - UI
     private let stackSpacing: CGFloat = 0
@@ -131,7 +132,7 @@ final class ShoppableVideoViewController: UIViewController {
 
     // MARK: - Fetch Data
     private func fetchShoppableVideos() {
-        let bambuserPlayer = BambuserVideoPlayer(server: .US)
+        let bambuserPlayer = BambuserSDK(server: .US)
         let videoContainerInfo = Show.PlaylistConfig
 
         Task {
@@ -230,13 +231,6 @@ final class ShoppableVideoViewController: UIViewController {
         for (i, p) in shoppableVideos.enumerated() {
             if i == index {
                 p.play()
-                if index == 0 {
-                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.4) {
-                        Task { @MainActor in
-                            try await p.changeMode(to: .fullExperience)
-                        }
-                    }
-                }
             } else {
                 p.pause()
             }
@@ -288,8 +282,8 @@ extension ShoppableVideoViewController: UIScrollViewDelegate {
     }
 }
 
-// MARK: - BambuserVideoPlayerDelegate
-extension ShoppableVideoViewController: BambuserVideoPlayerDelegate {
+// MARK: - BambuserPlayerViewDelegate
+extension ShoppableVideoViewController: BambuserPlayerViewDelegate {
     
     /// Handles new events received from the Bambuser video player.
     ///
@@ -395,7 +389,19 @@ extension ShoppableVideoViewController: BambuserVideoPlayerDelegate {
             activityIndicator.stopAnimating()
             tryStartFirstPlayback()
         }
-        
+
+        // Expand the first video to full experience once it is actually playing.
+        // Gating on .playing avoids racing changeMode against the player's
+        // preview-to-playing transition.
+        if state == .playing,
+           !didExpandFirstVideo,
+           let first = shoppableVideos.first, first.id == id {
+            didExpandFirstVideo = true
+            Task { @MainActor in
+                try? await first.changeMode(to: .fullExperience)
+            }
+        }
+
         if state == .completed {
             // Advance to next video when current ends.
             guard let idx = shoppableVideos.firstIndex(where: { $0.id == id }) else { return }
