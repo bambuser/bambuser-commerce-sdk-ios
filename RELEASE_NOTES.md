@@ -4,6 +4,15 @@ All notable changes to the Bambuser Commerce SDK for iOS.
 
 ---
 
+## 3.0.1
+
+### Improvements
+
+- Automatic resource cleanup when player views are removed.
+- Memory and stability improvements.
+
+---
+
 ## 3.0.0
 
 This is a major release with breaking changes. See the [Migration Guide](README.md#migrating-from-2x-to-3) for upgrade instructions.

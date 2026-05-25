@@ -6340,70 +6340,70 @@
     {
       "filePath": "\/Users\/saeid\/Documents\/projects\/frameworks\/commerce-sdk\/bambuser-commerce-sdk-ios\/Files\/Sources\/BambuserCommerceSDK\/Implementation\/VideoPlayer\/Player\/PlayerViewImpl.swift",
       "kind": "BooleanLiteral",
-      "offset": 9478,
+      "offset": 9554,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/saeid\/Documents\/projects\/frameworks\/commerce-sdk\/bambuser-commerce-sdk-ios\/Files\/Sources\/BambuserCommerceSDK\/Implementation\/VideoPlayer\/Player\/PlayerViewImpl.swift",
       "kind": "BooleanLiteral",
-      "offset": 12049,
+      "offset": 12125,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/saeid\/Documents\/projects\/frameworks\/commerce-sdk\/bambuser-commerce-sdk-ios\/Files\/Sources\/BambuserCommerceSDK\/Implementation\/VideoPlayer\/Player\/PlayerViewImpl.swift",
       "kind": "IntegerLiteral",
-      "offset": 12679,
+      "offset": 12755,
       "length": 2,
       "value": "29"
     },
     {
       "filePath": "\/Users\/saeid\/Documents\/projects\/frameworks\/commerce-sdk\/bambuser-commerce-sdk-ios\/Files\/Sources\/BambuserCommerceSDK\/Implementation\/VideoPlayer\/Player\/PlayerViewImpl.swift",
       "kind": "IntegerLiteral",
-      "offset": 12682,
+      "offset": 12758,
       "length": 3,
       "value": "255"
     },
     {
       "filePath": "\/Users\/saeid\/Documents\/projects\/frameworks\/commerce-sdk\/bambuser-commerce-sdk-ios\/Files\/Sources\/BambuserCommerceSDK\/Implementation\/VideoPlayer\/Player\/PlayerViewImpl.swift",
       "kind": "IntegerLiteral",
-      "offset": 12694,
+      "offset": 12770,
       "length": 2,
       "value": "29"
     },
     {
       "filePath": "\/Users\/saeid\/Documents\/projects\/frameworks\/commerce-sdk\/bambuser-commerce-sdk-ios\/Files\/Sources\/BambuserCommerceSDK\/Implementation\/VideoPlayer\/Player\/PlayerViewImpl.swift",
       "kind": "IntegerLiteral",
-      "offset": 12697,
+      "offset": 12773,
       "length": 3,
       "value": "255"
     },
     {
       "filePath": "\/Users\/saeid\/Documents\/projects\/frameworks\/commerce-sdk\/bambuser-commerce-sdk-ios\/Files\/Sources\/BambuserCommerceSDK\/Implementation\/VideoPlayer\/Player\/PlayerViewImpl.swift",
       "kind": "IntegerLiteral",
-      "offset": 12708,
+      "offset": 12784,
       "length": 2,
       "value": "29"
     },
     {
       "filePath": "\/Users\/saeid\/Documents\/projects\/frameworks\/commerce-sdk\/bambuser-commerce-sdk-ios\/Files\/Sources\/BambuserCommerceSDK\/Implementation\/VideoPlayer\/Player\/PlayerViewImpl.swift",
       "kind": "IntegerLiteral",
-      "offset": 12711,
+      "offset": 12787,
       "length": 3,
       "value": "255"
     },
     {
       "filePath": "\/Users\/saeid\/Documents\/projects\/frameworks\/commerce-sdk\/bambuser-commerce-sdk-ios\/Files\/Sources\/BambuserCommerceSDK\/Implementation\/VideoPlayer\/Player\/PlayerViewImpl.swift",
       "kind": "IntegerLiteral",
-      "offset": 12723,
+      "offset": 12799,
       "length": 1,
       "value": "1"
     },
     {
       "filePath": "\/Users\/saeid\/Documents\/projects\/frameworks\/commerce-sdk\/bambuser-commerce-sdk-ios\/Files\/Sources\/BambuserCommerceSDK\/Implementation\/VideoPlayer\/Player\/PlayerViewImpl.swift",
       "kind": "BooleanLiteral",
-      "offset": 12926,
+      "offset": 13002,
       "length": 5,
       "value": "false"
     },

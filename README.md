@@ -248,7 +248,7 @@ The `BambuserPlayerView` provides methods for controlling video playback:
 - **`resetPlayer()`** – Resets the player to its initial state, stopping playback, seeking to the beginning, and re-initializing the thumbnail view.
 - **`changeMode(to: InlinePlayerMode)`** – Changes the display mode of the player. Only applicable for shoppable video players.
 - **`preload()`** – Preloads player resources to reduce startup latency.
-- **`cleanup()`** – Releases resources associated with the video player and performs necessary cleanup.
+- **`cleanup()`** – Releases resources associated with the video player and performs necessary cleanup. Starting in v3.0.1, cleanup runs automatically when the player view deinitializes, so you only need to call this manually if you want to release resources earlier than ARC would.
 
 #### Player Mode
 
@@ -267,6 +267,10 @@ try await playerView.changeMode(to: .fullExperience)
 // Reset back to preview
 playerView.resetPlayer()
 ```
+
+### Resource Management
+
+Starting in v3.0.1, each `BambuserPlayerView` releases its resources automatically when it deinitializes. You no longer need to call `cleanup()` manually when removing a player view; dropping your reference is enough. Manual `cleanup()` is still supported if you want to free resources earlier.
 
 ### Delegate Protocol
 
