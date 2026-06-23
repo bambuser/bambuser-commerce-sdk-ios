@@ -65,7 +65,7 @@ struct ProductHydrationDataSource {
                     imageUrls: [URL(string: "https://cdn.prod.website-files.com/66c31044a23e58e719bc6ffb/66c33d6271dc1a3f03745c37_Makeup_5.webp")!],
                     sizes: [
                         ProductSize(
-                            sku: "614442-gloss-standard",
+                            sku: "1232-gloss-standard",
                             current: 300.0,
                             name: "Standard",
                             inStock: 20,
@@ -83,8 +83,8 @@ struct ProductHydrationDataSource {
             sku: "1223",
             name: "Lash Amplify Mascara",
             brandName: "Lash",
-            introduction: "Efficient electric bike for urban commuting.",
-            description: "Efficient electric bike for urban commuting.Achieve voluminous, full lashes that command attention with our game-changing mascara. Get ready to elevate your lash game with our innovative formula that lengthens, lifts and defines each lash to perfection.",
+            introduction: "Achieve voluminous, full lashes that command attention.",
+            description: "Achieve voluminous, full lashes that command attention with our game-changing mascara. Get ready to elevate your lash game with our innovative formula that lengthens, lifts and defines each lash to perfection.",
             variations: [
                 Variation(
                     sku: "1223-standard",
@@ -93,7 +93,7 @@ struct ProductHydrationDataSource {
                     imageUrls: [URL(string: "https://cdn.prod.website-files.com/66c31044a23e58e719bc6ffb/66c33c0b2e7fa3ab0d3b129d_Makeup_3.png")!],
                     sizes: [
                         ProductSize(
-                            sku: "1222-silver-standard",
+                            sku: "1223-silver-standard",
                             current: 800.0,
                             name: "Standard",
                             inStock: 20,
@@ -115,13 +115,13 @@ struct ProductHydrationDataSource {
             description: "Discover everyday elegance with our timeless Linen Blazer. Crafted from 100% premium linen, it seamlessly blends refined style with exceptional comfort, offering a sophisticated touch to elevate any outfit.",
             variations: [
                 Variation(
-                    sku: "1223-small",
+                    sku: "1977-small",
                     name: "Linen Blazer - Beige - Small",
                     colorName: "default",
                     imageUrls: [URL(string: "https://demo.bambuser.shop/wp-content/uploads/2024/07/Blazer-Beige-1.png")!],
                     sizes: [
                         ProductSize(
-                            sku: "1222-beige-small",
+                            sku: "1977-beige-small",
                             current: 5500.0,
                             name: "Standard",
                             inStock: 20,
@@ -143,13 +143,13 @@ struct ProductHydrationDataSource {
             description: "Experience effortless sophistication with our classic Linen Pants. Crafted from 100% premium linen, they seamlessly combine refined style with superior comfort, adding a polished touch to elevate any ensemble.",
             variations: [
                 Variation(
-                    sku: "1223-small",
+                    sku: "1994-small",
                     name: "Linen Pants - Beige - Small",
                     colorName: "default",
                     imageUrls: [URL(string: "https://demo.bambuser.shop/wp-content/uploads/2024/07/Pants-Beige.png")!],
                     sizes: [
                         ProductSize(
-                            sku: "1222-beige-small",
+                            sku: "1994-beige-small",
                             current: 4000.0,
                             name: "Standard",
                             inStock: 20,

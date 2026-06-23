@@ -34,15 +34,12 @@ final class Storage {
         cart = items
     }
 
-    func updateCart(productId: String, quantity: Int) {
-        var newValue = (cart[productId] ?? 0) + quantity
-        if quantity > 1 {
-            newValue = quantity
-        }
-        if newValue <= 0 {
-            cart[productId] = nil
-        } else {
-            cart[productId] = newValue
-        }
+    func incrementCart(productId: String, by delta: Int) {
+        let newValue = (cart[productId] ?? 0) + delta
+        cart[productId] = newValue > 0 ? newValue : nil
+    }
+
+    func setCartQuantity(productId: String, quantity: Int) {
+        cart[productId] = quantity > 0 ? quantity : nil
     }
 }

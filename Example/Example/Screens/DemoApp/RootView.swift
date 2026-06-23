@@ -21,6 +21,8 @@ struct RootTabsView: View {
                         case .liveShow(let showId):
                             BambuserVideoView(id: showId)
                                 .ignoresSafeArea(edges: .bottom)
+                        case .shoppableFormat, .storiesFeed, .allFormats:
+                            EmptyView()
                         }
                     }
             }
@@ -32,7 +34,7 @@ struct RootTabsView: View {
             // Shoppable videos tab
             feedView
                 .tabItem {
-                    Label("Feed", systemImage: "video.doorbell")
+                    Label("Shop", systemImage: "bag")
                 }
                 .tag(Tab.shoppableVideo)
 
@@ -61,8 +63,22 @@ struct RootTabsView: View {
         let binding = navigationManager.sheetBinding(for: .shoppableVideo)
 
         let stack = NavigationStack(path: navigationManager.pathBinding(for: .shoppableVideo)) {
-            BambuserFeedView()
-                .applyBottomSafeAreaRule()
+            ShopHomeView()
+                .navigationDestination(for: PushDestination.self) { destination in
+                    switch destination {
+                    case .shoppableFormat(let format):
+                        formatScreen(for: format)
+                            .applyBottomSafeAreaRule()
+                    case .storiesFeed(let startIndex):
+                        StoriesFeedView(startIndex: startIndex)
+                            .ignoresSafeArea()
+                            .navigationBarTitleDisplayMode(.inline)
+                    case .allFormats:
+                        FeedFormatsView()
+                    case .liveShow:
+                        EmptyView()
+                    }
+                }
         }
 
         if UIDevice.current.userInterfaceIdiom == .pad {
@@ -85,6 +101,24 @@ struct RootTabsView: View {
                             .presentationDragIndicator(.hidden)
                     }
                 }
+        }
+    }
+}
+
+extension RootTabsView {
+    @ViewBuilder
+    func formatScreen(for format: ShoppableVideoFormat) -> some View {
+        switch format {
+        case .reels:
+            ReelsFeedView()
+        case .stories:
+            StoriesSelectorView()
+        case .grid:
+            GridFeedView()
+        case .carousel:
+            CarouselFeedView()
+        case .spotlight:
+            SpotlightFeedView()
         }
     }
 }

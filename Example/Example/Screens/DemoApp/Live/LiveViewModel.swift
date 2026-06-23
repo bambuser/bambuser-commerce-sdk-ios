@@ -62,7 +62,7 @@ final class LiveViewModel: ObservableObject {
     }
 
     func durationText(_ seconds: Int?) -> String {
-        guard let seconds, seconds >= 0 else { return "—:—" }
+        guard let seconds, seconds >= 0 else { return "--:--" }
         let h = seconds / 3600
         let m = (seconds % 3600) / 60
         let s = seconds % 60

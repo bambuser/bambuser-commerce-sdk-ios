@@ -68,8 +68,8 @@ struct CartView: View {
                                             .monospacedDigit()
 
                                         Stepper(
-                                            onIncrement: { vm.updateQuantity(productId: item.id, quantity: 1) },
-                                            onDecrement: { vm.updateQuantity(productId: item.id, quantity: -1) }
+                                            onIncrement: { vm.incrementQuantity(productId: item.id, by: 1) },
+                                            onDecrement: { vm.incrementQuantity(productId: item.id, by: -1) }
                                         ) { EmptyView() }
                                         .labelsHidden()
                                         .controlSize(.small)
@@ -120,7 +120,7 @@ struct CartView: View {
             }
         }
         .onAppear { vm.reloadFromStorage() }
-        .alert("Congradulation 🎉 Your order is on the way!", isPresented: $showCheckoutAlert) {
+        .alert("Congratulations 🎉 Your order is on the way!", isPresented: $showCheckoutAlert) {
             Button("OK", role: .cancel) { }
         }
     }

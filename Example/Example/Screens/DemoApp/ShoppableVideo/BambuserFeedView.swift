@@ -7,14 +7,13 @@
 
 import SwiftUI
 
-struct BambuserFeedView: UIViewControllerRepresentable {
+struct ReelsFeedView: UIViewControllerRepresentable {
     @EnvironmentObject var navigationManager: NavigationManager
+    var startIndex: Int = 0
 
-    func makeUIViewController(context: Context) -> ShoppableVideoViewController {
-        ShoppableVideoViewController(navManager: navigationManager)
+    func makeUIViewController(context: Context) -> ReelsFeedViewController {
+        ReelsFeedViewController(navManager: navigationManager, startIndex: startIndex)
     }
 
-    func updateUIViewController(_ uiViewController: ShoppableVideoViewController, context: Context) {
-        // No dynamic update needed.
-    }
+    func updateUIViewController(_ uiViewController: ReelsFeedViewController, context: Context) {}
 }

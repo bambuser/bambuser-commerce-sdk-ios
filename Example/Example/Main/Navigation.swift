@@ -17,6 +17,39 @@ enum Tab: Hashable, CaseIterable {
 
 enum PushDestination: Hashable {
     case liveShow(String)
+    case shoppableFormat(ShoppableVideoFormat)
+    case storiesFeed(startIndex: Int)
+    case allFormats
+}
+
+enum ShoppableVideoFormat: String, Hashable, CaseIterable, Identifiable {
+    case reels
+    case stories
+    case grid
+    case carousel
+    case spotlight
+
+    var id: String { rawValue }
+
+    var title: String {
+        switch self {
+        case .reels: return "Reels"
+        case .stories: return "Stories"
+        case .grid: return "Grid"
+        case .carousel: return "Carousel"
+        case .spotlight: return "Spotlight"
+        }
+    }
+
+    var systemImage: String {
+        switch self {
+        case .reels: return "rectangle.portrait.on.rectangle.portrait"
+        case .stories: return "rectangle.grid.1x2"
+        case .grid: return "square.grid.2x2"
+        case .carousel: return "rectangle.stack"
+        case .spotlight: return "sparkles.tv.fill"
+        }
+    }
 }
 
 enum SheetDestination: Hashable, Identifiable {

@@ -49,8 +49,8 @@ final class CartViewModel: ObservableObject {
         }
     }
 
-    func updateQuantity(productId: String, quantity: Int) {
-        Storage.shared.updateCart(productId: productId, quantity: quantity)
+    func incrementQuantity(productId: String, by delta: Int) {
+        Storage.shared.incrementCart(productId: productId, by: delta)
         reloadFromStorage()
     }
 

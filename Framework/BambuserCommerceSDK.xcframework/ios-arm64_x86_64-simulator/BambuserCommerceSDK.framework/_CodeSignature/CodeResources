@@ -6,11 +6,11 @@
 	<dict>
 		<key>Headers/BambuserCommerceSDK-Swift.h</key>
 		<data>
-		vQfZ9KVEmDEVecd/kXHQN7uJCwc=
+		moRdMjHneuyRwKiWAu1IoDQOpwI=
 		</data>
 		<key>Info.plist</key>
 		<data>
-		r93ugWHVE22vC20G+5cAGxK0GB4=
+		01SRH+qy+aDfWB/xhOuTUVsZ+AY=
 		</data>
 		<key>Modules/BambuserCommerceSDK.swiftmodule/arm64-apple-ios-simulator.abi.json</key>
 		<data>
@@ -18,19 +18,19 @@
 		</data>
 		<key>Modules/BambuserCommerceSDK.swiftmodule/arm64-apple-ios-simulator.private.swiftinterface</key>
 		<data>
-		kLj9s7nfi/QFcca3pjGd3uh+rdY=
+		Z8COvtBL8R13T9gWwuYzZsN/cmY=
 		</data>
 		<key>Modules/BambuserCommerceSDK.swiftmodule/arm64-apple-ios-simulator.swiftdoc</key>
 		<data>
-		JWFTn3KL9axA1hnv745ThFY5yyo=
+		3IdqydTgO2mDKQ+RK6VIi5LCdIE=
 		</data>
 		<key>Modules/BambuserCommerceSDK.swiftmodule/arm64-apple-ios-simulator.swiftinterface</key>
 		<data>
-		kLj9s7nfi/QFcca3pjGd3uh+rdY=
+		Z8COvtBL8R13T9gWwuYzZsN/cmY=
 		</data>
 		<key>Modules/BambuserCommerceSDK.swiftmodule/arm64-apple-ios-simulator.swiftmodule</key>
 		<data>
-		SJT96uuFo1pS+WXGUGZWpgZsGAI=
+		ZXVQcgNiJy4U8iSkvpPW78L7k10=
 		</data>
 		<key>Modules/BambuserCommerceSDK.swiftmodule/x86_64-apple-ios-simulator.abi.json</key>
 		<data>
@@ -38,19 +38,19 @@
 		</data>
 		<key>Modules/BambuserCommerceSDK.swiftmodule/x86_64-apple-ios-simulator.private.swiftinterface</key>
 		<data>
-		46C4IwOOek/AxdXoK28vfY/Dk10=
+		x6lsoTchmtnn+MZVYKkHYTD/ucg=
 		</data>
 		<key>Modules/BambuserCommerceSDK.swiftmodule/x86_64-apple-ios-simulator.swiftdoc</key>
 		<data>
-		oh2YJQOXNMRyiOmxm8mDmpdJZfY=
+		t7EMll6jnVKzxluZUoDTGXjKRls=
 		</data>
 		<key>Modules/BambuserCommerceSDK.swiftmodule/x86_64-apple-ios-simulator.swiftinterface</key>
 		<data>
-		46C4IwOOek/AxdXoK28vfY/Dk10=
+		x6lsoTchmtnn+MZVYKkHYTD/ucg=
 		</data>
 		<key>Modules/BambuserCommerceSDK.swiftmodule/x86_64-apple-ios-simulator.swiftmodule</key>
 		<data>
-		ROUKzcKeuKtu3nkBVPRemy0Mceo=
+		GZs+oXfQCVjbF0aDUqmCBoyFa9E=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -63,7 +63,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			JNi+1WdMM+Rm1xp/+gUQG/+fZ7ny83hbXVO3ATIUcN0=
+			Nq/r5cMDy1/tDbfbSmmckUj08Kuz4tvwEvODORpQ9rQ=
 			</data>
 		</dict>
 		<key>Modules/BambuserCommerceSDK.swiftmodule/arm64-apple-ios-simulator.abi.json</key>
@@ -77,28 +77,28 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			i/rOELQGzyhemNeqwvRadAod2iHDABViyphqIXjJo4M=
+			fPFjsf7lJS7cHxfHgZnTlo2UqQLMcGbml9ElRNW8bHs=
 			</data>
 		</dict>
 		<key>Modules/BambuserCommerceSDK.swiftmodule/arm64-apple-ios-simulator.swiftdoc</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			7/7rbwEgxW50+eg6LSktMBBaDStjeFcQw78aik4JHJY=
+			g12ud7vmb6kewgNm4sKI2WxPnAxZH6BUQVSWALxFAgY=
 			</data>
 		</dict>
 		<key>Modules/BambuserCommerceSDK.swiftmodule/arm64-apple-ios-simulator.swiftinterface</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			i/rOELQGzyhemNeqwvRadAod2iHDABViyphqIXjJo4M=
+			fPFjsf7lJS7cHxfHgZnTlo2UqQLMcGbml9ElRNW8bHs=
 			</data>
 		</dict>
 		<key>Modules/BambuserCommerceSDK.swiftmodule/arm64-apple-ios-simulator.swiftmodule</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			m0bPnhCUba7gb+CF4CueFzsHIdpVrbTqE3yXKWd87q4=
+			aQjzHfmMdtQeRwA7e/mCoKSwDAev47r0OIIpPojVoEA=
 			</data>
 		</dict>
 		<key>Modules/BambuserCommerceSDK.swiftmodule/x86_64-apple-ios-simulator.abi.json</key>
@@ -112,28 +112,28 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			QCarQrxltesUk4qHAXutGCkxs4Df3AZPfqMG9hqm4oI=
+			vmIU/7b7VsbuF/s2kem8MmzOVcsxKHe+js61jFTLfNs=
 			</data>
 		</dict>
 		<key>Modules/BambuserCommerceSDK.swiftmodule/x86_64-apple-ios-simulator.swiftdoc</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			aPJ9JvwOIYeXs+qaOzteEM6atWsgVrFzhJYEaX4vXPk=
+			zVC6276Wed0Kc6uZpeWUrD3wx22NygAwtgBUpq4Xvkk=
 			</data>
 		</dict>
 		<key>Modules/BambuserCommerceSDK.swiftmodule/x86_64-apple-ios-simulator.swiftinterface</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			QCarQrxltesUk4qHAXutGCkxs4Df3AZPfqMG9hqm4oI=
+			vmIU/7b7VsbuF/s2kem8MmzOVcsxKHe+js61jFTLfNs=
 			</data>
 		</dict>
 		<key>Modules/BambuserCommerceSDK.swiftmodule/x86_64-apple-ios-simulator.swiftmodule</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			rbx4sOuArWL2uW+QxWpos4yGdlWKCwWSoqLDrVPGJf8=
+			Ouiyx5Z7zrg9635mSiHfzLZE6yUe8K6qmMiW5JfK2A8=
 			</data>
 		</dict>
 		<key>Modules/module.modulemap</key>

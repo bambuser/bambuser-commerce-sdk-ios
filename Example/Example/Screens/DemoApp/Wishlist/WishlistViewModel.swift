@@ -36,6 +36,6 @@ final class WishlistViewModel: ObservableObject {
     }
 
     func addToCart(sku: String, quantity: Int = 1) {
-        Storage.shared.updateCart(productId: sku, quantity: quantity)
+        Storage.shared.incrementCart(productId: sku, by: quantity)
     }
 }

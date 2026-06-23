@@ -7,5 +7,4 @@ DerivedData
 *.xcuserstate
 *.pyc
 Framework/.DS_Store
-*.zip
 .build

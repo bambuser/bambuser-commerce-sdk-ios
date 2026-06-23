@@ -103,20 +103,8 @@ final class BambuserVideoController: UIViewController, BambuserPlayerViewDelegat
             guard let self = self else { return }
 
             if case .liveShow? = oldPath.last {
-                /// Cleans up the player view and releases associated resources.
-                ///
-                /// - Important: This **must** be called when the player view is no longer needed to ensure
-                /// proper deinitialization and removal from memory. This includes stopping playback,
-                /// releasing any retained resources, and unregistering navigation observers or other listeners.
-                ///
-                /// This method should be called at the appropriate point in the view lifecycle—typically
-                /// when the view is being deallocated or is no longer visible. The exact timing depends
-                /// on your project’s architecture. In UIKit, you might call this from `deinit`
-                /// or `viewWillDisappear` and in SwiftUI, maybe the `.onDisappear` modifier.
-                ///
-                /// In this project, we have custom navigation flow and
-                /// the `NavigationManager`, so it’s important to ensure `cleanup()` is called
-                /// when the view is removed from the navigation stack.
+                /// `cleanup()` runs automatically when the parent view is deallocated.
+                /// Call it manually only if you need to release the player earlier.
                 playerView?.cleanup()
             }
         }
@@ -179,7 +167,7 @@ final class BambuserVideoController: UIViewController, BambuserPlayerViewDelegat
     ///   - id: The ID of the player emitting the event.
     ///   - event: The event payload containing event details.
     func onNewEventReceived(_ id: String, event: BambuserEventPayload) {
-        print("ProductHydrationViewController received event: \(event)")
+        print("BambuserVideoController received event: \(event)")
 
         /// When the show starts, this event is triggered by the player.
         /// The event provides information on **all available products** during the show.
@@ -231,7 +219,7 @@ final class BambuserVideoController: UIViewController, BambuserPlayerViewDelegat
                         info: "{ success: false, reason: 'out-of-stock' }"
                     )
                 } else {
-                    Storage.shared.updateCart(productId: sku, quantity: quantity)
+                    Storage.shared.setCartQuantity(productId: sku, quantity: quantity)
                     /// Confirm the item was successfully added to the cart.
                     self.playerView?.notify(
                         callbackKey: callbackKey,
@@ -297,7 +285,6 @@ final class BambuserVideoController: UIViewController, BambuserPlayerViewDelegat
                   let eventDict = event.data["event"] as? [String: Sendable],
                   let sku = eventDict["sku"] as? String else { return }
             let base = String(sku.prefix { $0 != "-" }).trimmingCharacters(in: .whitespaces)
-            Storage.shared.addToWishlist(productId: base)
 
             /// Simulate a network call or processing delay
             DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
@@ -390,7 +377,7 @@ final class BambuserVideoController: UIViewController, BambuserPlayerViewDelegat
     ///   - id: The ID of the player where the error occurred.
     ///   - error: The error object containing details about the issue.
     func onErrorOccurred(_ id: String, error: Error) {
-        print("ProductHydrationViewController error: \(error.localizedDescription)")
+        print("BambuserVideoController error: \(error.localizedDescription)")
     }
 
     /// Called when the video playback status changes.
@@ -419,10 +406,10 @@ final class BambuserVideoController: UIViewController, BambuserPlayerViewDelegat
     ///
     /// You can handle specific states such as:
     /// - `.willStart`: Prepare your UI before PiP begins.
-    /// - `.started`: PiP has successfully started—adjust UI and pause unnecessary updates.
-    /// - `.willStop`: PiP is about to stop—prepare to restore full-screen UI.
-    /// - `.stopped`: PiP has been closed—restore full player view.
-    /// - `.restored`: The user tapped "Go to full screen" and PiP has ended—navigate back and resume playback.
+    /// - `.started`: PiP has successfully started, adjust UI and pause unnecessary updates.
+    /// - `.willStop`: PiP is about to stop, prepare to restore full-screen UI.
+    /// - `.stopped`: PiP has been closed, restore full player view.
+    /// - `.restored`: The user tapped "Go to full screen" and PiP has ended, navigate back and resume playback.
     func onPictureInPictureStateChanged(_ id: String, state: PlayerPipState) {
         print("PiP state changed to: \(state)")
 

@@ -8,32 +8,16 @@
 import UIKit
 import BambuserCommerceSDK
 
-/// A view controller that fetches and displays a vertically paged shoppable video playlist.
-///
-/// This example shows how to:
-/// - Request a playlist from Bambuser
-/// - Render one video per full-screen page with vertical paging
-/// - Autoplay the visible page and advance to the next on end
-///
-final class ShoppableVideoViewController: UIViewController {
+final class ReelsFeedViewController: UIViewController {
+    private let navManager: NavigationManager
+    private let startIndex: Int
+    private lazy var router = ShoppableVideoEventRouter(navManager: navManager)
 
-    // MARK: - Dependencies
-    let navManager: NavigationManager
-
-    // MARK: - Data
-    private var shoppableVideos: [BambuserPlayerView] = []
-    private var videosStatus: [String: Bool] = [:]
-    private var currentIndex: Int?
-
-    // MARK: - First-play coordination
-    private var pendingInitialPlay = false
-    private var firstPlayerReady = false
+    private var players: [BambuserPlayerView] = []
+    private var currentIndex: Int = 0
     private var didLayoutOnce = false
     private var didAppearOnce = false
-    private var didExpandFirstVideo = false
-
-    // MARK: - UI
-    private let stackSpacing: CGFloat = 0
+    private var didStartInitialScroll = false
 
     private lazy var activityIndicator: UIActivityIndicatorView = {
         let indicator = UIActivityIndicatorView(style: .large)
@@ -41,7 +25,6 @@ final class ShoppableVideoViewController: UIViewController {
         indicator.hidesWhenStopped = true
         return indicator
     }()
-
 
     private lazy var scrollView: UIScrollView = {
         let sv = UIScrollView()
@@ -57,14 +40,14 @@ final class ShoppableVideoViewController: UIViewController {
     private lazy var videoStack: UIStackView = {
         let stack = UIStackView()
         stack.axis = .vertical
-        stack.spacing = stackSpacing
+        stack.spacing = 0
         stack.translatesAutoresizingMaskIntoConstraints = false
         return stack
     }()
 
-    // MARK: - Init
-    init(navManager: NavigationManager) {
+    init(navManager: NavigationManager, startIndex: Int = 0) {
         self.navManager = navManager
+        self.startIndex = max(0, startIndex)
         super.init(nibName: nil, bundle: nil)
     }
 
@@ -72,18 +55,8 @@ final class ShoppableVideoViewController: UIViewController {
         fatalError("init(coder:) has not been implemented")
     }
 
-    deinit {
-        /// Similar to example in BambuserVideoController, it's important to call `cleanup()` on each player view,
-        /// to ensure proper resource deallocation when they're no longer needed to avoid memory leaks.
-        /// If you don't call this, the player views retain resources and not be deallocated properly.
-        /// You can call this in `deinit`, or when you're removing the views from the view hierarchy.
-        /// In this example, it's not called since the views are kept for the lifetime of this view controller.
-    }
-
-    // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
-
         view.backgroundColor = .systemBackground
         setupScrollView()
         view.addSubview(activityIndicator)
@@ -92,26 +65,26 @@ final class ShoppableVideoViewController: UIViewController {
             activityIndicator.centerYAnchor.constraint(equalTo: view.centerYAnchor)
         ])
         activityIndicator.startAnimating()
-        fetchShoppableVideos()
+
+        router.presenter = self
+        router.onStateChanged = { [weak self] id, state in self?.handleStateChange(id: id, state: state) }
+        load()
     }
 
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-
         didAppearOnce = true
-        tryStartFirstPlayback()
+        tryAlignInitialPage()
     }
 
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
-
         if !didLayoutOnce, scrollView.bounds.height > 0 {
             didLayoutOnce = true
-            tryStartFirstPlayback()
+            tryAlignInitialPage()
         }
     }
 
-    // MARK: - Setup
     private func setupScrollView() {
         view.addSubview(scrollView)
         scrollView.addSubview(videoStack)
@@ -130,72 +103,34 @@ final class ShoppableVideoViewController: UIViewController {
         ])
     }
 
-    // MARK: - Fetch Data
-    private func fetchShoppableVideos() {
-        let bambuserPlayer = BambuserSDK(server: .US)
-        let videoContainerInfo = Show.PlaylistConfig
-
+    private func load() {
+        let sdk = BambuserSDK(server: .US)
         Task {
             do {
-                let config = BambuserShoppableVideoConfiguration(
-                    type: .playlist(videoContainerInfo),
-                    events: ["*"],
-                    configuration: [
-                        "preload": true,
-                        "thumbnail": [
-                            "enabled": false,
-                            "showPlayButton": false,
-                            "contentMode": "scaleAspectFill",
-                            "preview": nil,
-                            "showLoadingIndicator": false
-                        ],
-                        "previewConfig": [
-                            "productAction": "modal",
-                            "closedCaptions": "original",
-                            "settings": "products:true; title:false; actions:true; productCardMode: thumbnail; autoplay:true",
-                        ],
-                        "playerConfig": [
-                            "buttons": ["dismiss": "event"],
-                            "enableTrackingPoint": false,
-                            "currency": "SEK",
-                            "locale": "en-US"
-                        ]
-                    ]
+                let result = try await sdk.createShoppableVideoPlayerCollection(
+                    videoConfiguration: ShoppableVideoConfigs.reels()
                 )
-
-                let results = try await bambuserPlayer.createShoppableVideoPlayerCollection(
-                    videoConfiguration: config
-                )
-
                 await MainActor.run {
-                    setupVideoPlaylist(results.players)
-                    pendingInitialPlay = true
-                    tryStartFirstPlayback()
+                    setupVideoPlaylist(result.players)
+                    tryAlignInitialPage()
                 }
             } catch {
-                print("Error loading shoppable views: \(error)")
+                print("Reels load error: \(error)")
             }
         }
     }
 
-    // MARK: - Build UI
     private func setupVideoPlaylist(_ videoViews: [BambuserPlayerView]) {
-        videoStack.arrangedSubviews.forEach {
-            $0.removeFromSuperview()
-        }
+        videoStack.arrangedSubviews.forEach { $0.removeFromSuperview() }
         guard !videoViews.isEmpty else { return }
 
-        shoppableVideos = videoViews
-        videosStatus.removeAll()
-        currentIndex = nil
+        players = videoViews
+        currentIndex = min(startIndex, videoViews.count - 1)
+        router.bind(videoViews)
 
-        for (_, videoView) in videoViews.enumerated() {
-            videoView.delegate = self
+        for videoView in videoViews {
             videoView.backgroundColor = .clear
             videoView.translatesAutoresizingMaskIntoConstraints = false
-            videoView.pipController?.isEnabled = true
-            videoView.pipController?.delegate = self
-            videoView.pause()
 
             let container = UIView()
             container.translatesAutoresizingMaskIntoConstraints = false
@@ -215,231 +150,83 @@ final class ShoppableVideoViewController: UIViewController {
                 videoView.widthAnchor.constraint(equalTo: view.widthAnchor),
                 videoView.heightAnchor.constraint(equalTo: view.heightAnchor)
             ])
-
-            videosStatus[videoView.id] = false
         }
     }
 
-    // MARK: - Paging helpers
     private func currentPage() -> Int {
         let h = max(scrollView.bounds.height, 1)
-        return max(0, min(shoppableVideos.count - 1, Int(round(scrollView.contentOffset.y / h))))
+        return max(0, min(players.count - 1, Int(round(scrollView.contentOffset.y / h))))
     }
 
     private func activatePage(_ index: Int) {
-        guard shoppableVideos.indices.contains(index) else { return }
-        for (i, p) in shoppableVideos.enumerated() {
-            if i == index {
-                p.play()
-            } else {
-                p.pause()
+        guard players.indices.contains(index) else { return }
+        currentIndex = index
+        for (i, p) in players.enumerated() where i != index {
+            p.pause()
+        }
+        expandCurrentIfReady()
+    }
+
+    private func expandCurrentIfReady() {
+        guard players.indices.contains(currentIndex) else { return }
+        let active = players[currentIndex]
+        guard active.currentPlayerState != .idle,
+              active.currentPlayerState != .loading,
+              active.currentPlayerState != .error else { return }
+        if active.currentPlayerMode == .fullExperience {
+            active.play()
+        } else {
+            Task { @MainActor in
+                try? await active.changeMode(to: .fullExperience)
             }
         }
-        currentIndex = index
     }
 
     private func scrollToPage(_ index: Int, animated: Bool = true) {
-        guard shoppableVideos.indices.contains(index) else { return }
+        guard players.indices.contains(index) else { return }
         let h = scrollView.bounds.height
-        let offset = CGPoint(x: 0, y: CGFloat(index) * h)
-        scrollView.setContentOffset(offset, animated: animated)
+        scrollView.setContentOffset(CGPoint(x: 0, y: CGFloat(index) * h), animated: animated)
     }
 
-    // MARK: - First-play coordinator
-    private func tryStartFirstPlayback() {
-        guard pendingInitialPlay,
-              didAppearOnce,
-              didLayoutOnce,
-              firstPlayerReady,
-              currentIndex == nil || currentIndex == 0,
-              !shoppableVideos.isEmpty
-        else { return }
-
-        // Defer one runloop to avoid internal transition races
-        DispatchQueue.main.async { [weak self] in
-            // Ensure we're at page 0 before playing
-            self?.scrollToPage(0, animated: false)
-            self?.activatePage(0)
-        }
-        pendingInitialPlay = false
-    }
-}
-
-// MARK: - UIScrollViewDelegate
-extension ShoppableVideoViewController: UIScrollViewDelegate {
-    func scrollViewWillEndDragging(
-        _ scrollView: UIScrollView,
-        withVelocity velocity: CGPoint,
-        targetContentOffset: UnsafeMutablePointer<CGPoint>
-    ) {
-        let h = max(scrollView.bounds.height, 1)
-        let targetPage = max(0, min(shoppableVideos.count - 1, Int(round(targetContentOffset.pointee.y / h))))
-        activatePage(targetPage)
+    private func tryAlignInitialPage() {
+        guard !didStartInitialScroll, didAppearOnce, didLayoutOnce, !players.isEmpty else { return }
+        didStartInitialScroll = true
+        scrollToPage(currentIndex, animated: false)
+        activatePage(currentIndex)
     }
 
-    func scrollViewDidEndScrollingAnimation(_ scrollView: UIScrollView) {
-        activatePage(currentPage())
-    }
-}
-
-// MARK: - BambuserPlayerViewDelegate
-extension ShoppableVideoViewController: BambuserPlayerViewDelegate {
-    
-    /// Handles new events received from the Bambuser video player.
-    ///
-    /// - Parameters:
-    ///   - id: The unique identifier for the video player.
-    ///   - event: The `BambuserEventPayload` containing the event type and associated data.
-    func onNewEventReceived(_ id: String, event: BambuserCommerceSDK.BambuserEventPayload) {
-        print("Received event [\(id)]: \(event.type) with data: \(event.data)")
-        /// This event is sent when user taps the video.
-        /// You can use it to toggle playback or expand/collapse the preview to full experience mode.
-        /// or any other custom action you want to trigger on tap.
-        if event.type == "preview-should-expand",
-           let player = shoppableVideos.first(where: { $0.id == id }) {
-            if player.currentPlayerState == .playing {
-                player.pause()
-            } else {
-                player.play()
-            }
-        }
-        
-        /// These events are sent when user taps an action card or a link in the player, e.g a product link.
-        if (event.type == "action-card-clicked" || event.type == "open-url"),
-           let eventDict = event.data["event"] as? [String: Sendable],
-           let urlString = eventDict["url"] as? String,
-           let url = URL(string: urlString) {
-            navManager.present(sheet: .openWebPage(url), in: .shoppableVideo)
-        }
-
-        if event.type == "should-add-item-to-cart" || event.type == "should-update-item-in-cart" {
-            guard let player = shoppableVideos.first(where: { $0.id == id }) else { return }
-            guard let callbackKey = event.data["callbackKey"] as? String,
-                    let event = event.data["event"] as? [String: Sendable],
-                  let sku = event["sku"] as? String else {
-                return
-            }
-            var quantity = 1
-            if let value = event["quantity"] as? Int {
-                quantity = value
-            }
-
-            DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
-                if quantity > 3 {
-                    /// If the requested quantity is too high, simulate an out-of-stock error.
-                    player.notify(
-                        callbackKey: callbackKey,
-                        info: "{ success: false, reason: 'out-of-stock' }"
-                    )
-                } else {
-                    Storage.shared.updateCart(productId: sku, quantity: quantity)
-                    /// Confirm the item was successfully added to the cart.
-                    player.notify(
-                        callbackKey: callbackKey,
-                        info: true
-                    )
-                }
-            }
-        }
-
-        /// Product hydration: when the player requests product data, hydrate with a single mock product.
-        if event.type == "provide-product-data" {
-            guard let player = shoppableVideos.first(where: { $0.id == id }) else { return }
-            Task {
-                try await self.hydrate(data: event.data, for: player)
-            }
-        }
-
-        /// Cart interaction: handle add-to-cart with a simple success response.
-        if event.type == "should-add-item-to-cart" || event.type == "should-update-item-in-cart" {
-            guard let callbackKey = event.data["callbackKey"] as? String,
-                  let player = shoppableVideos.first(where: { $0.id == id }) else { return }
-            player.notify(callbackKey: callbackKey, info: true)
-        }
-    }
-
-    func hydrate(data: [String: Sendable], for player: BambuserPlayerView) async throws {
-        guard let event = data["event"] as? [String: Sendable],
-              let products = event["products"] as? [[String: Sendable]] else { return }
-        for product in products {
-            guard let ref = product["ref"] as? String,
-                  let id = product["id"] as? String,
-                  let jsonString = ProductHydrationDataSource.jsonObjectString(for: ref) else { continue }
-
-            let hydrationString = "'\(id)', \(jsonString)"
-
-            try await player.invoke(
-                function: "updateProductWithData",
-                arguments: hydrationString
-            )
-        }
-    }
-    
-    /// Called when the video playback status changes for a player.
-    ///
-    /// - Parameters:
-    ///   - id: The unique identifier for the video player.
-    ///   - state: The new `BambuserVideoState` of the video player.
-    func onVideoStatusChanged(_ id: String, state: BambuserVideoState) {
-        print("Player status changed [\(id)]: \(state)")
-        // Track ready state of the first video to coordinate initial playback.
-        if shoppableVideos.first?.id == id,
-           state == .ready {
-            firstPlayerReady = true
+    private func handleStateChange(id: String, state: BambuserVideoState) {
+        if state == .ready {
             activityIndicator.stopAnimating()
-            tryStartFirstPlayback()
-        }
-
-        // Expand the first video to full experience once it is actually playing.
-        // Gating on .playing avoids racing changeMode against the player's
-        // preview-to-playing transition.
-        if state == .playing,
-           !didExpandFirstVideo,
-           let first = shoppableVideos.first, first.id == id {
-            didExpandFirstVideo = true
-            Task { @MainActor in
-                try? await first.changeMode(to: .fullExperience)
+            if players.indices.contains(currentIndex),
+               players[currentIndex].id == id,
+               didStartInitialScroll {
+                expandCurrentIfReady()
             }
         }
 
         if state == .completed {
-            // Advance to next video when current ends.
-            guard let idx = shoppableVideos.firstIndex(where: { $0.id == id }) else { return }
+            guard let idx = players.firstIndex(where: { $0.id == id }) else { return }
             let next = idx + 1
-            if shoppableVideos.indices.contains(next) {
+            if players.indices.contains(next) {
                 scrollToPage(next)
             }
         }
     }
-    
-    /// Called when an error occurs within a video player.
-    /// - Parameters:
-    ///   - id: The unique identifier for the video player where the error occurred.
-    ///   - error: The `Error` object containing details about the issue.
-    func onErrorOccurred(_ id: String, error: any Error) {
-        print("Player error [\(id)]: \(error.localizedDescription)")
-    }
-    
-    /// Reports the current playback progress of a video.
-    /// - Parameters:
-    ///   - id: The unique identifier for the video player.
-    ///   - duration: The total duration of the video in seconds.
-    ///   - currentTime: The current playback time in seconds.
-    func onVideoProgress(_ id: String, duration: Double, currentTime: Double) {
-        print("Player progress [\(id)]: \(currentTime) / \(duration) seconds")
-    }
-    
-    /// Called when a video thumbnail is tapped.
-    /// - Parameters:
-    ///   - id: The unique identifier for the video player associated with the tapped thumbnail.
-    func onThumbnailTapped(_ id: String) {
-        print("Player [\(id)] thumbnail was tapped")
-    }
 }
 
-// MARK: - BambuserPictureInPictureDelegate
-extension ShoppableVideoViewController: BambuserPictureInPictureDelegate {
-    func onPictureInPictureStateChanged(_ id: String, state: BambuserCommerceSDK.PlayerPipState) {
-        print("PIP state changed [\(id)]: \(state)")
+extension ReelsFeedViewController: UIScrollViewDelegate {
+    func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
+        if players.indices.contains(currentIndex) {
+            players[currentIndex].pause()
+        }
+    }
+
+    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+        activatePage(currentPage())
+    }
+
+    func scrollViewDidEndScrollingAnimation(_ scrollView: UIScrollView) {
+        activatePage(currentPage())
     }
 }

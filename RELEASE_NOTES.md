@@ -4,6 +4,18 @@ All notable changes to the Bambuser Commerce SDK for iOS.
 
 ---
 
+## 3.0.2
+
+### Bug Fixes
+
+- Player cleanup no longer deactivates the shared AVAudioSession, so host AVPlayer audio is not interrupted when the player is dismissed.
+
+### Improvements
+
+- General fixes and improvements.
+
+---
+
 ## 3.0.1
 
 ### Improvements

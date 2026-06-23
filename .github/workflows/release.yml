@@ -3,7 +3,7 @@ name: Create Release
 on:
   push:
     tags:
-      - '[0-9]+.[0-9]+.[0-9]+'
+      - "[0-9]+.[0-9]+.[0-9]+"
 
 permissions:
   contents: write
@@ -40,8 +40,8 @@ jobs:
 
       - name: Verify framework asset exists
         run: |
-          if [ ! -f Framework/BambuserCommerceSDK.zip ]; then
-            echo "Framework/BambuserCommerceSDK.zip not found" >&2
+          if [ ! -f Framework/BambuserCommerceSDK.xcframework.zip ]; then
+            echo "Framework/BambuserCommerceSDK.xcframework.zip not found" >&2
             exit 1
           fi
 
@@ -50,6 +50,6 @@ jobs:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           gh release create "$GITHUB_REF_NAME" \
-            Framework/BambuserCommerceSDK.zip \
+            Framework/BambuserCommerceSDK.xcframework.zip \
             --title "$GITHUB_REF_NAME" \
             --notes-file release_notes.txt
