@@ -1,0 +1,55 @@
+name: Create Release
+
+on:
+  push:
+    tags:
+      - '[0-9]+.[0-9]+.[0-9]+'
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Validate tag is release tag
+        run: |
+          if [[ ! "$GITHUB_REF_NAME" =~ ^[0-9]+\.[0-9]+\.[0-9]+$ ]]; then
+            echo "Tag '$GITHUB_REF_NAME' is not a release tag." >&2
+            exit 1
+          fi
+
+      - name: Extract release notes for tag
+        run: |
+          set -euo pipefail
+          VERSION="${GITHUB_REF_NAME}"
+          awk -v ver="$VERSION" '
+            $0 == "## " ver { found = 1; next }
+            found && /^## / { exit }
+            found && /^---$/ { exit }
+            found { print }
+          ' RELEASE_NOTES.md > release_notes.txt
+
+          if [ ! -s release_notes.txt ] || ! grep -q '[^[:space:]]' release_notes.txt; then
+            echo "No release notes found for version $VERSION in RELEASE_NOTES.md" >&2
+            exit 1
+          fi
+
+      - name: Verify framework asset exists
+        run: |
+          if [ ! -f Framework/BambuserCommerceSDK.zip ]; then
+            echo "Framework/BambuserCommerceSDK.zip not found" >&2
+            exit 1
+          fi
+
+      - name: Create GitHub release
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          gh release create "$GITHUB_REF_NAME" \
+            Framework/BambuserCommerceSDK.zip \
+            --title "$GITHUB_REF_NAME" \
+            --notes-file release_notes.txt
