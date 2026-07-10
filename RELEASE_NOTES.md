@@ -4,6 +4,18 @@ All notable changes to the Bambuser Commerce SDK for iOS.
 
 ---
 
+## 3.1.0
+
+### New
+
+- Added `getShoppableVideoPlayerCollectionMetadata` API to fetch metadata for a shoppable video collection without creating any players.
+
+### Improvements
+
+- General fixes and improvements.
+
+---
+
 ## 3.0.2
 
 ### Bug Fixes

@@ -12,6 +12,19 @@ import WebKit
 import _Concurrency
 import _StringProcessing
 import _SwiftConcurrencyShims
+public struct BambuserCollectionMetadata : Swift.Sendable, Swift.Equatable {
+  public let videosMetadata: [BambuserCommerceSDK.VideoMetadata]
+  public let pagination: BambuserCommerceSDK.Pagination?
+  public static func == (a: BambuserCommerceSDK.BambuserCollectionMetadata, b: BambuserCommerceSDK.BambuserCollectionMetadata) -> Swift.Bool
+}
+public struct VideoMetadata : Swift.Sendable, Swift.Equatable {
+  public let id: Swift.String
+  public let title: Swift.String?
+  public let hasAudio: Swift.Bool?
+  public let preview: Swift.String?
+  public let length: Swift.Double
+  public static func == (a: BambuserCommerceSDK.VideoMetadata, b: BambuserCommerceSDK.VideoMetadata) -> Swift.Bool
+}
 public struct BambuserEventPayload : Swift.Sendable {
   public let type: Swift.String
   public let data: [Swift.String : any Swift.Sendable]
@@ -80,6 +93,7 @@ extension BambuserCommerceSDK.BambuserPlayerViewDelegate {
   @_Concurrency.MainActor public func createShoppableVideoPlayer(videoConfiguration: BambuserCommerceSDK.BambuserShoppableVideoConfiguration) async throws -> some UIKit.UIView & BambuserCommerceSDK.BambuserPlayerView
   
   @_Concurrency.MainActor public func createShoppableVideoPlayerCollection(videoConfiguration: BambuserCommerceSDK.BambuserShoppableVideoConfiguration, page: Swift.Int = 1, pageSize: Swift.Int = 15) async throws -> BambuserCommerceSDK.BambuserPlayerCollection
+  @_Concurrency.MainActor public func getShoppableVideoPlayerCollectionMetadata(videoAsset: BambuserCommerceSDK.BambuserShoppableVideoAsset, page: Swift.Int = 1, pageSize: Swift.Int = 15) async throws -> BambuserCommerceSDK.BambuserCollectionMetadata
 }
 public enum BambuserVideoAsset : Swift.Sendable, Swift.Equatable, BambuserCommerceSDK.BambuserVideoType {
   case live(id: Swift.String)

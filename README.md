@@ -204,6 +204,39 @@ let view = try await bambuser.createShoppableVideoPlayer(
 setupUI(for: view)
 ```
 
+#### Shoppable Video Collection Metadata
+
+Use `getShoppableVideoPlayerCollectionMetadata` when you only need information about the videos in a playlist or SKU (e.g. to build a custom UI) without creating any players. It takes a `BambuserShoppableVideoAsset` directly, so no player configuration is needed. The asset must be a `.playlist` or `.sku` type.
+
+```swift
+let asset = BambuserShoppableVideoAsset.playlist(
+    BambuserShoppableVideoPlaylistInfo(
+        orgId: "xxx",
+        componentId: "xxx"
+    )
+)
+
+// Load the first page of metadata (default page = 1, pageSize = 15)
+let result = try await bambuser.getShoppableVideoPlayerCollectionMetadata(
+    videoAsset: asset,
+    page: 1,
+    pageSize: 15
+)
+
+// Access metadata for each video in the collection
+for video in result.videosMetadata {
+    let id = video.id             // Unique identifier of the video
+    let title = video.title       // Optional title
+    let hasAudio = video.hasAudio // Optional flag for audio availability
+    let preview = video.preview   // Optional preview image URL
+    let length = video.length     // Duration of the video in seconds
+}
+
+// Access pagination info
+let currentPage = result.pagination?.page
+let totalPages = result.pagination?.totalPages
+```
+
 #### Thumbnail Configuration
 
 The `thumbnail` dictionary in the video configuration controls how the video placeholder (thumbnail) behaves before playback begins.
