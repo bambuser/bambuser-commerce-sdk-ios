@@ -339,7 +339,7 @@ final class BambuserVideoController: UIViewController, BambuserPlayerViewDelegat
 
             Task {
                 let resposne = try? await self.bambuserSDK.track(
-                    event: "ecommerce:purchase",
+                    event: "purchase",
                     with: [
                         "transaction": [
                             "id":"abcd",
