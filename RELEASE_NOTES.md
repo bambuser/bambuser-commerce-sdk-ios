@@ -4,6 +4,15 @@ All notable changes to the Bambuser Commerce SDK for iOS.
 
 ---
 
+## 3.1.1
+
+### Improvements
+
+- Improved player layout consistency across different embed configurations.
+- Improved shopping event tracking accuracy.
+
+---
+
 ## 3.1.0
 
 ### New
