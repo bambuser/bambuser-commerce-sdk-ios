@@ -172,6 +172,54 @@ let pageSize = result.pagination.pageSize
 let totalItems = result.pagination.total
 ```
 
+#### Shoppable Videos (Product Group)
+
+Use this to fetch the videos associated with a product group id.
+
+```swift
+let videoContainerInfo = BambuserShoppableVideoGroupInfo(
+    orgId: "xxx",
+    groupId: "xxx"
+)
+
+let config = BambuserShoppableVideoConfiguration(
+    type: .group(videoContainerInfo),
+    events: ["*"],
+    configuration: [
+        "thumbnail": [
+            "enabled": true,
+            "showPlayButton": true,
+            "showLoadingIndicator": true,
+            "contentMode": "scaleAspectFill",
+            "preview": nil // You can pass a custom image URL to use as thumbnail. Default thumbnail set in dashboard is used otherwise.
+        ],
+        "previewConfig": [:],
+        "playerConfig": [
+            "buttons": [
+                "dismiss": "event",
+                "product": "none"
+            ]
+        ]
+    ]
+)
+
+// Load the first page of videos (default page = 1, pageSize = 15)
+let result = try await bambuser.createShoppableVideoPlayerCollection(
+    videoConfiguration: config,
+    page: 1, // Pass value of page to fetch
+    pageSize: 15
+)
+
+// Bind views to your UI
+setupUI(for: result.players)
+
+// Access pagination info
+let currentPage = result.pagination.page
+let totalPages = result.pagination.totalPages
+let pageSize = result.pagination.pageSize
+let totalItems = result.pagination.total
+```
+
 #### Shoppable Video (Single Video ID)
 
 ```swift
@@ -206,7 +254,7 @@ setupUI(for: view)
 
 #### Shoppable Video Collection Metadata
 
-Use `getShoppableVideoPlayerCollectionMetadata` when you only need information about the videos in a playlist or SKU (e.g. to build a custom UI) without creating any players. It takes a `BambuserShoppableVideoAsset` directly, so no player configuration is needed. The asset must be a `.playlist` or `.sku` type.
+Use `getShoppableVideoPlayerCollectionMetadata` when you only need information about the videos in a playlist, SKU or product group (e.g. to build a custom UI) without creating any players. It takes a `BambuserShoppableVideoAsset` directly, so no player configuration is needed. The asset must be a `.playlist`, `.sku` or `.group` type.
 
 ```swift
 let asset = BambuserShoppableVideoAsset.playlist(

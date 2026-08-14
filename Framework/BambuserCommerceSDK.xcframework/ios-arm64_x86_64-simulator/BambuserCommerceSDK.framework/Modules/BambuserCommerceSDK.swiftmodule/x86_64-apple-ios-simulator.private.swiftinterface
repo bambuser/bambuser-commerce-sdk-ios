@@ -1,7 +1,7 @@
 // swift-interface-format-version: 1.0
-// swift-compiler-version: Apple Swift version 6.3.3 (swiftlang-6.3.3.1.3 clang-2100.1.1.101)
+// swift-compiler-version: Apple Swift version 6.3.2 (swiftlang-6.3.2.1.108 clang-2100.1.1.101)
 // swift-module-flags: -target x86_64-apple-ios15.6-simulator -enable-objc-interop -enable-library-evolution -swift-version 6 -O -enable-experimental-feature DebugDescriptionMacro -module-name BambuserCommerceSDK
-// swift-module-flags-ignorable: -no-verify-emitted-module-interface -formal-cxx-interoperability-mode=off -interface-compiler-version 6.3.3
+// swift-module-flags-ignorable: -no-verify-emitted-module-interface -formal-cxx-interoperability-mode=off -interface-compiler-version 6.3.2
 import AVKit
 
 import Combine
@@ -32,6 +32,7 @@ public struct BambuserEventPayload : Swift.Sendable {
 public enum InlineVideoAsset : Swift.Sendable, Swift.Equatable, BambuserCommerceSDK.BambuserVideoType {
   case playlist(BambuserCommerceSDK.BambuserShoppableVideoPlaylistInfo)
   case sku(BambuserCommerceSDK.BambuserShoppableVideoSkuInfo)
+  case group(BambuserCommerceSDK.BambuserShoppableVideoGroupInfo)
   case videoId(Swift.String)
   public static func == (a: BambuserCommerceSDK.InlineVideoAsset, b: BambuserCommerceSDK.InlineVideoAsset) -> Swift.Bool
 }
@@ -142,6 +143,11 @@ public enum InlinePlayerMode : Swift.Equatable, Swift.Sendable {
     get
   }
 }
+public struct InlineGroupInfo : Swift.Sendable, Swift.Equatable {
+  public init(orgId: Swift.String, groupId: Swift.String)
+  public static func == (a: BambuserCommerceSDK.InlineGroupInfo, b: BambuserCommerceSDK.InlineGroupInfo) -> Swift.Bool
+}
+public typealias BambuserShoppableVideoGroupInfo = BambuserCommerceSDK.InlineGroupInfo
 public struct InlineVideoPlaylistInfo : Swift.Sendable, Swift.Equatable {
   public init(orgId: Swift.String, componentId: Swift.String)
   public static func == (a: BambuserCommerceSDK.InlineVideoPlaylistInfo, b: BambuserCommerceSDK.InlineVideoPlaylistInfo) -> Swift.Bool

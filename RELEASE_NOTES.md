@@ -4,6 +4,18 @@ All notable changes to the Bambuser Commerce SDK for iOS.
 
 ---
 
+## 3.2.0
+
+### New
+
+- Added a `.group` shoppable video asset type to fetch the videos associated with a product group id.
+
+### Improvements
+
+- Viewer counts are now shown in the player.
+
+---
+
 ## 3.1.1
 
 ### Improvements
