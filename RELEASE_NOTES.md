@@ -4,6 +4,18 @@ All notable changes to the Bambuser Commerce SDK for iOS.
 
 ---
 
+## 3.3.0
+
+### New
+
+- Added a `videoScaleMode` option to scale the video to fit or fill the player view.
+
+### Improvements
+
+- General bug fixes and improvements.
+
+---
+
 ## 3.2.0
 
 ### New

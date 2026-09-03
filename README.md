@@ -305,6 +305,46 @@ The `thumbnail` dictionary in the video configuration controls how the video pla
 - `"scaleAspectFit"` – Scales the image to fit within the view while maintaining its aspect ratio. May leave padding.
 - `"scaleAspectFill"` – Scales the image to fill the view while maintaining aspect ratio. May crop edges.
 
+### Video Scale Mode
+
+`videoScaleMode` controls how the video is scaled inside the player view. The video's aspect ratio is always preserved. The mode only decides what happens when the player view and the video have different aspect ratios:
+
+- `.fit` – The whole video fits inside the player view, leaving empty space on the axis where the ratios differ. This is the default.
+- `.fill` – The video covers the player view and the overflowing axis is cropped. Use this for full-bleed video.
+
+The size of the player view decides the result, so a player view with the same aspect ratio as the video looks identical in both modes.
+
+Set the mode when creating the player. It applies to live, pre-recorded, and shoppable video.
+
+```swift
+// Live / pre-recorded
+let playerView = bambuser.createPlayerView(
+    videoConfiguration: .init(
+        type: .live(id: "xxx"),
+        events: ["*"],
+        configuration: ["autoplay": true],
+        videoScaleMode: .fill
+    )
+)
+
+// Shoppable
+let config = BambuserShoppableVideoConfiguration(
+    type: .playlist(playlistInfo),
+    events: ["*"],
+    configuration: [:],
+    videoScaleMode: .fill
+)
+```
+
+**Full screen:** `.fill` covers the player view minus any safe area edge the player still respects. For video that runs under the status bar and home indicator, ignore those edges when creating the player and give the player view the full screen (`.ignoresSafeArea()` in SwiftUI).
+
+```swift
+let playerView = bambuser.createPlayerView(
+    videoConfiguration: config,
+    ignoredSafeAreaEdges: .init(.all) // or .init(.top), .init(.top, .bottom)
+)
+```
+
 ### Player Configuration
 
 The `previewConfig` and `playerConfig` sections allow you to customize the appearance and behavior of both the video preview and the player itself.

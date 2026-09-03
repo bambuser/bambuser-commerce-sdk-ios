@@ -3270,7 +3270,7 @@
           {
             "kind": "Constructor",
             "name": "init",
-            "printedName": "init(type:events:configuration:)",
+            "printedName": "init(type:events:configuration:videoScaleMode:)",
             "children": [
               {
                 "kind": "TypeNominal",
@@ -3332,11 +3332,18 @@
                   }
                 ],
                 "usr": "s:Sq"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "BambuserVideoScaleMode",
+                "printedName": "BambuserCommerceSDK.BambuserVideoScaleMode",
+                "hasDefaultArg": true,
+                "usr": "s:19BambuserCommerceSDK0A14VideoScaleModeO"
               }
             ],
             "declKind": "Constructor",
-            "usr": "s:19BambuserCommerceSDK0A24VideoPlayerConfigurationV4type6events13configurationACyxGx_SaySSGSDySSs8Sendable_pGSgtcfc",
-            "mangledName": "$s19BambuserCommerceSDK0A24VideoPlayerConfigurationV4type6events13configurationACyxGx_SaySSGSDySSs8Sendable_pGSgtcfc",
+            "usr": "s:19BambuserCommerceSDK0A24VideoPlayerConfigurationV4type6events13configuration14videoScaleModeACyxGx_SaySSGSDySSs8Sendable_pGSgAA0adkL0Otcfc",
+            "mangledName": "$s19BambuserCommerceSDK0A24VideoPlayerConfigurationV4type6events13configuration14videoScaleModeACyxGx_SaySSGSDySSs8Sendable_pGSgAA0adkL0Otcfc",
             "moduleName": "BambuserCommerceSDK",
             "genericSig": "<τ_0_0 where τ_0_0 : BambuserCommerceSDK.BambuserVideoType>",
             "sugared_genericSig": "<VideoType where VideoType : BambuserCommerceSDK.BambuserVideoType>",
@@ -3371,6 +3378,250 @@
             "printedName": "Escapable",
             "usr": "s:s9EscapableP",
             "mangledName": "$ss9EscapableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Sendable",
+            "printedName": "Sendable",
+            "usr": "s:s8SendableP",
+            "mangledName": "$ss8SendableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "SendableMetatype",
+            "printedName": "SendableMetatype",
+            "usr": "s:s16SendableMetatypeP",
+            "mangledName": "$ss16SendableMetatypeP"
+          }
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "BambuserCommerceSDK",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "TypeDecl",
+        "name": "BambuserVideoScaleMode",
+        "printedName": "BambuserVideoScaleMode",
+        "children": [
+          {
+            "kind": "Var",
+            "name": "fit",
+            "printedName": "fit",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(BambuserCommerceSDK.BambuserVideoScaleMode.Type) -> BambuserCommerceSDK.BambuserVideoScaleMode",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "BambuserVideoScaleMode",
+                    "printedName": "BambuserCommerceSDK.BambuserVideoScaleMode",
+                    "usr": "s:19BambuserCommerceSDK0A14VideoScaleModeO"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Metatype",
+                    "printedName": "BambuserCommerceSDK.BambuserVideoScaleMode.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "BambuserVideoScaleMode",
+                        "printedName": "BambuserCommerceSDK.BambuserVideoScaleMode",
+                        "usr": "s:19BambuserCommerceSDK0A14VideoScaleModeO"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "EnumElement",
+            "usr": "s:19BambuserCommerceSDK0A14VideoScaleModeO3fityA2CmF",
+            "mangledName": "$s19BambuserCommerceSDK0A14VideoScaleModeO3fityA2CmF",
+            "moduleName": "BambuserCommerceSDK",
+            "declAttributes": [
+              "RawDocComment"
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "fill",
+            "printedName": "fill",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(BambuserCommerceSDK.BambuserVideoScaleMode.Type) -> BambuserCommerceSDK.BambuserVideoScaleMode",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "BambuserVideoScaleMode",
+                    "printedName": "BambuserCommerceSDK.BambuserVideoScaleMode",
+                    "usr": "s:19BambuserCommerceSDK0A14VideoScaleModeO"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Metatype",
+                    "printedName": "BambuserCommerceSDK.BambuserVideoScaleMode.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "BambuserVideoScaleMode",
+                        "printedName": "BambuserCommerceSDK.BambuserVideoScaleMode",
+                        "usr": "s:19BambuserCommerceSDK0A14VideoScaleModeO"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "EnumElement",
+            "usr": "s:19BambuserCommerceSDK0A14VideoScaleModeO4fillyA2CmF",
+            "mangledName": "$s19BambuserCommerceSDK0A14VideoScaleModeO4fillyA2CmF",
+            "moduleName": "BambuserCommerceSDK",
+            "declAttributes": [
+              "RawDocComment"
+            ]
+          },
+          {
+            "kind": "Constructor",
+            "name": "init",
+            "printedName": "init(rawValue:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "BambuserCommerceSDK.BambuserVideoScaleMode?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "BambuserVideoScaleMode",
+                    "printedName": "BambuserCommerceSDK.BambuserVideoScaleMode",
+                    "usr": "s:19BambuserCommerceSDK0A14VideoScaleModeO"
+                  }
+                ],
+                "usr": "s:Sq"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              }
+            ],
+            "declKind": "Constructor",
+            "usr": "s:19BambuserCommerceSDK0A14VideoScaleModeO8rawValueACSgSS_tcfc",
+            "mangledName": "$s19BambuserCommerceSDK0A14VideoScaleModeO8rawValueACSgSS_tcfc",
+            "moduleName": "BambuserCommerceSDK",
+            "implicit": true,
+            "init_kind": "Designated"
+          },
+          {
+            "kind": "Var",
+            "name": "rawValue",
+            "printedName": "rawValue",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:19BambuserCommerceSDK0A14VideoScaleModeO8rawValueSSvp",
+            "mangledName": "$s19BambuserCommerceSDK0A14VideoScaleModeO8rawValueSSvp",
+            "moduleName": "BambuserCommerceSDK",
+            "implicit": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:19BambuserCommerceSDK0A14VideoScaleModeO8rawValueSSvg",
+                "mangledName": "$s19BambuserCommerceSDK0A14VideoScaleModeO8rawValueSSvg",
+                "moduleName": "BambuserCommerceSDK",
+                "implicit": true,
+                "accessorKind": "get"
+              }
+            ]
+          }
+        ],
+        "declKind": "Enum",
+        "usr": "s:19BambuserCommerceSDK0A14VideoScaleModeO",
+        "mangledName": "$s19BambuserCommerceSDK0A14VideoScaleModeO",
+        "moduleName": "BambuserCommerceSDK",
+        "declAttributes": [
+          "AccessControl",
+          "RawDocComment"
+        ],
+        "enumRawTypeName": "String",
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Copyable",
+            "printedName": "Copyable",
+            "usr": "s:s8CopyableP",
+            "mangledName": "$ss8CopyableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Equatable",
+            "printedName": "Equatable",
+            "usr": "s:SQ",
+            "mangledName": "$sSQ"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Escapable",
+            "printedName": "Escapable",
+            "usr": "s:s9EscapableP",
+            "mangledName": "$ss9EscapableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Hashable",
+            "printedName": "Hashable",
+            "usr": "s:SH",
+            "mangledName": "$sSH"
+          },
+          {
+            "kind": "Conformance",
+            "name": "RawRepresentable",
+            "printedName": "RawRepresentable",
+            "children": [
+              {
+                "kind": "TypeWitness",
+                "name": "RawValue",
+                "printedName": "RawValue",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ]
+              }
+            ],
+            "usr": "s:SY",
+            "mangledName": "$sSY"
           },
           {
             "kind": "Conformance",
@@ -6991,7 +7242,7 @@
     {
       "filePath": "\/Users\/saeid\/Documents\/projects\/frameworks\/commerce-sdk\/bambuser-commerce-sdk-ios\/Files\/Sources\/BambuserCommerceSDK\/Interface\/Types\/BambuserVideoPlayerConfiguration.swift",
       "kind": "Array",
-      "offset": 1246,
+      "offset": 1451,
       "length": 5,
       "value": "[\"*\"]"
     },
@@ -7082,7 +7333,7 @@
     {
       "filePath": "\/Users\/saeid\/Documents\/projects\/frameworks\/commerce-sdk\/bambuser-commerce-sdk-ios\/Files\/Sources\/BambuserCommerceSDK\/Implementation\/VideoPlayer\/ShoppableVideo\/InlineVideoContainerConfig.swift",
       "kind": "BooleanLiteral",
-      "offset": 406,
+      "offset": 460,
       "length": 4,
       "value": "true"
     },
@@ -7194,77 +7445,77 @@
     {
       "filePath": "\/Users\/saeid\/Documents\/projects\/frameworks\/commerce-sdk\/bambuser-commerce-sdk-ios\/Files\/Sources\/BambuserCommerceSDK\/Implementation\/VideoPlayer\/Player\/PlayerViewImpl.swift",
       "kind": "BooleanLiteral",
-      "offset": 1066,
+      "offset": 1113,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/saeid\/Documents\/projects\/frameworks\/commerce-sdk\/bambuser-commerce-sdk-ios\/Files\/Sources\/BambuserCommerceSDK\/Implementation\/VideoPlayer\/Player\/PlayerViewImpl.swift",
       "kind": "BooleanLiteral",
-      "offset": 9745,
+      "offset": 9906,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/saeid\/Documents\/projects\/frameworks\/commerce-sdk\/bambuser-commerce-sdk-ios\/Files\/Sources\/BambuserCommerceSDK\/Implementation\/VideoPlayer\/Player\/PlayerViewImpl.swift",
       "kind": "BooleanLiteral",
-      "offset": 14550,
+      "offset": 14760,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/saeid\/Documents\/projects\/frameworks\/commerce-sdk\/bambuser-commerce-sdk-ios\/Files\/Sources\/BambuserCommerceSDK\/Implementation\/VideoPlayer\/Player\/PlayerViewImpl.swift",
       "kind": "IntegerLiteral",
-      "offset": 15411,
+      "offset": 15621,
       "length": 2,
       "value": "29"
     },
     {
       "filePath": "\/Users\/saeid\/Documents\/projects\/frameworks\/commerce-sdk\/bambuser-commerce-sdk-ios\/Files\/Sources\/BambuserCommerceSDK\/Implementation\/VideoPlayer\/Player\/PlayerViewImpl.swift",
       "kind": "IntegerLiteral",
-      "offset": 15414,
+      "offset": 15624,
       "length": 3,
       "value": "255"
     },
     {
       "filePath": "\/Users\/saeid\/Documents\/projects\/frameworks\/commerce-sdk\/bambuser-commerce-sdk-ios\/Files\/Sources\/BambuserCommerceSDK\/Implementation\/VideoPlayer\/Player\/PlayerViewImpl.swift",
       "kind": "IntegerLiteral",
-      "offset": 15426,
+      "offset": 15636,
       "length": 2,
       "value": "29"
     },
     {
       "filePath": "\/Users\/saeid\/Documents\/projects\/frameworks\/commerce-sdk\/bambuser-commerce-sdk-ios\/Files\/Sources\/BambuserCommerceSDK\/Implementation\/VideoPlayer\/Player\/PlayerViewImpl.swift",
       "kind": "IntegerLiteral",
-      "offset": 15429,
+      "offset": 15639,
       "length": 3,
       "value": "255"
     },
     {
       "filePath": "\/Users\/saeid\/Documents\/projects\/frameworks\/commerce-sdk\/bambuser-commerce-sdk-ios\/Files\/Sources\/BambuserCommerceSDK\/Implementation\/VideoPlayer\/Player\/PlayerViewImpl.swift",
       "kind": "IntegerLiteral",
-      "offset": 15440,
+      "offset": 15650,
       "length": 2,
       "value": "29"
     },
     {
       "filePath": "\/Users\/saeid\/Documents\/projects\/frameworks\/commerce-sdk\/bambuser-commerce-sdk-ios\/Files\/Sources\/BambuserCommerceSDK\/Implementation\/VideoPlayer\/Player\/PlayerViewImpl.swift",
       "kind": "IntegerLiteral",
-      "offset": 15443,
+      "offset": 15653,
       "length": 3,
       "value": "255"
     },
     {
       "filePath": "\/Users\/saeid\/Documents\/projects\/frameworks\/commerce-sdk\/bambuser-commerce-sdk-ios\/Files\/Sources\/BambuserCommerceSDK\/Implementation\/VideoPlayer\/Player\/PlayerViewImpl.swift",
       "kind": "IntegerLiteral",
-      "offset": 15455,
+      "offset": 15665,
       "length": 1,
       "value": "1"
     },
     {
       "filePath": "\/Users\/saeid\/Documents\/projects\/frameworks\/commerce-sdk\/bambuser-commerce-sdk-ios\/Files\/Sources\/BambuserCommerceSDK\/Implementation\/VideoPlayer\/Player\/PlayerViewImpl.swift",
       "kind": "BooleanLiteral",
-      "offset": 15682,
+      "offset": 15892,
       "length": 5,
       "value": "false"
     },

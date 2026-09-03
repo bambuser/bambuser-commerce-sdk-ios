@@ -103,7 +103,16 @@ public enum BambuserVideoAsset : Swift.Sendable, Swift.Equatable, BambuserCommer
 }
 public typealias BambuserVideoConfiguration = BambuserCommerceSDK.BambuserVideoPlayerConfiguration<BambuserCommerceSDK.BambuserVideoAsset>
 public struct BambuserVideoPlayerConfiguration<VideoType> : Swift.Sendable where VideoType : BambuserCommerceSDK.BambuserVideoType {
-  public init(type: VideoType, events: [Swift.String] = ["*"], configuration: [Swift.String : any Swift.Sendable]?)
+  public init(type: VideoType, events: [Swift.String] = ["*"], configuration: [Swift.String : any Swift.Sendable]?, videoScaleMode: BambuserCommerceSDK.BambuserVideoScaleMode = .fit)
+}
+public enum BambuserVideoScaleMode : Swift.String, Swift.Sendable {
+  case fit
+  case fill
+  public init?(rawValue: Swift.String)
+  public typealias RawValue = Swift.String
+  public var rawValue: Swift.String {
+    get
+  }
 }
 public enum BambuserVideoState : Swift.Sendable {
   case ready
@@ -209,6 +218,9 @@ public struct SafeAreaEdges : Swift.Sendable, Swift.Equatable {
   public static func == (a: BambuserCommerceSDK.SafeAreaEdges, b: BambuserCommerceSDK.SafeAreaEdges) -> Swift.Bool
 }
 extension BambuserCommerceSDK.BambuserSDK : Swift.Sendable {}
+extension BambuserCommerceSDK.BambuserVideoScaleMode : Swift.Equatable {}
+extension BambuserCommerceSDK.BambuserVideoScaleMode : Swift.Hashable {}
+extension BambuserCommerceSDK.BambuserVideoScaleMode : Swift.RawRepresentable {}
 extension BambuserCommerceSDK.BambuserVideoState : Swift.Equatable {}
 extension BambuserCommerceSDK.BambuserVideoState : Swift.Hashable {}
 extension BambuserCommerceSDK.InlinePlayerMode : Swift.Hashable {}
