@@ -4,6 +4,14 @@ All notable changes to the Bambuser Commerce SDK for iOS.
 
 ---
 
+## 3.3.1
+
+### Improvements
+
+- General fixes and improvements.
+
+---
+
 ## 3.3.0
 
 ### New

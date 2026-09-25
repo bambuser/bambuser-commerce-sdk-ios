@@ -7,7 +7,6 @@
 
 import UIKit
 import BambuserCommerceSDK
-import Combine
 
 /// A view controller responsible for handling **product hydration** and cart interactions
 /// using the Bambuser Commerce SDK.
@@ -28,8 +27,6 @@ final class BambuserVideoController: UIViewController, BambuserPlayerViewDelegat
     /// The show ID for the live video.
     var showId: String
 
-    private var cancellables = Set<AnyCancellable>()
-
     init(navManager: NavigationManager, showId: String) {
         self.navManager = navManager
         self.showId = showId
@@ -44,15 +41,6 @@ final class BambuserVideoController: UIViewController, BambuserPlayerViewDelegat
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .systemBackground
-
-        NotificationCenter.default
-            .publisher(for: UIApplication.didBecomeActiveNotification)
-            .sink { [weak self] notification in
-                DispatchQueue.main.async {
-                    self?.playerView?.play()
-                }
-            }
-            .store(in: &cancellables)
 
 
         /// Configures the Bambuser video player.
