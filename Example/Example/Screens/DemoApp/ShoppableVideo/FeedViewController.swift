@@ -85,6 +85,21 @@ final class ReelsFeedViewController: UIViewController {
         }
     }
 
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        resetAllPlayers()
+    }
+
+    private func resetAllPlayers() {
+        for player in players {
+            player.pause()
+            player.resetPlayer()
+        }
+        currentIndex = min(startIndex, max(players.count - 1, 0))
+        didStartInitialScroll = false
+    }
+
+    // MARK: - Setup
     private func setupScrollView() {
         view.addSubview(scrollView)
         scrollView.addSubview(videoStack)

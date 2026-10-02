@@ -285,6 +285,92 @@ let currentPage = result.pagination?.page
 let totalPages = result.pagination?.totalPages
 ```
 
+#### Shoppable Videos (SDK Layout)
+
+Use `attachShoppableView` when you want the SDK to lay out the videos for you instead of binding each player yourself. The SDK fetches the appearance configured for the placement in Bam Hub, picks the matching layout, installs it into the view you supply, and loads more pages as the user scrolls.
+
+The layout comes from the `mode` set in the appearance. If `mode` is missing or not recognised, the SDK falls back to `.row` and reports `.unknown`.
+
+- `.grid` – Videos in columns, scrolling vertically.
+- `.row` – A single horizontally scrolling row.
+- `.story` – A horizontally scrolling strip of round previews.
+- `.fab` – A floating, draggable widget you attach into your window. It sizes itself and has a close button that dismisses it.
+
+Sizing, spacing, tap behavior, autoplay and limits are all driven by the appearance. See the [Documentation](#documentation) section below for the available options.
+
+The configuration must use a `.playlist`, `.sku` or `.group` type.
+
+```swift
+let config = BambuserShoppableVideoConfiguration(
+    type: .playlist(playlistInfo),
+    events: ["*"],
+    configuration: [
+        "thumbnail": ["enabled": false],
+        "playerConfig": [
+            "buttons": ["dismiss": "event"],
+            "currency": "SEK",
+            "locale": "en-US"
+        ]
+    ]
+)
+
+let shoppableView = try await bambuser.attachShoppableView(
+    into: hostView,          // Your UIView. The layout fills it.
+    videoConfiguration: config,
+    pageSize: 15
+)
+shoppableView.delegate = self          // Layout-level events
+shoppableView.playerDelegate = self    // Per-player events for every contained player
+
+// Inspect what the SDK resolved
+let mode = shoppableView.mode          // .grid, .row, .story, .fab or .unknown
+let players = shoppableView.players
+let pagination = shoppableView.pagination
+```
+
+Tapping a video may open a fullscreen carousel, depending on the appearance. The carousel is added to the window the host view is in, so the host view must be in the view hierarchy. The player's close button dismisses it, so keep `"dismiss": "event"` in `playerConfig` as in the example above.
+
+**Sizing:** the view reports the height it needs as its `intrinsicContentSize`; the width comes from the host. A host view without its own height constraint therefore resizes to fit as pages load and on rotation. If you set the size yourself, read `contentSize` or implement `shoppableView(_:didChangeContentSize:)`. `contentSize` is `nil` for `.fab`.
+
+**Lifecycle:** the view releases its players and cancels fetches when it is deallocated, so dropping your reference and removing the host view is enough. Call `cleanup()` to release it earlier; this is the only path that fires `shoppableViewDidDismiss(_:)`. Keep a strong reference to the returned `BambuserShoppableView` for as long as you need the delegate callbacks.
+
+**Delegate:** `BambuserShoppableViewDelegate` callbacks are optional and run on the main actor. `playerDelegate` receives the regular `BambuserPlayerViewDelegate` events for every player inside the layout.
+
+Item callbacks carry a `BambuserShoppableItem` with the player's `index` in `players`, its `playerId` and the video's `metadata` (id, title, preview, length, hasAudio).
+
+```swift
+extension MyViewController: BambuserShoppableViewDelegate {
+    // Pagination. Page 1 loads before the view is returned, so these start at page 2.
+    func shoppableView(_ view: BambuserShoppableView, willLoadPage page: Int) {}
+    func shoppableView(_ view: BambuserShoppableView, didLoadPage page: Int, totalPages: Int?) {}
+    func shoppableView(_ view: BambuserShoppableView, didFailToLoadPage page: Int, error: Error) {}
+
+    // A player was tapped. The SDK then does what the appearance's focusMode says.
+    func shoppableView(_ view: BambuserShoppableView, didSelect item: BambuserShoppableItem) {}
+
+    // Fullscreen overlay, when focusMode opens one.
+    func shoppableView(_ view: BambuserShoppableView, didEnterFullscreen item: BambuserShoppableItem) {}
+    func shoppableView(_ view: BambuserShoppableView, didExitFullscreen item: BambuserShoppableItem) {}
+
+    // The active video changed: cascade moved on, FAB advanced, or the user paged in fullscreen.
+    func shoppableView(_ view: BambuserShoppableView, didChangeCurrent item: BambuserShoppableItem) {}
+
+    // The view closed itself, for example from the FAB close button.
+    func shoppableViewDidDismiss(_ view: BambuserShoppableView) {
+        shoppable = nil
+    }
+
+    // Only needed if you size the view yourself. With Auto Layout the host resizes on its own.
+    func shoppableView(_ view: BambuserShoppableView, didChangeContentSize size: CGSize) {}
+}
+```
+
+`playerConfig` and `previewConfig` still apply to every player inside the layout, and values you pass there take precedence over the appearance.
+
+> **Important:** the FAB behaves and looks different from the other layouts. It floats over your content, sizes itself and dismisses on its own. Create a separate appearance in Bam Hub for the FAB, on its own placement, instead of reusing the appearance you use for grid, row or story.
+
+See the demo app for a complete integration of each layout, including the FAB: `Example/Example/Screens/DemoApp/ShoppableVideo`.
+
 #### Thumbnail Configuration
 
 The `thumbnail` dictionary in the video configuration controls how the video placeholder (thumbnail) behaves before playback begins.

@@ -5,6 +5,7 @@
 import AVKit
 
 import Combine
+import CoreGraphics
 import Foundation
 import Swift
 import UIKit
@@ -93,8 +94,59 @@ extension BambuserCommerceSDK.BambuserPlayerViewDelegate {
   
   @_Concurrency.MainActor public func createShoppableVideoPlayer(videoConfiguration: BambuserCommerceSDK.BambuserShoppableVideoConfiguration) async throws -> some UIKit.UIView & BambuserCommerceSDK.BambuserPlayerView
   
+  @discardableResult
+  @_Concurrency.MainActor public func attachShoppableView(into container: UIKit.UIView, videoConfiguration: BambuserCommerceSDK.BambuserShoppableVideoConfiguration, pageSize: Swift.Int = 15) async throws -> any BambuserCommerceSDK.BambuserShoppableView
   @_Concurrency.MainActor public func createShoppableVideoPlayerCollection(videoConfiguration: BambuserCommerceSDK.BambuserShoppableVideoConfiguration, page: Swift.Int = 1, pageSize: Swift.Int = 15) async throws -> BambuserCommerceSDK.BambuserPlayerCollection
   @_Concurrency.MainActor public func getShoppableVideoPlayerCollectionMetadata(videoAsset: BambuserCommerceSDK.BambuserShoppableVideoAsset, page: Swift.Int = 1, pageSize: Swift.Int = 15) async throws -> BambuserCommerceSDK.BambuserCollectionMetadata
+}
+public struct BambuserShoppableItem : Swift.Sendable, Swift.Equatable {
+  public let index: Swift.Int
+  public let playerId: Swift.String
+  public let metadata: BambuserCommerceSDK.VideoMetadata
+  public static func == (a: BambuserCommerceSDK.BambuserShoppableItem, b: BambuserCommerceSDK.BambuserShoppableItem) -> Swift.Bool
+}
+public enum BambuserShoppableMode : Swift.String, Swift.Sendable {
+  case grid
+  case row
+  case story
+  case fab
+  case unknown
+  public init?(rawValue: Swift.String)
+  public typealias RawValue = Swift.String
+  public var rawValue: Swift.String {
+    get
+  }
+}
+@_Concurrency.MainActor public protocol BambuserShoppableView : AnyObject {
+  @_Concurrency.MainActor var delegate: (any BambuserCommerceSDK.BambuserShoppableViewDelegate)? { get set }
+  @_Concurrency.MainActor var playerDelegate: (any BambuserCommerceSDK.BambuserPlayerViewDelegate)? { get set }
+  @_Concurrency.MainActor var players: [any BambuserCommerceSDK.BambuserPlayerView] { get }
+  @_Concurrency.MainActor var pagination: BambuserCommerceSDK.Pagination { get }
+  @_Concurrency.MainActor var mode: BambuserCommerceSDK.BambuserShoppableMode { get }
+  @_Concurrency.MainActor var contentSize: CoreFoundation.CGSize? { get }
+  @_Concurrency.MainActor func cleanup()
+}
+@_Concurrency.MainActor public protocol BambuserShoppableViewDelegate : AnyObject {
+  @_Concurrency.MainActor func shoppableView(_ view: any BambuserCommerceSDK.BambuserShoppableView, willLoadPage page: Swift.Int)
+  @_Concurrency.MainActor func shoppableView(_ view: any BambuserCommerceSDK.BambuserShoppableView, didLoadPage page: Swift.Int, totalPages: Swift.Int?)
+  @_Concurrency.MainActor func shoppableView(_ view: any BambuserCommerceSDK.BambuserShoppableView, didFailToLoadPage page: Swift.Int, error: any Swift.Error)
+  @_Concurrency.MainActor func shoppableViewDidDismiss(_ view: any BambuserCommerceSDK.BambuserShoppableView)
+  @_Concurrency.MainActor func shoppableView(_ view: any BambuserCommerceSDK.BambuserShoppableView, didChangeContentSize size: CoreFoundation.CGSize)
+  @_Concurrency.MainActor func shoppableView(_ view: any BambuserCommerceSDK.BambuserShoppableView, didSelect item: BambuserCommerceSDK.BambuserShoppableItem)
+  @_Concurrency.MainActor func shoppableView(_ view: any BambuserCommerceSDK.BambuserShoppableView, didEnterFullscreen item: BambuserCommerceSDK.BambuserShoppableItem)
+  @_Concurrency.MainActor func shoppableView(_ view: any BambuserCommerceSDK.BambuserShoppableView, didExitFullscreen item: BambuserCommerceSDK.BambuserShoppableItem)
+  @_Concurrency.MainActor func shoppableView(_ view: any BambuserCommerceSDK.BambuserShoppableView, didChangeCurrent item: BambuserCommerceSDK.BambuserShoppableItem)
+}
+extension BambuserCommerceSDK.BambuserShoppableViewDelegate {
+  @_Concurrency.MainActor public func shoppableView(_ view: any BambuserCommerceSDK.BambuserShoppableView, willLoadPage page: Swift.Int)
+  @_Concurrency.MainActor public func shoppableView(_ view: any BambuserCommerceSDK.BambuserShoppableView, didLoadPage page: Swift.Int, totalPages: Swift.Int?)
+  @_Concurrency.MainActor public func shoppableView(_ view: any BambuserCommerceSDK.BambuserShoppableView, didFailToLoadPage page: Swift.Int, error: any Swift.Error)
+  @_Concurrency.MainActor public func shoppableViewDidDismiss(_ view: any BambuserCommerceSDK.BambuserShoppableView)
+  @_Concurrency.MainActor public func shoppableView(_ view: any BambuserCommerceSDK.BambuserShoppableView, didChangeContentSize size: CoreFoundation.CGSize)
+  @_Concurrency.MainActor public func shoppableView(_ view: any BambuserCommerceSDK.BambuserShoppableView, didSelect item: BambuserCommerceSDK.BambuserShoppableItem)
+  @_Concurrency.MainActor public func shoppableView(_ view: any BambuserCommerceSDK.BambuserShoppableView, didEnterFullscreen item: BambuserCommerceSDK.BambuserShoppableItem)
+  @_Concurrency.MainActor public func shoppableView(_ view: any BambuserCommerceSDK.BambuserShoppableView, didExitFullscreen item: BambuserCommerceSDK.BambuserShoppableItem)
+  @_Concurrency.MainActor public func shoppableView(_ view: any BambuserCommerceSDK.BambuserShoppableView, didChangeCurrent item: BambuserCommerceSDK.BambuserShoppableItem)
 }
 public enum BambuserVideoAsset : Swift.Sendable, Swift.Equatable, BambuserCommerceSDK.BambuserVideoType {
   case live(id: Swift.String)
@@ -218,6 +270,9 @@ public struct SafeAreaEdges : Swift.Sendable, Swift.Equatable {
   public static func == (a: BambuserCommerceSDK.SafeAreaEdges, b: BambuserCommerceSDK.SafeAreaEdges) -> Swift.Bool
 }
 extension BambuserCommerceSDK.BambuserSDK : Swift.Sendable {}
+extension BambuserCommerceSDK.BambuserShoppableMode : Swift.Equatable {}
+extension BambuserCommerceSDK.BambuserShoppableMode : Swift.Hashable {}
+extension BambuserCommerceSDK.BambuserShoppableMode : Swift.RawRepresentable {}
 extension BambuserCommerceSDK.BambuserVideoScaleMode : Swift.Equatable {}
 extension BambuserCommerceSDK.BambuserVideoScaleMode : Swift.Hashable {}
 extension BambuserCommerceSDK.BambuserVideoScaleMode : Swift.RawRepresentable {}

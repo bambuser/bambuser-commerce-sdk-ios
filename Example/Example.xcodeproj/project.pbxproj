@@ -18,13 +18,18 @@
 		31F0D246C2E427DD85EA01C3 /* MockClientProduct.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6CFD489F21785CD2DCC9D84 /* MockClientProduct.swift */; };
 		36E9DBCB1E3B0A86DDE690F9 /* ShopHomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB70C1D3EE89E08CD901AD0C /* ShopHomeView.swift */; };
 		437DD48C73DF5EA79ADA7E32 /* WebPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F622B2963FD51CD2B6DD7C0F /* WebPageView.swift */; };
+		468D6768F01C37C128A8C5EB /* NativeShoppableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 643BEEE402009CF65FB2AADF /* NativeShoppableViewController.swift */; };
+		4B63A74DDFA195043F121DCD /* FABShopView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D7416D8DBFB3968F59D05B5 /* FABShopView.swift */; };
+		57E397E7623043FBFEA34A52 /* DemoProduct.swift in Sources */ = {isa = PBXBuildFile; fileRef = 527F5332ABE4F6DDEA21EE04 /* DemoProduct.swift */; };
 		5A25A7715622CAF92CD7CB20 /* CartViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 008DBDDA8DD2A1FD17A865A3 /* CartViewModel.swift */; };
 		5A4E4F74D8396389D70091D3 /* CartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42D6EC734DF5D0D3530695F1 /* CartView.swift */; };
+		64843184CB34C8C9E6E69484 /* NativeShoppableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA896568719A9C1E780F2BD1 /* NativeShoppableView.swift */; };
 		72D70586490334D19B03CF6A /* ShoppableVideoConfigs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89E8856B1E98C6EB2F9CB9E6 /* ShoppableVideoConfigs.swift */; };
 		7921EF7160CDAB2FFCC5181E /* SizeBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A3FDD3B4BA84B3D5DB4C794 /* SizeBuilder.swift */; };
 		7A9FD6939207915E0B13A2F6 /* BambuserFeedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A5EA5C0F1D0BD3FA31A9B82 /* BambuserFeedView.swift */; };
 		7FC7A53EE6B59826ED3A938F /* GridFormat.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4CF158D30E68A3FC6716B78 /* GridFormat.swift */; };
 		811890E475DFC308ED9D9468 /* VariationBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AB37078F9FDCA74B7429D5B /* VariationBuilder.swift */; };
+		822B3D5768DF78BA738A70B6 /* FABShopViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EDB7478BE543CB93A49C577 /* FABShopViewController.swift */; };
 		8293AF4116F299B899F34CEF /* NavigationRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = A599F2B2596BDFF9A07A88C6 /* NavigationRow.swift */; };
 		867D4DDF6FED7FAC9373D6AA /* Builder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B5967E4E0F242B37840626E /* Builder.swift */; };
 		89A203AAC14426881C568585 /* ShopCatalog.swift in Sources */ = {isa = PBXBuildFile; fileRef = F556453B063A50B63FC3D49D /* ShopCatalog.swift */; };
@@ -53,17 +58,21 @@
 		1B0F886A4B9F82ED58CA27DC /* Shows.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Shows.swift; sourceTree = "<group>"; };
 		351EBE93A7113C1A21698BAF /* HydratedProduct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HydratedProduct.swift; sourceTree = "<group>"; };
 		3A3FDD3B4BA84B3D5DB4C794 /* SizeBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SizeBuilder.swift; sourceTree = "<group>"; };
+		3D7416D8DBFB3968F59D05B5 /* FABShopView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FABShopView.swift; sourceTree = "<group>"; };
 		42D6EC734DF5D0D3530695F1 /* CartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartView.swift; sourceTree = "<group>"; };
 		46EA82D44AB15218A0D8A0B9 /* BambuserVideoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BambuserVideoView.swift; sourceTree = "<group>"; };
 		49E97E93454278BC9BAC2EFA /* SpotlightFormat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpotlightFormat.swift; sourceTree = "<group>"; };
 		523AFCB21C23E80513823BEC /* WishlistViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WishlistViewModel.swift; sourceTree = "<group>"; };
+		527F5332ABE4F6DDEA21EE04 /* DemoProduct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemoProduct.swift; sourceTree = "<group>"; };
 		5A5EA5C0F1D0BD3FA31A9B82 /* BambuserFeedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BambuserFeedView.swift; sourceTree = "<group>"; };
 		5C9BA92B4C370D66B9AB0595 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5CB22A95C0371A0981463F17 /* ShoppableVideoEventRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppableVideoEventRouter.swift; sourceTree = "<group>"; };
+		643BEEE402009CF65FB2AADF /* NativeShoppableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NativeShoppableViewController.swift; sourceTree = "<group>"; };
 		667C52B59D4B548C5FD07FEE /* CarouselFormat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarouselFormat.swift; sourceTree = "<group>"; };
 		67F1AA6B3AB3FC8E79980E71 /* FeedFormatsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedFormatsView.swift; sourceTree = "<group>"; };
 		6B5967E4E0F242B37840626E /* Builder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Builder.swift; sourceTree = "<group>"; };
 		78B244A2A1249580339CF9DB /* RootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootView.swift; sourceTree = "<group>"; };
+		7EDB7478BE543CB93A49C577 /* FABShopViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FABShopViewController.swift; sourceTree = "<group>"; };
 		838341F7888E1A0E7F29F68C /* BambuserVideoController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BambuserVideoController.swift; sourceTree = "<group>"; };
 		88DBEBF120797164A20B6D96 /* WishlistView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WishlistView.swift; sourceTree = "<group>"; };
 		89E8856B1E98C6EB2F9CB9E6 /* ShoppableVideoConfigs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppableVideoConfigs.swift; sourceTree = "<group>"; };
@@ -71,10 +80,11 @@
 		9838AFC700D09ED05BF2CBA8 /* StoriesFormat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoriesFormat.swift; sourceTree = "<group>"; };
 		9CDDAB6A8501C875A66AFA02 /* DataModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataModels.swift; sourceTree = "<group>"; };
 		A599F2B2596BDFF9A07A88C6 /* NavigationRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationRow.swift; sourceTree = "<group>"; };
+		AA896568719A9C1E780F2BD1 /* NativeShoppableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NativeShoppableView.swift; sourceTree = "<group>"; };
 		AE5C5D0C437A951D7C58A968 /* ProductHydrationDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductHydrationDataSource.swift; sourceTree = "<group>"; };
 		B552F866DF963A0A7468A0DB /* LiveView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiveView.swift; sourceTree = "<group>"; };
 		BE47E25A9F90C2BBB7DC21B9 /* Storage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Storage.swift; sourceTree = "<group>"; };
-		BF1D93CEF93A3AAF04A58ADD /* demo.app */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.application; path = demo.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		BF1D93CEF93A3AAF04A58ADD /* demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = demo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C1D1A9520B3C6ABF0CAAEBD4 /* Product.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Product.swift; sourceTree = "<group>"; };
 		C4CF158D30E68A3FC6716B78 /* GridFormat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GridFormat.swift; sourceTree = "<group>"; };
 		C5A517B6A95AB927931CD8D0 /* Navigation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Navigation.swift; sourceTree = "<group>"; };
@@ -149,9 +159,14 @@
 			children = (
 				5A5EA5C0F1D0BD3FA31A9B82 /* BambuserFeedView.swift */,
 				667C52B59D4B548C5FD07FEE /* CarouselFormat.swift */,
+				527F5332ABE4F6DDEA21EE04 /* DemoProduct.swift */,
+				3D7416D8DBFB3968F59D05B5 /* FABShopView.swift */,
+				7EDB7478BE543CB93A49C577 /* FABShopViewController.swift */,
 				67F1AA6B3AB3FC8E79980E71 /* FeedFormatsView.swift */,
 				EA7071C6332BA84BB9877D3B /* FeedViewController.swift */,
 				C4CF158D30E68A3FC6716B78 /* GridFormat.swift */,
+				AA896568719A9C1E780F2BD1 /* NativeShoppableView.swift */,
+				643BEEE402009CF65FB2AADF /* NativeShoppableViewController.swift */,
 				F556453B063A50B63FC3D49D /* ShopCatalog.swift */,
 				DB70C1D3EE89E08CD901AD0C /* ShopHomeView.swift */,
 				89E8856B1E98C6EB2F9CB9E6 /* ShoppableVideoConfigs.swift */,
@@ -279,8 +294,6 @@
 			attributes = {
 				BuildIndependentTargetsInParallel = YES;
 				LastUpgradeCheck = 2630;
-				TargetAttributes = {
-				};
 			};
 			buildConfigurationList = 36FC72E69D906F48675C62BF /* Build configuration list for PBXProject "Example" */;
 			developmentRegion = en;
@@ -329,7 +342,10 @@
 				5A4E4F74D8396389D70091D3 /* CartView.swift in Sources */,
 				5A25A7715622CAF92CD7CB20 /* CartViewModel.swift in Sources */,
 				8FA73C139F8E4018B1E83A5D /* DataModels.swift in Sources */,
+				57E397E7623043FBFEA34A52 /* DemoProduct.swift in Sources */,
 				9CD3A313D393F76E1EAC4A12 /* ExampleApp.swift in Sources */,
+				4B63A74DDFA195043F121DCD /* FABShopView.swift in Sources */,
+				822B3D5768DF78BA738A70B6 /* FABShopViewController.swift in Sources */,
 				B6410D897D84C8133B104641 /* FeedFormatsView.swift in Sources */,
 				A55C1F59B357C4F38F619CD2 /* FeedViewController.swift in Sources */,
 				7FC7A53EE6B59826ED3A938F /* GridFormat.swift in Sources */,
@@ -337,6 +353,8 @@
 				9960116AF33DFEC5BF4F11BD /* LiveView.swift in Sources */,
 				FC8416392C1C19BFEB655A56 /* LiveViewModel.swift in Sources */,
 				31F0D246C2E427DD85EA01C3 /* MockClientProduct.swift in Sources */,
+				64843184CB34C8C9E6E69484 /* NativeShoppableView.swift in Sources */,
+				468D6768F01C37C128A8C5EB /* NativeShoppableViewController.swift in Sources */,
 				C38EE6FA3E0A5DE891519262 /* Navigation.swift in Sources */,
 				8293AF4116F299B899F34CEF /* NavigationRow.swift in Sources */,
 				2262B7A5215B0586D393C197 /* Product.swift in Sources */,
@@ -371,15 +389,16 @@
 				ENABLE_BITCODE = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Example/Resources/Info.plist;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait";
 				IPHONEOS_DEPLOYMENT_TARGET = 17.6;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 3.3.1;
-				OTHER_LDFLAGS = (
-					"-ObjC",
-				);
+				MARKETING_VERSION = 4.0.0;
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = com.bambuser.commercesdk.demo;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -450,15 +469,16 @@
 				ENABLE_BITCODE = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Example/Resources/Info.plist;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait";
 				IPHONEOS_DEPLOYMENT_TARGET = 17.6;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 3.3.1;
-				OTHER_LDFLAGS = (
-					"-ObjC",
-				);
+				MARKETING_VERSION = 4.0.0;
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = com.bambuser.commercesdk.demo;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -556,7 +576,7 @@
 			repositoryURL = "https://github.com/bambuser/bambuser-commerce-sdk-ios/";
 			requirement = {
 				kind = upToNextMajorVersion;
-				minimumVersion = 3.0.0;
+				minimumVersion = 4.0.0;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */

@@ -11,7 +11,9 @@ import BambuserCommerceSDK
 @MainActor
 final class ShoppableVideoEventRouter: NSObject {
     private weak var navManager: NavigationManager?
+    private let tab: Tab
     private var players: [BambuserPlayerView] = []
+    private weak var shoppableView: BambuserShoppableView?
 
     weak var presenter: UIViewController?
 
@@ -20,21 +22,33 @@ final class ShoppableVideoEventRouter: NSObject {
     var onThumbnailTapped: ((String) -> Void)?
     var onPreviewShouldExpand: ((String) -> Void)?
 
-    init(navManager: NavigationManager) {
+    init(navManager: NavigationManager, tab: Tab = .shoppableVideo) {
         self.navManager = navManager
+        self.tab = tab
     }
 
     func bind(_ players: [BambuserPlayerView]) {
         self.players = players
+        players.forEach { $0.delegate = self }
+        enablePictureInPicture(players)
+    }
+
+    /// The shoppable view owns its players' delegates, so events arrive through playerDelegate.
+    func attach(to view: BambuserShoppableView) {
+        shoppableView = view
+        view.playerDelegate = self
+        enablePictureInPicture(view.players)
+    }
+
+    func enablePictureInPicture(_ players: [BambuserPlayerView]) {
         for p in players {
-            p.delegate = self
             p.pipController?.isEnabled = true
             p.pipController?.delegate = self
         }
     }
 
     private func player(with id: String) -> BambuserPlayerView? {
-        players.first { $0.id == id }
+        players.first { $0.id == id } ?? shoppableView?.players.first { $0.id == id }
     }
 
     private func hydrate(data: [String: Sendable], for player: BambuserPlayerView) async throws {
@@ -122,6 +136,7 @@ final class ShoppableVideoEventRouter: NSObject {
 
 extension ShoppableVideoEventRouter: BambuserPlayerViewDelegate {
     func onNewEventReceived(_ id: String, event: BambuserEventPayload) {
+        print("[Player \(id.prefix(6))] event: \(event.type) \(event.data)")
         guard let player = player(with: id) else { return }
 
         switch event.type {
@@ -129,7 +144,7 @@ extension ShoppableVideoEventRouter: BambuserPlayerViewDelegate {
             if let eventDict = event.data["event"] as? [String: Sendable],
                let urlString = eventDict["url"] as? String,
                let url = URL(string: urlString) {
-                navManager?.present(sheet: .openWebPage(url), in: .shoppableVideo)
+                navManager?.present(sheet: .openWebPage(url), in: tab)
             }
 
         case "should-add-item-to-cart", "should-update-item-in-cart":
@@ -182,6 +197,7 @@ extension ShoppableVideoEventRouter: BambuserPlayerViewDelegate {
     }
 
     func onVideoStatusChanged(_ id: String, state: BambuserVideoState) {
+        print("[Player \(id.prefix(6))] state: \(state)")
         onStateChanged?(id, state)
     }
 
@@ -194,14 +210,16 @@ extension ShoppableVideoEventRouter: BambuserPlayerViewDelegate {
     }
 
     func onThumbnailTapped(_ id: String) {
+        print("[Player \(id.prefix(6))] thumbnail tapped")
         onThumbnailTapped?(id)
     }
 }
 
 extension ShoppableVideoEventRouter: BambuserPictureInPictureDelegate {
     func onPictureInPictureStateChanged(_ id: String, state: PlayerPipState) {
+        print("[Player \(id.prefix(6))] pip: \(state)")
         if state == .restored {
-            navManager?.switchTo(.shoppableVideo)
+            navManager?.switchTo(tab)
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) { [weak self] in
                 self?.player(with: id)?.play()
             }

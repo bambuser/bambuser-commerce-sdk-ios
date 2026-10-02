@@ -11,6 +11,8 @@ import Foundation
 enum Tab: Hashable, CaseIterable {
     case live
     case shoppableVideo
+    case appearances
+    case fab
     case wishlist
     case cart
 }
@@ -59,6 +61,7 @@ enum SheetDestination: Hashable, Identifiable {
 
 final class NavigationManager: ObservableObject {
     @Published var currentTab: Tab
+    @Published var isShoppableFullscreen = false
 
     @Published private var pushStack: [Tab: [PushDestination]]
     @Published private var sheetStack: [Tab: SheetDestination?]

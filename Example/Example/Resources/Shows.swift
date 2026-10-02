@@ -24,4 +24,11 @@ struct Show {
             componentId: "mobile-sdk-tests"
         )
     }
+
+    static var FABPlaylistConfig: BambuserShoppableVideoPlaylistInfo {
+        BambuserShoppableVideoPlaylistInfo(
+            orgId: organizationId,
+            componentId: "mobile-sdk-fab-tests"
+        )
+    }
 }

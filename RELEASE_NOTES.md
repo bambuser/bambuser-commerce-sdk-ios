@@ -4,6 +4,21 @@ All notable changes to the Bambuser Commerce SDK for iOS.
 
 ---
 
+## 4.0.0
+
+### New
+
+- Introducing Appearances, a new way to bring shoppable videos into your app. Use the new `attachShoppableView` API to embed videos in ready-made grid, row, story and floating button layouts, all managed from BamHub.
+
+### Improvements
+
+- Improved edge-to-edge layout for curtains and other overlay views.
+- Shoppable videos now fill the whole screen in fullscreen for a true edge-to-edge experience.
+- Added support for low latency mode with Picture in Picture.
+- General stability improvements and bug fixes.
+
+---
+
 ## 3.3.1
 
 ### Improvements
