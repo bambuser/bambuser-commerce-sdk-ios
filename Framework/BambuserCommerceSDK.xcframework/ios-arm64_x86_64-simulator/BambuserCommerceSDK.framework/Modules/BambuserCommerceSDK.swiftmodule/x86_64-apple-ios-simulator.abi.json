@@ -5,6 +5,56 @@
     "printedName": "BambuserCommerceSDK",
     "children": [
       {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "BambuserCommerceSDK",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "BambuserCommerceSDK",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "BambuserCommerceSDK",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "BambuserCommerceSDK",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "BambuserCommerceSDK",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
         "kind": "TypeDecl",
         "name": "BambuserCollectionMetadata",
         "printedName": "BambuserCollectionMetadata",
@@ -2691,6 +2741,13 @@
         ]
       },
       {
+        "kind": "Import",
+        "name": "UIKit",
+        "printedName": "UIKit",
+        "declKind": "Import",
+        "moduleName": "BambuserCommerceSDK"
+      },
+      {
         "kind": "TypeDecl",
         "name": "BambuserSDK",
         "printedName": "BambuserSDK",
@@ -2903,6 +2960,58 @@
           },
           {
             "kind": "Function",
+            "name": "attachShoppableView",
+            "printedName": "attachShoppableView(into:videoConfiguration:pageSize:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "BambuserShoppableView",
+                "printedName": "any BambuserCommerceSDK.BambuserShoppableView",
+                "usr": "s:19BambuserCommerceSDK0A13ShoppableViewP"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "UIView",
+                "printedName": "UIKit.UIView",
+                "usr": "c:objc(cs)UIView"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "BambuserVideoPlayerConfiguration",
+                "printedName": "BambuserCommerceSDK.BambuserVideoPlayerConfiguration<BambuserCommerceSDK.InlineVideoAsset>",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "InlineVideoAsset",
+                    "printedName": "BambuserCommerceSDK.InlineVideoAsset",
+                    "usr": "s:19BambuserCommerceSDK16InlineVideoAssetO"
+                  }
+                ],
+                "usr": "s:19BambuserCommerceSDK0A24VideoPlayerConfigurationV"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Int",
+                "printedName": "Swift.Int",
+                "hasDefaultArg": true,
+                "usr": "s:Si"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:19BambuserCommerceSDK0aC0V19attachShoppableView4into18videoConfiguration8pageSizeAA0aeF0_pSo6UIViewC_AA0a11VideoPlayerI0VyAA06InlineM5AssetOGSitYaKF",
+            "mangledName": "$s19BambuserCommerceSDK0aC0V19attachShoppableView4into18videoConfiguration8pageSizeAA0aeF0_pSo6UIViewC_AA0a11VideoPlayerI0VyAA06InlineM5AssetOGSitYaKF",
+            "moduleName": "BambuserCommerceSDK",
+            "declAttributes": [
+              "Custom",
+              "AccessControl",
+              "DiscardableResult",
+              "RawDocComment"
+            ],
+            "throwing": true,
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
             "name": "createShoppableVideoPlayerCollection",
             "printedName": "createShoppableVideoPlayerCollection(videoConfiguration:page:pageSize:)",
             "children": [
@@ -3028,6 +3137,1807 @@
             "printedName": "Sendable",
             "usr": "s:s8SendableP",
             "mangledName": "$ss8SendableP"
+          }
+        ]
+      },
+      {
+        "kind": "TypeDecl",
+        "name": "BambuserShoppableItem",
+        "printedName": "BambuserShoppableItem",
+        "children": [
+          {
+            "kind": "Var",
+            "name": "index",
+            "printedName": "index",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Int",
+                "printedName": "Swift.Int",
+                "usr": "s:Si"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:19BambuserCommerceSDK0A13ShoppableItemV5indexSivp",
+            "mangledName": "$s19BambuserCommerceSDK0A13ShoppableItemV5indexSivp",
+            "moduleName": "BambuserCommerceSDK",
+            "declAttributes": [
+              "HasStorage",
+              "AccessControl",
+              "RawDocComment"
+            ],
+            "isLet": true,
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Int",
+                    "printedName": "Swift.Int",
+                    "usr": "s:Si"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:19BambuserCommerceSDK0A13ShoppableItemV5indexSivg",
+                "mangledName": "$s19BambuserCommerceSDK0A13ShoppableItemV5indexSivg",
+                "moduleName": "BambuserCommerceSDK",
+                "implicit": true,
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "playerId",
+            "printedName": "playerId",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:19BambuserCommerceSDK0A13ShoppableItemV8playerIdSSvp",
+            "mangledName": "$s19BambuserCommerceSDK0A13ShoppableItemV8playerIdSSvp",
+            "moduleName": "BambuserCommerceSDK",
+            "declAttributes": [
+              "HasStorage",
+              "AccessControl",
+              "RawDocComment"
+            ],
+            "isLet": true,
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:19BambuserCommerceSDK0A13ShoppableItemV8playerIdSSvg",
+                "mangledName": "$s19BambuserCommerceSDK0A13ShoppableItemV8playerIdSSvg",
+                "moduleName": "BambuserCommerceSDK",
+                "implicit": true,
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "metadata",
+            "printedName": "metadata",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "VideoMetadata",
+                "printedName": "BambuserCommerceSDK.VideoMetadata",
+                "usr": "s:19BambuserCommerceSDK13VideoMetadataV"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:19BambuserCommerceSDK0A13ShoppableItemV8metadataAA13VideoMetadataVvp",
+            "mangledName": "$s19BambuserCommerceSDK0A13ShoppableItemV8metadataAA13VideoMetadataVvp",
+            "moduleName": "BambuserCommerceSDK",
+            "declAttributes": [
+              "HasStorage",
+              "AccessControl",
+              "RawDocComment"
+            ],
+            "isLet": true,
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "VideoMetadata",
+                    "printedName": "BambuserCommerceSDK.VideoMetadata",
+                    "usr": "s:19BambuserCommerceSDK13VideoMetadataV"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:19BambuserCommerceSDK0A13ShoppableItemV8metadataAA13VideoMetadataVvg",
+                "mangledName": "$s19BambuserCommerceSDK0A13ShoppableItemV8metadataAA13VideoMetadataVvg",
+                "moduleName": "BambuserCommerceSDK",
+                "implicit": true,
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Function",
+            "name": "==",
+            "printedName": "==(_:_:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Bool",
+                "printedName": "Swift.Bool",
+                "usr": "s:Sb"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "BambuserShoppableItem",
+                "printedName": "BambuserCommerceSDK.BambuserShoppableItem",
+                "usr": "s:19BambuserCommerceSDK0A13ShoppableItemV"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "BambuserShoppableItem",
+                "printedName": "BambuserCommerceSDK.BambuserShoppableItem",
+                "usr": "s:19BambuserCommerceSDK0A13ShoppableItemV"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:19BambuserCommerceSDK0A13ShoppableItemV2eeoiySbAC_ACtFZ",
+            "mangledName": "$s19BambuserCommerceSDK0A13ShoppableItemV2eeoiySbAC_ACtFZ",
+            "moduleName": "BambuserCommerceSDK",
+            "static": true,
+            "implicit": true,
+            "funcSelfKind": "NonMutating"
+          }
+        ],
+        "declKind": "Struct",
+        "usr": "s:19BambuserCommerceSDK0A13ShoppableItemV",
+        "mangledName": "$s19BambuserCommerceSDK0A13ShoppableItemV",
+        "moduleName": "BambuserCommerceSDK",
+        "declAttributes": [
+          "AccessControl",
+          "RawDocComment"
+        ],
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Copyable",
+            "printedName": "Copyable",
+            "usr": "s:s8CopyableP",
+            "mangledName": "$ss8CopyableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Escapable",
+            "printedName": "Escapable",
+            "usr": "s:s9EscapableP",
+            "mangledName": "$ss9EscapableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Sendable",
+            "printedName": "Sendable",
+            "usr": "s:s8SendableP",
+            "mangledName": "$ss8SendableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Equatable",
+            "printedName": "Equatable",
+            "usr": "s:SQ",
+            "mangledName": "$sSQ"
+          },
+          {
+            "kind": "Conformance",
+            "name": "SendableMetatype",
+            "printedName": "SendableMetatype",
+            "usr": "s:s16SendableMetatypeP",
+            "mangledName": "$ss16SendableMetatypeP"
+          }
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "UIKit",
+        "printedName": "UIKit",
+        "declKind": "Import",
+        "moduleName": "BambuserCommerceSDK",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "TypeDecl",
+        "name": "BambuserShoppableMode",
+        "printedName": "BambuserShoppableMode",
+        "children": [
+          {
+            "kind": "Var",
+            "name": "grid",
+            "printedName": "grid",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(BambuserCommerceSDK.BambuserShoppableMode.Type) -> BambuserCommerceSDK.BambuserShoppableMode",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "BambuserShoppableMode",
+                    "printedName": "BambuserCommerceSDK.BambuserShoppableMode",
+                    "usr": "s:19BambuserCommerceSDK0A13ShoppableModeO"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Metatype",
+                    "printedName": "BambuserCommerceSDK.BambuserShoppableMode.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "BambuserShoppableMode",
+                        "printedName": "BambuserCommerceSDK.BambuserShoppableMode",
+                        "usr": "s:19BambuserCommerceSDK0A13ShoppableModeO"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "EnumElement",
+            "usr": "s:19BambuserCommerceSDK0A13ShoppableModeO4gridyA2CmF",
+            "mangledName": "$s19BambuserCommerceSDK0A13ShoppableModeO4gridyA2CmF",
+            "moduleName": "BambuserCommerceSDK"
+          },
+          {
+            "kind": "Var",
+            "name": "row",
+            "printedName": "row",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(BambuserCommerceSDK.BambuserShoppableMode.Type) -> BambuserCommerceSDK.BambuserShoppableMode",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "BambuserShoppableMode",
+                    "printedName": "BambuserCommerceSDK.BambuserShoppableMode",
+                    "usr": "s:19BambuserCommerceSDK0A13ShoppableModeO"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Metatype",
+                    "printedName": "BambuserCommerceSDK.BambuserShoppableMode.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "BambuserShoppableMode",
+                        "printedName": "BambuserCommerceSDK.BambuserShoppableMode",
+                        "usr": "s:19BambuserCommerceSDK0A13ShoppableModeO"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "EnumElement",
+            "usr": "s:19BambuserCommerceSDK0A13ShoppableModeO3rowyA2CmF",
+            "mangledName": "$s19BambuserCommerceSDK0A13ShoppableModeO3rowyA2CmF",
+            "moduleName": "BambuserCommerceSDK"
+          },
+          {
+            "kind": "Var",
+            "name": "story",
+            "printedName": "story",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(BambuserCommerceSDK.BambuserShoppableMode.Type) -> BambuserCommerceSDK.BambuserShoppableMode",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "BambuserShoppableMode",
+                    "printedName": "BambuserCommerceSDK.BambuserShoppableMode",
+                    "usr": "s:19BambuserCommerceSDK0A13ShoppableModeO"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Metatype",
+                    "printedName": "BambuserCommerceSDK.BambuserShoppableMode.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "BambuserShoppableMode",
+                        "printedName": "BambuserCommerceSDK.BambuserShoppableMode",
+                        "usr": "s:19BambuserCommerceSDK0A13ShoppableModeO"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "EnumElement",
+            "usr": "s:19BambuserCommerceSDK0A13ShoppableModeO5storyyA2CmF",
+            "mangledName": "$s19BambuserCommerceSDK0A13ShoppableModeO5storyyA2CmF",
+            "moduleName": "BambuserCommerceSDK"
+          },
+          {
+            "kind": "Var",
+            "name": "fab",
+            "printedName": "fab",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(BambuserCommerceSDK.BambuserShoppableMode.Type) -> BambuserCommerceSDK.BambuserShoppableMode",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "BambuserShoppableMode",
+                    "printedName": "BambuserCommerceSDK.BambuserShoppableMode",
+                    "usr": "s:19BambuserCommerceSDK0A13ShoppableModeO"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Metatype",
+                    "printedName": "BambuserCommerceSDK.BambuserShoppableMode.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "BambuserShoppableMode",
+                        "printedName": "BambuserCommerceSDK.BambuserShoppableMode",
+                        "usr": "s:19BambuserCommerceSDK0A13ShoppableModeO"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "EnumElement",
+            "usr": "s:19BambuserCommerceSDK0A13ShoppableModeO3fabyA2CmF",
+            "mangledName": "$s19BambuserCommerceSDK0A13ShoppableModeO3fabyA2CmF",
+            "moduleName": "BambuserCommerceSDK"
+          },
+          {
+            "kind": "Var",
+            "name": "unknown",
+            "printedName": "unknown",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(BambuserCommerceSDK.BambuserShoppableMode.Type) -> BambuserCommerceSDK.BambuserShoppableMode",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "BambuserShoppableMode",
+                    "printedName": "BambuserCommerceSDK.BambuserShoppableMode",
+                    "usr": "s:19BambuserCommerceSDK0A13ShoppableModeO"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Metatype",
+                    "printedName": "BambuserCommerceSDK.BambuserShoppableMode.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "BambuserShoppableMode",
+                        "printedName": "BambuserCommerceSDK.BambuserShoppableMode",
+                        "usr": "s:19BambuserCommerceSDK0A13ShoppableModeO"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "EnumElement",
+            "usr": "s:19BambuserCommerceSDK0A13ShoppableModeO7unknownyA2CmF",
+            "mangledName": "$s19BambuserCommerceSDK0A13ShoppableModeO7unknownyA2CmF",
+            "moduleName": "BambuserCommerceSDK"
+          },
+          {
+            "kind": "Constructor",
+            "name": "init",
+            "printedName": "init(rawValue:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "BambuserCommerceSDK.BambuserShoppableMode?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "BambuserShoppableMode",
+                    "printedName": "BambuserCommerceSDK.BambuserShoppableMode",
+                    "usr": "s:19BambuserCommerceSDK0A13ShoppableModeO"
+                  }
+                ],
+                "usr": "s:Sq"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              }
+            ],
+            "declKind": "Constructor",
+            "usr": "s:19BambuserCommerceSDK0A13ShoppableModeO8rawValueACSgSS_tcfc",
+            "mangledName": "$s19BambuserCommerceSDK0A13ShoppableModeO8rawValueACSgSS_tcfc",
+            "moduleName": "BambuserCommerceSDK",
+            "implicit": true,
+            "init_kind": "Designated"
+          },
+          {
+            "kind": "Var",
+            "name": "rawValue",
+            "printedName": "rawValue",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:19BambuserCommerceSDK0A13ShoppableModeO8rawValueSSvp",
+            "mangledName": "$s19BambuserCommerceSDK0A13ShoppableModeO8rawValueSSvp",
+            "moduleName": "BambuserCommerceSDK",
+            "implicit": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:19BambuserCommerceSDK0A13ShoppableModeO8rawValueSSvg",
+                "mangledName": "$s19BambuserCommerceSDK0A13ShoppableModeO8rawValueSSvg",
+                "moduleName": "BambuserCommerceSDK",
+                "implicit": true,
+                "accessorKind": "get"
+              }
+            ]
+          }
+        ],
+        "declKind": "Enum",
+        "usr": "s:19BambuserCommerceSDK0A13ShoppableModeO",
+        "mangledName": "$s19BambuserCommerceSDK0A13ShoppableModeO",
+        "moduleName": "BambuserCommerceSDK",
+        "declAttributes": [
+          "AccessControl",
+          "RawDocComment"
+        ],
+        "enumRawTypeName": "String",
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Copyable",
+            "printedName": "Copyable",
+            "usr": "s:s8CopyableP",
+            "mangledName": "$ss8CopyableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Equatable",
+            "printedName": "Equatable",
+            "usr": "s:SQ",
+            "mangledName": "$sSQ"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Escapable",
+            "printedName": "Escapable",
+            "usr": "s:s9EscapableP",
+            "mangledName": "$ss9EscapableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Hashable",
+            "printedName": "Hashable",
+            "usr": "s:SH",
+            "mangledName": "$sSH"
+          },
+          {
+            "kind": "Conformance",
+            "name": "RawRepresentable",
+            "printedName": "RawRepresentable",
+            "children": [
+              {
+                "kind": "TypeWitness",
+                "name": "RawValue",
+                "printedName": "RawValue",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ]
+              }
+            ],
+            "usr": "s:SY",
+            "mangledName": "$sSY"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Sendable",
+            "printedName": "Sendable",
+            "usr": "s:s8SendableP",
+            "mangledName": "$ss8SendableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "SendableMetatype",
+            "printedName": "SendableMetatype",
+            "usr": "s:s16SendableMetatypeP",
+            "mangledName": "$ss16SendableMetatypeP"
+          }
+        ]
+      },
+      {
+        "kind": "TypeDecl",
+        "name": "BambuserShoppableView",
+        "printedName": "BambuserShoppableView",
+        "children": [
+          {
+            "kind": "Var",
+            "name": "delegate",
+            "printedName": "delegate",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "(any BambuserCommerceSDK.BambuserShoppableViewDelegate)?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "BambuserShoppableViewDelegate",
+                    "printedName": "any BambuserCommerceSDK.BambuserShoppableViewDelegate",
+                    "usr": "s:19BambuserCommerceSDK0A21ShoppableViewDelegateP"
+                  }
+                ],
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:19BambuserCommerceSDK0A13ShoppableViewP8delegateAA0adE8Delegate_pSgvp",
+            "mangledName": "$s19BambuserCommerceSDK0A13ShoppableViewP8delegateAA0adE8Delegate_pSgvp",
+            "moduleName": "BambuserCommerceSDK",
+            "protocolReq": true,
+            "declAttributes": [
+              "Custom",
+              "RawDocComment"
+            ],
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Optional",
+                    "printedName": "(any BambuserCommerceSDK.BambuserShoppableViewDelegate)?",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "BambuserShoppableViewDelegate",
+                        "printedName": "any BambuserCommerceSDK.BambuserShoppableViewDelegate",
+                        "usr": "s:19BambuserCommerceSDK0A21ShoppableViewDelegateP"
+                      }
+                    ],
+                    "usr": "s:Sq"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:19BambuserCommerceSDK0A13ShoppableViewP8delegateAA0adE8Delegate_pSgvg",
+                "mangledName": "$s19BambuserCommerceSDK0A13ShoppableViewP8delegateAA0adE8Delegate_pSgvg",
+                "moduleName": "BambuserCommerceSDK",
+                "genericSig": "<τ_0_0 where τ_0_0 : BambuserCommerceSDK.BambuserShoppableView>",
+                "sugared_genericSig": "<Self where Self : BambuserCommerceSDK.BambuserShoppableView>",
+                "protocolReq": true,
+                "reqNewWitnessTableEntry": true,
+                "accessorKind": "get"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Set",
+                "printedName": "Set()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Optional",
+                    "printedName": "(any BambuserCommerceSDK.BambuserShoppableViewDelegate)?",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "BambuserShoppableViewDelegate",
+                        "printedName": "any BambuserCommerceSDK.BambuserShoppableViewDelegate",
+                        "usr": "s:19BambuserCommerceSDK0A21ShoppableViewDelegateP"
+                      }
+                    ],
+                    "usr": "s:Sq"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:19BambuserCommerceSDK0A13ShoppableViewP8delegateAA0adE8Delegate_pSgvs",
+                "mangledName": "$s19BambuserCommerceSDK0A13ShoppableViewP8delegateAA0adE8Delegate_pSgvs",
+                "moduleName": "BambuserCommerceSDK",
+                "genericSig": "<τ_0_0 where τ_0_0 : BambuserCommerceSDK.BambuserShoppableView>",
+                "sugared_genericSig": "<Self where Self : BambuserCommerceSDK.BambuserShoppableView>",
+                "protocolReq": true,
+                "reqNewWitnessTableEntry": true,
+                "accessorKind": "set"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Modify",
+                "printedName": "Modify()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:19BambuserCommerceSDK0A13ShoppableViewP8delegateAA0adE8Delegate_pSgvM",
+                "mangledName": "$s19BambuserCommerceSDK0A13ShoppableViewP8delegateAA0adE8Delegate_pSgvM",
+                "moduleName": "BambuserCommerceSDK",
+                "genericSig": "<τ_0_0 where τ_0_0 : BambuserCommerceSDK.BambuserShoppableView>",
+                "sugared_genericSig": "<Self where Self : BambuserCommerceSDK.BambuserShoppableView>",
+                "protocolReq": true,
+                "implicit": true,
+                "reqNewWitnessTableEntry": true,
+                "accessorKind": "_modify"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "playerDelegate",
+            "printedName": "playerDelegate",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "(any BambuserCommerceSDK.BambuserPlayerViewDelegate)?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "BambuserPlayerViewDelegate",
+                    "printedName": "any BambuserCommerceSDK.BambuserPlayerViewDelegate",
+                    "usr": "s:19BambuserCommerceSDK0A18PlayerViewDelegateP"
+                  }
+                ],
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:19BambuserCommerceSDK0A13ShoppableViewP14playerDelegateAA0a6PlayereG0_pSgvp",
+            "mangledName": "$s19BambuserCommerceSDK0A13ShoppableViewP14playerDelegateAA0a6PlayereG0_pSgvp",
+            "moduleName": "BambuserCommerceSDK",
+            "protocolReq": true,
+            "declAttributes": [
+              "Custom",
+              "RawDocComment"
+            ],
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Optional",
+                    "printedName": "(any BambuserCommerceSDK.BambuserPlayerViewDelegate)?",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "BambuserPlayerViewDelegate",
+                        "printedName": "any BambuserCommerceSDK.BambuserPlayerViewDelegate",
+                        "usr": "s:19BambuserCommerceSDK0A18PlayerViewDelegateP"
+                      }
+                    ],
+                    "usr": "s:Sq"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:19BambuserCommerceSDK0A13ShoppableViewP14playerDelegateAA0a6PlayereG0_pSgvg",
+                "mangledName": "$s19BambuserCommerceSDK0A13ShoppableViewP14playerDelegateAA0a6PlayereG0_pSgvg",
+                "moduleName": "BambuserCommerceSDK",
+                "genericSig": "<τ_0_0 where τ_0_0 : BambuserCommerceSDK.BambuserShoppableView>",
+                "sugared_genericSig": "<Self where Self : BambuserCommerceSDK.BambuserShoppableView>",
+                "protocolReq": true,
+                "reqNewWitnessTableEntry": true,
+                "accessorKind": "get"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Set",
+                "printedName": "Set()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Optional",
+                    "printedName": "(any BambuserCommerceSDK.BambuserPlayerViewDelegate)?",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "BambuserPlayerViewDelegate",
+                        "printedName": "any BambuserCommerceSDK.BambuserPlayerViewDelegate",
+                        "usr": "s:19BambuserCommerceSDK0A18PlayerViewDelegateP"
+                      }
+                    ],
+                    "usr": "s:Sq"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:19BambuserCommerceSDK0A13ShoppableViewP14playerDelegateAA0a6PlayereG0_pSgvs",
+                "mangledName": "$s19BambuserCommerceSDK0A13ShoppableViewP14playerDelegateAA0a6PlayereG0_pSgvs",
+                "moduleName": "BambuserCommerceSDK",
+                "genericSig": "<τ_0_0 where τ_0_0 : BambuserCommerceSDK.BambuserShoppableView>",
+                "sugared_genericSig": "<Self where Self : BambuserCommerceSDK.BambuserShoppableView>",
+                "protocolReq": true,
+                "reqNewWitnessTableEntry": true,
+                "accessorKind": "set"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Modify",
+                "printedName": "Modify()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:19BambuserCommerceSDK0A13ShoppableViewP14playerDelegateAA0a6PlayereG0_pSgvM",
+                "mangledName": "$s19BambuserCommerceSDK0A13ShoppableViewP14playerDelegateAA0a6PlayereG0_pSgvM",
+                "moduleName": "BambuserCommerceSDK",
+                "genericSig": "<τ_0_0 where τ_0_0 : BambuserCommerceSDK.BambuserShoppableView>",
+                "sugared_genericSig": "<Self where Self : BambuserCommerceSDK.BambuserShoppableView>",
+                "protocolReq": true,
+                "implicit": true,
+                "reqNewWitnessTableEntry": true,
+                "accessorKind": "_modify"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "players",
+            "printedName": "players",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Array",
+                "printedName": "[any BambuserCommerceSDK.BambuserPlayerView]",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "BambuserPlayerView",
+                    "printedName": "any BambuserCommerceSDK.BambuserPlayerView",
+                    "usr": "s:19BambuserCommerceSDK0A10PlayerViewP"
+                  }
+                ],
+                "usr": "s:Sa"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:19BambuserCommerceSDK0A13ShoppableViewP7playersSayAA0a6PlayerE0_pGvp",
+            "mangledName": "$s19BambuserCommerceSDK0A13ShoppableViewP7playersSayAA0a6PlayerE0_pGvp",
+            "moduleName": "BambuserCommerceSDK",
+            "protocolReq": true,
+            "declAttributes": [
+              "Custom",
+              "RawDocComment"
+            ],
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Array",
+                    "printedName": "[any BambuserCommerceSDK.BambuserPlayerView]",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "BambuserPlayerView",
+                        "printedName": "any BambuserCommerceSDK.BambuserPlayerView",
+                        "usr": "s:19BambuserCommerceSDK0A10PlayerViewP"
+                      }
+                    ],
+                    "usr": "s:Sa"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:19BambuserCommerceSDK0A13ShoppableViewP7playersSayAA0a6PlayerE0_pGvg",
+                "mangledName": "$s19BambuserCommerceSDK0A13ShoppableViewP7playersSayAA0a6PlayerE0_pGvg",
+                "moduleName": "BambuserCommerceSDK",
+                "genericSig": "<τ_0_0 where τ_0_0 : BambuserCommerceSDK.BambuserShoppableView>",
+                "sugared_genericSig": "<Self where Self : BambuserCommerceSDK.BambuserShoppableView>",
+                "protocolReq": true,
+                "reqNewWitnessTableEntry": true,
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "pagination",
+            "printedName": "pagination",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Pagination",
+                "printedName": "BambuserCommerceSDK.Pagination",
+                "usr": "s:19BambuserCommerceSDK10PaginationV"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:19BambuserCommerceSDK0A13ShoppableViewP10paginationAA10PaginationVvp",
+            "mangledName": "$s19BambuserCommerceSDK0A13ShoppableViewP10paginationAA10PaginationVvp",
+            "moduleName": "BambuserCommerceSDK",
+            "protocolReq": true,
+            "declAttributes": [
+              "Custom",
+              "RawDocComment"
+            ],
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Pagination",
+                    "printedName": "BambuserCommerceSDK.Pagination",
+                    "usr": "s:19BambuserCommerceSDK10PaginationV"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:19BambuserCommerceSDK0A13ShoppableViewP10paginationAA10PaginationVvg",
+                "mangledName": "$s19BambuserCommerceSDK0A13ShoppableViewP10paginationAA10PaginationVvg",
+                "moduleName": "BambuserCommerceSDK",
+                "genericSig": "<τ_0_0 where τ_0_0 : BambuserCommerceSDK.BambuserShoppableView>",
+                "sugared_genericSig": "<Self where Self : BambuserCommerceSDK.BambuserShoppableView>",
+                "protocolReq": true,
+                "reqNewWitnessTableEntry": true,
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "mode",
+            "printedName": "mode",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "BambuserShoppableMode",
+                "printedName": "BambuserCommerceSDK.BambuserShoppableMode",
+                "usr": "s:19BambuserCommerceSDK0A13ShoppableModeO"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:19BambuserCommerceSDK0A13ShoppableViewP4modeAA0aD4ModeOvp",
+            "mangledName": "$s19BambuserCommerceSDK0A13ShoppableViewP4modeAA0aD4ModeOvp",
+            "moduleName": "BambuserCommerceSDK",
+            "protocolReq": true,
+            "declAttributes": [
+              "Custom",
+              "RawDocComment"
+            ],
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "BambuserShoppableMode",
+                    "printedName": "BambuserCommerceSDK.BambuserShoppableMode",
+                    "usr": "s:19BambuserCommerceSDK0A13ShoppableModeO"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:19BambuserCommerceSDK0A13ShoppableViewP4modeAA0aD4ModeOvg",
+                "mangledName": "$s19BambuserCommerceSDK0A13ShoppableViewP4modeAA0aD4ModeOvg",
+                "moduleName": "BambuserCommerceSDK",
+                "genericSig": "<τ_0_0 where τ_0_0 : BambuserCommerceSDK.BambuserShoppableView>",
+                "sugared_genericSig": "<Self where Self : BambuserCommerceSDK.BambuserShoppableView>",
+                "protocolReq": true,
+                "reqNewWitnessTableEntry": true,
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "contentSize",
+            "printedName": "contentSize",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "CoreFoundation.CGSize?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "CGSize",
+                    "printedName": "CoreFoundation.CGSize",
+                    "usr": "c:@S@CGSize"
+                  }
+                ],
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:19BambuserCommerceSDK0A13ShoppableViewP11contentSizeSo6CGSizeVSgvp",
+            "mangledName": "$s19BambuserCommerceSDK0A13ShoppableViewP11contentSizeSo6CGSizeVSgvp",
+            "moduleName": "BambuserCommerceSDK",
+            "protocolReq": true,
+            "declAttributes": [
+              "Custom",
+              "RawDocComment"
+            ],
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Optional",
+                    "printedName": "CoreFoundation.CGSize?",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "CGSize",
+                        "printedName": "CoreFoundation.CGSize",
+                        "usr": "c:@S@CGSize"
+                      }
+                    ],
+                    "usr": "s:Sq"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:19BambuserCommerceSDK0A13ShoppableViewP11contentSizeSo6CGSizeVSgvg",
+                "mangledName": "$s19BambuserCommerceSDK0A13ShoppableViewP11contentSizeSo6CGSizeVSgvg",
+                "moduleName": "BambuserCommerceSDK",
+                "genericSig": "<τ_0_0 where τ_0_0 : BambuserCommerceSDK.BambuserShoppableView>",
+                "sugared_genericSig": "<Self where Self : BambuserCommerceSDK.BambuserShoppableView>",
+                "protocolReq": true,
+                "reqNewWitnessTableEntry": true,
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Function",
+            "name": "cleanup",
+            "printedName": "cleanup()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:19BambuserCommerceSDK0A13ShoppableViewP7cleanupyyF",
+            "mangledName": "$s19BambuserCommerceSDK0A13ShoppableViewP7cleanupyyF",
+            "moduleName": "BambuserCommerceSDK",
+            "genericSig": "<τ_0_0 where τ_0_0 : BambuserCommerceSDK.BambuserShoppableView>",
+            "sugared_genericSig": "<Self where Self : BambuserCommerceSDK.BambuserShoppableView>",
+            "protocolReq": true,
+            "declAttributes": [
+              "Custom",
+              "RawDocComment"
+            ],
+            "reqNewWitnessTableEntry": true,
+            "funcSelfKind": "NonMutating"
+          }
+        ],
+        "declKind": "Protocol",
+        "usr": "s:19BambuserCommerceSDK0A13ShoppableViewP",
+        "mangledName": "$s19BambuserCommerceSDK0A13ShoppableViewP",
+        "moduleName": "BambuserCommerceSDK",
+        "genericSig": "<τ_0_0 : AnyObject>",
+        "sugared_genericSig": "<Self : AnyObject>",
+        "declAttributes": [
+          "AccessControl",
+          "Custom",
+          "RawDocComment"
+        ],
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Escapable",
+            "printedName": "Escapable",
+            "usr": "s:s9EscapableP",
+            "mangledName": "$ss9EscapableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Copyable",
+            "printedName": "Copyable",
+            "usr": "s:s8CopyableP",
+            "mangledName": "$ss8CopyableP"
+          }
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "BambuserCommerceSDK",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "TypeDecl",
+        "name": "BambuserShoppableViewDelegate",
+        "printedName": "BambuserShoppableViewDelegate",
+        "children": [
+          {
+            "kind": "Function",
+            "name": "shoppableView",
+            "printedName": "shoppableView(_:willLoadPage:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "BambuserShoppableView",
+                "printedName": "any BambuserCommerceSDK.BambuserShoppableView",
+                "usr": "s:19BambuserCommerceSDK0A13ShoppableViewP"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Int",
+                "printedName": "Swift.Int",
+                "usr": "s:Si"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:19BambuserCommerceSDK0A21ShoppableViewDelegateP09shoppableE0_12willLoadPageyAA0adE0_p_SitF",
+            "mangledName": "$s19BambuserCommerceSDK0A21ShoppableViewDelegateP09shoppableE0_12willLoadPageyAA0adE0_p_SitF",
+            "moduleName": "BambuserCommerceSDK",
+            "genericSig": "<τ_0_0 where τ_0_0 : BambuserCommerceSDK.BambuserShoppableViewDelegate>",
+            "sugared_genericSig": "<Self where Self : BambuserCommerceSDK.BambuserShoppableViewDelegate>",
+            "protocolReq": true,
+            "declAttributes": [
+              "Custom",
+              "RawDocComment"
+            ],
+            "reqNewWitnessTableEntry": true,
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "shoppableView",
+            "printedName": "shoppableView(_:didLoadPage:totalPages:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "BambuserShoppableView",
+                "printedName": "any BambuserCommerceSDK.BambuserShoppableView",
+                "usr": "s:19BambuserCommerceSDK0A13ShoppableViewP"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Int",
+                "printedName": "Swift.Int",
+                "usr": "s:Si"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "Swift.Int?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Int",
+                    "printedName": "Swift.Int",
+                    "usr": "s:Si"
+                  }
+                ],
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:19BambuserCommerceSDK0A21ShoppableViewDelegateP09shoppableE0_11didLoadPage10totalPagesyAA0adE0_p_S2iSgtF",
+            "mangledName": "$s19BambuserCommerceSDK0A21ShoppableViewDelegateP09shoppableE0_11didLoadPage10totalPagesyAA0adE0_p_S2iSgtF",
+            "moduleName": "BambuserCommerceSDK",
+            "genericSig": "<τ_0_0 where τ_0_0 : BambuserCommerceSDK.BambuserShoppableViewDelegate>",
+            "sugared_genericSig": "<Self where Self : BambuserCommerceSDK.BambuserShoppableViewDelegate>",
+            "protocolReq": true,
+            "declAttributes": [
+              "Custom",
+              "RawDocComment"
+            ],
+            "reqNewWitnessTableEntry": true,
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "shoppableView",
+            "printedName": "shoppableView(_:didFailToLoadPage:error:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "BambuserShoppableView",
+                "printedName": "any BambuserCommerceSDK.BambuserShoppableView",
+                "usr": "s:19BambuserCommerceSDK0A13ShoppableViewP"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Int",
+                "printedName": "Swift.Int",
+                "usr": "s:Si"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Error",
+                "printedName": "any Swift.Error",
+                "usr": "s:s5ErrorP"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:19BambuserCommerceSDK0A21ShoppableViewDelegateP09shoppableE0_17didFailToLoadPage5erroryAA0adE0_p_Sis5Error_ptF",
+            "mangledName": "$s19BambuserCommerceSDK0A21ShoppableViewDelegateP09shoppableE0_17didFailToLoadPage5erroryAA0adE0_p_Sis5Error_ptF",
+            "moduleName": "BambuserCommerceSDK",
+            "genericSig": "<τ_0_0 where τ_0_0 : BambuserCommerceSDK.BambuserShoppableViewDelegate>",
+            "sugared_genericSig": "<Self where Self : BambuserCommerceSDK.BambuserShoppableViewDelegate>",
+            "protocolReq": true,
+            "declAttributes": [
+              "Custom",
+              "RawDocComment"
+            ],
+            "reqNewWitnessTableEntry": true,
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "shoppableViewDidDismiss",
+            "printedName": "shoppableViewDidDismiss(_:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "BambuserShoppableView",
+                "printedName": "any BambuserCommerceSDK.BambuserShoppableView",
+                "usr": "s:19BambuserCommerceSDK0A13ShoppableViewP"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:19BambuserCommerceSDK0A21ShoppableViewDelegateP09shoppableE10DidDismissyyAA0adE0_pF",
+            "mangledName": "$s19BambuserCommerceSDK0A21ShoppableViewDelegateP09shoppableE10DidDismissyyAA0adE0_pF",
+            "moduleName": "BambuserCommerceSDK",
+            "genericSig": "<τ_0_0 where τ_0_0 : BambuserCommerceSDK.BambuserShoppableViewDelegate>",
+            "sugared_genericSig": "<Self where Self : BambuserCommerceSDK.BambuserShoppableViewDelegate>",
+            "protocolReq": true,
+            "declAttributes": [
+              "Custom",
+              "RawDocComment"
+            ],
+            "reqNewWitnessTableEntry": true,
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "shoppableView",
+            "printedName": "shoppableView(_:didChangeContentSize:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "BambuserShoppableView",
+                "printedName": "any BambuserCommerceSDK.BambuserShoppableView",
+                "usr": "s:19BambuserCommerceSDK0A13ShoppableViewP"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "CGSize",
+                "printedName": "CoreFoundation.CGSize",
+                "usr": "c:@S@CGSize"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:19BambuserCommerceSDK0A21ShoppableViewDelegateP09shoppableE0_20didChangeContentSizeyAA0adE0_p_So6CGSizeVtF",
+            "mangledName": "$s19BambuserCommerceSDK0A21ShoppableViewDelegateP09shoppableE0_20didChangeContentSizeyAA0adE0_p_So6CGSizeVtF",
+            "moduleName": "BambuserCommerceSDK",
+            "genericSig": "<τ_0_0 where τ_0_0 : BambuserCommerceSDK.BambuserShoppableViewDelegate>",
+            "sugared_genericSig": "<Self where Self : BambuserCommerceSDK.BambuserShoppableViewDelegate>",
+            "protocolReq": true,
+            "declAttributes": [
+              "Custom",
+              "RawDocComment"
+            ],
+            "reqNewWitnessTableEntry": true,
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "shoppableView",
+            "printedName": "shoppableView(_:didSelect:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "BambuserShoppableView",
+                "printedName": "any BambuserCommerceSDK.BambuserShoppableView",
+                "usr": "s:19BambuserCommerceSDK0A13ShoppableViewP"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "BambuserShoppableItem",
+                "printedName": "BambuserCommerceSDK.BambuserShoppableItem",
+                "usr": "s:19BambuserCommerceSDK0A13ShoppableItemV"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:19BambuserCommerceSDK0A21ShoppableViewDelegateP09shoppableE0_9didSelectyAA0adE0_p_AA0aD4ItemVtF",
+            "mangledName": "$s19BambuserCommerceSDK0A21ShoppableViewDelegateP09shoppableE0_9didSelectyAA0adE0_p_AA0aD4ItemVtF",
+            "moduleName": "BambuserCommerceSDK",
+            "genericSig": "<τ_0_0 where τ_0_0 : BambuserCommerceSDK.BambuserShoppableViewDelegate>",
+            "sugared_genericSig": "<Self where Self : BambuserCommerceSDK.BambuserShoppableViewDelegate>",
+            "protocolReq": true,
+            "declAttributes": [
+              "Custom",
+              "RawDocComment"
+            ],
+            "reqNewWitnessTableEntry": true,
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "shoppableView",
+            "printedName": "shoppableView(_:didEnterFullscreen:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "BambuserShoppableView",
+                "printedName": "any BambuserCommerceSDK.BambuserShoppableView",
+                "usr": "s:19BambuserCommerceSDK0A13ShoppableViewP"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "BambuserShoppableItem",
+                "printedName": "BambuserCommerceSDK.BambuserShoppableItem",
+                "usr": "s:19BambuserCommerceSDK0A13ShoppableItemV"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:19BambuserCommerceSDK0A21ShoppableViewDelegateP09shoppableE0_18didEnterFullscreenyAA0adE0_p_AA0aD4ItemVtF",
+            "mangledName": "$s19BambuserCommerceSDK0A21ShoppableViewDelegateP09shoppableE0_18didEnterFullscreenyAA0adE0_p_AA0aD4ItemVtF",
+            "moduleName": "BambuserCommerceSDK",
+            "genericSig": "<τ_0_0 where τ_0_0 : BambuserCommerceSDK.BambuserShoppableViewDelegate>",
+            "sugared_genericSig": "<Self where Self : BambuserCommerceSDK.BambuserShoppableViewDelegate>",
+            "protocolReq": true,
+            "declAttributes": [
+              "Custom",
+              "RawDocComment"
+            ],
+            "reqNewWitnessTableEntry": true,
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "shoppableView",
+            "printedName": "shoppableView(_:didExitFullscreen:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "BambuserShoppableView",
+                "printedName": "any BambuserCommerceSDK.BambuserShoppableView",
+                "usr": "s:19BambuserCommerceSDK0A13ShoppableViewP"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "BambuserShoppableItem",
+                "printedName": "BambuserCommerceSDK.BambuserShoppableItem",
+                "usr": "s:19BambuserCommerceSDK0A13ShoppableItemV"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:19BambuserCommerceSDK0A21ShoppableViewDelegateP09shoppableE0_17didExitFullscreenyAA0adE0_p_AA0aD4ItemVtF",
+            "mangledName": "$s19BambuserCommerceSDK0A21ShoppableViewDelegateP09shoppableE0_17didExitFullscreenyAA0adE0_p_AA0aD4ItemVtF",
+            "moduleName": "BambuserCommerceSDK",
+            "genericSig": "<τ_0_0 where τ_0_0 : BambuserCommerceSDK.BambuserShoppableViewDelegate>",
+            "sugared_genericSig": "<Self where Self : BambuserCommerceSDK.BambuserShoppableViewDelegate>",
+            "protocolReq": true,
+            "declAttributes": [
+              "Custom",
+              "RawDocComment"
+            ],
+            "reqNewWitnessTableEntry": true,
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "shoppableView",
+            "printedName": "shoppableView(_:didChangeCurrent:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "BambuserShoppableView",
+                "printedName": "any BambuserCommerceSDK.BambuserShoppableView",
+                "usr": "s:19BambuserCommerceSDK0A13ShoppableViewP"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "BambuserShoppableItem",
+                "printedName": "BambuserCommerceSDK.BambuserShoppableItem",
+                "usr": "s:19BambuserCommerceSDK0A13ShoppableItemV"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:19BambuserCommerceSDK0A21ShoppableViewDelegateP09shoppableE0_16didChangeCurrentyAA0adE0_p_AA0aD4ItemVtF",
+            "mangledName": "$s19BambuserCommerceSDK0A21ShoppableViewDelegateP09shoppableE0_16didChangeCurrentyAA0adE0_p_AA0aD4ItemVtF",
+            "moduleName": "BambuserCommerceSDK",
+            "genericSig": "<τ_0_0 where τ_0_0 : BambuserCommerceSDK.BambuserShoppableViewDelegate>",
+            "sugared_genericSig": "<Self where Self : BambuserCommerceSDK.BambuserShoppableViewDelegate>",
+            "protocolReq": true,
+            "declAttributes": [
+              "Custom",
+              "RawDocComment"
+            ],
+            "reqNewWitnessTableEntry": true,
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "shoppableView",
+            "printedName": "shoppableView(_:willLoadPage:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "BambuserShoppableView",
+                "printedName": "any BambuserCommerceSDK.BambuserShoppableView",
+                "usr": "s:19BambuserCommerceSDK0A13ShoppableViewP"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Int",
+                "printedName": "Swift.Int",
+                "usr": "s:Si"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:19BambuserCommerceSDK0A21ShoppableViewDelegatePAAE09shoppableE0_12willLoadPageyAA0adE0_p_SitF",
+            "mangledName": "$s19BambuserCommerceSDK0A21ShoppableViewDelegatePAAE09shoppableE0_12willLoadPageyAA0adE0_p_SitF",
+            "moduleName": "BambuserCommerceSDK",
+            "genericSig": "<τ_0_0 where τ_0_0 : BambuserCommerceSDK.BambuserShoppableViewDelegate>",
+            "sugared_genericSig": "<Self where Self : BambuserCommerceSDK.BambuserShoppableViewDelegate>",
+            "declAttributes": [
+              "Custom"
+            ],
+            "isFromExtension": true,
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "shoppableView",
+            "printedName": "shoppableView(_:didLoadPage:totalPages:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "BambuserShoppableView",
+                "printedName": "any BambuserCommerceSDK.BambuserShoppableView",
+                "usr": "s:19BambuserCommerceSDK0A13ShoppableViewP"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Int",
+                "printedName": "Swift.Int",
+                "usr": "s:Si"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "Swift.Int?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Int",
+                    "printedName": "Swift.Int",
+                    "usr": "s:Si"
+                  }
+                ],
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:19BambuserCommerceSDK0A21ShoppableViewDelegatePAAE09shoppableE0_11didLoadPage10totalPagesyAA0adE0_p_S2iSgtF",
+            "mangledName": "$s19BambuserCommerceSDK0A21ShoppableViewDelegatePAAE09shoppableE0_11didLoadPage10totalPagesyAA0adE0_p_S2iSgtF",
+            "moduleName": "BambuserCommerceSDK",
+            "genericSig": "<τ_0_0 where τ_0_0 : BambuserCommerceSDK.BambuserShoppableViewDelegate>",
+            "sugared_genericSig": "<Self where Self : BambuserCommerceSDK.BambuserShoppableViewDelegate>",
+            "declAttributes": [
+              "Custom"
+            ],
+            "isFromExtension": true,
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "shoppableView",
+            "printedName": "shoppableView(_:didFailToLoadPage:error:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "BambuserShoppableView",
+                "printedName": "any BambuserCommerceSDK.BambuserShoppableView",
+                "usr": "s:19BambuserCommerceSDK0A13ShoppableViewP"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Int",
+                "printedName": "Swift.Int",
+                "usr": "s:Si"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Error",
+                "printedName": "any Swift.Error",
+                "usr": "s:s5ErrorP"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:19BambuserCommerceSDK0A21ShoppableViewDelegatePAAE09shoppableE0_17didFailToLoadPage5erroryAA0adE0_p_Sis5Error_ptF",
+            "mangledName": "$s19BambuserCommerceSDK0A21ShoppableViewDelegatePAAE09shoppableE0_17didFailToLoadPage5erroryAA0adE0_p_Sis5Error_ptF",
+            "moduleName": "BambuserCommerceSDK",
+            "genericSig": "<τ_0_0 where τ_0_0 : BambuserCommerceSDK.BambuserShoppableViewDelegate>",
+            "sugared_genericSig": "<Self where Self : BambuserCommerceSDK.BambuserShoppableViewDelegate>",
+            "declAttributes": [
+              "Custom"
+            ],
+            "isFromExtension": true,
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "shoppableViewDidDismiss",
+            "printedName": "shoppableViewDidDismiss(_:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "BambuserShoppableView",
+                "printedName": "any BambuserCommerceSDK.BambuserShoppableView",
+                "usr": "s:19BambuserCommerceSDK0A13ShoppableViewP"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:19BambuserCommerceSDK0A21ShoppableViewDelegatePAAE09shoppableE10DidDismissyyAA0adE0_pF",
+            "mangledName": "$s19BambuserCommerceSDK0A21ShoppableViewDelegatePAAE09shoppableE10DidDismissyyAA0adE0_pF",
+            "moduleName": "BambuserCommerceSDK",
+            "genericSig": "<τ_0_0 where τ_0_0 : BambuserCommerceSDK.BambuserShoppableViewDelegate>",
+            "sugared_genericSig": "<Self where Self : BambuserCommerceSDK.BambuserShoppableViewDelegate>",
+            "declAttributes": [
+              "Custom"
+            ],
+            "isFromExtension": true,
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "shoppableView",
+            "printedName": "shoppableView(_:didChangeContentSize:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "BambuserShoppableView",
+                "printedName": "any BambuserCommerceSDK.BambuserShoppableView",
+                "usr": "s:19BambuserCommerceSDK0A13ShoppableViewP"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "CGSize",
+                "printedName": "CoreFoundation.CGSize",
+                "usr": "c:@S@CGSize"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:19BambuserCommerceSDK0A21ShoppableViewDelegatePAAE09shoppableE0_20didChangeContentSizeyAA0adE0_p_So6CGSizeVtF",
+            "mangledName": "$s19BambuserCommerceSDK0A21ShoppableViewDelegatePAAE09shoppableE0_20didChangeContentSizeyAA0adE0_p_So6CGSizeVtF",
+            "moduleName": "BambuserCommerceSDK",
+            "genericSig": "<τ_0_0 where τ_0_0 : BambuserCommerceSDK.BambuserShoppableViewDelegate>",
+            "sugared_genericSig": "<Self where Self : BambuserCommerceSDK.BambuserShoppableViewDelegate>",
+            "declAttributes": [
+              "Custom"
+            ],
+            "isFromExtension": true,
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "shoppableView",
+            "printedName": "shoppableView(_:didSelect:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "BambuserShoppableView",
+                "printedName": "any BambuserCommerceSDK.BambuserShoppableView",
+                "usr": "s:19BambuserCommerceSDK0A13ShoppableViewP"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "BambuserShoppableItem",
+                "printedName": "BambuserCommerceSDK.BambuserShoppableItem",
+                "usr": "s:19BambuserCommerceSDK0A13ShoppableItemV"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:19BambuserCommerceSDK0A21ShoppableViewDelegatePAAE09shoppableE0_9didSelectyAA0adE0_p_AA0aD4ItemVtF",
+            "mangledName": "$s19BambuserCommerceSDK0A21ShoppableViewDelegatePAAE09shoppableE0_9didSelectyAA0adE0_p_AA0aD4ItemVtF",
+            "moduleName": "BambuserCommerceSDK",
+            "genericSig": "<τ_0_0 where τ_0_0 : BambuserCommerceSDK.BambuserShoppableViewDelegate>",
+            "sugared_genericSig": "<Self where Self : BambuserCommerceSDK.BambuserShoppableViewDelegate>",
+            "declAttributes": [
+              "Custom"
+            ],
+            "isFromExtension": true,
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "shoppableView",
+            "printedName": "shoppableView(_:didEnterFullscreen:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "BambuserShoppableView",
+                "printedName": "any BambuserCommerceSDK.BambuserShoppableView",
+                "usr": "s:19BambuserCommerceSDK0A13ShoppableViewP"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "BambuserShoppableItem",
+                "printedName": "BambuserCommerceSDK.BambuserShoppableItem",
+                "usr": "s:19BambuserCommerceSDK0A13ShoppableItemV"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:19BambuserCommerceSDK0A21ShoppableViewDelegatePAAE09shoppableE0_18didEnterFullscreenyAA0adE0_p_AA0aD4ItemVtF",
+            "mangledName": "$s19BambuserCommerceSDK0A21ShoppableViewDelegatePAAE09shoppableE0_18didEnterFullscreenyAA0adE0_p_AA0aD4ItemVtF",
+            "moduleName": "BambuserCommerceSDK",
+            "genericSig": "<τ_0_0 where τ_0_0 : BambuserCommerceSDK.BambuserShoppableViewDelegate>",
+            "sugared_genericSig": "<Self where Self : BambuserCommerceSDK.BambuserShoppableViewDelegate>",
+            "declAttributes": [
+              "Custom"
+            ],
+            "isFromExtension": true,
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "shoppableView",
+            "printedName": "shoppableView(_:didExitFullscreen:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "BambuserShoppableView",
+                "printedName": "any BambuserCommerceSDK.BambuserShoppableView",
+                "usr": "s:19BambuserCommerceSDK0A13ShoppableViewP"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "BambuserShoppableItem",
+                "printedName": "BambuserCommerceSDK.BambuserShoppableItem",
+                "usr": "s:19BambuserCommerceSDK0A13ShoppableItemV"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:19BambuserCommerceSDK0A21ShoppableViewDelegatePAAE09shoppableE0_17didExitFullscreenyAA0adE0_p_AA0aD4ItemVtF",
+            "mangledName": "$s19BambuserCommerceSDK0A21ShoppableViewDelegatePAAE09shoppableE0_17didExitFullscreenyAA0adE0_p_AA0aD4ItemVtF",
+            "moduleName": "BambuserCommerceSDK",
+            "genericSig": "<τ_0_0 where τ_0_0 : BambuserCommerceSDK.BambuserShoppableViewDelegate>",
+            "sugared_genericSig": "<Self where Self : BambuserCommerceSDK.BambuserShoppableViewDelegate>",
+            "declAttributes": [
+              "Custom"
+            ],
+            "isFromExtension": true,
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "shoppableView",
+            "printedName": "shoppableView(_:didChangeCurrent:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "BambuserShoppableView",
+                "printedName": "any BambuserCommerceSDK.BambuserShoppableView",
+                "usr": "s:19BambuserCommerceSDK0A13ShoppableViewP"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "BambuserShoppableItem",
+                "printedName": "BambuserCommerceSDK.BambuserShoppableItem",
+                "usr": "s:19BambuserCommerceSDK0A13ShoppableItemV"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:19BambuserCommerceSDK0A21ShoppableViewDelegatePAAE09shoppableE0_16didChangeCurrentyAA0adE0_p_AA0aD4ItemVtF",
+            "mangledName": "$s19BambuserCommerceSDK0A21ShoppableViewDelegatePAAE09shoppableE0_16didChangeCurrentyAA0adE0_p_AA0aD4ItemVtF",
+            "moduleName": "BambuserCommerceSDK",
+            "genericSig": "<τ_0_0 where τ_0_0 : BambuserCommerceSDK.BambuserShoppableViewDelegate>",
+            "sugared_genericSig": "<Self where Self : BambuserCommerceSDK.BambuserShoppableViewDelegate>",
+            "declAttributes": [
+              "Custom"
+            ],
+            "isFromExtension": true,
+            "funcSelfKind": "NonMutating"
+          }
+        ],
+        "declKind": "Protocol",
+        "usr": "s:19BambuserCommerceSDK0A21ShoppableViewDelegateP",
+        "mangledName": "$s19BambuserCommerceSDK0A21ShoppableViewDelegateP",
+        "moduleName": "BambuserCommerceSDK",
+        "genericSig": "<τ_0_0 : AnyObject>",
+        "sugared_genericSig": "<Self : AnyObject>",
+        "declAttributes": [
+          "AccessControl",
+          "Custom",
+          "RawDocComment"
+        ],
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Escapable",
+            "printedName": "Escapable",
+            "usr": "s:s9EscapableP",
+            "mangledName": "$ss9EscapableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Copyable",
+            "printedName": "Copyable",
+            "usr": "s:s8CopyableP",
+            "mangledName": "$ss8CopyableP"
           }
         ]
       },
@@ -4223,6 +6133,16 @@
         ]
       },
       {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "BambuserCommerceSDK",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
         "kind": "TypeDecl",
         "name": "Pagination",
         "printedName": "Pagination",
@@ -4670,6 +6590,36 @@
       },
       {
         "kind": "Import",
+        "name": "UIKit",
+        "printedName": "UIKit",
+        "declKind": "Import",
+        "moduleName": "BambuserCommerceSDK",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "UIKit",
+        "printedName": "UIKit",
+        "declKind": "Import",
+        "moduleName": "BambuserCommerceSDK",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "UIKit",
+        "printedName": "UIKit",
+        "declKind": "Import",
+        "moduleName": "BambuserCommerceSDK",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "Import",
         "name": "Foundation",
         "printedName": "Foundation",
         "declKind": "Import",
@@ -4950,8 +6900,18 @@
       },
       {
         "kind": "Import",
-        "name": "UIKit",
-        "printedName": "UIKit",
+        "name": "CoreGraphics",
+        "printedName": "CoreGraphics",
+        "declKind": "Import",
+        "moduleName": "BambuserCommerceSDK",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
         "declKind": "Import",
         "moduleName": "BambuserCommerceSDK",
         "declAttributes": [
@@ -5357,6 +7317,16 @@
       },
       {
         "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "BambuserCommerceSDK",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "Import",
         "name": "UIKit",
         "printedName": "UIKit",
         "declKind": "Import",
@@ -5378,6 +7348,16 @@
         "printedName": "BambuserPlayer",
         "declKind": "Import",
         "moduleName": "BambuserCommerceSDK"
+      },
+      {
+        "kind": "Import",
+        "name": "CoreGraphics",
+        "printedName": "CoreGraphics",
+        "declKind": "Import",
+        "moduleName": "BambuserCommerceSDK",
+        "declAttributes": [
+          "RawDocComment"
+        ]
       },
       {
         "kind": "Import",
@@ -6568,6 +8548,33 @@
         ]
       },
       {
+        "kind": "Import",
+        "name": "UIKit",
+        "printedName": "UIKit",
+        "declKind": "Import",
+        "moduleName": "BambuserCommerceSDK"
+      },
+      {
+        "kind": "Import",
+        "name": "UIKit",
+        "printedName": "UIKit",
+        "declKind": "Import",
+        "moduleName": "BambuserCommerceSDK",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "BambuserCommerceSDK",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
         "kind": "TypeDecl",
         "name": "SafeAreaEdge",
         "printedName": "SafeAreaEdge",
@@ -7064,8 +9071,48 @@
       },
       {
         "kind": "Import",
+        "name": "UIKit",
+        "printedName": "UIKit",
+        "declKind": "Import",
+        "moduleName": "BambuserCommerceSDK",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "UIKit",
+        "printedName": "UIKit",
+        "declKind": "Import",
+        "moduleName": "BambuserCommerceSDK",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "Import",
         "name": "Foundation",
         "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "BambuserCommerceSDK",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "UIKit",
+        "printedName": "UIKit",
+        "declKind": "Import",
+        "moduleName": "BambuserCommerceSDK",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "UIKit",
+        "printedName": "UIKit",
         "declKind": "Import",
         "moduleName": "BambuserCommerceSDK",
         "declAttributes": [
@@ -7086,6 +9133,26 @@
         "kind": "Import",
         "name": "Foundation",
         "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "BambuserCommerceSDK",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "BambuserCommerceSDK",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "UIKit",
+        "printedName": "UIKit",
         "declKind": "Import",
         "moduleName": "BambuserCommerceSDK",
         "declAttributes": [
@@ -7212,30 +9279,44 @@
   },
   "ConstValues": [
     {
-      "filePath": "\/Users\/gitlabrunner\/builds\/M1xBhyqRW\/0\/team-mobile\/commerce-sdk\/bambuser-commerce-sdk-ios\/Files\/Sources\/BambuserCommerceSDK\/Interface\/BambuserSDK.swift",
-      "kind": "IntegerLiteral",
-      "offset": 5409,
-      "length": 1,
-      "value": "1"
+      "filePath": "\/Users\/gitlabrunner\/builds\/M1xBhyqRW\/0\/team-mobile\/commerce-sdk\/bambuser-commerce-sdk-ios\/Files\/Sources\/BambuserCommerceSDK\/Implementation\/VideoPlayer\/Appearance\/AppearanceSplitter.swift",
+      "kind": "Array",
+      "offset": 226,
+      "length": 264,
+      "value": "[\"mode\", \"focusMode\", \"autoplay\", \"playlistGap\", \"cornerRadius\", \"playlistCarouselCornerRadius\", \"playerFit\", \"playerWidth\", \"playerHeight\", \"playerJustify\", \"softLimit\"]"
     },
     {
       "filePath": "\/Users\/gitlabrunner\/builds\/M1xBhyqRW\/0\/team-mobile\/commerce-sdk\/bambuser-commerce-sdk-ios\/Files\/Sources\/BambuserCommerceSDK\/Interface\/BambuserSDK.swift",
       "kind": "IntegerLiteral",
-      "offset": 5436,
+      "offset": 4868,
       "length": 2,
       "value": "15"
     },
     {
       "filePath": "\/Users\/gitlabrunner\/builds\/M1xBhyqRW\/0\/team-mobile\/commerce-sdk\/bambuser-commerce-sdk-ios\/Files\/Sources\/BambuserCommerceSDK\/Interface\/BambuserSDK.swift",
       "kind": "IntegerLiteral",
-      "offset": 7563,
+      "offset": 6871,
       "length": 1,
       "value": "1"
     },
     {
       "filePath": "\/Users\/gitlabrunner\/builds\/M1xBhyqRW\/0\/team-mobile\/commerce-sdk\/bambuser-commerce-sdk-ios\/Files\/Sources\/BambuserCommerceSDK\/Interface\/BambuserSDK.swift",
       "kind": "IntegerLiteral",
-      "offset": 7590,
+      "offset": 6898,
+      "length": 2,
+      "value": "15"
+    },
+    {
+      "filePath": "\/Users\/gitlabrunner\/builds\/M1xBhyqRW\/0\/team-mobile\/commerce-sdk\/bambuser-commerce-sdk-ios\/Files\/Sources\/BambuserCommerceSDK\/Interface\/BambuserSDK.swift",
+      "kind": "IntegerLiteral",
+      "offset": 8567,
+      "length": 1,
+      "value": "1"
+    },
+    {
+      "filePath": "\/Users\/gitlabrunner\/builds\/M1xBhyqRW\/0\/team-mobile\/commerce-sdk\/bambuser-commerce-sdk-ios\/Files\/Sources\/BambuserCommerceSDK\/Interface\/BambuserSDK.swift",
+      "kind": "IntegerLiteral",
+      "offset": 8594,
       "length": 2,
       "value": "15"
     },
@@ -7300,7 +9381,7 @@
       "kind": "StringLiteral",
       "offset": 221,
       "length": 7,
-      "value": "\"3.3.1\""
+      "value": "\"4.0.0\""
     },
     {
       "filePath": "\/Users\/gitlabrunner\/builds\/M1xBhyqRW\/0\/team-mobile\/commerce-sdk\/bambuser-commerce-sdk-ios\/Files\/Sources\/BambuserCommerceSDK\/Implementation\/VideoPlayer\/Environment.swift",
@@ -7308,6 +9389,251 @@
       "offset": 267,
       "length": 22,
       "value": "\"bambuserEventHandler\""
+    },
+    {
+      "filePath": "\/Users\/gitlabrunner\/builds\/M1xBhyqRW\/0\/team-mobile\/commerce-sdk\/bambuser-commerce-sdk-ios\/Files\/Sources\/BambuserCommerceSDK\/Implementation\/VideoPlayer\/Components\/FAB\/FABLayoutView.swift",
+      "kind": "IntegerLiteral",
+      "offset": 207,
+      "length": 3,
+      "value": "120"
+    },
+    {
+      "filePath": "\/Users\/gitlabrunner\/builds\/M1xBhyqRW\/0\/team-mobile\/commerce-sdk\/bambuser-commerce-sdk-ios\/Files\/Sources\/BambuserCommerceSDK\/Implementation\/VideoPlayer\/Components\/FAB\/FABLayoutView.swift",
+      "kind": "IntegerLiteral",
+      "offset": 254,
+      "length": 2,
+      "value": "12"
+    },
+    {
+      "filePath": "\/Users\/gitlabrunner\/builds\/M1xBhyqRW\/0\/team-mobile\/commerce-sdk\/bambuser-commerce-sdk-ios\/Files\/Sources\/BambuserCommerceSDK\/Implementation\/VideoPlayer\/Components\/FAB\/FABLayoutView.swift",
+      "kind": "IntegerLiteral",
+      "offset": 298,
+      "length": 2,
+      "value": "16"
+    },
+    {
+      "filePath": "\/Users\/gitlabrunner\/builds\/M1xBhyqRW\/0\/team-mobile\/commerce-sdk\/bambuser-commerce-sdk-ios\/Files\/Sources\/BambuserCommerceSDK\/Implementation\/VideoPlayer\/Components\/FAB\/FABLayoutView.swift",
+      "kind": "FloatLiteral",
+      "offset": 364,
+      "length": 4,
+      "value": "0.25"
+    },
+    {
+      "filePath": "\/Users\/gitlabrunner\/builds\/M1xBhyqRW\/0\/team-mobile\/commerce-sdk\/bambuser-commerce-sdk-ios\/Files\/Sources\/BambuserCommerceSDK\/Implementation\/VideoPlayer\/Components\/FAB\/FABLayoutView.swift",
+      "kind": "IntegerLiteral",
+      "offset": 410,
+      "length": 1,
+      "value": "8"
+    },
+    {
+      "filePath": "\/Users\/gitlabrunner\/builds\/M1xBhyqRW\/0\/team-mobile\/commerce-sdk\/bambuser-commerce-sdk-ios\/Files\/Sources\/BambuserCommerceSDK\/Implementation\/VideoPlayer\/Components\/FAB\/FABLayoutView.swift",
+      "kind": "IntegerLiteral",
+      "offset": 458,
+      "length": 1,
+      "value": "0"
+    },
+    {
+      "filePath": "\/Users\/gitlabrunner\/builds\/M1xBhyqRW\/0\/team-mobile\/commerce-sdk\/bambuser-commerce-sdk-ios\/Files\/Sources\/BambuserCommerceSDK\/Implementation\/VideoPlayer\/Components\/FAB\/FABLayoutView.swift",
+      "kind": "IntegerLiteral",
+      "offset": 469,
+      "length": 1,
+      "value": "2"
+    },
+    {
+      "filePath": "\/Users\/gitlabrunner\/builds\/M1xBhyqRW\/0\/team-mobile\/commerce-sdk\/bambuser-commerce-sdk-ios\/Files\/Sources\/BambuserCommerceSDK\/Implementation\/VideoPlayer\/Components\/FAB\/FABLayoutView.swift",
+      "kind": "IntegerLiteral",
+      "offset": 549,
+      "length": 2,
+      "value": "24"
+    },
+    {
+      "filePath": "\/Users\/gitlabrunner\/builds\/M1xBhyqRW\/0\/team-mobile\/commerce-sdk\/bambuser-commerce-sdk-ios\/Files\/Sources\/BambuserCommerceSDK\/Implementation\/VideoPlayer\/Components\/FAB\/FABLayoutView.swift",
+      "kind": "IntegerLiteral",
+      "offset": 595,
+      "length": 2,
+      "value": "14"
+    },
+    {
+      "filePath": "\/Users\/gitlabrunner\/builds\/M1xBhyqRW\/0\/team-mobile\/commerce-sdk\/bambuser-commerce-sdk-ios\/Files\/Sources\/BambuserCommerceSDK\/Implementation\/VideoPlayer\/Components\/FAB\/FABLayoutView.swift",
+      "kind": "IntegerLiteral",
+      "offset": 645,
+      "length": 2,
+      "value": "12"
+    },
+    {
+      "filePath": "\/Users\/gitlabrunner\/builds\/M1xBhyqRW\/0\/team-mobile\/commerce-sdk\/bambuser-commerce-sdk-ios\/Files\/Sources\/BambuserCommerceSDK\/Implementation\/VideoPlayer\/Components\/FAB\/FABLayoutView.swift",
+      "kind": "FloatLiteral",
+      "offset": 698,
+      "length": 3,
+      "value": "0.5"
+    },
+    {
+      "filePath": "\/Users\/gitlabrunner\/builds\/M1xBhyqRW\/0\/team-mobile\/commerce-sdk\/bambuser-commerce-sdk-ios\/Files\/Sources\/BambuserCommerceSDK\/Implementation\/VideoPlayer\/Components\/FAB\/FABLayoutView.swift",
+      "kind": "IntegerLiteral",
+      "offset": 750,
+      "length": 1,
+      "value": "6"
+    },
+    {
+      "filePath": "\/Users\/gitlabrunner\/builds\/M1xBhyqRW\/0\/team-mobile\/commerce-sdk\/bambuser-commerce-sdk-ios\/Files\/Sources\/BambuserCommerceSDK\/Implementation\/VideoPlayer\/Components\/FAB\/FABLayoutView.swift",
+      "kind": "FloatLiteral",
+      "offset": 840,
+      "length": 4,
+      "value": "0.35"
+    },
+    {
+      "filePath": "\/Users\/gitlabrunner\/builds\/M1xBhyqRW\/0\/team-mobile\/commerce-sdk\/bambuser-commerce-sdk-ios\/Files\/Sources\/BambuserCommerceSDK\/Implementation\/VideoPlayer\/Components\/FAB\/FABLayoutView.swift",
+      "kind": "FloatLiteral",
+      "offset": 887,
+      "length": 3,
+      "value": "0.7"
+    },
+    {
+      "filePath": "\/Users\/gitlabrunner\/builds\/M1xBhyqRW\/0\/team-mobile\/commerce-sdk\/bambuser-commerce-sdk-ios\/Files\/Sources\/BambuserCommerceSDK\/Implementation\/VideoPlayer\/Components\/FAB\/FABLayoutView.swift",
+      "kind": "FloatLiteral",
+      "offset": 941,
+      "length": 3,
+      "value": "0.4"
+    },
+    {
+      "filePath": "\/Users\/gitlabrunner\/builds\/M1xBhyqRW\/0\/team-mobile\/commerce-sdk\/bambuser-commerce-sdk-ios\/Files\/Sources\/BambuserCommerceSDK\/Implementation\/VideoPlayer\/Components\/FAB\/FABLayoutView.swift",
+      "kind": "Dictionary",
+      "offset": 1286,
+      "length": 3,
+      "value": "[]"
+    },
+    {
+      "filePath": "\/Users\/gitlabrunner\/builds\/M1xBhyqRW\/0\/team-mobile\/commerce-sdk\/bambuser-commerce-sdk-ios\/Files\/Sources\/BambuserCommerceSDK\/Implementation\/VideoPlayer\/Components\/FAB\/FABLayoutView.swift",
+      "kind": "Array",
+      "offset": 1341,
+      "length": 2,
+      "value": "[]"
+    },
+    {
+      "filePath": "\/Users\/gitlabrunner\/builds\/M1xBhyqRW\/0\/team-mobile\/commerce-sdk\/bambuser-commerce-sdk-ios\/Files\/Sources\/BambuserCommerceSDK\/Implementation\/VideoPlayer\/Components\/FAB\/FABLayoutView.swift",
+      "kind": "IntegerLiteral",
+      "offset": 1380,
+      "length": 1,
+      "value": "0"
+    },
+    {
+      "filePath": "\/Users\/gitlabrunner\/builds\/M1xBhyqRW\/0\/team-mobile\/commerce-sdk\/bambuser-commerce-sdk-ios\/Files\/Sources\/BambuserCommerceSDK\/Implementation\/VideoPlayer\/Components\/FAB\/FABLayoutView.swift",
+      "kind": "BooleanLiteral",
+      "offset": 1477,
+      "length": 5,
+      "value": "false"
+    },
+    {
+      "filePath": "\/Users\/gitlabrunner\/builds\/M1xBhyqRW\/0\/team-mobile\/commerce-sdk\/bambuser-commerce-sdk-ios\/Files\/Sources\/BambuserCommerceSDK\/Implementation\/VideoPlayer\/Components\/FAB\/FABLayoutView.swift",
+      "kind": "BooleanLiteral",
+      "offset": 1520,
+      "length": 5,
+      "value": "false"
+    },
+    {
+      "filePath": "\/Users\/gitlabrunner\/builds\/M1xBhyqRW\/0\/team-mobile\/commerce-sdk\/bambuser-commerce-sdk-ios\/Files\/Sources\/BambuserCommerceSDK\/Implementation\/VideoPlayer\/Components\/Fullscreen\/FullscreenCarouselView.swift",
+      "kind": "FloatLiteral",
+      "offset": 216,
+      "length": 3,
+      "value": "0.2"
+    },
+    {
+      "filePath": "\/Users\/gitlabrunner\/builds\/M1xBhyqRW\/0\/team-mobile\/commerce-sdk\/bambuser-commerce-sdk-ios\/Files\/Sources\/BambuserCommerceSDK\/Implementation\/VideoPlayer\/Components\/Fullscreen\/FullscreenCarouselView.swift",
+      "kind": "IntegerLiteral",
+      "offset": 608,
+      "length": 1,
+      "value": "0"
+    },
+    {
+      "filePath": "\/Users\/gitlabrunner\/builds\/M1xBhyqRW\/0\/team-mobile\/commerce-sdk\/bambuser-commerce-sdk-ios\/Files\/Sources\/BambuserCommerceSDK\/Implementation\/VideoPlayer\/Components\/Fullscreen\/FullscreenCarouselView.swift",
+      "kind": "BooleanLiteral",
+      "offset": 763,
+      "length": 5,
+      "value": "false"
+    },
+    {
+      "filePath": "\/Users\/gitlabrunner\/builds\/M1xBhyqRW\/0\/team-mobile\/commerce-sdk\/bambuser-commerce-sdk-ios\/Files\/Sources\/BambuserCommerceSDK\/Implementation\/VideoPlayer\/Components\/Fullscreen\/FullscreenCarouselView.swift",
+      "kind": "BooleanLiteral",
+      "offset": 801,
+      "length": 5,
+      "value": "false"
+    },
+    {
+      "filePath": "\/Users\/gitlabrunner\/builds\/M1xBhyqRW\/0\/team-mobile\/commerce-sdk\/bambuser-commerce-sdk-ios\/Files\/Sources\/BambuserCommerceSDK\/Implementation\/VideoPlayer\/Components\/Grid\/GridLayoutView.swift",
+      "kind": "IntegerLiteral",
+      "offset": 201,
+      "length": 1,
+      "value": "8"
+    },
+    {
+      "filePath": "\/Users\/gitlabrunner\/builds\/M1xBhyqRW\/0\/team-mobile\/commerce-sdk\/bambuser-commerce-sdk-ios\/Files\/Sources\/BambuserCommerceSDK\/Implementation\/VideoPlayer\/Components\/Grid\/GridLayoutView.swift",
+      "kind": "IntegerLiteral",
+      "offset": 241,
+      "length": 1,
+      "value": "2"
+    },
+    {
+      "filePath": "\/Users\/gitlabrunner\/builds\/M1xBhyqRW\/0\/team-mobile\/commerce-sdk\/bambuser-commerce-sdk-ios\/Files\/Sources\/BambuserCommerceSDK\/Implementation\/VideoPlayer\/Components\/Grid\/GridLayoutView.swift",
+      "kind": "IntegerLiteral",
+      "offset": 488,
+      "length": 1,
+      "value": "0"
+    },
+    {
+      "filePath": "\/Users\/gitlabrunner\/builds\/M1xBhyqRW\/0\/team-mobile\/commerce-sdk\/bambuser-commerce-sdk-ios\/Files\/Sources\/BambuserCommerceSDK\/Implementation\/VideoPlayer\/Components\/Grid\/GridLayoutView.swift",
+      "kind": "Dictionary",
+      "offset": 549,
+      "length": 3,
+      "value": "[]"
+    },
+    {
+      "filePath": "\/Users\/gitlabrunner\/builds\/M1xBhyqRW\/0\/team-mobile\/commerce-sdk\/bambuser-commerce-sdk-ios\/Files\/Sources\/BambuserCommerceSDK\/Implementation\/VideoPlayer\/Components\/Grid\/GridLayoutView.swift",
+      "kind": "Array",
+      "offset": 608,
+      "length": 2,
+      "value": "[]"
+    },
+    {
+      "filePath": "\/Users\/gitlabrunner\/builds\/M1xBhyqRW\/0\/team-mobile\/commerce-sdk\/bambuser-commerce-sdk-ios\/Files\/Sources\/BambuserCommerceSDK\/Implementation\/VideoPlayer\/Components\/Grid\/GridLayoutView.swift",
+      "kind": "Dictionary",
+      "offset": 801,
+      "length": 3,
+      "value": "[]"
+    },
+    {
+      "filePath": "\/Users\/gitlabrunner\/builds\/M1xBhyqRW\/0\/team-mobile\/commerce-sdk\/bambuser-commerce-sdk-ios\/Files\/Sources\/BambuserCommerceSDK\/Implementation\/VideoPlayer\/Components\/Grid\/GridLayoutView.swift",
+      "kind": "Dictionary",
+      "offset": 871,
+      "length": 3,
+      "value": "[]"
+    },
+    {
+      "filePath": "\/Users\/gitlabrunner\/builds\/M1xBhyqRW\/0\/team-mobile\/commerce-sdk\/bambuser-commerce-sdk-ios\/Files\/Sources\/BambuserCommerceSDK\/Implementation\/VideoPlayer\/WebViewManager\/InlineVideoConfigurationManagerImpl.swift",
+      "kind": "Array",
+      "offset": 461,
+      "length": 118,
+      "value": "[\"startMuted\", \"loop\", \"showPosterWhenPaused\", \"productAction\", \"cookieDomain\", \"cookieTTLDays\"]"
+    },
+    {
+      "filePath": "\/Users\/gitlabrunner\/builds\/M1xBhyqRW\/0\/team-mobile\/commerce-sdk\/bambuser-commerce-sdk-ios\/Files\/Sources\/BambuserCommerceSDK\/Implementation\/VideoPlayer\/WebViewManager\/InlineVideoConfigurationManagerImpl.swift",
+      "kind": "StringLiteral",
+      "offset": 623,
+      "length": 15,
+      "value": "\"productAction\""
+    },
+    {
+      "filePath": "\/Users\/gitlabrunner\/builds\/M1xBhyqRW\/0\/team-mobile\/commerce-sdk\/bambuser-commerce-sdk-ios\/Files\/Sources\/BambuserCommerceSDK\/Implementation\/VideoPlayer\/WebViewManager\/InlineVideoConfigurationManagerImpl.swift",
+      "kind": "StringLiteral",
+      "offset": 692,
+      "length": 7,
+      "value": "\"modal\""
+    },
+    {
+      "filePath": "\/Users\/gitlabrunner\/builds\/M1xBhyqRW\/0\/team-mobile\/commerce-sdk\/bambuser-commerce-sdk-ios\/Files\/Sources\/BambuserCommerceSDK\/Implementation\/VideoPlayer\/WebViewManager\/InlineVideoConfigurationManagerImpl.swift",
+      "kind": "Array",
+      "offset": 924,
+      "length": 26,
+      "value": "[\"tab-current\", \"tab-new\"]"
     },
     {
       "filePath": "\/Users\/gitlabrunner\/builds\/M1xBhyqRW\/0\/team-mobile\/commerce-sdk\/bambuser-commerce-sdk-ios\/Files\/Sources\/BambuserCommerceSDK\/Implementation\/VideoPlayer\/ShoppableVideo\/InlineVideoContainerConfig+Thumbnail.swift",
@@ -7333,21 +9659,21 @@
     {
       "filePath": "\/Users\/gitlabrunner\/builds\/M1xBhyqRW\/0\/team-mobile\/commerce-sdk\/bambuser-commerce-sdk-ios\/Files\/Sources\/BambuserCommerceSDK\/Implementation\/VideoPlayer\/ShoppableVideo\/InlineVideoContainerConfig.swift",
       "kind": "BooleanLiteral",
-      "offset": 460,
+      "offset": 479,
       "length": 4,
       "value": "true"
     },
     {
       "filePath": "\/Users\/gitlabrunner\/builds\/M1xBhyqRW\/0\/team-mobile\/commerce-sdk\/bambuser-commerce-sdk-ios\/Files\/Sources\/BambuserCommerceSDK\/Implementation\/VideoPlayer\/ShoppableVideo\/InlineVideoNetworkService.swift",
       "kind": "StringLiteral",
-      "offset": 3499,
+      "offset": 3509,
       "length": 7,
       "value": "\"en-US\""
     },
     {
       "filePath": "\/Users\/gitlabrunner\/builds\/M1xBhyqRW\/0\/team-mobile\/commerce-sdk\/bambuser-commerce-sdk-ios\/Files\/Sources\/BambuserCommerceSDK\/Implementation\/VideoPlayer\/Models\/VOD\/MediaAssetData.swift",
       "kind": "StringLiteral",
-      "offset": 322,
+      "offset": 382,
       "length": 14,
       "value": "\"resource_uri\""
     },
@@ -7459,65 +9785,261 @@
     {
       "filePath": "\/Users\/gitlabrunner\/builds\/M1xBhyqRW\/0\/team-mobile\/commerce-sdk\/bambuser-commerce-sdk-ios\/Files\/Sources\/BambuserCommerceSDK\/Implementation\/VideoPlayer\/Player\/PlayerViewImpl.swift",
       "kind": "BooleanLiteral",
-      "offset": 15408,
+      "offset": 15504,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/gitlabrunner\/builds\/M1xBhyqRW\/0\/team-mobile\/commerce-sdk\/bambuser-commerce-sdk-ios\/Files\/Sources\/BambuserCommerceSDK\/Implementation\/VideoPlayer\/Player\/PlayerViewImpl.swift",
       "kind": "IntegerLiteral",
-      "offset": 16269,
+      "offset": 16367,
       "length": 2,
       "value": "29"
     },
     {
       "filePath": "\/Users\/gitlabrunner\/builds\/M1xBhyqRW\/0\/team-mobile\/commerce-sdk\/bambuser-commerce-sdk-ios\/Files\/Sources\/BambuserCommerceSDK\/Implementation\/VideoPlayer\/Player\/PlayerViewImpl.swift",
       "kind": "IntegerLiteral",
-      "offset": 16272,
+      "offset": 16370,
       "length": 3,
       "value": "255"
     },
     {
       "filePath": "\/Users\/gitlabrunner\/builds\/M1xBhyqRW\/0\/team-mobile\/commerce-sdk\/bambuser-commerce-sdk-ios\/Files\/Sources\/BambuserCommerceSDK\/Implementation\/VideoPlayer\/Player\/PlayerViewImpl.swift",
       "kind": "IntegerLiteral",
-      "offset": 16284,
+      "offset": 16382,
       "length": 2,
       "value": "29"
     },
     {
       "filePath": "\/Users\/gitlabrunner\/builds\/M1xBhyqRW\/0\/team-mobile\/commerce-sdk\/bambuser-commerce-sdk-ios\/Files\/Sources\/BambuserCommerceSDK\/Implementation\/VideoPlayer\/Player\/PlayerViewImpl.swift",
       "kind": "IntegerLiteral",
-      "offset": 16287,
+      "offset": 16385,
       "length": 3,
       "value": "255"
     },
     {
       "filePath": "\/Users\/gitlabrunner\/builds\/M1xBhyqRW\/0\/team-mobile\/commerce-sdk\/bambuser-commerce-sdk-ios\/Files\/Sources\/BambuserCommerceSDK\/Implementation\/VideoPlayer\/Player\/PlayerViewImpl.swift",
       "kind": "IntegerLiteral",
-      "offset": 16298,
+      "offset": 16396,
       "length": 2,
       "value": "29"
     },
     {
       "filePath": "\/Users\/gitlabrunner\/builds\/M1xBhyqRW\/0\/team-mobile\/commerce-sdk\/bambuser-commerce-sdk-ios\/Files\/Sources\/BambuserCommerceSDK\/Implementation\/VideoPlayer\/Player\/PlayerViewImpl.swift",
       "kind": "IntegerLiteral",
-      "offset": 16301,
+      "offset": 16399,
       "length": 3,
       "value": "255"
     },
     {
       "filePath": "\/Users\/gitlabrunner\/builds\/M1xBhyqRW\/0\/team-mobile\/commerce-sdk\/bambuser-commerce-sdk-ios\/Files\/Sources\/BambuserCommerceSDK\/Implementation\/VideoPlayer\/Player\/PlayerViewImpl.swift",
       "kind": "IntegerLiteral",
-      "offset": 16313,
+      "offset": 16411,
       "length": 1,
       "value": "1"
     },
     {
       "filePath": "\/Users\/gitlabrunner\/builds\/M1xBhyqRW\/0\/team-mobile\/commerce-sdk\/bambuser-commerce-sdk-ios\/Files\/Sources\/BambuserCommerceSDK\/Implementation\/VideoPlayer\/Player\/PlayerViewImpl.swift",
       "kind": "BooleanLiteral",
-      "offset": 16540,
+      "offset": 16638,
       "length": 5,
       "value": "false"
+    },
+    {
+      "filePath": "\/Users\/gitlabrunner\/builds\/M1xBhyqRW\/0\/team-mobile\/commerce-sdk\/bambuser-commerce-sdk-ios\/Files\/Sources\/BambuserCommerceSDK\/Implementation\/VideoPlayer\/Appearance\/ResolvedAppearance.swift",
+      "kind": "StringLiteral",
+      "offset": 913,
+      "length": 13,
+      "value": "\"same-height\""
+    },
+    {
+      "filePath": "\/Users\/gitlabrunner\/builds\/M1xBhyqRW\/0\/team-mobile\/commerce-sdk\/bambuser-commerce-sdk-ios\/Files\/Sources\/BambuserCommerceSDK\/Implementation\/VideoPlayer\/Appearance\/ResolvedAppearance.swift",
+      "kind": "StringLiteral",
+      "offset": 948,
+      "length": 12,
+      "value": "\"same-width\""
+    },
+    {
+      "filePath": "\/Users\/gitlabrunner\/builds\/M1xBhyqRW\/0\/team-mobile\/commerce-sdk\/bambuser-commerce-sdk-ios\/Files\/Sources\/BambuserCommerceSDK\/Implementation\/VideoPlayer\/Appearance\/ResolvedAppearance.swift",
+      "kind": "StringLiteral",
+      "offset": 982,
+      "length": 12,
+      "value": "\"exact-size\""
+    },
+    {
+      "filePath": "\/Users\/gitlabrunner\/builds\/M1xBhyqRW\/0\/team-mobile\/commerce-sdk\/bambuser-commerce-sdk-ios\/Files\/Sources\/BambuserCommerceSDK\/Implementation\/VideoPlayer\/Appearance\/ResolvedAppearance.swift",
+      "kind": "StringLiteral",
+      "offset": 1017,
+      "length": 13,
+      "value": "\"fill-parent\""
+    },
+    {
+      "filePath": "\/Users\/gitlabrunner\/builds\/M1xBhyqRW\/0\/team-mobile\/commerce-sdk\/bambuser-commerce-sdk-ios\/Files\/Sources\/BambuserCommerceSDK\/Implementation\/VideoPlayer\/Appearance\/ResolvedAppearance.swift",
+      "kind": "StringLiteral",
+      "offset": 1279,
+      "length": 2,
+      "value": "\"\""
+    },
+    {
+      "filePath": "\/Users\/gitlabrunner\/builds\/M1xBhyqRW\/0\/team-mobile\/commerce-sdk\/bambuser-commerce-sdk-ios\/Files\/Sources\/BambuserCommerceSDK\/Implementation\/VideoPlayer\/Components\/Row\/RowLayoutView.swift",
+      "kind": "IntegerLiteral",
+      "offset": 199,
+      "length": 2,
+      "value": "12"
+    },
+    {
+      "filePath": "\/Users\/gitlabrunner\/builds\/M1xBhyqRW\/0\/team-mobile\/commerce-sdk\/bambuser-commerce-sdk-ios\/Files\/Sources\/BambuserCommerceSDK\/Implementation\/VideoPlayer\/Components\/Row\/RowLayoutView.swift",
+      "kind": "IntegerLiteral",
+      "offset": 245,
+      "length": 3,
+      "value": "220"
+    },
+    {
+      "filePath": "\/Users\/gitlabrunner\/builds\/M1xBhyqRW\/0\/team-mobile\/commerce-sdk\/bambuser-commerce-sdk-ios\/Files\/Sources\/BambuserCommerceSDK\/Implementation\/VideoPlayer\/Components\/Row\/RowLayoutView.swift",
+      "kind": "FloatLiteral",
+      "offset": 293,
+      "length": 4,
+      "value": "0.55"
+    },
+    {
+      "filePath": "\/Users\/gitlabrunner\/builds\/M1xBhyqRW\/0\/team-mobile\/commerce-sdk\/bambuser-commerce-sdk-ios\/Files\/Sources\/BambuserCommerceSDK\/Implementation\/VideoPlayer\/Components\/Row\/RowLayoutView.swift",
+      "kind": "Dictionary",
+      "offset": 561,
+      "length": 3,
+      "value": "[]"
+    },
+    {
+      "filePath": "\/Users\/gitlabrunner\/builds\/M1xBhyqRW\/0\/team-mobile\/commerce-sdk\/bambuser-commerce-sdk-ios\/Files\/Sources\/BambuserCommerceSDK\/Implementation\/VideoPlayer\/Appearance\/SettingsStringBuilder.swift",
+      "kind": "Array",
+      "offset": 181,
+      "length": 315,
+      "value": "[(\"showProducts\", \"products\"), (\"showActions\", \"actions\"), (\"title\", \"title\"), (\"overlayTextWrap\", \"overlayTextWrap\"), (\"productCardMode\", \"productCardMode\"), (\"closedCaptions\", \"closedCaptions\"), (\"showScrollbars\", \"showScrollbars\")]"
+    },
+    {
+      "filePath": "\/Users\/gitlabrunner\/builds\/M1xBhyqRW\/0\/team-mobile\/commerce-sdk\/bambuser-commerce-sdk-ios\/Files\/Sources\/BambuserCommerceSDK\/Implementation\/VideoPlayer\/Components\/ShoppableContainerView.swift",
+      "kind": "BooleanLiteral",
+      "offset": 452,
+      "length": 4,
+      "value": "true"
+    },
+    {
+      "filePath": "\/Users\/gitlabrunner\/builds\/M1xBhyqRW\/0\/team-mobile\/commerce-sdk\/bambuser-commerce-sdk-ios\/Files\/Sources\/BambuserCommerceSDK\/Implementation\/VideoPlayer\/Components\/ShoppableContainerView.swift",
+      "kind": "BooleanLiteral",
+      "offset": 1628,
+      "length": 5,
+      "value": "false"
+    },
+    {
+      "filePath": "\/Users\/gitlabrunner\/builds\/M1xBhyqRW\/0\/team-mobile\/commerce-sdk\/bambuser-commerce-sdk-ios\/Files\/Sources\/BambuserCommerceSDK\/Implementation\/VideoPlayer\/Components\/ShoppableContainerView.swift",
+      "kind": "BooleanLiteral",
+      "offset": 2119,
+      "length": 5,
+      "value": "false"
+    },
+    {
+      "filePath": "\/Users\/gitlabrunner\/builds\/M1xBhyqRW\/0\/team-mobile\/commerce-sdk\/bambuser-commerce-sdk-ios\/Files\/Sources\/BambuserCommerceSDK\/Implementation\/VideoPlayer\/Components\/ShoppableContainerView.swift",
+      "kind": "BooleanLiteral",
+      "offset": 2263,
+      "length": 5,
+      "value": "false"
+    },
+    {
+      "filePath": "\/Users\/gitlabrunner\/builds\/M1xBhyqRW\/0\/team-mobile\/commerce-sdk\/bambuser-commerce-sdk-ios\/Files\/Sources\/BambuserCommerceSDK\/Implementation\/VideoPlayer\/Components\/ShoppableContainerView.swift",
+      "kind": "IntegerLiteral",
+      "offset": 2312,
+      "length": 1,
+      "value": "0"
+    },
+    {
+      "filePath": "\/Users\/gitlabrunner\/builds\/M1xBhyqRW\/0\/team-mobile\/commerce-sdk\/bambuser-commerce-sdk-ios\/Files\/Sources\/BambuserCommerceSDK\/Implementation\/VideoPlayer\/Components\/ShoppableContainerView.swift",
+      "kind": "Dictionary",
+      "offset": 2425,
+      "length": 3,
+      "value": "[]"
+    },
+    {
+      "filePath": "\/Users\/gitlabrunner\/builds\/M1xBhyqRW\/0\/team-mobile\/commerce-sdk\/bambuser-commerce-sdk-ios\/Files\/Sources\/BambuserCommerceSDK\/Implementation\/VideoPlayer\/Components\/ShoppableContainerView.swift",
+      "kind": "Array",
+      "offset": 2718,
+      "length": 2,
+      "value": "[]"
+    },
+    {
+      "filePath": "\/Users\/gitlabrunner\/builds\/M1xBhyqRW\/0\/team-mobile\/commerce-sdk\/bambuser-commerce-sdk-ios\/Files\/Sources\/BambuserCommerceSDK\/Implementation\/VideoPlayer\/Components\/ShoppableLayoutView.swift",
+      "kind": "FloatLiteral",
+      "offset": 1368,
+      "length": 4,
+      "value": "16.0"
+    },
+    {
+      "filePath": "\/Users\/gitlabrunner\/builds\/M1xBhyqRW\/0\/team-mobile\/commerce-sdk\/bambuser-commerce-sdk-ios\/Files\/Sources\/BambuserCommerceSDK\/Implementation\/VideoPlayer\/Components\/ShoppableLayoutView.swift",
+      "kind": "FloatLiteral",
+      "offset": 1375,
+      "length": 3,
+      "value": "9.0"
+    },
+    {
+      "filePath": "\/Users\/gitlabrunner\/builds\/M1xBhyqRW\/0\/team-mobile\/commerce-sdk\/bambuser-commerce-sdk-ios\/Files\/Sources\/BambuserCommerceSDK\/Implementation\/VideoPlayer\/Components\/ShoppableLayoutView.swift",
+      "kind": "FloatLiteral",
+      "offset": 1428,
+      "length": 3,
+      "value": "0.8"
+    },
+    {
+      "filePath": "\/Users\/gitlabrunner\/builds\/M1xBhyqRW\/0\/team-mobile\/commerce-sdk\/bambuser-commerce-sdk-ios\/Files\/Sources\/BambuserCommerceSDK\/Implementation\/VideoPlayer\/Components\/ShoppableLayoutView.swift",
+      "kind": "IntegerLiteral",
+      "offset": 2722,
+      "length": 1,
+      "value": "0"
+    },
+    {
+      "filePath": "\/Users\/gitlabrunner\/builds\/M1xBhyqRW\/0\/team-mobile\/commerce-sdk\/bambuser-commerce-sdk-ios\/Files\/Sources\/BambuserCommerceSDK\/Implementation\/VideoPlayer\/Components\/ShoppableLayoutView.swift",
+      "kind": "IntegerLiteral",
+      "offset": 2827,
+      "length": 1,
+      "value": "0"
+    },
+    {
+      "filePath": "\/Users\/gitlabrunner\/builds\/M1xBhyqRW\/0\/team-mobile\/commerce-sdk\/bambuser-commerce-sdk-ios\/Files\/Sources\/BambuserCommerceSDK\/Implementation\/VideoPlayer\/Components\/ShoppableLayoutView.swift",
+      "kind": "IntegerLiteral",
+      "offset": 2897,
+      "length": 1,
+      "value": "0"
+    },
+    {
+      "filePath": "\/Users\/gitlabrunner\/builds\/M1xBhyqRW\/0\/team-mobile\/commerce-sdk\/bambuser-commerce-sdk-ios\/Files\/Sources\/BambuserCommerceSDK\/Implementation\/VideoPlayer\/Components\/Story\/StoryLayoutView.swift",
+      "kind": "IntegerLiteral",
+      "offset": 203,
+      "length": 2,
+      "value": "12"
+    },
+    {
+      "filePath": "\/Users\/gitlabrunner\/builds\/M1xBhyqRW\/0\/team-mobile\/commerce-sdk\/bambuser-commerce-sdk-ios\/Files\/Sources\/BambuserCommerceSDK\/Implementation\/VideoPlayer\/Components\/Story\/StoryLayoutView.swift",
+      "kind": "IntegerLiteral",
+      "offset": 251,
+      "length": 2,
+      "value": "70"
+    },
+    {
+      "filePath": "\/Users\/gitlabrunner\/builds\/M1xBhyqRW\/0\/team-mobile\/commerce-sdk\/bambuser-commerce-sdk-ios\/Files\/Sources\/BambuserCommerceSDK\/Implementation\/VideoPlayer\/Components\/Story\/StoryLayoutView.swift",
+      "kind": "IntegerLiteral",
+      "offset": 305,
+      "length": 2,
+      "value": "10"
+    },
+    {
+      "filePath": "\/Users\/gitlabrunner\/builds\/M1xBhyqRW\/0\/team-mobile\/commerce-sdk\/bambuser-commerce-sdk-ios\/Files\/Sources\/BambuserCommerceSDK\/Implementation\/VideoPlayer\/Components\/Story\/StoryLayoutView.swift",
+      "kind": "IntegerLiteral",
+      "offset": 361,
+      "length": 2,
+      "value": "16"
+    },
+    {
+      "filePath": "\/Users\/gitlabrunner\/builds\/M1xBhyqRW\/0\/team-mobile\/commerce-sdk\/bambuser-commerce-sdk-ios\/Files\/Sources\/BambuserCommerceSDK\/Implementation\/VideoPlayer\/Components\/Story\/StoryLayoutView.swift",
+      "kind": "Dictionary",
+      "offset": 627,
+      "length": 3,
+      "value": "[]"
     },
     {
       "filePath": "\/Users\/gitlabrunner\/builds\/M1xBhyqRW\/0\/team-mobile\/commerce-sdk\/bambuser-commerce-sdk-ios\/Files\/Sources\/BambuserCommerceSDK\/Implementation\/VideoPlayer\/Models\/Tracking\/TrackingDataModel.swift",
@@ -7669,7 +10191,7 @@
     {
       "filePath": "\/Users\/gitlabrunner\/builds\/M1xBhyqRW\/0\/team-mobile\/commerce-sdk\/bambuser-commerce-sdk-ios\/Files\/Sources\/BambuserCommerceSDK\/Implementation\/VideoPlayer\/WebViewManager\/WebViewManager.swift",
       "kind": "IntegerLiteral",
-      "offset": 5391,
+      "offset": 5458,
       "length": 2,
       "value": "10"
     }

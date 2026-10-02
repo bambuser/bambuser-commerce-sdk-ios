@@ -32,7 +32,8 @@ enum ShoppableVideoConfigs {
                     "currency": "SEK",
                     "locale": "en-US"
                 ]
-            ]
+            ],
+            videoScaleMode: .fill
         )
     }
 
@@ -59,7 +60,8 @@ enum ShoppableVideoConfigs {
                     "currency": "SEK",
                     "locale": "en-US"
                 ]
-            ]
+            ],
+            videoScaleMode: .fill
         )
     }
 
@@ -86,7 +88,8 @@ enum ShoppableVideoConfigs {
                     "currency": "SEK",
                     "locale": "en-US"
                 ]
-            ]
+            ],
+            videoScaleMode: .fill
         )
     }
 
@@ -113,7 +116,8 @@ enum ShoppableVideoConfigs {
                     "currency": "SEK",
                     "locale": "en-US"
                 ]
-            ]
+            ],
+            videoScaleMode: .fill
         )
     }
 
@@ -144,7 +148,8 @@ enum ShoppableVideoConfigs {
                     "currency": "SEK",
                     "locale": "en-US"
                 ]
-            ]
+            ],
+            videoScaleMode: .fill
         )
     }
 }

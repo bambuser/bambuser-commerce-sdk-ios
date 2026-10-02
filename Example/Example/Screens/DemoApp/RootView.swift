@@ -38,6 +38,25 @@ struct RootTabsView: View {
                 }
                 .tag(Tab.shoppableVideo)
 
+            // Appearances tab (grid / row / story picked from the Bam Hub appearance)
+            webSheet(for: .appearances) {
+                NativeShoppableView()
+                    .ignoresSafeArea(edges: .bottom)
+                    .statusBarHidden(navigationManager.isShoppableFullscreen)
+            }
+            .tabItem {
+                Label("Appearances", systemImage: "paintpalette")
+            }
+            .tag(Tab.appearances)
+
+            // FAB tab (floating mini-player triggered by product tap)
+            FABShopView()
+                .ignoresSafeArea(edges: .bottom)
+                .tabItem {
+                    Label("Deals", systemImage: "rectangle.inset.bottomright.filled")
+                }
+                .tag(Tab.fab)
+
             // Wishlist tab
             NavigationStack(path: navigationManager.pathBinding(for: .wishlist)) {
                 WishlistView()
@@ -60,29 +79,34 @@ struct RootTabsView: View {
 
     @ViewBuilder
     private var feedView: some View {
-        let binding = navigationManager.sheetBinding(for: .shoppableVideo)
-
-        let stack = NavigationStack(path: navigationManager.pathBinding(for: .shoppableVideo)) {
-            ShopHomeView()
-                .navigationDestination(for: PushDestination.self) { destination in
-                    switch destination {
-                    case .shoppableFormat(let format):
-                        formatScreen(for: format)
-                            .applyBottomSafeAreaRule()
-                    case .storiesFeed(let startIndex):
-                        StoriesFeedView(startIndex: startIndex)
-                            .ignoresSafeArea()
-                            .navigationBarTitleDisplayMode(.inline)
-                    case .allFormats:
-                        FeedFormatsView()
-                    case .liveShow:
-                        EmptyView()
+        webSheet(for: .shoppableVideo) {
+            NavigationStack(path: navigationManager.pathBinding(for: .shoppableVideo)) {
+                ShopHomeView()
+                    .navigationDestination(for: PushDestination.self) { destination in
+                        switch destination {
+                        case .shoppableFormat(let format):
+                            formatScreen(for: format)
+                                .applyBottomSafeAreaRule()
+                        case .storiesFeed(let startIndex):
+                            StoriesFeedView(startIndex: startIndex)
+                                .ignoresSafeArea()
+                                .navigationBarTitleDisplayMode(.inline)
+                        case .allFormats:
+                            FeedFormatsView()
+                        case .liveShow:
+                            EmptyView()
+                        }
                     }
-                }
+            }
         }
+    }
+
+    @ViewBuilder
+    private func webSheet<Content: View>(for tab: Tab, @ViewBuilder content: () -> Content) -> some View {
+        let binding = navigationManager.sheetBinding(for: tab)
 
         if UIDevice.current.userInterfaceIdiom == .pad {
-            stack
+            content()
                 .fullScreenCover(item: binding) { sheet in
                     switch sheet {
                     case .openWebPage(let url):
@@ -91,7 +115,7 @@ struct RootTabsView: View {
                     }
                 }
         } else {
-            stack
+            content()
                 .sheet(item: binding) { sheet in
                     switch sheet {
                     case .openWebPage(let url):
