@@ -1,5 +1,5 @@
 //
-//  FeedFormatsView.swift
+//  AllFormatsView.swift
 //  Example
 //
 //  Created by Saeid Basirnia on 2026-06-11.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct FeedFormatsView: View {
+struct AllFormatsView: View {
     @EnvironmentObject var navigationManager: NavigationManager
 
     var body: some View {
@@ -34,7 +34,7 @@ struct FeedFormatsView: View {
 
 #Preview {
     NavigationStack {
-        FeedFormatsView()
+        AllFormatsView()
             .environmentObject(NavigationManager())
     }
 }

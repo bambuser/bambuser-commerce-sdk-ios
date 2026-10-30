@@ -1,30 +1,29 @@
 //
-//  FeedViewController.swift
+//  ReelsFormat.swift
 //  Example
 //
-//  Created by Saeid Basirnia on 2025-09-30.
-//
 
+import SwiftUI
 import UIKit
 import BambuserCommerceSDK
 
-final class ReelsFeedViewController: UIViewController {
-    private let navManager: NavigationManager
-    private let startIndex: Int
-    private lazy var router = ShoppableVideoEventRouter(navManager: navManager)
+struct ReelsFormatView: UIViewControllerRepresentable {
+    @EnvironmentObject var navigationManager: NavigationManager
+    var startIndex: Int = 0
 
-    private var players: [BambuserPlayerView] = []
+    func makeUIViewController(context: Context) -> ReelsFormatViewController {
+        ReelsFormatViewController(navManager: navigationManager, startIndex: startIndex)
+    }
+
+    func updateUIViewController(_ uiViewController: ReelsFormatViewController, context: Context) {}
+}
+
+final class ReelsFormatViewController: ShoppableFormatViewController {
+    private let startIndex: Int
     private var currentIndex: Int = 0
     private var didLayoutOnce = false
     private var didAppearOnce = false
     private var didStartInitialScroll = false
-
-    private lazy var activityIndicator: UIActivityIndicatorView = {
-        let indicator = UIActivityIndicatorView(style: .large)
-        indicator.translatesAutoresizingMaskIntoConstraints = false
-        indicator.hidesWhenStopped = true
-        return indicator
-    }()
 
     private lazy var scrollView: UIScrollView = {
         let sv = UIScrollView()
@@ -46,9 +45,8 @@ final class ReelsFeedViewController: UIViewController {
     }()
 
     init(navManager: NavigationManager, startIndex: Int = 0) {
-        self.navManager = navManager
         self.startIndex = max(0, startIndex)
-        super.init(nibName: nil, bundle: nil)
+        super.init(navManager: navManager)
     }
 
     required init?(coder: NSCoder) {
@@ -59,16 +57,12 @@ final class ReelsFeedViewController: UIViewController {
         super.viewDidLoad()
         view.backgroundColor = .systemBackground
         setupScrollView()
-        view.addSubview(activityIndicator)
-        NSLayoutConstraint.activate([
-            activityIndicator.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            activityIndicator.centerYAnchor.constraint(equalTo: view.centerYAnchor)
-        ])
-        activityIndicator.startAnimating()
 
-        router.presenter = self
         router.onStateChanged = { [weak self] id, state in self?.handleStateChange(id: id, state: state) }
-        load()
+        loadPlayers(ShoppableVideoConfigs.reels()) { [weak self] players in
+            self?.setupVideoPlaylist(players)
+            self?.tryAlignInitialPage()
+        }
     }
 
     override func viewDidAppear(_ animated: Bool) {
@@ -116,23 +110,6 @@ final class ReelsFeedViewController: UIViewController {
             videoStack.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor),
             videoStack.widthAnchor.constraint(equalTo: scrollView.widthAnchor)
         ])
-    }
-
-    private func load() {
-        let sdk = BambuserSDK(server: .US)
-        Task {
-            do {
-                let result = try await sdk.createShoppableVideoPlayerCollection(
-                    videoConfiguration: ShoppableVideoConfigs.reels()
-                )
-                await MainActor.run {
-                    setupVideoPlaylist(result.players)
-                    tryAlignInitialPage()
-                }
-            } catch {
-                print("Reels load error: \(error)")
-            }
-        }
     }
 
     private func setupVideoPlaylist(_ videoViews: [BambuserPlayerView]) {
@@ -230,7 +207,7 @@ final class ReelsFeedViewController: UIViewController {
     }
 }
 
-extension ReelsFeedViewController: UIScrollViewDelegate {
+extension ReelsFormatViewController: UIScrollViewDelegate {
     func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
         if players.indices.contains(currentIndex) {
             players[currentIndex].pause()

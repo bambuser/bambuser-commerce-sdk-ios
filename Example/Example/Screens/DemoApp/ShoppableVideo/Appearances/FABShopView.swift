@@ -1,18 +1,29 @@
 //
-//  FABShopViewController.swift
+//  FABShopView.swift
 //  Example
 //
 
+import SwiftUI
 import UIKit
 import BambuserCommerceSDK
+
+struct FABShopView: UIViewControllerRepresentable {
+    @EnvironmentObject var navigationManager: NavigationManager
+
+    func makeUIViewController(context: Context) -> UINavigationController {
+        let vc = FABShopViewController(navManager: navigationManager)
+        let nav = UINavigationController(rootViewController: vc)
+        return nav
+    }
+
+    func updateUIViewController(_ uiViewController: UINavigationController, context: Context) {}
+}
 
 final class FABShopViewController: UIViewController {
 
     let navManager: NavigationManager
+    private lazy var router = ShoppableVideoEventRouter(navManager: navManager, tab: .fab)
     private var shoppable: BambuserShoppableView?
-
-    private let scrollView = UIScrollView()
-    private let contentStack = UIStackView()
 
     init(navManager: NavigationManager) {
         self.navManager = navManager
@@ -29,6 +40,7 @@ final class FABShopViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .systemBackground
+        router.presenter = self
         setupNavigation()
         setupContent()
     }
@@ -49,34 +61,21 @@ final class FABShopViewController: UIViewController {
         navigationItem.rightBarButtonItem = UIBarButtonItem(
             image: UIImage(systemName: "cart"),
             style: .plain,
-            target: nil,
-            action: nil
+            target: self,
+            action: #selector(openCart)
         )
     }
 
+    @objc private func openCart() {
+        navManager.switchTo(.cart)
+    }
+
     private func setupContent() {
-        scrollView.translatesAutoresizingMaskIntoConstraints = false
-        view.addSubview(scrollView)
-
-        contentStack.axis = .vertical
-        contentStack.spacing = 24
-        contentStack.translatesAutoresizingMaskIntoConstraints = false
-        contentStack.layoutMargins = UIEdgeInsets(top: 16, left: 0, bottom: 32, right: 0)
-        contentStack.isLayoutMarginsRelativeArrangement = true
-        scrollView.addSubview(contentStack)
-
-        NSLayoutConstraint.activate([
-            scrollView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
-            scrollView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-            scrollView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            scrollView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
-
-            contentStack.topAnchor.constraint(equalTo: scrollView.topAnchor),
-            contentStack.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor),
-            contentStack.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor),
-            contentStack.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor),
-            contentStack.widthAnchor.constraint(equalTo: scrollView.widthAnchor)
-        ])
+        let contentStack = DemoShopSections.scrollingContent(
+            in: view,
+            spacing: 24,
+            margins: UIEdgeInsets(top: 16, left: 0, bottom: 32, right: 0)
+        )
 
         contentStack.addArrangedSubview(DemoShopSections.banner(
             title: "Shop the Look",
@@ -95,28 +94,13 @@ final class FABShopViewController: UIViewController {
     }
 
     private func attachFAB(in window: UIWindow) async {
-        let sdk = BambuserSDK(server: .US)
-        let config = BambuserShoppableVideoConfiguration(
-            type: .playlist(Show.FABPlaylistConfig),
-            events: ["*"],
-            configuration: [
-                "preload": true,
-                "thumbnail": ["enabled": false],
-                "playerConfig": [
-                    "buttons": ["dismiss": "event"],
-                    "enableTrackingPoint": false,
-                    "currency": "SEK",
-                    "locale": "en-US"
-                ]
-            ],
-            videoScaleMode: .fill
-        )
         do {
-            let handle = try await sdk.attachShoppableView(
+            let handle = try await BambuserSDK(server: .US).attachShoppableView(
                 into: window,
-                videoConfiguration: config
+                videoConfiguration: ShoppableVideoConfigs.fab()
             )
             handle.delegate = self
+            router.attach(to: handle)
             shoppable = handle
         } catch {
             print("Failed to attach FAB: \(error)")

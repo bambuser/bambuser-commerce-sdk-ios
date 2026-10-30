@@ -111,7 +111,7 @@ private struct CarouselInlineSection: View {
                     .foregroundStyle(.secondary)
             }
             .padding(.horizontal, 16)
-            CarouselFeedView(compact: true)
+            CarouselFormatView(compact: true)
                 .frame(height: 300)
         }
     }

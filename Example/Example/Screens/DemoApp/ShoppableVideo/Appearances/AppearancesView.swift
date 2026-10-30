@@ -1,18 +1,30 @@
 //
-//  NativeShoppableViewController.swift
+//  AppearancesView.swift
 //  Example
 //
 
+import SwiftUI
 import UIKit
 import BambuserCommerceSDK
 
-final class NativeShoppableViewController: UIViewController {
+struct AppearancesView: UIViewControllerRepresentable {
+    @EnvironmentObject var navigationManager: NavigationManager
+
+    func makeUIViewController(context: Context) -> UINavigationController {
+        let vc = AppearancesViewController(navManager: navigationManager)
+        let nav = UINavigationController(rootViewController: vc)
+        return nav
+    }
+
+    func updateUIViewController(_ uiViewController: UINavigationController, context: Context) {}
+}
+
+final class AppearancesViewController: UIViewController {
 
     let navManager: NavigationManager
+    private lazy var router = ShoppableVideoEventRouter(navManager: navManager, tab: .appearances)
     private var shoppable: BambuserShoppableView?
 
-    private let scrollView = UIScrollView()
-    private let contentStack = UIStackView()
     private let shoppableHost = UIView()
     private var loadingPlaceholderHeight: NSLayoutConstraint!
     private let activityIndicator = UIActivityIndicatorView(style: .medium)
@@ -32,6 +44,7 @@ final class NativeShoppableViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .systemBackground
+        router.presenter = self
         setupNavigation()
         setupContent()
         Task { await attachShoppable() }
@@ -53,28 +66,11 @@ final class NativeShoppableViewController: UIViewController {
     }
 
     private func setupContent() {
-        scrollView.translatesAutoresizingMaskIntoConstraints = false
-        view.addSubview(scrollView)
-
-        contentStack.axis = .vertical
-        contentStack.spacing = 12
-        contentStack.translatesAutoresizingMaskIntoConstraints = false
-        contentStack.layoutMargins = UIEdgeInsets(top: 12, left: 0, bottom: 24, right: 0)
-        contentStack.isLayoutMarginsRelativeArrangement = true
-        scrollView.addSubview(contentStack)
-
-        NSLayoutConstraint.activate([
-            scrollView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
-            scrollView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-            scrollView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            scrollView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
-
-            contentStack.topAnchor.constraint(equalTo: scrollView.topAnchor),
-            contentStack.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor),
-            contentStack.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor),
-            contentStack.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor),
-            contentStack.widthAnchor.constraint(equalTo: scrollView.widthAnchor)
-        ])
+        let contentStack = DemoShopSections.scrollingContent(
+            in: view,
+            spacing: 12,
+            margins: UIEdgeInsets(top: 12, left: 0, bottom: 24, right: 0)
+        )
 
         shoppableHost.translatesAutoresizingMaskIntoConstraints = false
         shoppableHost.backgroundColor = .clear
@@ -115,7 +111,7 @@ final class NativeShoppableViewController: UIViewController {
     }
 }
 
-extension NativeShoppableViewController: BambuserShoppableViewDelegate {
+extension AppearancesViewController: BambuserShoppableViewDelegate {
     private func log(_ callback: String, _ view: BambuserShoppableView, _ details: String = "") {
         let pagination = view.pagination
         print("""
@@ -171,28 +167,15 @@ extension NativeShoppableViewController: BambuserShoppableViewDelegate {
     }
 }
 
-extension NativeShoppableViewController {
+extension AppearancesViewController {
     private func attachShoppable() async {
-        let sdk = BambuserSDK(server: .US)
-        let config = BambuserShoppableVideoConfiguration(
-            type: .playlist(Show.PlaylistConfig),
-            events: ["*"],
-            configuration: [
-                "thumbnail": ["enabled": false],
-                "playerConfig": [
-                    "buttons": ["dismiss": "event"],
-                    "currency": "SEK",
-                    "locale": "en-US"
-                ]
-            ],
-            videoScaleMode: .fill
-        )
         do {
-            let bamPlaylist = try await sdk.attachShoppableView(
+            let bamPlaylist = try await BambuserSDK(server: .US).attachShoppableView(
                 into: shoppableHost,
-                videoConfiguration: config
+                videoConfiguration: ShoppableVideoConfigs.appearance()
             )
             bamPlaylist.delegate = self
+            router.attach(to: bamPlaylist)
             shoppable = bamPlaylist
             log("attached", bamPlaylist, "playerIds=\(bamPlaylist.players.map(\.id))")
             activityIndicator.stopAnimating()

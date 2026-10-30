@@ -9,21 +9,19 @@ import SwiftUI
 import UIKit
 import BambuserCommerceSDK
 
-struct SpotlightFeedView: UIViewControllerRepresentable {
+struct SpotlightFormatView: UIViewControllerRepresentable {
     @EnvironmentObject var navigationManager: NavigationManager
 
-    func makeUIViewController(context: Context) -> SpotlightFeedViewController {
-        SpotlightFeedViewController(navManager: navigationManager)
+    func makeUIViewController(context: Context) -> SpotlightFormatViewController {
+        SpotlightFormatViewController(navManager: navigationManager)
     }
 
-    func updateUIViewController(_ uiViewController: SpotlightFeedViewController, context: Context) {}
+    func updateUIViewController(_ uiViewController: SpotlightFormatViewController, context: Context) {}
 }
 
-final class SpotlightFeedViewController: UIViewController {
-    private let navManager: NavigationManager
-    private lazy var router = ShoppableVideoEventRouter(navManager: navManager)
-    private var players: [BambuserPlayerView] = []
+final class SpotlightFormatViewController: ShoppableFormatViewController {
     private var heroIndex: Int = 0
+    private var cards: [PlayerCardView] = []
 
     private lazy var heroContainer: UIView = {
         let v = UIView()
@@ -71,21 +69,6 @@ final class SpotlightFeedViewController: UIViewController {
         return s
     }()
 
-    private lazy var activityIndicator: UIActivityIndicatorView = {
-        let i = UIActivityIndicatorView(style: .large)
-        i.translatesAutoresizingMaskIntoConstraints = false
-        i.hidesWhenStopped = true
-        return i
-    }()
-
-    private var cards: [SpotlightRailCard] = []
-
-    init(navManager: NavigationManager) {
-        self.navManager = navManager
-        super.init(nibName: nil, bundle: nil)
-    }
-    required init?(coder: NSCoder) { fatalError() }
-
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .systemBackground
@@ -95,7 +78,6 @@ final class SpotlightFeedViewController: UIViewController {
         view.addSubview(railTitle)
         view.addSubview(railScroll)
         railScroll.addSubview(railStack)
-        view.addSubview(activityIndicator)
 
         NSLayoutConstraint.activate([
             heroContainer.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16),
@@ -121,30 +103,11 @@ final class SpotlightFeedViewController: UIViewController {
             railStack.trailingAnchor.constraint(equalTo: railScroll.trailingAnchor, constant: -16),
             railStack.topAnchor.constraint(equalTo: railScroll.topAnchor),
             railStack.bottomAnchor.constraint(equalTo: railScroll.bottomAnchor),
-            railStack.heightAnchor.constraint(equalTo: railScroll.heightAnchor),
-
-            activityIndicator.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            activityIndicator.centerYAnchor.constraint(equalTo: view.centerYAnchor)
+            railStack.heightAnchor.constraint(equalTo: railScroll.heightAnchor)
         ])
 
-        router.presenter = self
         router.onStateChanged = { [weak self] id, state in self?.handleState(id: id, state: state) }
-        activityIndicator.startAnimating()
-        load()
-    }
-
-    private func load() {
-        let sdk = BambuserSDK(server: .US)
-        Task {
-            do {
-                let result = try await sdk.createShoppableVideoPlayerCollection(
-                    videoConfiguration: ShoppableVideoConfigs.spotlight()
-                )
-                await MainActor.run { self.setupHeroAndRail(result.players) }
-            } catch {
-                print("Spotlight load error: \(error)")
-            }
-        }
+        loadPlayers(ShoppableVideoConfigs.spotlight()) { [weak self] in self?.setupHeroAndRail($0) }
     }
 
     private func setupHeroAndRail(_ list: [BambuserPlayerView]) {
@@ -152,11 +115,9 @@ final class SpotlightFeedViewController: UIViewController {
         players = list
         router.bind(list)
 
-        for index in list.indices {
-            let card = SpotlightRailCard(index: index) { [weak self] tapped in self?.promote(index: tapped) }
-            cards.append(card)
+        cards = list.indices.map { index in
+            PlayerCardView(cornerRadius: 12) { [weak self] in self?.promote(index: index) }
         }
-
         rebuildLayout()
     }
 
@@ -177,7 +138,7 @@ final class SpotlightFeedViewController: UIViewController {
         ])
 
         for (index, card) in cards.enumerated() where index != heroIndex {
-            card.attach(player: players[index])
+            card.attach(players[index])
             railStack.addArrangedSubview(card)
             NSLayoutConstraint.activate([
                 card.widthAnchor.constraint(equalToConstant: 140),
@@ -211,45 +172,4 @@ final class SpotlightFeedViewController: UIViewController {
             try? await hero.changeMode(to: .fullExperience)
         }
     }
-}
-
-private final class SpotlightRailCard: UIView {
-    private let index: Int
-    private let onTap: (Int) -> Void
-    private weak var attachedPlayer: BambuserPlayerView?
-
-    init(index: Int, onTap: @escaping (Int) -> Void) {
-        self.index = index
-        self.onTap = onTap
-        super.init(frame: .zero)
-        translatesAutoresizingMaskIntoConstraints = false
-        backgroundColor = .secondarySystemBackground
-        layer.cornerRadius = 12
-        clipsToBounds = true
-
-        let gesture = UITapGestureRecognizer(target: self, action: #selector(handleTap))
-        addGestureRecognizer(gesture)
-        isUserInteractionEnabled = true
-    }
-    required init?(coder: NSCoder) { fatalError() }
-
-    func attach(player: BambuserPlayerView) {
-        player.translatesAutoresizingMaskIntoConstraints = false
-        player.isUserInteractionEnabled = false
-        addSubview(player)
-        NSLayoutConstraint.activate([
-            player.leadingAnchor.constraint(equalTo: leadingAnchor),
-            player.trailingAnchor.constraint(equalTo: trailingAnchor),
-            player.topAnchor.constraint(equalTo: topAnchor),
-            player.bottomAnchor.constraint(equalTo: bottomAnchor)
-        ])
-        attachedPlayer = player
-    }
-
-    func detachPlayer() {
-        attachedPlayer?.removeFromSuperview()
-        attachedPlayer = nil
-    }
-
-    @objc private func handleTap() { onTap(index) }
 }

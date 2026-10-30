@@ -40,7 +40,7 @@ struct RootTabsView: View {
 
             // Appearances tab (grid / row / story picked from the Bam Hub appearance)
             webSheet(for: .appearances) {
-                NativeShoppableView()
+                AppearancesView()
                     .ignoresSafeArea(edges: .bottom)
                     .statusBarHidden(navigationManager.isShoppableFullscreen)
             }
@@ -50,12 +50,14 @@ struct RootTabsView: View {
             .tag(Tab.appearances)
 
             // FAB tab (floating mini-player triggered by product tap)
-            FABShopView()
-                .ignoresSafeArea(edges: .bottom)
-                .tabItem {
-                    Label("Deals", systemImage: "rectangle.inset.bottomright.filled")
-                }
-                .tag(Tab.fab)
+            webSheet(for: .fab) {
+                FABShopView()
+                    .ignoresSafeArea(edges: .bottom)
+            }
+            .tabItem {
+                Label("Deals", systemImage: "rectangle.inset.bottomright.filled")
+            }
+            .tag(Tab.fab)
 
             // Wishlist tab
             NavigationStack(path: navigationManager.pathBinding(for: .wishlist)) {
@@ -92,7 +94,7 @@ struct RootTabsView: View {
                                 .ignoresSafeArea()
                                 .navigationBarTitleDisplayMode(.inline)
                         case .allFormats:
-                            FeedFormatsView()
+                            AllFormatsView()
                         case .liveShow:
                             EmptyView()
                         }
@@ -134,15 +136,15 @@ extension RootTabsView {
     func formatScreen(for format: ShoppableVideoFormat) -> some View {
         switch format {
         case .reels:
-            ReelsFeedView()
+            ReelsFormatView()
         case .stories:
             StoriesSelectorView()
         case .grid:
-            GridFeedView()
+            GridFormatView()
         case .carousel:
-            CarouselFeedView()
+            CarouselFormatView()
         case .spotlight:
-            SpotlightFeedView()
+            SpotlightFormatView()
         }
     }
 }

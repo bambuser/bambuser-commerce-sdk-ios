@@ -9,28 +9,24 @@ import SwiftUI
 import UIKit
 import BambuserCommerceSDK
 
-struct CarouselFeedView: UIViewControllerRepresentable {
+struct CarouselFormatView: UIViewControllerRepresentable {
     @EnvironmentObject var navigationManager: NavigationManager
     var compact: Bool = false
 
-    func makeUIViewController(context: Context) -> CarouselFeedViewController {
-        CarouselFeedViewController(navManager: navigationManager, compact: compact)
+    func makeUIViewController(context: Context) -> CarouselFormatViewController {
+        CarouselFormatViewController(navManager: navigationManager, compact: compact)
     }
 
-    func updateUIViewController(_ uiViewController: CarouselFeedViewController, context: Context) {}
+    func updateUIViewController(_ uiViewController: CarouselFormatViewController, context: Context) {}
 }
 
-final class CarouselFeedViewController: UIViewController {
-    private let navManager: NavigationManager
+final class CarouselFormatViewController: ShoppableFormatViewController {
     private let compact: Bool
-    private lazy var router = ShoppableVideoEventRouter(navManager: navManager)
-    private var players: [BambuserPlayerView] = []
-    private var activeId: String?
 
     private lazy var header: UILabel = {
         let l = UILabel()
         l.text = "Featured shoppable videos"
-        l.font = .preferredFont(forTextStyle: .title3).bold()
+        l.font = UIFontMetrics(forTextStyle: .title3).scaledFont(for: .systemFont(ofSize: 20, weight: .bold))
         l.translatesAutoresizingMaskIntoConstraints = false
         return l
     }()
@@ -60,18 +56,11 @@ final class CarouselFeedViewController: UIViewController {
         return s
     }()
 
-    private lazy var activityIndicator: UIActivityIndicatorView = {
-        let i = UIActivityIndicatorView(style: .large)
-        i.translatesAutoresizingMaskIntoConstraints = false
-        i.hidesWhenStopped = true
-        return i
-    }()
-
     init(navManager: NavigationManager, compact: Bool = false) {
-        self.navManager = navManager
         self.compact = compact
-        super.init(nibName: nil, bundle: nil)
+        super.init(navManager: navManager)
     }
+
     required init?(coder: NSCoder) { fatalError() }
 
     override func viewDidLoad() {
@@ -84,7 +73,6 @@ final class CarouselFeedViewController: UIViewController {
         }
         view.addSubview(scrollView)
         scrollView.addSubview(row)
-        view.addSubview(activityIndicator)
 
         var constraints: [NSLayoutConstraint] = [
             scrollView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
@@ -95,10 +83,7 @@ final class CarouselFeedViewController: UIViewController {
             row.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor, constant: -16),
             row.topAnchor.constraint(equalTo: scrollView.topAnchor),
             row.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor),
-            row.heightAnchor.constraint(equalTo: scrollView.heightAnchor),
-
-            activityIndicator.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            activityIndicator.centerYAnchor.constraint(equalTo: view.centerYAnchor)
+            row.heightAnchor.constraint(equalTo: scrollView.heightAnchor)
         ]
         if compact {
             constraints.append(scrollView.topAnchor.constraint(equalTo: view.topAnchor))
@@ -117,26 +102,10 @@ final class CarouselFeedViewController: UIViewController {
         }
         NSLayoutConstraint.activate(constraints)
 
-        router.presenter = self
-        router.onStateChanged = { [weak self] id, state in self?.handleState(id: id, state: state) }
-        router.onThumbnailTapped = { [weak self] id in self?.handleThumbnailTap(id: id) }
+        router.onStateChanged = { [weak self] id, state in self?.resetIfCompleted(id: id, state: state) }
+        router.onThumbnailTapped = { [weak self] id in self?.playExclusively(id: id) }
 
-        activityIndicator.startAnimating()
-        load()
-    }
-
-    private func load() {
-        let sdk = BambuserSDK(server: .US)
-        Task {
-            do {
-                let result = try await sdk.createShoppableVideoPlayerCollection(
-                    videoConfiguration: ShoppableVideoConfigs.carousel()
-                )
-                await MainActor.run { self.setupRow(result.players) }
-            } catch {
-                print("Carousel load error: \(error)")
-            }
-        }
+        loadPlayers(ShoppableVideoConfigs.carousel()) { [weak self] in self?.setupRow($0) }
     }
 
     private func setupRow(_ list: [BambuserPlayerView]) {
@@ -145,60 +114,13 @@ final class CarouselFeedViewController: UIViewController {
         activityIndicator.stopAnimating()
 
         for player in list {
-            let card = CarouselCard()
-            card.attach(player: player)
+            let card = PlayerCardView(cornerRadius: 16)
+            card.attach(player)
             row.addArrangedSubview(card)
             NSLayoutConstraint.activate([
                 card.widthAnchor.constraint(equalToConstant: 170),
                 card.heightAnchor.constraint(equalTo: row.heightAnchor)
             ])
         }
-    }
-
-    private func handleThumbnailTap(id: String) {
-        guard let tapped = players.first(where: { $0.id == id }) else { return }
-        activeId = id
-
-        for p in players where p.id != id {
-            p.resetPlayer()
-        }
-        tapped.play()
-    }
-
-    private func handleState(id: String, state: BambuserVideoState) {
-        if state == .completed, id == activeId,
-           let player = players.first(where: { $0.id == id }) {
-            player.resetPlayer()
-            activeId = nil
-        }
-    }
-}
-
-private final class CarouselCard: UIView {
-    init() {
-        super.init(frame: .zero)
-        translatesAutoresizingMaskIntoConstraints = false
-        backgroundColor = .secondarySystemBackground
-        layer.cornerRadius = 16
-        clipsToBounds = true
-    }
-    required init?(coder: NSCoder) { fatalError() }
-
-    func attach(player: BambuserPlayerView) {
-        player.translatesAutoresizingMaskIntoConstraints = false
-        addSubview(player)
-        NSLayoutConstraint.activate([
-            player.leadingAnchor.constraint(equalTo: leadingAnchor),
-            player.trailingAnchor.constraint(equalTo: trailingAnchor),
-            player.topAnchor.constraint(equalTo: topAnchor),
-            player.bottomAnchor.constraint(equalTo: bottomAnchor)
-        ])
-    }
-}
-
-private extension UIFont {
-    func bold() -> UIFont {
-        let descriptor = fontDescriptor.withSymbolicTraits(.traitBold) ?? fontDescriptor
-        return UIFont(descriptor: descriptor, size: pointSize)
     }
 }

@@ -9245,6 +9245,16 @@
       },
       {
         "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "BambuserCommerceSDK",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "Import",
         "name": "UIKit",
         "printedName": "UIKit",
         "declKind": "Import",
@@ -9295,28 +9305,28 @@
     {
       "filePath": "\/Users\/gitlabrunner\/builds\/M1xBhyqRW\/0\/team-mobile\/commerce-sdk\/bambuser-commerce-sdk-ios\/Files\/Sources\/BambuserCommerceSDK\/Interface\/BambuserSDK.swift",
       "kind": "IntegerLiteral",
-      "offset": 6871,
+      "offset": 6882,
       "length": 1,
       "value": "1"
     },
     {
       "filePath": "\/Users\/gitlabrunner\/builds\/M1xBhyqRW\/0\/team-mobile\/commerce-sdk\/bambuser-commerce-sdk-ios\/Files\/Sources\/BambuserCommerceSDK\/Interface\/BambuserSDK.swift",
       "kind": "IntegerLiteral",
-      "offset": 6898,
+      "offset": 6909,
       "length": 2,
       "value": "15"
     },
     {
       "filePath": "\/Users\/gitlabrunner\/builds\/M1xBhyqRW\/0\/team-mobile\/commerce-sdk\/bambuser-commerce-sdk-ios\/Files\/Sources\/BambuserCommerceSDK\/Interface\/BambuserSDK.swift",
       "kind": "IntegerLiteral",
-      "offset": 8567,
+      "offset": 8588,
       "length": 1,
       "value": "1"
     },
     {
       "filePath": "\/Users\/gitlabrunner\/builds\/M1xBhyqRW\/0\/team-mobile\/commerce-sdk\/bambuser-commerce-sdk-ios\/Files\/Sources\/BambuserCommerceSDK\/Interface\/BambuserSDK.swift",
       "kind": "IntegerLiteral",
-      "offset": 8594,
+      "offset": 8615,
       "length": 2,
       "value": "15"
     },
@@ -9381,7 +9391,7 @@
       "kind": "StringLiteral",
       "offset": 221,
       "length": 7,
-      "value": "\"4.0.0\""
+      "value": "\"4.0.1\""
     },
     {
       "filePath": "\/Users\/gitlabrunner\/builds\/M1xBhyqRW\/0\/team-mobile\/commerce-sdk\/bambuser-commerce-sdk-ios\/Files\/Sources\/BambuserCommerceSDK\/Implementation\/VideoPlayer\/Environment.swift",
@@ -9659,7 +9669,7 @@
     {
       "filePath": "\/Users\/gitlabrunner\/builds\/M1xBhyqRW\/0\/team-mobile\/commerce-sdk\/bambuser-commerce-sdk-ios\/Files\/Sources\/BambuserCommerceSDK\/Implementation\/VideoPlayer\/ShoppableVideo\/InlineVideoContainerConfig.swift",
       "kind": "BooleanLiteral",
-      "offset": 479,
+      "offset": 522,
       "length": 4,
       "value": "true"
     },
@@ -9704,6 +9714,20 @@
       "offset": 302,
       "length": 8,
       "value": "\"DELETE\""
+    },
+    {
+      "filePath": "\/Users\/gitlabrunner\/builds\/M1xBhyqRW\/0\/team-mobile\/commerce-sdk\/bambuser-commerce-sdk-ios\/Files\/Sources\/BambuserCommerceSDK\/Implementation\/VideoPlayer\/NetworkManager.swift",
+      "kind": "Dictionary",
+      "offset": 941,
+      "length": 3,
+      "value": "[]"
+    },
+    {
+      "filePath": "\/Users\/gitlabrunner\/builds\/M1xBhyqRW\/0\/team-mobile\/commerce-sdk\/bambuser-commerce-sdk-ios\/Files\/Sources\/BambuserCommerceSDK\/Implementation\/VideoPlayer\/NetworkManager.swift",
+      "kind": "Dictionary",
+      "offset": 1495,
+      "length": 3,
+      "value": "[]"
     },
     {
       "filePath": "\/Users\/gitlabrunner\/builds\/M1xBhyqRW\/0\/team-mobile\/commerce-sdk\/bambuser-commerce-sdk-ios\/Files\/Sources\/BambuserCommerceSDK\/Implementation\/VideoPlayer\/PeriodicTimeObserver.swift",
@@ -9778,70 +9802,70 @@
     {
       "filePath": "\/Users\/gitlabrunner\/builds\/M1xBhyqRW\/0\/team-mobile\/commerce-sdk\/bambuser-commerce-sdk-ios\/Files\/Sources\/BambuserCommerceSDK\/Implementation\/VideoPlayer\/Player\/PlayerViewImpl.swift",
       "kind": "BooleanLiteral",
-      "offset": 9988,
+      "offset": 9172,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/gitlabrunner\/builds\/M1xBhyqRW\/0\/team-mobile\/commerce-sdk\/bambuser-commerce-sdk-ios\/Files\/Sources\/BambuserCommerceSDK\/Implementation\/VideoPlayer\/Player\/PlayerViewImpl.swift",
       "kind": "BooleanLiteral",
-      "offset": 15504,
+      "offset": 14688,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/gitlabrunner\/builds\/M1xBhyqRW\/0\/team-mobile\/commerce-sdk\/bambuser-commerce-sdk-ios\/Files\/Sources\/BambuserCommerceSDK\/Implementation\/VideoPlayer\/Player\/PlayerViewImpl.swift",
       "kind": "IntegerLiteral",
-      "offset": 16367,
+      "offset": 15551,
       "length": 2,
       "value": "29"
     },
     {
       "filePath": "\/Users\/gitlabrunner\/builds\/M1xBhyqRW\/0\/team-mobile\/commerce-sdk\/bambuser-commerce-sdk-ios\/Files\/Sources\/BambuserCommerceSDK\/Implementation\/VideoPlayer\/Player\/PlayerViewImpl.swift",
       "kind": "IntegerLiteral",
-      "offset": 16370,
+      "offset": 15554,
       "length": 3,
       "value": "255"
     },
     {
       "filePath": "\/Users\/gitlabrunner\/builds\/M1xBhyqRW\/0\/team-mobile\/commerce-sdk\/bambuser-commerce-sdk-ios\/Files\/Sources\/BambuserCommerceSDK\/Implementation\/VideoPlayer\/Player\/PlayerViewImpl.swift",
       "kind": "IntegerLiteral",
-      "offset": 16382,
+      "offset": 15566,
       "length": 2,
       "value": "29"
     },
     {
       "filePath": "\/Users\/gitlabrunner\/builds\/M1xBhyqRW\/0\/team-mobile\/commerce-sdk\/bambuser-commerce-sdk-ios\/Files\/Sources\/BambuserCommerceSDK\/Implementation\/VideoPlayer\/Player\/PlayerViewImpl.swift",
       "kind": "IntegerLiteral",
-      "offset": 16385,
+      "offset": 15569,
       "length": 3,
       "value": "255"
     },
     {
       "filePath": "\/Users\/gitlabrunner\/builds\/M1xBhyqRW\/0\/team-mobile\/commerce-sdk\/bambuser-commerce-sdk-ios\/Files\/Sources\/BambuserCommerceSDK\/Implementation\/VideoPlayer\/Player\/PlayerViewImpl.swift",
       "kind": "IntegerLiteral",
-      "offset": 16396,
+      "offset": 15580,
       "length": 2,
       "value": "29"
     },
     {
       "filePath": "\/Users\/gitlabrunner\/builds\/M1xBhyqRW\/0\/team-mobile\/commerce-sdk\/bambuser-commerce-sdk-ios\/Files\/Sources\/BambuserCommerceSDK\/Implementation\/VideoPlayer\/Player\/PlayerViewImpl.swift",
       "kind": "IntegerLiteral",
-      "offset": 16399,
+      "offset": 15583,
       "length": 3,
       "value": "255"
     },
     {
       "filePath": "\/Users\/gitlabrunner\/builds\/M1xBhyqRW\/0\/team-mobile\/commerce-sdk\/bambuser-commerce-sdk-ios\/Files\/Sources\/BambuserCommerceSDK\/Implementation\/VideoPlayer\/Player\/PlayerViewImpl.swift",
       "kind": "IntegerLiteral",
-      "offset": 16411,
+      "offset": 15595,
       "length": 1,
       "value": "1"
     },
     {
       "filePath": "\/Users\/gitlabrunner\/builds\/M1xBhyqRW\/0\/team-mobile\/commerce-sdk\/bambuser-commerce-sdk-ios\/Files\/Sources\/BambuserCommerceSDK\/Implementation\/VideoPlayer\/Player\/PlayerViewImpl.swift",
       "kind": "BooleanLiteral",
-      "offset": 16638,
+      "offset": 15822,
       "length": 5,
       "value": "false"
     },
@@ -10050,8 +10074,15 @@
     },
     {
       "filePath": "\/Users\/gitlabrunner\/builds\/M1xBhyqRW\/0\/team-mobile\/commerce-sdk\/bambuser-commerce-sdk-ios\/Files\/Sources\/BambuserCommerceSDK\/Implementation\/VideoPlayer\/Tracking\/TrackingProvider.swift",
+      "kind": "StringLiteral",
+      "offset": 397,
+      "length": 12,
+      "value": "\"User-Agent\""
+    },
+    {
+      "filePath": "\/Users\/gitlabrunner\/builds\/M1xBhyqRW\/0\/team-mobile\/commerce-sdk\/bambuser-commerce-sdk-ios\/Files\/Sources\/BambuserCommerceSDK\/Implementation\/VideoPlayer\/Tracking\/TrackingProvider.swift",
       "kind": "Dictionary",
-      "offset": 6689,
+      "offset": 7017,
       "length": 3,
       "value": "[]"
     },
